@@ -1,3 +1,7 @@
+This module is based on the work by http://svn.rentbox.co.nz/public/.
+
+Thank you to Simon W and the team.
+
 # Silverstripe Social Integration
 
 This module allows users to easily let users sign up and login using facebook and twitter. After a user has signed up using this module, a OAuth token for that social service will be stored against the users account. This allows your application to call the facebook and twitter apis on behalf of the user and implement whatever interesting social integration features you want. The SelectFriendPage is an example of the type of functionality that can be easily implemented once you have access to the users OAuth tokens.
