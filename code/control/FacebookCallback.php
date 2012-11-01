@@ -260,7 +260,15 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 		return true;
 	}
 
-
+	public static function get_updates($lastNumber = 12){
+		$returnObject = array();
+		$facebook = self::get_facebook_sdk_class();
+		if($facebook){
+			if($user = $facebook->getUser()) {
+				return $facebook->api('/me/feed');
+			}
+		}
+	}
 //======================================= STANDARD SS METHODS ===============================================
 
 	/**

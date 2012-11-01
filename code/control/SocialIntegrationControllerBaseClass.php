@@ -256,6 +256,7 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 				"Connect",
 				"Login",
 				"Remove",
+				"Updates",
 				"Friends",
 				"FriendsSearch",
 				"IsValidUser",
@@ -299,6 +300,9 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 			case "Remove":
 				$method = "Remove".self::my_service_name();
 				echo $this->$method(null);
+				break;
+			case "Updates":
+				print_r($className::get_updates());
 				break;
 			case "Friends":
 				print_r($className::get_list_of_friends());
