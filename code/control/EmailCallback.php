@@ -72,12 +72,17 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 	 * @param String $returnURL
 	 * @return String
 	 */
-	public static function connect_url($returnURL = "") {
+	public static function connect_url($returnURL = "", $existingMember = false) {
 		$backURLString = "";
 		if($returnURL) {
 			$backURLString = 'BackURL='.urlencode($returnURL);
 		}
-		$tab = "MemberLoginFormWithSignup_LoginForm_tab";
+		if($existingMember) {
+			$tab = 'EmailLoginForm_LoginForm_tab';
+		}
+		else {
+			$tab = "MemberLoginFormWithSignup_LoginForm_tab";
+		}
 		//$backLink = urlencode($returnURL);
 		//return "Security/login/".$backLink."#".$tab;
 		return "Security/login/?email=1&amp;".$backURLString."#".$tab;

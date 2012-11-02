@@ -118,7 +118,7 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 	 * @param String $returnURL
 	 * @return String
 	 */
-	public static function connect_url($returnURL = "") {
+	public static function connect_url($returnURL = "", $existingMember = false) {
 		$backURLString = "";
 		if($returnURL) {
 			$backURLString = '?BackURL='.urlencode($returnURL);

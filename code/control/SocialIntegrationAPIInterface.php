@@ -20,7 +20,7 @@ interface SocialIntegrationAPIInterface {
 	 * @param String $returnURL
 	 * @return String
 	 */
-	public static function connect_url($returnURL = "");
+	public static function connect_url($returnURL = "", $existingMember = false);
 
 	/**
 	 * redirects to login prompt, lets the user log in and returns to

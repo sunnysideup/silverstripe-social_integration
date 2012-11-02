@@ -265,7 +265,14 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 		$facebook = self::get_facebook_sdk_class();
 		if($facebook){
 			if($user = $facebook->getUser()) {
-				return $facebook->api('/me/feed');
+				return $facebook->api(
+					$path = "/me/statuses",
+					$method = "GET",
+					$params = array(
+						"limit" => 100,
+						"since" => 2005,
+					)
+				);
 			}
 		}
 	}
