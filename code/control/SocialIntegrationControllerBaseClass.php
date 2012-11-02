@@ -47,6 +47,7 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 			$backURL = substr($backURL, 0, $position);
 		}
 		$backURL = str_replace("//", "/", $backURL);
+		$backURL .= "#".strtolower(self::my_service_name())."_tab";
 		$backURL = "?BackURL=".urlencode($backURL);
 		//security
 		$token = SecurityToken::inst();
