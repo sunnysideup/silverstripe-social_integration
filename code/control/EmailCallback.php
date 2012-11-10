@@ -9,7 +9,7 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 	 * Sends a message from the current user to someone else in the networkd
 	 * @param Int | String | Member $to -
 	 * @param String $message - Message you are sending
-	 * @param String $link - Link to send with message
+	 * @param String $link - Link to send with message - NOT USED IN EMAIL
 	 * @param Array - other variables that we include
 	 * @return Boolean - return TRUE as success
 	 */
