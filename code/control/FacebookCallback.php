@@ -11,9 +11,7 @@ require_once SS_FACEBOOK_API_PATH . 'facebook.php';
 
 class FacebookCallback extends SocialIntegrationControllerBaseClass implements SocialIntegrationAPIInterface {
 
-
 //======================================= AVAILABLE METHODS ===============================================
-
 
 	/**
 	 * Standard SS variable
@@ -189,6 +187,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				// If not, we'll get an exception, which we handle below.
 				try {
 					$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
+					debug::log($ret_obj);
 					return $ret_obj['id'];
 				}
 				catch(FacebookApiException $e) {
@@ -196,14 +195,14 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 					// user ID even though the access token is invalid.
 					// In this case, we'll get an exception, so we'll
 					// just ask the user to login again here.
-					//debug::log($user);
-					//debug::log($e->getType());
-					//debug::log($e->getMessage());
-					//debug::log($to);
-					//debug::log($message);
-					//debug::log($link);
-					//debug::log($otherVariables);
-					//debug::log(print_r($currentUser, 1));
+					debug::log($user);
+					debug::log($e->getType());
+					debug::log($e->getMessage());
+					debug::log($to);
+					debug::log($message);
+					debug::log($link);
+					debug::log($otherVariables);
+					debug::log(print_r($currentUser, 1));
 				}
 			}
 			else {
@@ -308,7 +307,8 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 
 	/**
 	 * STEP 1 of the connecting process
-	 *
+	 * @param String $returnTo - the URL to return to
+	 * @param Array $extra - additional paramaters
 	 */
 	public function connectUser($returnTo = '', Array $extra = array()) {
 		$facebook = self::get_facebook_sdk_class($getEvenWithoutCurrentMember = true);
@@ -339,11 +339,10 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 		}
 	}
 
-
 	/**
 	 * Connects the current user.
 	 * completes connecting process
-	 *
+	 * @param SS_HTTPRequest $reg
 	 */
 	public function Connect(SS_HTTPRequest $req) {
 		//security
@@ -363,7 +362,6 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 		$returnURL = $this->returnURL();
 		return $this->redirect($returnURL);
 	}
-
 
 	/**
 	 * finish the login from facebook

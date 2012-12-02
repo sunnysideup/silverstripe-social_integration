@@ -27,4 +27,13 @@ if(!file_exists('Zend/Oauth.php')) {
 //FacebookCallback::set_facebook_id("FACEBOOK_ID");
 //FacebookCallback::set_facebook_secret("FACEBOOK_SECRET");
 
+
+#################### LINKEDIN ##############################
+//Object::add_extension('Member', 'LinkedinIdentifier');
+//Authenticator::register_authenticator('LinkedinAuthenticator');
+//LinkedinCallback::set_consumer_key("");
+//LinkedinCallback::set_consumer_secret("");
+
+
+
 //===================---------------- END social_integration MODULE ----------------===================

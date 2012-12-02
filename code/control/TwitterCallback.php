@@ -1,5 +1,6 @@
 <?php
 
+
 if(!file_exists('Zend/Oauth.php')) {
 	// The autoloader can skip this if TwitterCallback is called before twitter/_config is included
 	require_once dirname(dirname(dirname(__FILE__))) . '/_config.php';
@@ -26,7 +27,6 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 
 
 //======================================= CONFIGURATION STATIC ===============================================
-
 
 
 	/**
@@ -56,7 +56,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 	 * the default callback is nocallback
 	 * @var array
 	 */
-	private static $zend_oauth_consumer_class = null;
+	protected static $zend_oauth_consumer_class = null;
 
 	/**
 	 * when creating a new Zend_Oauth_Consumer
@@ -66,7 +66,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 	 *
 	 * @var Array
 	 */
-	private static $zend_oauth_consumer_class_config = null;
+	protected static $zend_oauth_consumer_class_config = null;
 
 	/**
 	 * holds an instance of the Zend_Oauth_Consumer class
@@ -97,8 +97,8 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 	private static $twitter_class = null;
 
 	/**
-	 * holds an instance of the Zend_Oauth_Consumer class
-	 * @return Zend_Oauth_Consumer
+	 * holds an instance of the Twitter Connect Class
+	 * @return Twitter Class
 	 */
 	private static function get_twitter_class(){
 		if(!self::$twitter_class) {
@@ -312,16 +312,22 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 //======================================= STANDARD SS METHODS ===============================================
 
 
+
 	public function __construct() {
+		if(self::$consumer_secret == null || self::$consumer_key == null) {
+			user_error('Cannot instigate a TwitterCallback object without a consumer secret and key', E_USER_ERROR);
+		}
 		parent::__construct();
 	}
-
-
 
 
 //======================================= CONNECT ===============================================
 
 
+	/**
+	 * easy access to the connection
+	 *
+	 */
 	public function TwitterConnect() {
 		if($this->isAjax()) {
 			return $this->connectUser($this->Link('FinishTwitter'));
@@ -332,12 +338,12 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		}
 	}
 
-
 	/**
-	 * connects the user.
-	 *
+	 * STEP 1 of the connecting process
+	 * @param String $returnTo - the URL to return to
+	 * @param Array $extra - additional paramaters
 	 */
-	public function connectUser($returnTo = '') {
+	public function connectUser($returnTo = '', Array $extra = array()) {
 		$token = SecurityToken::inst();
 		if($returnTo) {
 			$returnTo = $token->addToUrl($returnTo);
@@ -354,8 +360,11 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		return self::curr()->redirect($url);
 	}
 
-
-
+	/**
+	 * Connects the current user.
+	 * completes connecting process
+	 * @param SS_HTTPRequest $reg
+	 */
 	public function Connect(SS_HTTPRequest $req) {
 		$token = SecurityToken::inst();
 		if(!$token->checkRequest($req)) return $this->httpError(400);
@@ -399,11 +408,11 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		return $this->redirect($returnURL);
 	}
 
-
 	/**
 	 *
 	 *
-	 * cleans up the twitter connecting
+	 * cleans up the twitter connection
+	 * Do we really need this?
 	 */
 	public function FinishTwitter($request) {
 		$token = SecurityToken::inst();
@@ -567,6 +576,8 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		}
 		return $member;
 	}
+
+
 //========================================================== TESTS =====================================
 
 	function debug(){
