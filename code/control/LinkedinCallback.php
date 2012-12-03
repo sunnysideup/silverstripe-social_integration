@@ -23,7 +23,7 @@ if(!file_exists('Zend/Oauth.php')) {
 	require_once dirname(dirname(dirname(__FILE__))) . '/_config.php';
 }
 
-require_once  dirname(dirname(dirname(__FILE__))).'/thirdparty/linkedin/linkedin_3.3.0.class.php';
+//require_once  dirname(dirname(dirname(__FILE__))).'/thirdparty/linkedin/linkedin_3.3.0.class.php';
 
 class LinkedinCallback extends SocialIntegrationControllerBaseClass implements SocialIntegrationAPIInterface {
 
