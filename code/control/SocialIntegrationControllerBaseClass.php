@@ -252,23 +252,23 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 		if(Director::isDev()) {
 			$dos = new DataObjectSet();
 			$tests = array(
-				"me",
-				"debug",
-				"Connect",
-				"Login",
-				"Remove",
-				"Updates",
-				"Friends",
-				"FriendsSearch",
-				"IsValidUser",
-				"SendMessage"
+				"me" => "What details does this service know about me right now",
+				"debug" => "am I logged in? and other relevant details",
+				"Connect" => "connect to this service",
+				"Login" => "Do a traditional Log In to this service",
+				"Remove" => "remove this service from my account",
+				"Updates" => "Show my latest updates",
+				"Friends" => "get a list of my friends (or the equivalent (e.g. followers))",
+				"FriendsSearch" => "????",
+				"IsValidUser" => "????",
+				"SendMessage" => "test sending a message"
 			);
-			foreach($tests as $test) {
+			foreach($tests as $test => $description) {
 				$dos->push(
 					new ArrayData(
 						array(
 							"Link" => "/".$this->Link("test/".$test."/"),
-							"Name" => $test
+							"Name" => "<strong>".$test."</strong>".": ".$description
 						)
 					)
 				);

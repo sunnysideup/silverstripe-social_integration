@@ -6,15 +6,14 @@ class LinkedinIdentifier extends DataObjectDecorator {
 		return array(
 			'db' => array(
 				'LinkedinID' => 'Varchar',
-				'LinkedinName' => 'Varchar',
-				'LinkedinPicture' => 'Text'
+				'LinkedinFirstName' => 'Varchar(255)',
+				'LinkedinLastName' => 'Varchar(255)',
+				'LinkedinPicture' => 'Text',
+				'LinkedinEmail' => 'Varchar(255)'
 			),
 			'indexes' => array(
 				'LinkedinID' => true,
-				'LinkedinName' => true
-			),
-			'casting' => array(
-				'LinkedinButton' => 'ArrayData'
+				'LinkedinEmail' => true
 			)
 		);
 	}

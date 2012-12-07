@@ -535,16 +535,14 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 			}
 		}
 		//check if anyone else uses the email:
-		if(!$member->exists()) {
-			if($facebookEmail = Convert::raw2sql($facebookData->email)) {
-				$memberID = intval($member->ID)-0;
-				$existingMember = DataObject::get_one(
-					'Member',
-					'("Email" = \'' . $facebookEmail . '\' OR "FacebookEmail" = \''.$facebookEmail.'\') AND "Member"."ID" <> '.$memberID
-				);
-				if($existingMember) {
-					$member = $existingMember;
-				}
+		if($facebookEmail = Convert::raw2sql($facebookData->email)) {
+			$memberID = intval($member->ID)-0;
+			$existingMember = DataObject::get_one(
+				'Member',
+				'("Email" = \'' . $facebookEmail . '\' OR "FacebookEmail" = \''.$facebookEmail.'\') AND "Member"."ID" <> '.$memberID
+			);
+			if($existingMember) {
+				$member = $existingMember;
 			}
 		}
 		$member->FacebookID = empty($user) ? 0 : $user;

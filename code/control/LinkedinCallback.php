@@ -39,7 +39,8 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		'Login',
 		'FinishLinkedin',
 		'remove',
-		'test'
+		'test',
+		'basicconcept'
 	);
 
 //======================================= CONFIGURATION STATIC ===============================================
@@ -60,6 +61,14 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 	private static $consumer_secret = null;
 		public static function set_consumer_secret($s) {self::$consumer_secret = $s;}
 		public static function get_consumer_secret() {return self::$consumer_secret;}
+
+	/**
+	 * Get from Linkedin
+	 * @var String
+	 */
+		private static $permission_scope =  'r_emailaddress';
+		public static function set_permission_scope($s) {self::$permission_scope = $s;}
+		public static function get_permission_scope() {return self::$permission_scope;}
 
 //======================================= CONFIGURATION NON-STATIC ===============================================
 
@@ -83,56 +92,89 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 	private static $zend_oauth_consumer_class_config = null;
 
 
+	private $options;
+	private $consumer;
+	private $client;
+	private $token;
+
 	/**
 	 * holds an instance of the Zend_Oauth_Consumer class
 	 * @return Zend_Oauth_Consumer
 	 */
-	protected static function get_zend_oauth_consumer_class($callback = "nocallback"){
+	protected function getConsumer($callback = "nocallback"){
 		if(!self::$consumer_key || !self::$consumer_secret) {
 			user_error("You must set the following variables: LinkedinCallback::consumer_secret AND LinkedinCallback::consumer_key");
 		}
-		if(!isset(self::$zend_oauth_consumer_class[$callback])) {
-			$config = array(
-				'requestTokenUrl' => 'https://api.linkedin.com/uas/oauth/requestToken',
-				'userAuthorizationUrl' => 'https://api.linkedin.com/uas/oauth/authorize',
-				'accessTokenUrl' => 'https://api.linkedin.com/uas/oauth/accessToken',
-				'consumerKey' => self::$consumer_key,
-				'consumerSecret' => self::$consumer_secret,
-			);
-			if($callback && $callback != "nocallback") {
-				$config["callbackUrl"] = $callback;
+		$this->options = array(
+			'version' => '1.0',
+			'localUrl' => Director::absoluteBaseURL().'LinkedinCallback/',
+			'requestTokenUrl' => 'https://api.linkedin.com/uas/oauth/requestToken',
+			'userAuthorizationUrl' => 'https://api.linkedin.com/uas/oauth/authorize',
+			'accessTokenUrl' => 'https://api.linkedin.com/uas/oauth/accessToken',
+			'consumerKey' => self::get_consumer_key(),
+			'consumerSecret' => self::get_consumer_secret(),
+		);
+		if($callback && $callback != "nocallback") {
+			$this->options["callbackUrl"] = Director::absoluteBaseURL().$callback;
+		}
+		else {
+			$this->options["callbackUrl"] = Director::absoluteBaseURL()."/LinkedinCallback/Connect/";
+		}
+		$this->consumer = new Zend_Oauth_Consumer($this->options);
+		$token = $this->consumer->getRequestToken(array('scope' =>self::get_permission_scope()));
+			//Session::set('LinkedinRequestToken', serialize($token));
+
+		if ( !isset ( $_SESSION ['LINKEDIN_ACCESS_TOKEN'] )) {
+			// We do not have any Access token Yet
+			if (! empty ( $_GET ) && count($_GET) > 1) {
+				// But We have some parameters passed throw the URL
+				if(!isset($_SESSION ['LINKEDIN_REQUEST_TOKEN'])) {
+					$_SESSION ['LINKEDIN_REQUEST_TOKEN'] = null;
+				}
+				// Get the LinkedIn Access Token
+				$this->token = $this->consumer->getAccessToken ( $_GET, unserialize ( $_SESSION ['LINKEDIN_REQUEST_TOKEN'] ) );
+
+				// Store the LinkedIn Access Token
+				$_SESSION ['LINKEDIN_ACCESS_TOKEN'] = serialize ( $this->token );
 			}
 			else {
-				$config["callbackUrl"] = "http://dev.sunnysideup.co.nz/bla";
+				// We have Nothing
+
+				// Start Requesting a LinkedIn Request Token
+				$this->token = $this->consumer->getRequestToken (array('scope' => self::get_permission_scope()));
+
+				// Store the LinkedIn Request Token
+				$_SESSION ['LINKEDIN_REQUEST_TOKEN'] = serialize ( $this->token );
+
+				// Redirect the Web User to LinkedIn Authentication  Page
+				$this->consumer->redirect();
+
+				$url = $this->consumer->getRedirectUrl();
+				return self::curr()->redirect($url);
+
 			}
-			self::$zend_oauth_consumer_class[$callback] = new Zend_Oauth_Consumer($config);
-			self::$zend_oauth_consumer_class_config[$callback] = $config;
-			$token = self::$zend_oauth_consumer_class[$callback]->getRequestToken();
-			Session::set('LinkedinRequestToken', serialize($token));
 		}
-		return self::$zend_oauth_consumer_class[$callback];
+		else {
+			// We've already Got a LinkedIn Access Token
+
+			// Restore The LinkedIn Access Token
+			$this->token = unserialize ( $_SESSION ['LINKEDIN_ACCESS_TOKEN'] );
+
+		}
+
+		// Use HTTP Client with built-in OAuth request handling
+		$this->client = $this->token->getHttpClient($this->options);
+		return $this->consumer;
+
 	}
 
-	function getResponse($url){
-			// Fill the keys and secrets you retrieved after registering your app
-			$oauth = new OAuth(self::$consumer_key, self::$consumer_secret);
-			$token = unserialize(Session::get('LinkedinRequestToken'));
-			$oauth->setToken($token);
-
-			$params = array();
-			$headers = array();
-			$method = OAUTH_HTTP_METHOD_GET;
-
-			// Specify LinkedIn API endpoint to retrieve your own profile
-			$url = "http://api.linkedin.com/v1/people/~";
-
-			// By default, the LinkedIn API responses are in XML format. If you prefer JSON, simply specify the format in your call
-			$url = "http://api.linkedin.com/v1/people/~?format=json";
-
-			// Make call to LinkedIn to retrieve your own profile
-			$oauth->fetch($url, $params, $method, $headers);
-
-			echo $oauth->getLastResponse();
+	function getResponse($url, $format = "json"){
+		// Set LinkedIn URI
+		$this->client->setUri('https://api.linkedin.com/v1/people/~?format=json');
+		// Set Method (GET, POST or PUT)
+		$this->client->setMethod(Zend_Http_Client::GET);
+		// Get Request Response
+		$response = $this->client->request();
 	}
 
 
@@ -140,16 +182,29 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 
 	/**
 	 *
-	 * @ return Array
+	 * @ return Array | Null
 	 */
 	static function get_current_user(){
 		$member = Member::currentUser();
 		if($member && $member->LinkedinID) {
-			$LinkedinClass = self::get_linkedin_class();
-			return $LinkedinClass->usersShow($member->LinkedinID);
+			$linkedinCallback = new LinkedinCallback();
+			if($linkedinCallback->getConsumer()) {
+				// Set LinkedIn URI
+				$linkedinCallback->client->setUri('https://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,picture-url)'); //				$this->client->setUri('http://api.linkedin.com/v1/people/~:(id,first-name,last-name)');
+				// Set Method (GET, POST or PUT)
+				$linkedinCallback->client->setMethod(Zend_Http_Client::GET);
+				// Get Request Response
+				$linkedinCallback->client->setHeaders('x-li-format', 'json');
+
+				$response = $linkedinCallback->client->request();
+
+				$data = $response->getBody();
+				$data = json_decode($data);
+				return $data;
+			}
 		}
 		else {
-			return array();
+			return null;
 		}
 	}
 
@@ -325,17 +380,10 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		$token = SecurityToken::inst();
 		if($returnTo) {
 			$returnTo = $token->addToUrl($returnTo);
-			$returnTo = urlencode($returnTo);
 		}
-		$callback = $this->AbsoluteLink('Connect?ret=' . $returnTo);
-		$callback = $token->addToUrl($callback);
-		$consumer = self::get_zend_oauth_consumer_class($callback);
-		$token = $consumer->getRequestToken();
-		Session::set('LinkedinRequestToken', serialize($token));
-		$url = $consumer->getRedirectUrl(array(
-			'force_login' => 'true'
-		));
-		return self::curr()->redirect($url);
+		Session::set("BackURL", $returnTo);
+		$callback = $this->AbsoluteLink('Connect');
+		return self::curr()->redirect($callback);
 	}
 
 	/**
@@ -344,35 +392,25 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 	 * @param SS_HTTPRequest $reg
 	 */
 	public function Connect(SS_HTTPRequest $req) {
-		$securityToken = SecurityToken::inst();
-		if(!$securityToken->checkRequest($req)) return $securityToken->httpError(400);
-		$data = null;
-		$access = null;
-		$user = 0;
-		if($req->getVars() && !$req->getVar('oauth_problem') && Session::get('LinkedinRequestToken')) { //&& /**/
-			$consumer = self::get_zend_oauth_consumer_class();
-			$token = unserialize(Session::get('LinkedinRequestToken'));
-			try {
-				$access = $consumer->getAccessToken($req->getVars(), $token);
-				die("aaa");
-				$client = $access->getHttpClient(self::$zend_oauth_consumer_class_config["nocallback"]);
-				$client->setUri('http://api.linkedin.com/v1/people/~:(id,first-name,last-name)');
-				$client->setMethod(Zend_Http_Client::GET);
-				$client->setHeaders('x-li-format', 'json');
-				$response = $client->request();
-				$data = $response->getBody();
-				$data = json_decode($data);
-			}
-			catch(Exception $e) {
-				$this->httpError(500, $e->getMessage());
+		//$securityToken = SecurityToken::inst();
+		//if(!$securityToken->checkRequest($req)) return $this->httpError(400);
+		try{
+			$this->getConsumer(); //&& /**/
+			// Set LinkedIn URI
+			$this->client->setUri('https://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,picture-url)'); //				$this->client->setUri('http://api.linkedin.com/v1/people/~:(id,first-name,last-name)');
+			// Get Request Response
+			// Set Method (GET, POST or PUT)
+			$this->client->setMethod(Zend_Http_Client::GET);
+
+			$response = $this->client->request();
+			$responseBody =  $response->getBody();
+			$data = simplexml_load_string($responseBody);
+			if($data) {
+				$this->updateUserFromLinkedinData($data);
 			}
 		}
-		else {
-			//debug::log("could not connect to linkedin");
-		}
-		Session::clear('LinkedinRequestToken');
-		if($data && $user && is_numeric($user) && $access) {
-			$this->updateUserFromLinkedinData($user, $data, $access, false);
+		catch(Exception $e) {
+			$this->httpError(500, $e->getMessage());
 		}
 		$returnURL = $this->returnURL();
 		return $this->redirect($returnURL);
@@ -401,26 +439,6 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 
 //==================================== LOGIN ==============================================
 
-	public function loginUser() {
-		$token = SecurityToken::inst();
-		$callback = $this->AbsoluteLink('Login');
-		$callback = $token->addToUrl($callback);
-		$config = array(
-			'callbackUrl' => $callback,
-			'consumerKey' => self::$consumer_key,
-			'consumerSecret' => self::$consumer_secret,
-			'siteUrl' => 'https://api.linkedin.com',
-			'requestTokenUrl' => 'https://api.linkedin.com/uas/oauth/requestToken',
-			'accessTokenUrl' => 'https://api.linkedin.com/uas/oauth/accessToken',
-			'authorizeUrl' => 'https://www.linkedin.com/uas/oauth/authenticate'
-		);
-		$consumer = new Zend_Oauth_Consumer($config);
-		$token = $consumer->getRequestToken();
-		Session::set('LinkedinRequestToken', serialize($token));
-		$url = $consumer->getRedirectUrl();
-		return self::curr()->redirect($url);
-	}
-
 	/**
 	 * Works with the login form
 	 */
@@ -438,12 +456,11 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 			$token = unserialize($token);
 		}
 		try{
-			$access = $consumer->getAccessToken($req->getVars(), $token);
-			$client = $access->getHttpClient(self::$zend_oauth_consumer_class_config["nocallback"]);
-			$client->setUri('http://api.linkedin.com/v1/people/~:(id,first-name,last-name)');
-			$client->setMethod(Zend_Http_Client::GET);
-			$client->setHeaders('x-li-format', 'json');
-			$response = $client->request();
+			$this->getConsumer();
+			$this->client->setUri('http://api.linkedin.com/v1/people/~:(id,first-name,last-name)');
+			$this->client->setMethod(Zend_Http_Client::GET);
+			$this->client->setHeaders('x-li-format', 'json');
+			$response = $this->client->request();
 
 			$data = $response->getBody();
 			$data = json_decode($data);
@@ -480,12 +497,14 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 	public function RemoveLinkedin($request) {
 		//security
 		//remove Linkedin identification
-		Session::clear('Linkedin.Request.Token');
+		//Session::clear('Linkedin.Request.Token');
 		$m = $this->CurrentMember();
 		if($m) {
-			$m->LinkedinID = $m->LinkedinSecret = $m->LinkedinToken = $m->LinkedinPicture = $m->LinkedinName = $m->LinkedinScreenName  = null;
+			$m->LinkedinID = $m->LinkedinFirstName = $m->LinkedinLastName = $m->LinkedinPicture = $m->LinkedinEmail = null;
 			$m->write();
 		}
+		unset($_SESSION ['LINKEDIN_ACCESS_TOKEN']);
+		unset($_SESSION ['LINKEDIN_REQUEST_TOKEN']);
 		$returnURL = $this->returnURL();
 		$this->redirect($returnURL);
 	}
@@ -505,20 +524,11 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 	 * @param Boolean $keepLoggedIn - does the user stay logged in
 	 * @return Member
 	 */
-	protected function updateUserFromLinkedinData($user, $twitterData, $access, $keepLoggedIn = false){
-		//clean up data
-		if(is_array($linkedinData) ) {
-			$obj = new DataObject();
-			foreach($linkedinData as $key => $value) {
-				$obj->$key = $value;
-			}
-			$linkedinData = $obj;
-		}
-
+	protected function updateUserFromLinkedinData($data){
 		//find member
 		$member = null;
-		if($user) {
-			$member = DataObject::get_one('Member', '"LinkedinID" = \'' . Convert::raw2sql($user) . '\'');
+		if($data) {
+			$member = DataObject::get_one('Member', '"LinkedinID" = \'' . Convert::raw2sql($data->id) . '\'');
 		}
 		if(!$member) {
 			$member = Member::currentUser();
@@ -526,59 +536,40 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 				$member = new Member();
 			}
 		}
-		//check if anyone else uses the email:
-		if(!$member->exists()) {
-			if($linkedinEmail = Convert::raw2sql($linkedinEmail->email)) {
-				$memberID = intval($member->ID)-0;
-				$existingMember = DataObject::get_one(
-					'Member',
-					'("Email" = \'' . $linkedinEmail . '\' OR "LinkedinEmail" = \''.$linkedinEmail.'\') AND "Member"."ID" <> '.$memberID
-				);
-				if($existingMember) {
-					$member = $existingMember;
-				}
+		if($linkedinEmail = Convert::raw2sql($data->{'email-address'})) {
+			$memberID = intval($member->ID)-0;
+			$existingMember = DataObject::get_one(
+				'Member',
+				'("Email" = \'' . $linkedinEmail . '\' OR "LinkedinEmail" = \''.$linkedinEmail.'\') AND "Member"."ID" <> '.$memberID
+			);
+			if($existingMember) {
+				$member = $existingMember;
 			}
 		}
-		$member->LinkedinID = empty($user) ? 0 : $user;
-		$member->LinkedinURL = empty($LinkedinData->link) ? "" : $LinkedinData->link;
-		$member->LinkedinPicture = empty($LinkedinData->picture) ? "" : $LinkedinData->picture;
-		$member->LinkedinName = empty($LinkedinData->name) ? "" : $LinkedinData->name;;
-		$member->LinkedinEmail = empty($LinkedinData->email) ? "" : $LinkedinData->email;
-		$member->LinkedinFirstName = empty($LinkedinData->first_name) ? "" : $LinkedinData->first_name;
-		$member->LinkedinMiddleName = empty($LinkedinData->middle_name) ? "" : $LinkedinData->middle_name;
-		$member->LinkedinLastName = empty($LinkedinData->last_name) ? "" : $LinkedinData->last_name;
-		$member->LinkedinUsername = empty($LinkedinData->username) ? "" : $LinkedinData->username;
+		$member->LinkedinID = Convert::raw2sql(strval($data->id));
+		$member->LinkedinEmail = $linkedinEmail;
+		$member->LinkedinPicture = Convert::raw2sql(strval($data->{'picture-url'}));
+		$member->LinkedinFirstName = Convert::raw2sql(strval($data->{'first-name'}));
+		$member->LinkedinLastName = Convert::raw2sql(strval($data->{'last-name'}));
 		if(!$member->FirstName) {
 			$member->FirstName = $member->LinkedinFirstName;
 		}
 		if(!$member->Surname) {
 			$member->Surname = $member->LinkedinLastName;
 		}
-		if(!empty($LinkedinData->email)) {
-			if(!$member->Email) {
-				$memberID = intval($member->ID)-0;
-				$anotherMemberWithThisEmail = DataObject::get_one(
-					'Member',
-					'("Email" = \'' . $LinkedinData->email . '\' OR "LinkedinEmail" = \''.$LinkedinData->email.'\') AND "Member"."ID" <> '.$memberID
-				);
-				if(!$anotherMemberWithThisEmail) {
-					$member->Email = $LinkedinData->email;
-				}
-			}
-		}
 		$member->write();
 		$oldMember = Member::currentUser();
 		if($oldMember) {
 			if($oldMember->ID != $member->ID) {
 				$oldMember->logout();
-				$member->login($keepLoggedIn);
+				$member->login(true);
 			}
 			else {
 				//already logged in - nothing to do.
 			}
 		}
 		else {
-			$member->login($keepLoggedIn);
+			$member->login(true);
 		}
 		return $member;
 	}
@@ -591,16 +582,50 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		if($member) {
 			echo "<ul>";
 			echo "<li>LinkedinID: ".$member->LinkedinID."</li>";
-			echo "<li>LinkedinName: ".$member->LinkedinName."</li>";
-			echo "<li>LinkedinScreenName: ".$member->LinkedinScreenName."</li>";
-			echo "<li>LinkedinToken: ".$member->LinkedinToken."</li>";
-			echo "<li>LinkedinSecret: ".$member->LinkedinSecret."</li>";
-			echo "<li>LinkedinPicture: ".$member->LinkedinPicture."</li>";
+			echo "<li>LinkedinEmail: ".$member->LinkedinEmail."</li>";
+			echo "<li>LinkedinFirstName: ".$member->LinkedinFirstName."</li>";
+			echo "<li>LinkedinLastName: ".$member->LinkedinLastName."</li>";
+			echo "<li>LinkedinPicture: <img src=\"".$member->LinkedinPicture."\" /> ".$member->LinkedinPicture."</li>";
 			echo "</ul>";
 		}
 		else {
 			echo "<h2>You are not logged in.</h2>";
 		}
+	}
+
+
+
+
+	public function basicconcept(){
+		$this->getConsumer();
+
+		// Set LinkedIn URI
+		$this->client->setUri('https://api.linkedin.com/v1/people/~');
+		// Set Method (GET, POST or PUT)
+		$this->client->setMethod(Zend_Http_Client::GET);
+		// Get Request Response
+		$response = $this->client->request();
+
+		// Get the XML containing User's Profile
+		$content =  $response->getBody();
+
+		// Uncomment Following Line To display XML result
+		// header('Content-Type: ' . $response->getHeader('Content-Type'));
+		// echo $content;
+		// exit;
+
+		// Use simplexml to transform XML to a PHP Object
+		$xml = simplexml_load_string($content);
+
+		// Uncomment Following Line To display Simple XML Object Structure
+		 echo '<pre>';
+		 print_r($xml);
+		 echo'</pre>';
+
+		// Display Profile Information as you wish
+		$firstName = $xml->{'first-name'};
+		$lastName = $xml->{'last-name'};
+
 	}
 
 
