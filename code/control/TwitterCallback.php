@@ -120,16 +120,16 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 
 	/**
 	 *
-	 * @ return Array
+	 * @ return Array | Null
 	 */
 	static function get_current_user(){
 		$member = Member::currentUser();
 		if($member && $member->TwitterID) {
 			$twitterClass = self::get_twitter_class();
-			return $twitterClass->usersShow($member->TwitterID);
+			return new ArrayData($twitterClass->usersShow($member->TwitterID));
 		}
 		else {
-			return array();
+			return null;
 		}
 	}
 
@@ -580,7 +580,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 
 //========================================================== TESTS =====================================
 
-	function debug(){
+	function meondatabase(){
 		$member = Member::currentUser();
 		if($member) {
 			echo "<ul>";

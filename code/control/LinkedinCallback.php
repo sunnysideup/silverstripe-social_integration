@@ -1,8 +1,8 @@
 <?php
-/*
- *
- *
- *
+/**
+ * http://www.formatix.eu/en/update-linkedin-status-using-zend-oauth.html
+ * http://www.contentwithstyle.co.uk/content/linkedin-and-zendoauth/
+ * https://developer.linkedin.com/documents/authentication#granting
  *
  *
  *
@@ -64,9 +64,10 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 
 	/**
 	 * Get from Linkedin
-	 * @var String
+	 * @see: https://developer.linkedin.com/documents/authentication#granting
+	 * @var Array
 	 */
-		private static $permission_scope =  'r_emailaddress';
+		private static $permission_scope =  'r_emailaddress,r_network,w_messages';
 		public static function set_permission_scope($s) {self::$permission_scope = $s;}
 		public static function get_permission_scope() {return self::$permission_scope;}
 
@@ -181,7 +182,7 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 //======================================= STATIC METHODS ===============================================
 
 	/**
-	 *
+	 * returns an array of data if there is anything and NULL if there is no information.
 	 * @ return Array | Null
 	 */
 	static function get_current_user(){
@@ -208,10 +209,11 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		}
 	}
 
-
+	static function get_updates(){
+		return "NOT IMPLEMENTED YET";
+	}
 	/**
 	 * returns true on success
-	 * TODO: check how that works with "link making small techniques".
 	 * @param Int | Member | String $to
 	 * @param String $message
 	 * @param String $link - link to send with message
@@ -224,49 +226,55 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		$link = "",
 		$otherVariables = array()
 	){
-		if($to instanceOf Member) {
-			$to = $to->LinkedinID;
-		}
 		$member = Member::currentUser();
-		if($member) {
-			if($LinkedinClass = self::get_Linkedin_class()) {
-				$LinkedinDetails = self::is_valid_user($to);
-				if(!empty($LinkedinDetails["screen_name"])) {
-					$toScreenName = $LinkedinDetails["screen_name"];
-					$message = "@$toScreenName ".$message." ".$link;
-					$LinkedinClass->statusesUpdate($message);
-					//followers can also get a direct message
-					$followers = self::get_list_of_friends();
-					$isFollower = false;
-					foreach($followers as $follower) {
-						if($follower["id"] == $to) {
-							$isFollower = true;
-						}
-					}
-					if($isFollower) {
-						$text = $message." ".$link;
-						$userId = $to;
-						$includeEntities = false;
-						//returns the user's details as an array if sent successfully
-						//and a string with error message if sent unsuccessfully
-						$outcome = $LinkedinClass->directMessagesNew($text, $userId, $screenName = null, $includeEntities = false);
-						if(is_array($outcome)) {
-							return true;
-						}
-						else {
-							//debug::log($outcome);
-						}
-					}
-					return true;
+		if($member && $member->LinkedinID) {
+			$linkedinCallback = new LinkedinCallback();
+			if($linkedinCallback->getConsumer()) {
+				//TO
+				if($to instanceOf Member) {
+					$to = $to->LinkedinID;
+				}
+				//MESSAGE
+				$message = trim(strip_tags(stripslashes($message)));
+				//SUBJECT
+				if(!empty($otherVariables["Subject"])) {
+					$subject = $otherVariables["Subject"];
 				}
 				else {
-					//debug::log("Linkedin user not found");
+					$subject = substr($message, 0, 30);
+				}
+				//XML POST
+				$body ='<?xml version=\'1.0\' encoding=\'UTF-8\'?>
+<mailbox-item>
+	<recipients>
+		<recipient>
+			<person path=\'/people/~\'/>
+		</recipient>
+		<recipient>
+			<person path=\'/people/'.$to.'\'/>
+		</recipient>
+	</recipients>
+	<subject>'.htmlspecialchars($subject).'</subject>
+	<body>'.htmlspecialchars($message).' '.$link.'</body>
+</mailbox-item>';
+				// Set LinkedIn URI
+				$linkedinCallback->client->setUri('https://api.linkedin.com/v1/people/~/mailbox'); //				//
+				// Set Method (GET, POST or PUT)
+				$linkedinCallback->client->setMethod(Zend_Http_Client::POST);
+				//SET BODY
+				$linkedinCallback->client->setRawData($body,'text/xml');
+				//SET XML
+				$linkedinCallback->client->setHeaders('Content-Type', 'text/xml');
+				//send it!
+				$response = $linkedinCallback->client->request();
+				//did it go ok?
+				if($response->isSuccessful()) {
+					return 1;
 				}
 			}
 		}
 		return false;
 	}
-
 
 	/**
 	 *
@@ -278,59 +286,49 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 	 * @return Array (array("id" => ..., "name" => ...., "picture" => ...))
 	 */
 	public static function get_list_of_friends($limit = 12, $searchString = ""){
-		$rawArray = array();
 		$finalArray = array();
 		$member = Member::currentUser();
-		if($member) {
-			if($LinkedinClass = self::get_Linkedin_class()) {
-				$followersArray = $LinkedinClass->followersIds($member->LinkedinID, null);
-				$followersArrayIDs = empty($followersArray["ids"]) ? array() :$followersArray["ids"];
-				$ids = "";
-				$count = 0;
-				if(count($followersArrayIDs)) {
-					foreach($followersArrayIDs as $friend){
-						$ids .= "{$friend},";
-						$count++;
-						if(!($count % 100) || $count == count($followersArrayIDs)){
-							$rawArray += $LinkedinClass->usersLookup($ids);
-							$ids = "";
-						}
-					}
-				}
-				//we are retrieving more so that we can select the right ones.
-				$searchResults = $LinkedinClass->usersSearch("q=".$searchString."}", $limit * 3);
-				if(count($searchResults)) {
-					$rawArray += $searchResults;
-				}
+		if($member && $member->LinkedinID) {
+			$linkedinCallback = new LinkedinCallback();
+			if($linkedinCallback->getConsumer()) {
+				$me = null;
 				if(Director::isDev()) {
-					$rawArray[] = $LinkedinClass->usersShow($member->LinkedinID);
+					$me = self::get_current_user();
 				}
-				if(count($rawArray)) {
-					$limitCount = 0;
-					foreach($rawArray as $friend) {
-						if(empty($friend["id"])){$friend["id"] = 0; }
-						if(empty($friend["name"])){$friend["name"] = ""; }
-						if(empty($friend["screen_name"])){$friend["screen_name"] = ""; }
-						if(empty($friend["profile_image_url"])){$friend["profile_image_url"] = self::get_default_avatar(); }
-						$haystack = $friend["name"].$friend["screen_name"];
-						if(!$searchString || stripos("-".$haystack, $searchString ) ) {
-							$name =$friend["name"];
-							$name .= " (";
-							$name .= $friend["screen_name"];
-							$name .= ")";
-							$finalArray[$friend["id"]] = array(
-								"id" => $friend["id"],
-								"name" => $name,
-								"picture" => $friend["profile_image_url"]
-							);
-							$limitCount++;
-						}
-						if($limitCount > $limit) {
+				// Set LinkedIn URI
+				$linkedinCallback->client->setUri('https://api.linkedin.com/v1/people/~/connections:(id,first-name,last-name,picture-url)'); //				//
+				// Set Method (GET, POST or PUT)
+				$linkedinCallback->client->setMethod(Zend_Http_Client::GET);
+				// Get Request Response
+				$linkedinCallback->client->setHeaders('x-li-format', 'json');
+
+				$response = $linkedinCallback->client->request();
+
+				$data = $response->getBody();
+				$data = json_decode($data);
+				if($me) {
+					//adding yourself to the top of the list
+					array_unshift($data->values, $me);
+				}
+				if($data && is_object($data) && $data->values && is_array($data->values) && count($data->values) ) {
+					foreach($data->values as $key => $friend) {
+						if($key > $limit) {
 							break;
 						}
+						if(empty($friend->firstName)) { $friend->firstName = "";}
+						if(empty($friend->lastName)) { $friend->lastName = "";}
+						if(empty($friend->pictureUrl)) { $friend->pictureUrl = "";}
+						$finalArray[$key] = array(
+							"id" => $friend->id,
+							"name" => $friend->firstName." ".$friend->lastName,
+							"picture" => $friend->pictureUrl
+						);
 					}
 				}
 			}
+		}
+		if(!count($finalArray)) {
+			$finalArray = null;
 		}
 		return $finalArray;
 	}
@@ -577,7 +575,7 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 
 //========================================================== TESTS =====================================
 
-	function debug(){
+	function meondatabase(){
 		$member = Member::currentUser();
 		if($member) {
 			echo "<ul>";

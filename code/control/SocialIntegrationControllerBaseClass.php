@@ -252,16 +252,16 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 		if(Director::isDev()) {
 			$dos = new DataObjectSet();
 			$tests = array(
-				"me" => "What details does this service know about me right now",
-				"debug" => "am I logged in? and other relevant details",
-				"Connect" => "connect to this service",
-				"Login" => "Do a traditional Log In to this service",
-				"Remove" => "remove this service from my account",
-				"Updates" => "Show my latest updates",
-				"Friends" => "get a list of my friends (or the equivalent (e.g. followers))",
-				"FriendsSearch" => "????",
-				"IsValidUser" => "????",
-				"SendMessage" => "test sending a message"
+				"connect" => "connect to this service",
+				"login" => "do a traditional log in to this service",
+				"meonservice" => "what details does this service know about me right now, retrieve from service",
+				"meondatabase" => "what data is stored with current member",
+				"updates" => "show my latest updates",
+				"friends" => "get a list of my friends (or the equivalent (e.g. followers))",
+				"friendssearch" => "????",
+				"isvaliduser" => "????",
+				"sendmessage" => "test sending a message",
+				"remove" => "remove this service from my account"
 			);
 			foreach($tests as $test => $description) {
 				$dos->push(
@@ -286,32 +286,34 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 		$IDField = self::my_service_name()."ID";
 		echo "<h2>TEST: $testType</h2><pre>";
 		switch($testType) {
-			case "me":
-				print_r($className::get_current_user());
+			case "connect":
+				return $this->connectUser("/$className/test/meonservice/");
 				break;
-			case "debug":
-				$this->debug();
+			case "login":
+				print_r($className::redirect_to_login_prompt("/$className/test/meonservice/"));
 				break;
-			case "Connect":
-				return $this->connectUser("/$className/test/debug/");
+			case "meonservice":
+				$outcome = $className::get_current_user();
+				if(!$outcome) {
+					echo "NOT CONNECTED";
+				}
+				else {
+					print_r($outcome);
+				}
 				break;
-			case "Login":
-				print_r($className::redirect_to_login_prompt("/$className/test/debug/"));
+			case "meondatabase":
+				$this->meondatabase();
 				break;
-			case "Remove":
-				$method = "Remove".self::my_service_name();
-				echo $this->$method(null);
-				break;
-			case "Updates":
+			case "updates":
 				print_r($className::get_updates());
 				break;
-			case "Friends":
+			case "friends":
 				print_r($className::get_list_of_friends());
 				break;
-			case "FriendsSearch":
+			case "friendssearch":
 				print_r($className::get_list_of_friends(7, "john"));
 				break;
-			case "IsValidUser":
+			case "isvaliduser":
 				$member = Member::currentUser();
 				if($member) {
 					if(self::my_service_name() == "Twitter") {
@@ -324,7 +326,7 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 				}
 				print_r($className::is_valid_user($id));
 				break;
-			case "SendMessage":
+			case "sendmessage":
 				$member = Member::currentUser();
 				$otherVariables = array();
 				if($member) {
@@ -349,6 +351,10 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 				echo "
 					<h1>Sending message to yourself</h1>
 					<p>OUTCOME: <pre>...$outcome</pre>";
+				break;
+			case "remove":
+				$method = "Remove".self::my_service_name();
+				echo $this->$method(null);
 				break;
 			default:
 				echo "no test to run";

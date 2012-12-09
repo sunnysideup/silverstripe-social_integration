@@ -34,7 +34,7 @@ interface SocialIntegrationAPIInterface {
 	/**
 	 * returns all the data of the currently logged in / connected user.
 	 *
-	 * @return Object
+	 * @return Array | Null
 	 */
 	public static function get_current_user();
 
@@ -64,6 +64,6 @@ interface SocialIntegrationAPIInterface {
 
 	public function test($request);
 
-	public function debug();
+	public function meondatabase();
 
 }

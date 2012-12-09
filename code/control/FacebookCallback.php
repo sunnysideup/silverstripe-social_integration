@@ -108,7 +108,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 
 	/**
 	 * returns the currently logged in FB user
-	 * @Object | Null
+	 * @return Object | Null
 	 */
 	public static function get_current_user() {
 		$user = null;
@@ -622,19 +622,19 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 
 
 
-	function debug(){
+	function meondatabase(){
 		$member = Member::currentUser();
 		if($member) {
 			echo "<ul>";
-			echo "<li>ID: ".$member->FacebookID."</li>";
-			echo "<li>name: ".$member->FacebookName."</li>";
-			echo "<li>Email: ".$member->FacebookEmail."</li>";
-			echo "<li>First Name: ".$member->FacebookFirstName."</li>";
-			echo "<li>Middle Name: ".$member->FacebookMiddleName."</li>";
-			echo "<li>Last Name: ".$member->FacebookLastName."</li>";
-			echo "<li>User Name: ".$member->FacebookUsername."</li>";
-			echo "<li>Picture: <img src=\"".$member->FacebookPicture."\" alt=\"\" /></li>";
-			echo "<li>URL: <a href=\"".$member->FacebookURL."\" />click</a></li>";
+			echo "<li>FacebookID: ".$member->FacebookID."</li>";
+			echo "<li>FacebookName: ".$member->FacebookName."</li>";
+			echo "<li>FacebookEmail: ".$member->FacebookEmail."</li>";
+			echo "<li>FacebookFirstName: ".$member->FacebookFirstName."</li>";
+			echo "<li>FacebookMiddleName: ".$member->FacebookMiddleName."</li>";
+			echo "<li>FacebookLastName: ".$member->FacebookLastName."</li>";
+			echo "<li>FacebookUsername: ".$member->FacebookUsername."</li>";
+			echo "<li>FacebookPicture: <img src=\"".$member->FacebookPicture."\" alt=\"\" /></li>";
+			echo "<li>FacebookURL: <a href=\"".$member->FacebookURL."\" />click ".$member->FacebookURL."</a></li>";
 			echo "</ul>";
 		}
 		else {

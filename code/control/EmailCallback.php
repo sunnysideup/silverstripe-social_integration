@@ -59,6 +59,10 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 		return array();
 	}
 
+	/**
+	 *
+	 * return Object | Null
+	 */
 	public static function get_current_user() {
 		return Member::currentUser();
 	}
