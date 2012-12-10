@@ -279,6 +279,9 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 	}
 
 
+	function menondatabase(){
+		//to be completed
+	}
 
 	public function test($request){
 		$className = self::my_class_name();

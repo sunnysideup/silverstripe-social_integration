@@ -92,6 +92,9 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 		return "Security/login/?email=1&amp;".$backURLString."#".$tab;
 	}
 
+	public function meondatabase(){
+		print_r(Member::currentUser());
+	}
 
 
 }
