@@ -46,6 +46,15 @@ class TwitterIdentifier extends DataObjectDecorator {
 		return (bool)($this->owner->TwitterID);
 	}
 
-
+	/**
+	 * link to profile
+	 * @return String
+	 */
+	public function TwitterLink(){
+		if($this->owner->TwitterID) {
+			return "https://twitter.com/account/redirect_by_id?id=".$this->owner->TwitterID;
+		}
+		return "";
+	}
 
 }

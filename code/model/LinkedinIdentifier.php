@@ -44,5 +44,17 @@ class LinkedinIdentifier extends DataObjectDecorator {
 	public function isConnectedToLinkedin() {
 		return LinkedinCallback::get_current_user();
 	}
+
+	/**
+	 * link to profile
+	 * @return String
+	 */
+	public function LinkedinLink(){
+		if($this->owner->LinkedinID) {
+			return "http://www.linkedin.com/profile/view?id=".$this->owner->LinkedinID;
+		}
+		return "";
+	}
+
 }
 

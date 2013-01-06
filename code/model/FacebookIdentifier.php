@@ -59,4 +59,20 @@ class FacebookIdentifier extends DataObjectDecorator {
 		return FacebookCallback::get_current_user();
 	}
 
+
+	/**
+	 * link to profile
+	 * @return String
+	 */
+	public function FacebookLink(){
+		if($this->owner->FacebookURL) {
+			return $this->owner->FacebookURL;
+		}
+		if($this->owner->FacebookID) {
+			return "http://www.facebook.com/people/@/".$this->owner->FacebookID;
+		}
+		return "";
+	}
+
+
 }
