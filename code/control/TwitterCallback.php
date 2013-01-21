@@ -158,6 +158,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 				$twitterDetails = self::is_valid_user($to);
 				if(!empty($twitterDetails["screen_name"])) {
 					$toScreenName = $twitterDetails["screen_name"];
+					$message = trim(strip_tags(stripslashes($message)));
 					$message = "@$toScreenName ".$message." ".$link;
 					$twitterClass->statusesUpdate($message);
 					//followers can also get a direct message

@@ -173,6 +173,9 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 		$facebook = self::get_facebook_sdk_class();
 		if($facebook) {
 			$user = $facebook->getUser();
+			//start hack
+			$message = trim(strip_tags(stripslashes($message)));
+			//end hack
 			$postArray = array(
 				'message' => $message,
 				'link' => $link,
