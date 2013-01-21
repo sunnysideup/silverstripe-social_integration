@@ -148,7 +148,7 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 				$_SESSION ['LINKEDIN_REQUEST_TOKEN'] = serialize ( $this->token );
 
 				// Redirect the Web User to LinkedIn Authentication  Page
-				$this->consumer->redirect();
+				$this->consumer->redirect(array("_l" => i18n::get_locale()));
 
 				$url = $this->consumer->getRedirectUrl();
 				return self::curr()->redirect($url);
