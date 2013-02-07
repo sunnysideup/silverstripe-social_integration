@@ -273,7 +273,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				// We have a user ID, so probably a logged in user.
 				// If not, we'll get an exception, which we handle below.
 				try {
-					$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
+					//$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
 					//SS_Log::log($ret_obj);
 					return $body;
 					//return $ret_obj['id'];
