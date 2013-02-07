@@ -255,7 +255,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				$body =
 					_t("FacebookCallback.PLEASE_CLICK_ON_THE_LINK", " Please click on the link ")
 					." <a href=\"".$emailLink."\" target=\"_blank\">open Facebook</a> ".
-					_t("FacebookCallback.TO_SEND_A_MESSAGE_TO_FRIEND", "to send a message to your friend. ");
+					_t("FacebookCallback.TO_SEND_A_MESSAGE_TO_FRIEND", "to send a message to your friend. ").
 					_t("FacebookCallback.DIRECT_LINK", " You can also send the link directly to your friend: ").$link;
 				//BCC
 				$bcc = Email::getAdminEmail();
