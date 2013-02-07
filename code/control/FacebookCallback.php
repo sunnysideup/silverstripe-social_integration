@@ -227,7 +227,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 					$emailLink .= "redirect_uri=".urlencode(Director::absoluteURL("/").$otherVariables["RedirectURL"])."&amp;";
 				}
 				else {
-					$emailLink .= "redirect_uri=".urlencode(Director::absoluteURL("/"));
+					$emailLink .= "redirect_uri=".urlencode(Director::absoluteURL("/"))."&amp;";
 				}
 				if(isset($otherVariables["pictureURL"])) {
 					$emailLink .= "picture=".urlencode(Director::absoluteURL("/").$otherVariables["pictureURL"])."&amp;";
