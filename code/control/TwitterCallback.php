@@ -180,13 +180,13 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 							return true;
 						}
 						else {
-							//debug::log($outcome);
+							SS_Log::log($outcome, SS_Log::NOTICE);
 						}
 					}
 					return true;
 				}
 				else {
-					//debug::log("Twitter user not found");
+					SS_Log::log("Twitter user not found", SS_Log::NOTICE);
 				}
 			}
 		}
@@ -396,10 +396,11 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 			}
 			catch(Exception $e) {
 				$this->httpError(500, $e->getMessage());
+				SS_Log::log($e, SS_Log::ERR);
 			}
 		}
 		else {
-			//debug::log("could not connect to twitter");
+			SS_Log::log("could not connect to twitter", SS_Log::NOTICE);
 		}
 		Session::clear('Twitter.Request.Token');
 		if($data && $user && is_numeric($user) && $access) {
@@ -480,6 +481,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		catch(Exception $e) {
 			Session::set('FormInfo.TwitterLoginForm_LoginForm.formError.message', $e->getMessage());
 			Session::set('FormInfo.TwitterLoginForm_LoginForm.formError.type', 'error');
+			SS_Log::log($e, SS_Log::ERR);
 			return $this->redirect('Security/login#TwitterLoginForm_LoginForm_tab');
 		}
 		if(!is_numeric($user)) {

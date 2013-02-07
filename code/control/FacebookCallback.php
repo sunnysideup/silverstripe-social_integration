@@ -2,6 +2,9 @@
 /**
  * A controller that connects with Facebook, using the Facebook PHP SDK
  *
+ * USEFUL LINKS:
+ * https://developers.facebook.com/docs/reference/login/extended-permissions/
+ *
  */
 
 if(!defined("SS_FACEBOOK_API_PATH")) {
@@ -121,12 +124,12 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 					$data = $facebook->api('/me');
 					if(isset($data->error)) {
 						$data = null;
-						//Debug::log($data->error->message);
+						SS_Log::log($data->error->message, SS_Log::NOTICE);
 					}
 				}
 				catch(FacebookApiException $e) {
 					$data = null;
-					//Debug::log($e);
+					SS_Log::log($e, SS_Log::NOTICE);
 				}
 				try {
 					$picture = $facebook->api('/me/?fields=picture');
@@ -134,11 +137,11 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 						$data["picture"] = $picture["picture"]["data"]["url"];
 					}
 					if(isset($data->error)) {
-						//Debug::log($data->error->message);
+						SS_Log::log(print_r($data->error, 1).$data->error->message, SS_Log::NOTICE);
 					}
 				}
 				catch(FacebookApiException $e) {
-					//Debug::log($e);
+					SS_Log::log($e, SS_Log::NOTICE);
 				}
 			}
 		}
@@ -152,14 +155,20 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 	 * @param String $message
 	 * @param String $link - link to send with message
 	 * @param Array $otherVariables - other variables used in message.
+			 - $redirect_uri = "",
+			 - $RedirectURL = "",
 			 - $name = "",
 			 - $caption = "",
 			 - $description = "",
 			 - $pictureURL = "",
+			 - $Subject = "",
 			 - $actions = array()
-	 * @see: 	//https://developers.facebook.com/docs/reference/php/facebook-api/
+	 * @param String $senderEmail - link to send with message
+
+	 * @see:  https://developers.facebook.com/docs/reference/php/facebook-api/
+	 * @see   http://facebook.stackoverflow.com/questions/2943297/how-send-message-facebook-friend-through-graph-api-using-accessstoken
 	 *
-	 * @return Boolean
+	 * @return EmailLink (Dialogue Feed)
 	 */
 	public static function send_message(
 		$to = "me",
@@ -167,14 +176,25 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 		$link = "",
 		$otherVariables = array()
 	){
+		//FACEBOOK
 		if($to instanceOf Member) {
-			$to = $to->FacebookID;
+			$to = $to->FacebookUsername;
 		}
 		$facebook = self::get_facebook_sdk_class();
 		if($facebook) {
 			$user = $facebook->getUser();
+			//get email data that does not go to GRAPH:
+			if(isset($otherVariables["senderEmail"])) {
+				$senderEmail = $otherVariables["senderEmail"];
+				unset($otherVariables["senderEmail"]);
+			}
+			elseif($sender = Member::currentUser()) {
+				$senderEmail = $sender->Email;
+			}
+
 			//start hack
 			$message = trim(strip_tags(stripslashes($message)));
+			$message = $message;
 			//end hack
 			$postArray = array(
 				'message' => $message,
@@ -186,30 +206,88 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				}
 			}
 			if($user) {
+				if(empty($otherVariables["Subject"])) {
+					$subject = substr($message, 0, 30);
+				}
+				else {
+					$subject = $otherVariables["Subject"];
+				}
+				//------------- SEND EMAIL TO START DIALOGUE ---
+				//BUILD LINK
+				$emailLink = "https://www.facebook.com/dialog/feed?"
+						."to=".$to."&amp;"
+						."app_id=".self::get_facebook_id()."&amp;"
+						."link=".urlencode($link)."&amp;"
+						."message=".urlencode($message)."&amp;";
+				//FROM
+				if(isset($otherVariables["redirect_uri"])) {
+					$emailLink .= "redirect_uri=".urlencode(Director::absoluteURL("/").$otherVariables["redirect_uri"])."&amp;";
+				}
+				elseif(isset($otherVariables["RedirectURL"])) {
+					$emailLink .= "redirect_uri=".urlencode(Director::absoluteURL("/").$otherVariables["RedirectURL"])."&amp;";
+				}
+				else {
+					$emailLink .= "redirect_uri=".urlencode(Director::absoluteURL("/"));
+				}
+				if(isset($otherVariables["pictureURL"])) {
+					$emailLink .= "picture=".urlencode(Director::absoluteURL("/").$otherVariables["pictureURL"])."&amp;";
+				}
+				if(isset($otherVariables["description"])) {
+					$emailLink .= "description=".urlencode($otherVariables["description"])."&amp;";
+				}
+				elseif($message) {
+					$emailLink .= "description=".urlencode($message)."&amp;";
+				}
+				if(isset($otherVariables["name"])) {
+					$emailLink .= "name=".urlencode($otherVariables["name"])."&amp;";
+				}
+				elseif(isset($otherVariables["caption"])) {
+					$emailLink .= "caption=".urlencode($otherVariables["caption"])."&amp;";
+				}
+				if(isset($otherVariables["Subject"])) {
+					$emailLink .= "caption=".urlencode($otherVariables["Subject"])."&amp;";
+				}
+				$from = Email::getAdminEmail();
+				//TO
+				//SUBJECT
+				$subject = _t("FacebookCallback.ACTION_REQUIRED", "Action required for".$subject);
+				//BODY
+				$body =
+					_t("FacebookCallback.PLEASE_CLICK_ON_THE_LINK", "Please click on the link")
+					." <a href=\"".$emailLink."\" target=\"_blank\">".$emailLink."</a> ".
+					_t("FacebookCallback.TO_SEND_A_MESSAGE_TO_FRIEND", "to send a message to your friend.");
+				//BCC
+				$bcc = Email::getAdminEmail();
+				//SEND
+				$email = new Email(
+					$from,
+					$senderEmail,
+					$subject,
+					$body
+				);
+				$email->send();
+				if($to instanceOf Member) {
+					$to = $to->FacebookUsername;
+				}
 				// We have a user ID, so probably a logged in user.
 				// If not, we'll get an exception, which we handle below.
 				try {
 					$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
-					debug::log($ret_obj);
-					return $ret_obj['id'];
+					//SS_Log::log($ret_obj);
+					return $body;
+					//return $ret_obj['id'];
 				}
 				catch(FacebookApiException $e) {
 					// If the user is logged out, you can have a
 					// user ID even though the access token is invalid.
 					// In this case, we'll get an exception, so we'll
 					// just ask the user to login again here.
-					debug::log($user);
-					debug::log($e->getType());
-					debug::log($e->getMessage());
-					debug::log($to);
-					debug::log($message);
-					debug::log($link);
-					debug::log($otherVariables);
-					debug::log(print_r($currentUser, 1));
+					SS_Log::log($user."---".$e->getType()."---".$e->getMessage()."---".$to."---".$message."---".$link."---".$otherVariables."---".print_r($user, 1).print_r(Member::currentUser(), 1), SS_Log::NOTICE);
 				}
+
 			}
 			else {
-				//debug::log("tried to send a message from facebook without being logging in...");
+				SS_Log::log("tried to send a message from facebook without being logging in...", SS_Log::NOTICE);
 			}
 		}
 		return false;
@@ -616,7 +694,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				}
 			}
 			catch(FacebookApiException $e) {
-				//Debug::log($e, SS_Log::ERR);
+				SS_Log::log($e, SS_Log::ERR);
 			}
 			return $pages;
 		}

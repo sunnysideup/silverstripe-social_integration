@@ -409,6 +409,7 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		}
 		catch(Exception $e) {
 			$this->httpError(500, $e->getMessage());
+			SS_Log::log(print_r($e, 1), SS_Log::ERR);
 		}
 		$returnURL = $this->returnURL();
 		return $this->redirect($returnURL);
@@ -468,6 +469,7 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		catch(Exception $e) {
 			Session::set('FormInfo.LinkedinLoginForm_LoginForm.formError.message', $e->getMessage());
 			Session::set('FormInfo.LinkedinLoginForm_LoginForm.formError.type', 'error');
+			SS_Log::log($e, SS_Log::ERR);
 			return $this->redirect('Security/login#LinkedinLoginForm_LoginForm_tab');
 		}
 		if(!is_numeric($user)) {
