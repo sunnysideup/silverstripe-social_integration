@@ -254,7 +254,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				//BODY
 				$body =
 					_t("FacebookCallback.PLEASE_CLICK_ON_THE_LINK", " Please click on the link ")
-					." <a href=\"".$emailLink."\" target=\"_blank\">open Facebook</a> ".
+					." <a href=\"".$emailLink."\" target=\"_blank\">"._t("FacebookCallback.OPEN_FACEBOOK", "open facebook")."</a> ".
 					_t("FacebookCallback.TO_SEND_A_MESSAGE_TO_FRIEND", "to send a message to your friend. ").
 					_t("FacebookCallback.DIRECT_LINK", " You can also send the link directly to your friend: ").$link;
 				//BCC
@@ -273,10 +273,9 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				// We have a user ID, so probably a logged in user.
 				// If not, we'll get an exception, which we handle below.
 				try {
-					//$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
-					//SS_Log::log($ret_obj);
+					$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
+					SS_Log::log($ret_obj, SS_Log::NOTICE);
 					return $body;
-					//return $ret_obj['id'];
 				}
 				catch(FacebookApiException $e) {
 					// If the user is logged out, you can have a
