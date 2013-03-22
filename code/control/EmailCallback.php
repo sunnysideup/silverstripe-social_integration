@@ -16,7 +16,12 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 	public static function send_message($to, $message, $link = "", $otherVariables = array()) {
 
 		//FROM
-		$from = Email::getAdminEmail();
+		if(!empty($otherVariables["From"])) {
+			$from = $otherVariables["From"];
+		}
+		else {
+			$from = Email::getAdminEmail();
+		}
 
 		//TO
 		if($to instanceOf Member) {
@@ -29,6 +34,7 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 		else {
 			$subject = substr($message, 0, 30);
 		}
+
 
 		//BODY
 		$body = $message;
