@@ -241,10 +241,10 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				if(isset($otherVariables["name"])) {
 					$emailLink .= "name=".urlencode($otherVariables["name"])."&amp;";
 				}
-				elseif(isset($otherVariables["caption"])) {
+				if(isset($otherVariables["caption"])) {
 					$emailLink .= "caption=".urlencode($otherVariables["caption"])."&amp;";
 				}
-				if(isset($otherVariables["Subject"])) {
+				elseif(isset($otherVariables["Subject"])) {
 					$emailLink .= "caption=".urlencode($otherVariables["Subject"])."&amp;";
 				}
 				$from = Email::getAdminEmail();
@@ -274,7 +274,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				// If not, we'll get an exception, which we handle below.
 				try {
 					$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
-					SS_Log::log($ret_obj, SS_Log::NOTICE);
+					//SS_Log::log($ret_obj, SS_Log::NOTICE);
 					return $body;
 				}
 				catch(FacebookApiException $e) {

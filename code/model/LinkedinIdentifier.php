@@ -56,5 +56,19 @@ class LinkedinIdentifier extends DataObjectDecorator {
 		return "";
 	}
 
+	function onBeforeWrite(){
+		if(!$this->owner->Email) {
+			if($this->owner->LinkedinEmail) {
+				$id = $this->owner->ID;
+				if(!$id) {
+					$id = 0;
+				}
+				if(!DataObject::get_one("Member", "\"Email\" = '".$this->owner->LinkedinEmail."' AND \"Member\".\"ID\" <> ".$id."")) {
+					$this->owner->Email = $this->owner->LinkedinEmail;
+				}
+			}
+		}
+	}
+
 }
 

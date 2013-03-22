@@ -3,13 +3,14 @@
 /***
  * adds twitter functionality to Member
  *
- *
+ * email issue: https://dev.twitter.com/discussions/4019
  *
  *
  */
 
 
 class TwitterIdentifier extends DataObjectDecorator {
+
 	//TwitterHandle
 	//TwitterAccessToken
 	public function extraStatics() {
@@ -28,7 +29,6 @@ class TwitterIdentifier extends DataObjectDecorator {
 			)
 		);
 	}
-
 
 	/**
 	 * connect and disconnect button

@@ -74,5 +74,18 @@ class FacebookIdentifier extends DataObjectDecorator {
 		return "";
 	}
 
+	function onBeforeWrite(){
+		if(!$this->owner->Email) {
+			if($this->owner->FacebookEmail) {
+				$id = $this->owner->ID;
+				if(!$id) {
+					$id = 0;
+				}
+				if(!DataObject::get_one("Member", "\"Email\" = '".$this->owner->FacebookEmail."' AND \"Member\".\"ID\" <> ".$id."")) {
+					$this->owner->Email = $this->owner->FacebookEmail;
+				}
+			}
+		}
+	}
 
 }
