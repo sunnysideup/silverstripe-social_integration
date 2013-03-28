@@ -80,14 +80,14 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 	 *
 	 * @var facebook Class
 	 */
-	private static $facebook_sdk_class = null;
+	protected static $facebook_sdk_class = null;
 
 	/**
 	 * holds an instance of the FB class
 	 * @param Boolean $getEvenWithoutCurrentMember
 	 * @return Facebook
 	 */
-	private static function get_facebook_sdk_class($getEvenWithoutCurrentMember = false){
+	protected static function get_facebook_sdk_class($getEvenWithoutCurrentMember = false){
 		if(!self::$facebook_id || !self::$facebook_secret) {
 			user_error("You must set the following variables: Facebook::facebook_id AND Facebook::facebook_secret");
 		}
