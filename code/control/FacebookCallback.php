@@ -194,7 +194,6 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 
 			//start hack
 			$message = trim(strip_tags(stripslashes($message)));
-			$message = $message;
 			//end hack
 			$postArray = array(
 				'message' => $message,
@@ -250,7 +249,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				$from = Email::getAdminEmail();
 				//TO
 				//SUBJECT
-				$subject = _t("FacebookCallback.ACTION_REQUIRED", "Action required for: ".$subject);
+				$subject = _t("FacebookCallback.ACTION_REQUIRED", "Action required for: ").$subject;
 				//BODY
 				$body =
 					_t("FacebookCallback.PLEASE_CLICK_ON_THE_LINK", " Please click on the link ")
@@ -267,24 +266,25 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 					$body
 				);
 				$email->send();
-				if($to instanceOf Member) {
-					$to = $to->FacebookUsername;
-				}
 				// We have a user ID, so probably a logged in user.
 				// If not, we'll get an exception, which we handle below.
-				try {
-					$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
-					//SS_Log::log($ret_obj, SS_Log::NOTICE);
-					return $body;
+				if(1 == 2) {
+					if($to instanceOf Member) {
+						$to = $to->FacebookUsername;
+					}
+					try {
+						$ret_obj = $facebook->api('/'.$to.'/feed', 'POST', $postArray);
+						//SS_Log::log($ret_obj, SS_Log::NOTICE);
+						return $body;
+					}
+					catch(FacebookApiException $e) {
+						// If the user is logged out, you can have a
+						// user ID even though the access token is invalid.
+						// In this case, we'll get an exception, so we'll
+						// just ask the user to login again here.
+						SS_Log::log($user."---".$e->getType()."---".$e->getMessage()."---".$to."---".$message."---".$link."---".$otherVariables."---".print_r($user, 1).print_r(Member::currentUser(), 1), SS_Log::NOTICE);
+					}
 				}
-				catch(FacebookApiException $e) {
-					// If the user is logged out, you can have a
-					// user ID even though the access token is invalid.
-					// In this case, we'll get an exception, so we'll
-					// just ask the user to login again here.
-					SS_Log::log($user."---".$e->getType()."---".$e->getMessage()."---".$to."---".$message."---".$link."---".$otherVariables."---".print_r($user, 1).print_r(Member::currentUser(), 1), SS_Log::NOTICE);
-				}
-
 			}
 			else {
 				SS_Log::log("tried to send a message from facebook without being logging in...", SS_Log::NOTICE);
