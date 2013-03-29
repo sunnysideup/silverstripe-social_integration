@@ -38,9 +38,6 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 
 		//BODY
 		$body = $message;
-		if($link) {
-			$body .= "<br /><br />$link";
-		}
 
 		//CC
 		if(!empty($otherVariables["CC"])) {
