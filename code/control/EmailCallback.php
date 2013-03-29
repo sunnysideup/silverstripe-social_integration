@@ -35,7 +35,6 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 			$subject = substr($message, 0, 30);
 		}
 
-
 		//BODY
 		$body = $message;
 
@@ -49,6 +48,8 @@ class EmailCallback extends SocialIntegrationControllerBaseClass implements Soci
 
 		//BCC
 		$bcc = Email::getAdminEmail();
+
+		//SEND EMAIL
 		$email = new Email(
 			$from,
 			$to,
