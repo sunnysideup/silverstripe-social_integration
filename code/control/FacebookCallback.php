@@ -249,7 +249,7 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 				$from = Email::getAdminEmail();
 				//TO
 				//SUBJECT
-				$subject = _t("FacebookCallback.ACTION_REQUIRED", "Action required for: ").$subject;
+				$subject = _t("FacebookCallback.ACTION_REQUIRED", "Action required for").": ".$subject;
 				//BODY
 				$body =
 					_t("FacebookCallback.PLEASE_CLICK_ON_THE_LINK", " Please click on the link ")
