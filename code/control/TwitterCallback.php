@@ -388,7 +388,9 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 
 				$data = $response->getBody();
 				$data = json_decode($data);
-				print_r($data);
+				if(!isset($data->id)) {
+					user_error("There was an error accessing the twitter account");
+				}
 				$user = $data->id;
 				Session::set('Twitter' , array(
 					'ID' => $data->id,
