@@ -105,7 +105,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 			$member = Member::currentUser();
 			if($member && $member->TwitterID) {
 				require_once(dirname(dirname(dirname(__FILE__))).'/thirdparty/twitter/Twitter.php');
-				self::$twitter_class = new Twitter(self::$consumer_key, self::$consumer_secret);
+				self::$twitter_class = new TijsVerkoyen\Twitter\Twitter(self::$consumer_key, self::$consumer_secret);
 				if($member->TwitterToken && $member->TwitterSecret) {
 					self::$twitter_class->setOAuthToken($member->TwitterToken);
 					self::$twitter_class->setOAuthTokenSecret($member->TwitterSecret);
