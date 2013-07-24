@@ -381,7 +381,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 			try {
 				$access = $consumer->getAccessToken($req->getVars(), $token);
 				$client = $access->getHttpClient(self::$zend_oauth_consumer_class_config["nocallback"]);
-				$client->setUri('https://api.twitter.com/1/account/verify_credentials.json');
+				$client->setUri('https://api.twitter.com/1.1/account/verify_credentials.json');
 				$client->setMethod(Zend_Http_Client::GET);
 				$client->setParameterGet('skip_status', 't');
 				$response = $client->request();
@@ -471,7 +471,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		try{
 			$access = $consumer->getAccessToken($req->getVars(), $token);
 			$client = $access->getHttpClient(self::$zend_oauth_consumer_class_config["nocallback"]);
-			$client->setUri('https://api.twitter.com/1/account/verify_credentials.json');
+			$client->setUri('https://api.twitter.com/1.1/account/verify_credentials.json');
 			$client->setMethod(Zend_Http_Client::GET);
 			$client->setParameterGet('skip_status', 't');
 			$response = $client->request();
