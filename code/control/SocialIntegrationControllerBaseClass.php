@@ -222,7 +222,7 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 			return $this->renderWith(array("SocialIntegrationControllerBaseClass"));
 		}
 		else {
-			$this->httpError(403);
+			die("For security reasons, this service works in DEV move only.")
 		}
 	}
 
