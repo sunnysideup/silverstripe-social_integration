@@ -14,6 +14,15 @@ require_once SS_FACEBOOK_API_PATH . 'facebook.php';
 
 class FacebookCallback extends SocialIntegrationControllerBaseClass implements SocialIntegrationAPIInterface {
 
+
+	/**
+	 * Maximum number of friends that can be retrieved
+	 * @var Int
+	 */
+	private static $number_of_friends_that_can_be_retrieved = 1200;
+		public static function set_number_of_friends_that_can_be_retrieved($n) {self::$number_of_friends_that_can_be_retrieved = $s;}
+		public static function get_number_of_friends_that_can_be_retrieved() {return self::$number_of_friends_that_can_be_retrieved;}
+
 //======================================= AVAILABLE METHODS ===============================================
 
 	/**
@@ -293,12 +302,17 @@ class FacebookCallback extends SocialIntegrationControllerBaseClass implements S
 		return false;
 	}
 
+
 	/**
-	 *
-	 *
+	 * gets a list of friends
+	 * @param Int - $Limit, set to -1 to to maximum
+	 * @param String - $searchString, filter for search string
 	 * @return Array (array("id" => ..., "name" => ...., "picture" => ...))
 	 */
 	public static function get_list_of_friends($limit = 12, $searchString = ""){
+		if($limit == -1 ) {
+			$limit = self::get_number_of_friends_that_can_be_retrieved();
+		}
 		$returnObject = array();
 		$facebook = self::get_facebook_sdk_class();
 		if($facebook){

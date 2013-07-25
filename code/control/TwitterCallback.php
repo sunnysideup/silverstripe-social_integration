@@ -12,6 +12,15 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 
 //======================================= AVAILABLE METHODS ===============================================
 
+
+	/**
+	 * Maximum number of followers that can be retrieved
+	 * @var Int
+	 */
+	private static $number_of_friends_that_can_be_retrieved = 1200;
+		public static function set_number_of_friends_that_can_be_retrieved($n) {self::$number_of_friends_that_can_be_retrieved = $s;}
+		public static function get_number_of_friends_that_can_be_retrieved() {return self::$number_of_friends_that_can_be_retrieved;}
+
 	/**
 	 * Standard SS variable determining what this controller can do
 	 * @var Array
@@ -35,7 +44,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 	 */
 	protected static $consumer_secret = null;
 		public static function set_consumer_secret($s) {self::$consumer_secret = $s;}
-		public static function get_consumer_secret($s) {return self::$consumer_secret;}
+		public static function get_consumer_secret() {return self::$consumer_secret;}
 
 	/**
 	 * Get from Twitter
@@ -163,7 +172,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 					$message = "@$toScreenName ".$message." ".$link;
 					$twitterClass->statusesUpdate($message);
 					//followers can also get a direct message
-					$followers = self::get_list_of_friends();
+					$followers = self::get_list_of_friends(-1);
 					$isFollower = false;
 					foreach($followers as $follower) {
 						if($follower["id"] == $to) {
@@ -176,7 +185,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 						$includeEntities = false;
 						//returns the user's details as an array if sent successfully
 						//and a string with error message if sent unsuccessfully
-						$outcome = $twitterClass->directMessagesNew($text, $userId, $screenName = null, $includeEntities = false);
+						$outcome = $twitterClass->directMessagesNew($userId, $screenName = null, $text);
 						if(is_array($outcome)) {
 							return true;
 						}
@@ -199,36 +208,51 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 	 *
 	 * If we can not find enough followers, we add any user.
 	 *
-	 * @param Int $limit - the number of users returned
+	 * @param Int $limit - the number of users returned, set to -1 to return maximum
 	 * @param String $search - the users searched for
 	 *
 	 * @return Array (array("id" => ..., "name" => ...., "picture" => ...))
 	 */
 	public static function get_list_of_friends($limit = 12, $searchString = ""){
+		if($limit == -1 ) {
+			$limit = self::get_number_of_friends_that_can_be_retrieved();
+		}
+		//defining variables
 		$rawArray = array();
 		$finalArray = array();
 		$member = Member::currentUser();
 		if($member) {
 			if($twitterClass = self::get_twitter_class()) {
-				$followersArray = $twitterClass->followersIds($member->TwitterID, null);
+				//get list of followers
+				$followersArray = $twitterClass->followersIds($member->TwitterID);
 				$followersArrayIDs = empty($followersArray["ids"]) ? array() :$followersArray["ids"];
 				$ids = "";
 				$count = 0;
 				if(count($followersArrayIDs)) {
-					foreach($followersArrayIDs as $friend){
-						$ids .= "{$friend},";
+					//getting them in packs of 100
+					foreach($followersArrayIDs as $followerID){
+						$ids .= "{$followerID},";
 						$count++;
 						if(!($count % 100) || $count == count($followersArrayIDs)){
-							$rawArray += $twitterClass->usersLookup($ids);
+							$nextArray = $twitterClass->usersLookup($ids);
+							if(is_array($nextArray) && count($nextArray)) {
+								$rawArray += $nextArray;
+							}
+							else {
+								break;
+							}
 							$ids = "";
 						}
 					}
 				}
 				//we are retrieving more so that we can select the right ones.
-				$searchResults = $twitterClass->usersSearch("q=".$searchString."}", $limit * 3);
-				if(count($searchResults)) {
-					$rawArray += $searchResults;
+				if($searchString) {
+					$searchResults = $twitterClass->usersSearch("q=".$searchString."}", $page = null, $count = null, $includeEntities = null);
+					if(count($searchResults)) {
+						$rawArray += $searchResults;
+					}
 				}
+				//adding ourselves if we are in dev mode
 				if(Director::isDev()) {
 					$rawArray[] = $twitterClass->usersShow($member->TwitterID);
 				}
@@ -272,7 +296,7 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		if($twitterClass = self::get_twitter_class()) {
 			//we are retrieving more so that we can select the right ones.
 			//return $twitterClass->usersShow("", $screen_name);
-			$searchResults = $twitterClass->usersSearch("q=".$screen_name."}",100);
+			$searchResults = $twitterClass->usersSearch("q=".$screen_name."}");
 			if(count($searchResults)) {
 				$rawArray += $searchResults;
 			}
@@ -311,6 +335,30 @@ class TwitterCallback extends SocialIntegrationControllerBaseClass implements So
 		return  $userData ? $userData : false;
 	}
 
+	public static function get_updates($lastNumber = 12){
+		$member = Member::currentUser();
+		if($member) {
+			if($twitterClass = self::get_twitter_class()) {
+				return $twitterClass->statusesUserTimeline(
+					$member->TwitterID, //$userId = null,
+					$screenName = null,
+					$sinceId = null,
+					$lastNumber, //$count
+					$maxId = null,
+					$trimUser = null,
+					$excludeReplies = true,
+					$contributorDetails = null,
+					$includeRts = null
+				);
+			}
+			else {
+				user_error("could not find twitter class");
+			}
+		}
+		else{
+			return "not logged in";
+		}
+	}
 //======================================= STANDARD SS METHODS ===============================================
 
 

@@ -27,6 +27,14 @@ if(!file_exists('Zend/Oauth.php')) {
 
 class LinkedinCallback extends SocialIntegrationControllerBaseClass implements SocialIntegrationAPIInterface {
 
+	/**
+	 * Maximum number of followers that can be retrieved
+	 * @var Int
+	 */
+	private static $number_of_friends_that_can_be_retrieved = 1200;
+		public static function set_number_of_friends_that_can_be_retrieved($n) {self::$number_of_friends_that_can_be_retrieved = $s;}
+		public static function get_number_of_friends_that_can_be_retrieved() {return self::$number_of_friends_that_can_be_retrieved;}
+
 //======================================= AVAILABLE METHODS ===============================================
 
 	/**
@@ -209,7 +217,7 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 		}
 	}
 
-	static function get_updates(){
+	public static function get_updates($lastNumber = 12){
 		return "NOT IMPLEMENTED YET";
 	}
 	/**
@@ -280,12 +288,15 @@ class LinkedinCallback extends SocialIntegrationControllerBaseClass implements S
 	 *
 	 * If we can not find enough followers, we add any user.
 	 *
-	 * @param Int $limit - the number of users returned
+	 * @param Int $limit - the number of users returned, set to -1 to return maximum
 	 * @param String $search - the users searched for
 	 *
 	 * @return Array (array("id" => ..., "name" => ...., "picture" => ...))
 	 */
 	public static function get_list_of_friends($limit = 12, $searchString = ""){
+		if($limit == -1 ) {
+			$limit = self::get_number_of_friends_that_can_be_retrieved();
+		}
 		$finalArray = array();
 		$member = Member::currentUser();
 		if($member && $member->LinkedinID) {

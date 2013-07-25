@@ -311,16 +311,16 @@ abstract class SocialIntegrationControllerBaseClass extends Controller {
 				print_r($className::get_updates());
 				break;
 			case "friends":
-				print_r($className::get_list_of_friends());
+				print_r($className::get_list_of_friends(-1));
 				break;
 			case "friendssearch":
-				print_r($className::get_list_of_friends(7, "john"));
+				print_r($className::get_list_of_friends(-1, "john"));
 				break;
 			case "isvaliduser":
 				$member = Member::currentUser();
 				if($member) {
 					if(self::my_service_name() == "Twitter") {
-						$IDField = "TwitterScreenName";
+						$IDField = "TwitterID";
 					}
 					$id = $member->$IDField;
 				}
