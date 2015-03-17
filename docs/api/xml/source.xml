@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<source xmlns="http://xml.phpdox.net/src">
+  <dir name="/var/www/_modules/social_integration/trunk">
+    <file name="_config.php" size="1653" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="87f46a8eda5511fe59107afb826298ab64a28e19" xml="tokens/_config.php.xml"/>
+    <dir name="code">
+      <dir name="control">
+        <file name="FacebookCallback.php" size="22613" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="009ec4296f823c08d8adab51f646a0b38590c1de" xml="tokens/code/control/FacebookCallback.php.xml"/>
+        <file name="TwitterCallback.php" size="20973" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="bf80f368aaa4a85f68f968ce78fcf79b8f64cdb2" xml="tokens/code/control/TwitterCallback.php.xml"/>
+        <file name="SocialIntegrationAPIInterface.php" size="2084" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1871d461aa53bd73f9b0f6895bea05aa1eb51e31" xml="tokens/code/control/SocialIntegrationAPIInterface.php.xml"/>
+        <file name="LinkedinCallback.php" size="20376" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="336ab6d417ba96a139d5f09d07e1e04df8270813" xml="tokens/code/control/LinkedinCallback.php.xml"/>
+        <file name="SocialIntegrationControllerBaseClass.php" size="10030" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="16f1b238e3e12b0d380b765cd34d88c1b617acc6" xml="tokens/code/control/SocialIntegrationControllerBaseClass.php.xml"/>
+        <file name="EmailCallback.php" size="2275" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1c002148de66a92c9bf1a5d0f6b1a1bb53fcd205" xml="tokens/code/control/EmailCallback.php.xml"/>
+      </dir>
+      <dir name="security">
+        <file name="LinkedinAuthenticator.php" size="385" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1f985e3182c3a6ebdfe9b1492922e32f0780854e" xml="tokens/code/security/LinkedinAuthenticator.php.xml"/>
+        <file name="MemberAuthenticatorWithSignup.php" size="1135" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="f69fdc88f9bd81b9b14d61e96f6ea994596f3c23" xml="tokens/code/security/MemberAuthenticatorWithSignup.php.xml"/>
+        <file name="EmailLoginForm.php" size="220" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="d75e684dcd8e8cc20bd68fb3b8e6fb8942ecd12c" xml="tokens/code/security/EmailLoginForm.php.xml"/>
+        <file name="EmailAuthenticator.php" size="1458" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1bd9a7d3cc569f9b0495025cf0067130c4e69e42" xml="tokens/code/security/EmailAuthenticator.php.xml"/>
+        <file name="FacebookLoginForm.php" size="2757" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="b95c14da6c259b64ae33bba7b40cdc1b01cdeed2" xml="tokens/code/security/FacebookLoginForm.php.xml"/>
+        <file name="TwitterAuthenticator.php" size="383" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="6613dc5d2ae942da98776ee93b06dc572917b736" xml="tokens/code/security/TwitterAuthenticator.php.xml"/>
+        <file name="TwitterLoginForm.php" size="2236" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="c32bca07747379952eb2e6c735c7bdc7f6fd4117" xml="tokens/code/security/TwitterLoginForm.php.xml"/>
+        <file name="LinkedinLoginForm.php" size="2225" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="798485a58f2dcf0b13cdd10e47d1da929cd2be13" xml="tokens/code/security/LinkedinLoginForm.php.xml"/>
+        <file name="FacebookAuthenticator.php" size="867" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="03a9935628a8d2547404c880a19385bba32731b2" xml="tokens/code/security/FacebookAuthenticator.php.xml"/>
+        <file name="MemberLoginFormWithSignup.php" size="11140" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="12dea07c61526d985014ab2b36862f479402064b" xml="tokens/code/security/MemberLoginFormWithSignup.php.xml"/>
+      </dir>
+      <dir name="model">
+        <file name="TwitterIdentifier.php" size="1231" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="30c15dca998db3b144ee10bbc07ccb9698529e95" xml="tokens/code/model/TwitterIdentifier.php.xml"/>
+        <file name="FacebookIdentifier.php" size="1900" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="b506f152487662b893350385695e0a14ba445245" xml="tokens/code/model/FacebookIdentifier.php.xml"/>
+        <file name="LinkedinIdentifier.php" size="1543" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="742490bae1ee7900912edbde8c4dbafaadbdfdd0" xml="tokens/code/model/LinkedinIdentifier.php.xml"/>
+      </dir>
+    </dir>
+    <dir name="thirdparty">
+      <dir name="Zend">
+        <file name="Uri.php" size="6484" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="11b446485fcd6681518e8eff5f51473b2420c7cc" xml="tokens/thirdparty/Zend/Uri.php.xml"/>
+        <dir name="Validate">
+          <file name="Interface.php" size="1926" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="f11f07356887dc40b10503f83d9de00a980235ab" xml="tokens/thirdparty/Zend/Validate/Interface.php.xml"/>
+          <file name="Abstract.php" size="12315" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="0ca670b9f739eed695e53d90314acf877c97f14a" xml="tokens/thirdparty/Zend/Validate/Abstract.php.xml"/>
+          <dir name="Hostname">
+            <file name="Com.php" size="13660" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="4887166b331e6a53c4ec20b563c3f46d7684312c" xml="tokens/thirdparty/Zend/Validate/Hostname/Com.php.xml"/>
+            <file name="Jp.php" size="55551" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="5ff3ce01e91ba5774b8989cf354284513cf0141b" xml="tokens/thirdparty/Zend/Validate/Hostname/Jp.php.xml"/>
+            <file name="Biz.php" size="223195" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="3eb0e1694cf300c80e47f7c093f9a4796d2365ad" xml="tokens/thirdparty/Zend/Validate/Hostname/Biz.php.xml"/>
+            <file name="Cn.php" size="168071" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="6185ff92bcf984fb797d1c4e32ebffbf785fccc8" xml="tokens/thirdparty/Zend/Validate/Hostname/Cn.php.xml"/>
+          </dir>
+          <file name="Ip.php" size="5505" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="af69822d7e36fb0db8fbdaf7bc19f42f96d6e0b6" xml="tokens/thirdparty/Zend/Validate/Ip.php.xml"/>
+          <file name="Hostname.php" size="35245" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="03ef341f0cf293d7e8c0a185219aa475d04e9fb0" xml="tokens/thirdparty/Zend/Validate/Hostname.php.xml"/>
+        </dir>
+        <file name="Loader.php" size="11310" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="b86965e066e67c20baa0560282a29b4f0655efa0" xml="tokens/thirdparty/Zend/Loader.php.xml"/>
+        <file name="Crypt.php" size="4514" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="849148da64b65d0e90d079ffea714634c0bfbd07" xml="tokens/thirdparty/Zend/Crypt.php.xml"/>
+        <dir name="Http">
+          <file name="Client.php" size="46710" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="3a3e10557cddba582225c325fac4484b8241a372" xml="tokens/thirdparty/Zend/Http/Client.php.xml"/>
+          <file name="Exception.php" size="1131" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="faf8d0cf95ef1dff83ec1bc603baa494700d390f" xml="tokens/thirdparty/Zend/Http/Exception.php.xml"/>
+          <file name="UserAgent.php" size="25863" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1435786d5839e39208dc4a8fe29d3f3c470fa8c3" xml="tokens/thirdparty/Zend/Http/UserAgent.php.xml"/>
+          <dir name="UserAgent">
+            <file name="Validator.php" size="1938" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="780736f20d7f4ff9d9a4c0ac4fb5729bdcbec53e" xml="tokens/thirdparty/Zend/Http/UserAgent/Validator.php.xml"/>
+            <dir name="Features">
+              <file name="Exception.php" size="1123" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="9603f002de7f8059ace9809ebc5ee71234c24cce" xml="tokens/thirdparty/Zend/Http/UserAgent/Features/Exception.php.xml"/>
+              <file name="Adapter.php" size="1275" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="5ce978c3ebbf621392e9a278ab3b9cebb5bc2164" xml="tokens/thirdparty/Zend/Http/UserAgent/Features/Adapter.php.xml"/>
+              <dir name="Adapter">
+                <file name="DeviceAtlas.php" size="2875" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="dbc45285cb79a99fb0496c5aea4c0c59aba97514" xml="tokens/thirdparty/Zend/Http/UserAgent/Features/Adapter/DeviceAtlas.php.xml"/>
+                <file name="TeraWurfl.php" size="3487" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="f198a8a2d50b7ca68ea8fd19a0f040c7c4753179" xml="tokens/thirdparty/Zend/Http/UserAgent/Features/Adapter/TeraWurfl.php.xml"/>
+                <file name="WurflApi.php" size="4350" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="ce39dcb424c0c78d9095328fa70c0d83a9febc7a" xml="tokens/thirdparty/Zend/Http/UserAgent/Features/Adapter/WurflApi.php.xml"/>
+              </dir>
+            </dir>
+            <file name="Exception.php" size="1071" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="fed75d276cd81d479c329bb78a5a5053d2191111" xml="tokens/thirdparty/Zend/Http/UserAgent/Exception.php.xml"/>
+            <file name="Offline.php" size="1855" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="e4a9f91898f0e86db87e336cd9673803268d93b6" xml="tokens/thirdparty/Zend/Http/UserAgent/Offline.php.xml"/>
+            <file name="Console.php" size="1794" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="2197395d0ba836a26ace3b1da3da5599ae6a9588" xml="tokens/thirdparty/Zend/Http/UserAgent/Console.php.xml"/>
+            <file name="Text.php" size="3009" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="94904e27a7e3b64deb691c436e4a5a1659a7ed2c" xml="tokens/thirdparty/Zend/Http/UserAgent/Text.php.xml"/>
+            <dir name="Storage">
+              <file name="Exception.php" size="1111" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="5ff0b38b96e4d1f2e9161cd5765c6b2f76456b8d" xml="tokens/thirdparty/Zend/Http/UserAgent/Storage/Exception.php.xml"/>
+              <file name="Session.php" size="4274" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1e3a7df14b4c7c1d3b7eceb23ab49f9f72bc2604" xml="tokens/thirdparty/Zend/Http/UserAgent/Storage/Session.php.xml"/>
+              <file name="NonPersistent.php" size="2690" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="f440dbe5af696daf3e013c6dfd0e3c2c32256585" xml="tokens/thirdparty/Zend/Http/UserAgent/Storage/NonPersistent.php.xml"/>
+            </dir>
+            <file name="Desktop.php" size="1522" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="789b33bf384b3d47474c6ec9378db8cb9e75578a" xml="tokens/thirdparty/Zend/Http/UserAgent/Desktop.php.xml"/>
+            <file name="Probe.php" size="2219" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="bf323ae48fb4be96a70a632e2a9bac209c72b85f" xml="tokens/thirdparty/Zend/Http/UserAgent/Probe.php.xml"/>
+            <file name="Mobile.php" size="12135" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1e7096534be7930cb54c121ef1110a348bc76dd3" xml="tokens/thirdparty/Zend/Http/UserAgent/Mobile.php.xml"/>
+            <file name="Email.php" size="1755" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="e5804acb8be24f93194426688f2773aacdbffeac" xml="tokens/thirdparty/Zend/Http/UserAgent/Email.php.xml"/>
+            <file name="Device.php" size="4510" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="db46e146e10d455da68b2915d7e6484bdd820e81" xml="tokens/thirdparty/Zend/Http/UserAgent/Device.php.xml"/>
+            <file name="Spam.php" size="2197" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="d5a3917451188bc2007381da9bab03d2ed955b41" xml="tokens/thirdparty/Zend/Http/UserAgent/Spam.php.xml"/>
+            <file name="AbstractDevice.php" size="31719" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="69e6f69fddc9065684fad4b194078f1aeea021dd" xml="tokens/thirdparty/Zend/Http/UserAgent/AbstractDevice.php.xml"/>
+            <file name="Checker.php" size="1948" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="e268bbabf8ac53d5a1ec360938b3effcf76bc426" xml="tokens/thirdparty/Zend/Http/UserAgent/Checker.php.xml"/>
+            <file name="Bot.php" size="3048" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="17f6cb338db931b12a9f2931f782f95ce7ab47f0" xml="tokens/thirdparty/Zend/Http/UserAgent/Bot.php.xml"/>
+            <file name="Storage.php" size="2020" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="4d008791d65eabcb6d1ac373921c30b673ec2387" xml="tokens/thirdparty/Zend/Http/UserAgent/Storage.php.xml"/>
+            <file name="Feed.php" size="2206" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="23d7c8903e206fcb207e220ed4eb4bbd77441e09" xml="tokens/thirdparty/Zend/Http/UserAgent/Feed.php.xml"/>
+          </dir>
+          <file name="Cookie.php" size="12055" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="2cd57233299ade11988cee16f956f422bc4f8fe8" xml="tokens/thirdparty/Zend/Http/Cookie.php.xml"/>
+          <dir name="Client">
+            <file name="Exception.php" size="1160" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="6faa1528821648660a33268c3cd9b04655246d1a" xml="tokens/thirdparty/Zend/Http/Client/Exception.php.xml"/>
+            <dir name="Adapter">
+              <file name="Exception.php" size="1237" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="33ef61fd90278e5580620a9994dc54faba06be49" xml="tokens/thirdparty/Zend/Http/Client/Adapter/Exception.php.xml"/>
+              <file name="Interface.php" size="2242" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="48ce52a70a0d8d2d281448231eebaeca65d83cc2" xml="tokens/thirdparty/Zend/Http/Client/Adapter/Interface.php.xml"/>
+              <file name="Proxy.php" size="9460" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="72820257e297fcafeba91afc98b85c8f48cc623b" xml="tokens/thirdparty/Zend/Http/Client/Adapter/Proxy.php.xml"/>
+              <file name="Test.php" size="6564" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="82815c9a43c1cdfc7c3cfd3b035811656e128d50" xml="tokens/thirdparty/Zend/Http/Client/Adapter/Test.php.xml"/>
+              <file name="Curl.php" size="16977" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="0a5b992ff247ef3bad9166f7f41a8674f6194e37" xml="tokens/thirdparty/Zend/Http/Client/Adapter/Curl.php.xml"/>
+              <file name="Socket.php" size="18508" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="18340b0ced92490f6b1b7e3012d8f313aa7a8557" xml="tokens/thirdparty/Zend/Http/Client/Adapter/Socket.php.xml"/>
+              <file name="Stream.php" size="1468" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="4029b0f677d43de1d65199135d541bab1afaafcd" xml="tokens/thirdparty/Zend/Http/Client/Adapter/Stream.php.xml"/>
+            </dir>
+          </dir>
+          <file name="CookieJar.php" size="13108" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="133f4bda0b944b59a8bc6f121c3e277379ba353c" xml="tokens/thirdparty/Zend/Http/CookieJar.php.xml"/>
+          <dir name="Response">
+            <file name="Stream.php" size="6360" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="dd41b11080eb8dcbb09a3d40f84a6b44cb0e75a2" xml="tokens/thirdparty/Zend/Http/Response/Stream.php.xml"/>
+          </dir>
+          <file name="Response.php" size="18594" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="f340f84abb07baf34212a1265f5b3d7ab1c20291" xml="tokens/thirdparty/Zend/Http/Response.php.xml"/>
+        </dir>
+        <dir name="Crypt">
+          <file name="Exception.php" size="1087" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="70a431bdbd00c47844b084e3776ad94ee77b911a" xml="tokens/thirdparty/Zend/Crypt/Exception.php.xml"/>
+          <file name="Hmac.php" size="5654" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="e54f744615e7ccf29a49c0b950c78fd816966e41" xml="tokens/thirdparty/Zend/Crypt/Hmac.php.xml"/>
+          <file name="DiffieHellman.php" size="12375" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="efe5edf80dd0f944c6afb949d0ce8a7ce9db4ab3" xml="tokens/thirdparty/Zend/Crypt/DiffieHellman.php.xml"/>
+          <dir name="Hmac">
+            <file name="Exception.php" size="1130" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="81b9d013dc61aca8054a472c1ae1dc9d48d1e805" xml="tokens/thirdparty/Zend/Crypt/Hmac/Exception.php.xml"/>
+          </dir>
+          <file name="Rsa.php" size="9133" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="559e07bb4893213fbcb8d95ca745cd4d35cecee8" xml="tokens/thirdparty/Zend/Crypt/Rsa.php.xml"/>
+          <file name="Math.php" size="2856" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="0aa70d6c9dd8cf2e86b353f15ea1ff02f1d6a1da" xml="tokens/thirdparty/Zend/Crypt/Math.php.xml"/>
+          <dir name="DiffieHellman">
+            <file name="Exception.php" size="1148" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="2ca59054b8d0eb8569e37ad61f38f0314d108871" xml="tokens/thirdparty/Zend/Crypt/DiffieHellman/Exception.php.xml"/>
+          </dir>
+          <dir name="Rsa">
+            <file name="Exception.php" size="1131" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="5bdb8b33313c7d41f3bd94872982006c6229de14" xml="tokens/thirdparty/Zend/Crypt/Rsa/Exception.php.xml"/>
+            <file name="Key.php" size="2292" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="aca45fde97c1815d7788553d483c4bd2b289b87d" xml="tokens/thirdparty/Zend/Crypt/Rsa/Key.php.xml"/>
+            <dir name="Key">
+              <file name="Public.php" size="2158" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="a33b450b853bc8d067612202300ba90a205c720c" xml="tokens/thirdparty/Zend/Crypt/Rsa/Key/Public.php.xml"/>
+              <file name="Private.php" size="2243" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="3657e15de412d981afa2d95458459c59807e0f41" xml="tokens/thirdparty/Zend/Crypt/Rsa/Key/Private.php.xml"/>
+            </dir>
+          </dir>
+          <dir name="Math">
+            <file name="Exception.php" size="1130" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="6cc5e17b28d8e93c367721c9a8f5f06e45847f3c" xml="tokens/thirdparty/Zend/Crypt/Math/Exception.php.xml"/>
+            <dir name="BigInteger">
+              <file name="Exception.php" size="1156" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="f6628a419b4d2f0d92893acada4b334d0be25192" xml="tokens/thirdparty/Zend/Crypt/Math/BigInteger/Exception.php.xml"/>
+              <file name="Gmp.php" size="5269" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="af9050ff9e76750fccefb9a0de0374a26df4344d" xml="tokens/thirdparty/Zend/Crypt/Math/BigInteger/Gmp.php.xml"/>
+              <file name="Interface.php" size="1891" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="729525fa55781dd1425d6cb0bc430b1abb5c7eb1" xml="tokens/thirdparty/Zend/Crypt/Math/BigInteger/Interface.php.xml"/>
+              <file name="Bcmath.php" size="5343" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="821ad28ac2ec9910d46f102e450285b941d0f435" xml="tokens/thirdparty/Zend/Crypt/Math/BigInteger/Bcmath.php.xml"/>
+            </dir>
+            <file name="BigInteger.php" size="4669" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="8f84e2f12b5bf6cfb3398fda880094eb5525f31f" xml="tokens/thirdparty/Zend/Crypt/Math/BigInteger.php.xml"/>
+          </dir>
+        </dir>
+        <dir name="Uri">
+          <file name="Exception.php" size="1105" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="cbc59dc7fdaed6d66dc60ec237d0fab215382493" xml="tokens/thirdparty/Zend/Uri/Exception.php.xml"/>
+          <file name="Http.php" size="24092" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="36cfb9a5096d863c237024223a799b2e51dc7bdc" xml="tokens/thirdparty/Zend/Uri/Http.php.xml"/>
+        </dir>
+        <dir name="Oauth">
+          <file name="Client.php" size="11218" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="9f16bc141fe57be49b921b2108e23a77327ff38c" xml="tokens/thirdparty/Zend/Oauth/Client.php.xml"/>
+          <file name="Exception.php" size="1081" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="589eb795aec3b06475623f0c68814f8243a5bbbb" xml="tokens/thirdparty/Zend/Oauth/Exception.php.xml"/>
+          <dir name="Http">
+            <file name="UserAuthorization.php" size="2249" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="1fce48fa3d6de594546ae626ee3b1a6dc8f4b996" xml="tokens/thirdparty/Zend/Oauth/Http/UserAuthorization.php.xml"/>
+            <file name="RequestToken.php" size="5451" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="b4b7a9bb1ecb26e0f501a9512dab7df6d2f0636a" xml="tokens/thirdparty/Zend/Oauth/Http/RequestToken.php.xml"/>
+            <file name="Utility.php" size="6601" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="6ba2eccd715bdad0a941307c86c35e4c3f6862bc" xml="tokens/thirdparty/Zend/Oauth/Http/Utility.php.xml"/>
+            <file name="AccessToken.php" size="6477" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="7bf181bf5c53fe0cdd3bc0c6ff7670608c4562da" xml="tokens/thirdparty/Zend/Oauth/Http/AccessToken.php.xml"/>
+          </dir>
+          <dir name="Token">
+            <file name="AuthorizedRequest.php" size="2625" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="24e8b38f058f5845bf26a587ccf0ef6839662627" xml="tokens/thirdparty/Zend/Oauth/Token/AuthorizedRequest.php.xml"/>
+            <file name="Request.php" size="1623" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="3b0d75a2465126f5ed0c2108ae622146eb49d32b" xml="tokens/thirdparty/Zend/Oauth/Token/Request.php.xml"/>
+            <file name="Access.php" size="3227" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="af21feb8ac4cb7b58594f3dd6760ebc17aae70ce" xml="tokens/thirdparty/Zend/Oauth/Token/Access.php.xml"/>
+          </dir>
+          <dir name="Signature">
+            <file name="Hmac.php" size="1709" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="cf136e556fd5afd622cc3fe1eb4ac998fb4cf179" xml="tokens/thirdparty/Zend/Oauth/Signature/Hmac.php.xml"/>
+            <file name="Rsa.php" size="1896" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="4bd6902c654cfd3ed750840361d58bf2a3f4a10f" xml="tokens/thirdparty/Zend/Oauth/Signature/Rsa.php.xml"/>
+            <file name="Plaintext.php" size="1616" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="20554fe5394d7a0193b0aa9ff18a815fbefe4f03" xml="tokens/thirdparty/Zend/Oauth/Signature/Plaintext.php.xml"/>
+            <file name="SignatureAbstract.php" size="5217" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="2642d2370bef79faa1aabb078ab5cf70dc37d916" xml="tokens/thirdparty/Zend/Oauth/Signature/SignatureAbstract.php.xml"/>
+          </dir>
+          <file name="Token.php" size="7191" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="f6f8d80d11dbecd8998d06ac6061dc39be3c0262" xml="tokens/thirdparty/Zend/Oauth/Token.php.xml"/>
+          <dir name="Config">
+            <file name="ConfigInterface.php" size="2112" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="4c50a4a1fa782f73d0e402eff8403b58f492c646" xml="tokens/thirdparty/Zend/Oauth/Config/ConfigInterface.php.xml"/>
+          </dir>
+          <file name="Http.php" size="8221" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="8ddb5a824ccd6cc908b9abd6752f41fc8c55d98a" xml="tokens/thirdparty/Zend/Oauth/Http.php.xml"/>
+          <file name="Consumer.php" size="9468" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="6bf0345a8ed6f433d2d2004eceb05d6c4bc39984" xml="tokens/thirdparty/Zend/Oauth/Consumer.php.xml"/>
+          <file name="Config.php" size="17400" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="f502659ac591a5b75422f2929b30ff143a4fd968" xml="tokens/thirdparty/Zend/Oauth/Config.php.xml"/>
+        </dir>
+        <file name="Oauth.php" size="2725" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="c5181995070282441fa6fc8af99552df3415e94a" xml="tokens/thirdparty/Zend/Oauth.php.xml"/>
+        <dir name="Loader">
+          <file name="Exception.php" size="1119" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="8f8d37ed04d663627f6738a72ef1a49676eea0e0" xml="tokens/thirdparty/Zend/Loader/Exception.php.xml"/>
+          <dir name="Autoloader">
+            <file name="Resource.php" size="14620" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="fe46ac6c8d6b9e0ce2fa9ec2d1affb803fca0fc1" xml="tokens/thirdparty/Zend/Loader/Autoloader/Resource.php.xml"/>
+            <file name="Interface.php" size="1347" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="af0d5f906c56c92e10501fc03af71c8beb68f090" xml="tokens/thirdparty/Zend/Loader/Autoloader/Interface.php.xml"/>
+          </dir>
+          <file name="PluginLoader.php" size="14749" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="58ae3bd1ade87a8ae15b007754887081dc72390b" xml="tokens/thirdparty/Zend/Loader/PluginLoader.php.xml"/>
+          <file name="Autoloader.php" size="16892" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="2f6d7f8ad79850575fbe175990d7a2aec1091cfb" xml="tokens/thirdparty/Zend/Loader/Autoloader.php.xml"/>
+          <dir name="PluginLoader">
+            <file name="Exception.php" size="1218" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="dd4be6c22d154ba203ef1226f7a2bfdd90a1ede4" xml="tokens/thirdparty/Zend/Loader/PluginLoader/Exception.php.xml"/>
+            <file name="Interface.php" size="2071" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="781193fcc433b8bcaf74e3d13902e7b3d3c5d77a" xml="tokens/thirdparty/Zend/Loader/PluginLoader/Interface.php.xml"/>
+          </dir>
+        </dir>
+      </dir>
+      <dir name="twitter">
+        <file name="Exception.php" size="167" time="2015-03-14T10:24:19+13:00" unixtime="1426281859" sha1="ae6762aca0d1d5476194021388de633b83fbc7ab" xml="tokens/thirdparty/twitter/Exception.php.xml"/>
+        <dir name="tests">
+          <file name="TwitterTest.php" size="33537" time="2015-03-14T10:24:19+13:00" unixtime="1426281859" sha1="ce244e29bd077f4242a4fbb4dc23465a86bdaf7f" xml="tokens/thirdparty/twitter/tests/TwitterTest.php.xml"/>
+          <file name="index.php" size="6236" time="2015-03-14T10:24:19+13:00" unixtime="1426281859" sha1="c7722449e3a40a83ef8e028ad0c53a0136f27c36" xml="tokens/thirdparty/twitter/tests/index.php.xml"/>
+        </dir>
+        <file name="Twitter.php" size="136745" time="2015-03-14T10:24:19+13:00" unixtime="1426281859" sha1="32e61de2d92e5225e7c202dd63c9171cafccb617" xml="tokens/thirdparty/twitter/Twitter.php.xml"/>
+      </dir>
+      <dir name="facebook">
+        <dir name="tests">
+          <file name="bootstrap.php" size="125" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="cc5d64fece0a47efc08579695337d41f5109c0e1" xml="tokens/thirdparty/facebook/tests/bootstrap.php.xml"/>
+          <file name="tests.php" size="66023" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="5e230162d9b8fb1ce995b0f36119844bc57eb2eb" xml="tokens/thirdparty/facebook/tests/tests.php.xml"/>
+        </dir>
+        <dir name="src">
+          <file name="facebook.php" size="5217" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="39364fcc1414c452ad99f64db2f00fe252c4b445" xml="tokens/thirdparty/facebook/src/facebook.php.xml"/>
+          <file name="base_facebook.php" size="42273" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="98bf8a42abba728fad7d8a764440d19a2d5b5dd1" xml="tokens/thirdparty/facebook/src/base_facebook.php.xml"/>
+        </dir>
+        <dir name="examples">
+          <file name="with_js_sdk.php" size="1547" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="db247833584bdd11e7af50ec239af45413156388" xml="tokens/thirdparty/facebook/examples/with_js_sdk.php.xml"/>
+          <file name="example.php" size="2840" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="41dbed9b06d7d22dfbeae72c2b0945b7aa8ab895" xml="tokens/thirdparty/facebook/examples/example.php.xml"/>
+        </dir>
+      </dir>
+    </dir>
+  </dir>
+</source>

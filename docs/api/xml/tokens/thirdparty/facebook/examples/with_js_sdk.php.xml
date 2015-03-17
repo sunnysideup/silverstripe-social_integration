@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/facebook/examples" file="with_js_sdk.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/facebook/examples/with_js_sdk.php" size="1547" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="db247833584bdd11e7af50ec239af45413156388" relative="thirdparty/facebook/examples/with_js_sdk.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2"/>
+  <line no="3">
+    <token name="T_REQUIRE">require</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'../src/facebook.php'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="4"/>
+  <line no="5">
+    <token name="T_VARIABLE">$facebook</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NEW">new</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Facebook</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_ARRAY">array</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="6">
+    <token name="T_WHITESPACE">  </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'appId'</token>
+    <token name="T_WHITESPACE">  </token>
+    <token name="T_DOUBLE_ARROW">=&gt;</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'344617158898614'</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="7">
+    <token name="T_WHITESPACE">  </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'secret'</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_DOUBLE_ARROW">=&gt;</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'6dc8ac871858b34798bc2488200e503d'</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="8">
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9"/>
+  <line no="10">
+    <token name="T_COMMENT">// See if there is a user from a cookie</token>
+  </line>
+  <line no="11">
+    <token name="T_VARIABLE">$user</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$facebook</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getUser</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="12"/>
+  <line no="13">
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$user</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="14">
+    <token name="T_WHITESPACE">  </token>
+    <token name="T_TRY">try</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="15">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_COMMENT">// Proceed knowing you have a logged in user who's authenticated.</token>
+  </line>
+  <line no="16">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_VARIABLE">$user_profile</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$facebook</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">api</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'/me'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="17">
+    <token name="T_WHITESPACE">  </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CATCH">catch</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">FacebookApiException</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$e</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="18">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_ECHO">echo</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'&lt;pre&gt;'</token>
+    <token name="T_PHPDOX_DOT">.</token>
+    <token name="T_STRING">htmlspecialchars</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">print_r</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$e</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_DOT">.</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'&lt;/pre&gt;'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="19">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_VARIABLE">$user</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">null</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="20">
+    <token name="T_WHITESPACE">  </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="21">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="22"/>
+  <line no="23">
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="24">
+    <token name="T_INLINE_HTML">&lt;!DOCTYPE html&gt;</token>
+  </line>
+  <line no="25">
+    <token name="T_INLINE_HTML">&lt;html xmlns:fb="http://www.facebook.com/2008/fbml"&gt;</token>
+  </line>
+  <line no="26">
+    <token name="T_INLINE_HTML">  &lt;body&gt;</token>
+  </line>
+  <line no="27">
+    <token name="T_INLINE_HTML">    </token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$user</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="28">
+    <token name="T_INLINE_HTML">      Your user profile is</token>
+  </line>
+  <line no="29">
+    <token name="T_INLINE_HTML">      &lt;pre&gt;</token>
+  </line>
+  <line no="30">
+    <token name="T_INLINE_HTML">        </token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_PRINT">print</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">htmlspecialchars</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">print_r</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$user_profile</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="31">
+    <token name="T_INLINE_HTML">      &lt;/pre&gt;</token>
+  </line>
+  <line no="32">
+    <token name="T_INLINE_HTML">    </token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_ELSE">else</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="33">
+    <token name="T_INLINE_HTML">      &lt;fb:login-button&gt;&lt;/fb:login-button&gt;</token>
+  </line>
+  <line no="34">
+    <token name="T_INLINE_HTML">    </token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="35">
+    <token name="T_INLINE_HTML">    &lt;div id="fb-root"&gt;&lt;/div&gt;</token>
+  </line>
+  <line no="36">
+    <token name="T_INLINE_HTML">    &lt;script&gt;</token>
+  </line>
+  <line no="37">
+    <token name="T_INLINE_HTML">      window.fbAsyncInit = function() {</token>
+  </line>
+  <line no="38">
+    <token name="T_INLINE_HTML">        FB.init({</token>
+  </line>
+  <line no="39">
+    <token name="T_INLINE_HTML">          appId: '</token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_ECHO">echo</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$facebook</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getAppID</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+    <token name="T_INLINE_HTML">',</token>
+  </line>
+  <line no="40">
+    <token name="T_INLINE_HTML">          cookie: true,</token>
+  </line>
+  <line no="41">
+    <token name="T_INLINE_HTML">          xfbml: true,</token>
+  </line>
+  <line no="42">
+    <token name="T_INLINE_HTML">          oauth: true</token>
+  </line>
+  <line no="43">
+    <token name="T_INLINE_HTML">        });</token>
+  </line>
+  <line no="44">
+    <token name="T_INLINE_HTML">        FB.Event.subscribe('auth.login', function(response) {</token>
+  </line>
+  <line no="45">
+    <token name="T_INLINE_HTML">          window.location.reload();</token>
+  </line>
+  <line no="46">
+    <token name="T_INLINE_HTML">        });</token>
+  </line>
+  <line no="47">
+    <token name="T_INLINE_HTML">        FB.Event.subscribe('auth.logout', function(response) {</token>
+  </line>
+  <line no="48">
+    <token name="T_INLINE_HTML">          window.location.reload();</token>
+  </line>
+  <line no="49">
+    <token name="T_INLINE_HTML">        });</token>
+  </line>
+  <line no="50">
+    <token name="T_INLINE_HTML">      };</token>
+  </line>
+  <line no="51">
+    <token name="T_INLINE_HTML">      (function() {</token>
+  </line>
+  <line no="52">
+    <token name="T_INLINE_HTML">        var e = document.createElement('script'); e.async = true;</token>
+  </line>
+  <line no="53">
+    <token name="T_INLINE_HTML">        e.src = document.location.protocol +</token>
+  </line>
+  <line no="54">
+    <token name="T_INLINE_HTML">          '//connect.facebook.net/en_US/all.js';</token>
+  </line>
+  <line no="55">
+    <token name="T_INLINE_HTML">        document.getElementById('fb-root').appendChild(e);</token>
+  </line>
+  <line no="56">
+    <token name="T_INLINE_HTML">      }());</token>
+  </line>
+  <line no="57">
+    <token name="T_INLINE_HTML">    &lt;/script&gt;</token>
+  </line>
+  <line no="58">
+    <token name="T_INLINE_HTML">  &lt;/body&gt;</token>
+  </line>
+  <line no="59">
+    <token name="T_INLINE_HTML">&lt;/html&gt;</token>
+  </line>
+  <line no="60"/>
+</source>

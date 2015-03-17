@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Uri_Http" namespace="" name="Zend_Uri_Http" abstract="false" final="false" start="41" end="766">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Uri" file="Http.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Uri/Http.php" size="24092" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="36cfb9a5096d863c237024223a799b2e51dc7bdc" relative="thirdparty/Zend/Uri/Http.php"/>
+  <docblock>
+    <description compact="HTTP(S) URI handler"/>
+    <category value="Zend"/>
+    <package value="Zend_Uri"/>
+    <uses value="Zend_Uri"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Uri" namespace="" name="Zend_Uri"/>
+  <constant name="CHAR_ALNUM" value="'A-Za-z0-9'">
+    <docblock>
+      <description compact="Character classes for validation regular expressions"/>
+    </docblock>
+  </constant>
+  <constant name="CHAR_MARK" value="'-_.!~*\'()\[\]'"/>
+  <constant name="CHAR_RESERVED" value="';\/?:@&amp;=+$,'"/>
+  <constant name="CHAR_SEGMENT" value="':@&amp;=+$,;'"/>
+  <constant name="CHAR_UNWISE" value="'{}|\\\\^`'"/>
+  <member name="_username" type="string" default="''" visibility="protected" line="57">
+    <docblock>
+      <description compact="HTTP username"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_password" type="string" default="''" visibility="protected" line="64">
+    <docblock>
+      <description compact="HTTP password"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_host" type="string" default="''" visibility="protected" line="71">
+    <docblock>
+      <description compact="HTTP host"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_port" type="string" default="''" visibility="protected" line="78">
+    <docblock>
+      <description compact="HTTP post"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_path" type="string" default="''" visibility="protected" line="85">
+    <docblock>
+      <description compact="HTTP part"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_query" type="string" default="''" visibility="protected" line="92">
+    <docblock>
+      <description compact="HTTP query"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_fragment" type="string" default="''" visibility="protected" line="99">
+    <docblock>
+      <description compact="HTTP fragment"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_regex" type="array" visibility="protected" line="106">
+    <docblock>
+      <description compact="Regular expression grammar rules for validation; values added by constructor"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="116" end="158" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Constructor accepts a string $scheme (e.g., http, https) and a scheme-specific part of the URI (e.g., example.com/path/to/resource?query=param#fragment)"/>
+      <param description="The scheme of the URI" type="string" variable="$scheme"/>
+      <param description="The scheme-specific part of the URI" type="string" variable="$schemeSpecific"/>
+      <throws description="When the URI is not valid" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="scheme" byreference="false" type="{unknown}"/>
+    <parameter name="schemeSpecific" byreference="false" type="string" default="''"/>
+    <inline>
+      <comment value="Set the scheme" line="118"/>
+      <comment value="Set up grammar rules for validation via regular expressions. These" line="121"/>
+      <comment value="are to be used with slash-delimited regular expression strings." line="122"/>
+      <comment value="Escaped special characters (eg. '%25' for '%')" line="124"/>
+      <comment value="Unreserved characters" line="127"/>
+      <comment value="Segment can use escaped, unreserved or a set of additional chars" line="130"/>
+      <comment value="Path can be a series of segmets char strings seperated by '/'" line="134"/>
+      <comment value="URI characters can be escaped, alphanumeric, mark or reserved chars" line="137"/>
+      <comment value="If no scheme-specific part was supplied, the user intends to create" line="144"/>
+      <comment value="a new URI with this object.  No further parsing is required." line="145"/>
+      <comment value="Parse the scheme-specific URI parts into the instance variables." line="150"/>
+      <comment value="Validate the URI" line="153"/>
+    </inline>
+  </constructor>
+  <method name="fromString" start="170" end="189" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Creates a Zend_Uri_Http from the given string"/>
+      <param description="String to create URI from, must start with" type="string" variable="$uri">'http://' or 'https://'</param>
+      <throws description="When the given $uri is not a string or" type="object">does not start with http:// or https://<type full="InvalidArgumentException" namespace="" name="InvalidArgumentException"/></throws>
+      <throws description="When the given $uri is invalid" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="object">
+        <type full="Zend_Uri_Http" namespace="" name="Zend_Uri_Http"/>
+      </return>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_parseUri" start="199" end="235" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse the scheme-specific portion of the URI and place its parts into instance variables."/>
+      <param description="The scheme-specific portion to parse" type="string" variable="$schemeSpecific"/>
+      <throws description="When scheme-specific decoposition fails" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <throws description="When authority decomposition fails" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="schemeSpecific" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="High-level decomposition parser" line="201"/>
+      <comment value="Failed decomposition; no further processing needed" line="209"/>
+      <comment value="Save URI components that need no further decomposition" line="214"/>
+      <comment value="Additional decomposition to get username, password, host, and port" line="219"/>
+      <comment value="Save remaining URI components" line="228"/>
+    </inline>
+  </method>
+  <method name="getUri" start="244" end="265" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a URI based on current values of the instance variables. If any part of the URI does not pass validation, then an exception is thrown."/>
+      <throws description="When one or more parts of the URI are invalid" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="valid" start="273" end="283" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate the current URI from the instance variables. Returns true if and only if all parts pass validation."/>
+      <return type="boolean"/>
+    </docblock>
+    <inline>
+      <comment value="Return true if and only if all parts of the URI have passed validation" line="275"/>
+    </inline>
+  </method>
+  <method name="getUsername" start="290" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the username portion of the URL, or FALSE if none."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="validateUsername" start="304" end="325" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if the username passes validation. If no username is passed, then the username contained in the instance variable is used."/>
+      <param description="The HTTP username" type="string" variable="$username"/>
+      <throws description="When username validation fails" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="boolean"/>
+      <link value="http://www.faqs.org/rfcs/rfc2396.html"/>
+    </docblock>
+    <parameter name="username" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If the username is empty, then it is considered valid" line="310"/>
+      <comment value="Check the username against the allowed values" line="315"/>
+    </inline>
+  </method>
+  <method name="setUsername" start="334" end="345" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the username for the current URI, and returns the old username"/>
+      <param description="The HTTP username" type="string" variable="$username"/>
+      <throws description="When $username is not a valid HTTP username" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="username" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPassword" start="352" end="355" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the password portion of the URL, or FALSE if none."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="validatePassword" start="366" end="392" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if the password passes validation. If no password is passed, then the password contained in the instance variable is used."/>
+      <param description="The HTTP password" type="string" variable="$password"/>
+      <throws description="When password validation fails" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="boolean"/>
+      <link value="http://www.faqs.org/rfcs/rfc2396.html"/>
+    </docblock>
+    <parameter name="password" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If the password is empty, then it is considered valid" line="372"/>
+      <comment value="If the password is nonempty, but there is no username, then it is considered invalid" line="377"/>
+      <comment value="Check the password against the allowed values" line="382"/>
+    </inline>
+  </method>
+  <method name="setPassword" start="401" end="412" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the password for the current URI, and returns the old password"/>
+      <param description="The HTTP password" type="string" variable="$password"/>
+      <throws description="When $password is not a valid HTTP password" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="password" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getHost" start="419" end="422" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the domain or host IP portion of the URL, or FALSE if none."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="validateHost" start="432" end="447" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if the host string passes validation. If no host is passed, then the host contained in the instance variable is used."/>
+      <param description="The HTTP host" type="string" variable="$host"/>
+      <return type="boolean"/>
+      <uses value="Zend_Filter"/>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If the host is empty, then it is considered invalid" line="438"/>
+      <comment value="Check the host against the allowed values; delegated to Zend_Filter." line="443"/>
+    </inline>
+  </method>
+  <method name="setHost" start="456" end="467" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the host for the current URI, and returns the old host"/>
+      <param description="The HTTP host" type="string" variable="$host"/>
+      <throws description="When $host is nota valid HTTP host" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPort" start="474" end="477" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the TCP port, or FALSE if none."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="validatePort" start="486" end="499" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if the TCP port string passes validation. If no port is passed, then the port contained in the instance variable is used."/>
+      <param description="The HTTP port" type="string" variable="$port"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="port" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If the port is empty, then it is considered valid" line="492"/>
+      <comment value="Check the port against the allowed values" line="497"/>
+    </inline>
+  </method>
+  <method name="setPort" start="508" end="519" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the port for the current URI, and returns the old port"/>
+      <param description="The HTTP port" type="string" variable="$port"/>
+      <throws description="When $port is not a valid HTTP port" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="port" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPath" start="526" end="529" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the path and filename portion of the URL."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="validatePath" start="539" end="559" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if the path string passes validation. If no path is passed, then the path contained in the instance variable is used."/>
+      <param description="The HTTP path" type="string" variable="$path"/>
+      <throws description="When path validation fails" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If the path is empty, then it is considered valid" line="545"/>
+      <comment value="Determine whether the path is well-formed" line="550"/>
+    </inline>
+  </method>
+  <method name="setPath" start="568" end="579" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the path for the current URI, and returns the old path"/>
+      <param description="The HTTP path" type="string" variable="$path"/>
+      <throws description="When $path is not a valid HTTP path" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getQuery" start="586" end="589" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the query portion of the URL (after ?), or FALSE if none."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getQueryAsArray" start="598" end="606" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the query portion of the URL (after ?) as a key-value-array. If the query is empty an empty array is returned"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="validateQuery" start="617" end="637" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if the query string passes validation. If no query is passed, then the query string contained in the instance variable is used."/>
+      <param description="The query to validate" type="string" variable="$query"/>
+      <throws description="When query validation fails" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="boolean"/>
+      <link value="http://www.faqs.org/rfcs/rfc2396.html"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If query is empty, it is considered to be valid" line="623"/>
+      <comment value="Determine whether the query is well-formed" line="628"/>
+    </inline>
+  </method>
+  <method name="addReplaceQueryParameters" start="646" end="650" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add or replace params in the query string for the current URI, and return the old query."/>
+      <param type="array" variable="$queryParams"/>
+      <return description="Old query string" type="string"/>
+    </docblock>
+    <parameter name="queryParams" byreference="false" type="array"/>
+  </method>
+  <method name="removeQueryParameters" start="659" end="663" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove params in the query string for the current URI, and return the old query."/>
+      <param type="array" variable="$queryParamKeys"/>
+      <return description="Old query string" type="string"/>
+    </docblock>
+    <parameter name="queryParamKeys" byreference="false" type="array"/>
+  </method>
+  <method name="setQuery" start="673" end="704" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the query string for the current URI, and return the old query string This method accepts both strings and arrays."/>
+      <param description="The query string or array" type="object" variable="$query">
+        <type full="string|array" namespace="" name="string|array"/>
+      </param>
+      <throws description="When $query is not a valid query string" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return description="Old query string" type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If query is empty, set an empty string" line="677"/>
+      <comment value="If query is an array, make a string out of it" line="683"/>
+      <comment value="Make sure the query is valid, and set it" line="695"/>
+    </inline>
+  </method>
+  <method name="getFragment" start="711" end="714" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the fragment portion of the URL (after #), or FALSE if none."/>
+      <return type="object">
+        <type full="string|false" namespace="" name="string|false"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="validateFragment" start="725" end="745" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if the fragment passes validation. If no fragment is passed, then the fragment contained in the instance variable is used."/>
+      <param description="Fragment of an URI" type="string" variable="$fragment"/>
+      <throws description="When fragment validation fails" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="boolean"/>
+      <link value="http://www.faqs.org/rfcs/rfc2396.html"/>
+    </docblock>
+    <parameter name="fragment" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If fragment is empty, it is considered to be valid" line="731"/>
+      <comment value="Determine whether the fragment is well-formed" line="736"/>
+    </inline>
+  </method>
+  <method name="setFragment" start="754" end="765" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the fragment for the current URI, and returns the old fragment"/>
+      <param description="Fragment of the current URI" type="string" variable="$fragment"/>
+      <throws description="When $fragment is not a valid HTTP fragment" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="fragment" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Zend_Uri" namespace="" name="Zend_Uri">
+    <member name="_scheme" type="string" default="''" visibility="protected" line="37">
+      <docblock>
+        <description compact="Scheme of this URI (http, ftp, etc.)"/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <member name="_config" type="array" visibility="protected" line="44">
+      <docblock>
+        <description compact="Global configuration array"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <method name="__toString" start="54" end="62" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a string representation of this URI."/>
+        <see value="getUri()"/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="check" start="72" end="81" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Convenience function, checks that a $uri string is well-formed by validating it but not returning an object.  Returns TRUE if $uri is a well-formed URI, or FALSE otherwise."/>
+        <param description="The URI to check" type="string" variable="$uri"/>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="uri" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="factory" start="96" end="151" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Create a new Zend_Uri object for a URI.  If building a new URI, then $uri should contain only the scheme (http, ftp, etc).  Otherwise, supply $uri with the complete URI."/>
+        <param description="The URI form which a Zend_Uri instance is created" type="string" variable="$uri"/>
+        <param description="The name of the class to use in order to manipulate URI" type="string" variable="$className"/>
+        <throws description="When an empty string was supplied for the scheme" type="object">
+          <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+        </throws>
+        <throws description="When an illegal scheme is supplied" type="object">
+          <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+        </throws>
+        <throws description="When the scheme is not supported" type="object">
+          <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+        </throws>
+        <throws description="When $className doesn't exist or doesn't implements Zend_Uri" type="object">
+          <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="Zend_Uri" namespace="" name="Zend_Uri"/>
+        </return>
+        <link value="http://www.faqs.org/rfcs/rfc2396.html"/>
+      </docblock>
+      <parameter name="uri" byreference="false" type="string" default="'http'"/>
+      <parameter name="className" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Separate the scheme from the scheme-specific parts" line="98"/>
+        <comment value="Security check: $scheme is used to load a class file, so only alphanumerics are allowed." line="108"/>
+        <comment value="Create a new Zend_Uri object for the $uri. If a subclass of Zend_Uri exists for the" line="115"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="scheme, return an instance of that class. Otherwise, a Zend_Uri_Exception is thrown." line="116"/>
+      </inline>
+    </method>
+    <method name="getScheme" start="158" end="165" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the URI's scheme"/>
+        <return description="Scheme or false if no scheme is set." type="object">
+          <type full="string|false" namespace="" name="string|false"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setConfig" start="172" end="183" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set global configuration options"/>
+        <param type="object" variable="$config">
+          <type full="Zend_Config|array" namespace="" name="Zend_Config|array"/>
+        </param>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+    <constructor name="__construct" start="192" end="192" abstract="true" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Zend_Uri and its subclasses cannot be instantiated directly.">Use Zend_Uri::factory() to return a new Zend_Uri object.</description>
+        <param description="The scheme of the URI" type="string" variable="$scheme"/>
+        <param description="The scheme-specific part of the URI" type="string" variable="$schemeSpecific"/>
+      </docblock>
+      <parameter name="scheme" byreference="false" type="{unknown}"/>
+      <parameter name="schemeSpecific" byreference="false" type="string" default="''"/>
+    </constructor>
+    <method name="getUri" start="199" end="199" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a string representation of this URI."/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="valid" start="206" end="206" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE if this URI is valid, or FALSE otherwise."/>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - PHPSDKTestCase</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">PHPSDKTestCase</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/facebook/tests/tests.php.xhtml#line18">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>PHPSDKTestCase</h1>
+        <h4>Copyright 2011 Facebook, Inc.</h4>
+        <p>Licensed under the Apache License, Version 2.0 (the "License"); you may<br/>not use this file except in compliance with the License. You may obtain<br/>a copy of the License at<br/><br/>http://www.apache.org/licenses/LICENSE-2.0<br/><br/>Unless required by applicable law or agreed to in writing, software<br/>distributed under the License is distributed on an "AS IS" BASIS, WITHOUT<br/>WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the<br/>License for the specific language governing permissions and limitations<br/>under the License.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class PHPSDKTestCase
+                extends <a title="PHPUnit_Framework_TestCase" href="../classes/PHPUnit_Framework_TestCase.xhtml">PHPUnit_Framework_TestCase</a>
+            {<br/><ul class="none"><li>// constants</li><li>const APP_ID = '117743971608120';</li><li>const SECRET = '943716006e74d9b9283d4d5d8ab93204';</li><li>const MIGRATED_APP_ID = '174236045938435';</li><li>const MIGRATED_SECRET = '0073dce2d95c4a5c2922d1827ea0cca6';</li></ul><ul class="none"><li>// members</li><li>private string <a href="#members">$kExpiredAccessToken</a>;
+                    </li><li>private string <a href="#members">$kValidSignedRequest</a>;
+                    </li><li>private string <a href="#members">$kNonTosedSignedRequest</a>;
+                    </li><li>private string <a href="#members">$kSignedRequestWithBogusSignature</a>;
+                    </li><li>private string <a href="#members">$kSignedRequestWithWrongAlgo</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testConstructor.xhtml">testConstructor</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testConstructorWithFileUpload.xhtml">testConstructorWithFileUpload</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAppId.xhtml">testSetAppId</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAPISecret.xhtml">testSetAPISecret</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAPPSecret.xhtml">testSetAPPSecret</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAccessToken.xhtml">testSetAccessToken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetFileUploadSupport.xhtml">testSetFileUploadSupport</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCurrentURL.xhtml">testGetCurrentURL</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetLoginURL.xhtml">testGetLoginURL</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetLoginURLWithExtraParams.xhtml">testGetLoginURLWithExtraParams</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetLoginURLWithScopeParamsAsArray.xhtml">testGetLoginURLWithScopeParamsAsArray</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCodeWithValidCSRFState.xhtml">testGetCodeWithValidCSRFState</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCodeWithInvalidCSRFState.xhtml">testGetCodeWithInvalidCSRFState</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCodeWithMissingCSRFState.xhtml">testGetCodeWithMissingCSRFState</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserFromSignedRequest.xhtml">testGetUserFromSignedRequest</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetSignedRequestFromCookie.xhtml">testGetSignedRequestFromCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetSignedRequestWithIncorrectSignature.xhtml">testGetSignedRequestWithIncorrectSignature</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNonUserAccessToken.xhtml">testNonUserAccessToken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMissingMetadataCookie.xhtml">testMissingMetadataCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEmptyMetadataCookie.xhtml">testEmptyMetadataCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMetadataCookie.xhtml">testMetadataCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testQuotedMetadataCookie.xhtml">testQuotedMetadataCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIForLoggedOutUsers.xhtml">testAPIForLoggedOutUsers</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIWithBogusAccessToken.xhtml">testAPIWithBogusAccessToken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIGraphPublicData.xhtml">testAPIGraphPublicData</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIWithBogusAccessToken.xhtml">testGraphAPIWithBogusAccessToken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIWithExpiredAccessToken.xhtml">testGraphAPIWithExpiredAccessToken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIMethod.xhtml">testGraphAPIMethod</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIOAuthSpecError.xhtml">testGraphAPIOAuthSpecError</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIMethodOAuthSpecError.xhtml">testGraphAPIMethodOAuthSpecError</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testCurlFailure.xhtml">testCurlFailure</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIWithOnlyParams.xhtml">testGraphAPIWithOnlyParams</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaults.xhtml">testLoginURLDefaults</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaultsDropStateQueryParam.xhtml">testLoginURLDefaultsDropStateQueryParam</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaultsDropCodeQueryParam.xhtml">testLoginURLDefaultsDropCodeQueryParam</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaultsDropSignedRequestParamButNotOthers.xhtml">testLoginURLDefaultsDropSignedRequestParamButNotOthers</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLCustomNext.xhtml">testLoginURLCustomNext</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLogoutURLDefaults.xhtml">testLogoutURLDefaults</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginStatusURLDefaults.xhtml">testLoginStatusURLDefaults</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginStatusURLCustom.xhtml">testLoginStatusURLCustom</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNonDefaultPort.xhtml">testNonDefaultPort</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSecureCurrentUrl.xhtml">testSecureCurrentUrl</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSecureCurrentUrlWithNonDefaultPort.xhtml">testSecureCurrentUrlWithNonDefaultPort</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAppSecretCall.xhtml">testAppSecretCall</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testBase64UrlEncode.xhtml">testBase64UrlEncode</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedToken.xhtml">testSignedToken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNonTossedSignedtoken.xhtml">testNonTossedSignedtoken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedRequestWithWrongAlgo.xhtml">testSignedRequestWithWrongAlgo</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMakeAndParse.xhtml">testMakeAndParse</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMakeSignedRequestExpectsArray.xhtml">testMakeSignedRequestExpectsArray</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testBundledCACert.xhtml">testBundledCACert</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testVideoUpload.xhtml">testVideoUpload</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testVideoUploadGraph.xhtml">testVideoUploadGraph</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserAndAccessTokenFromSession.xhtml">testGetUserAndAccessTokenFromSession</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserAndAccessTokenFromSignedRequestNotSession.xhtml">testGetUserAndAccessTokenFromSignedRequestNotSession</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserWithoutCodeOrSignedRequestOrSession.xhtml">testGetUserWithoutCodeOrSignedRequestOrSession</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetAccessTokenUsingCodeInJsSdkCookie.xhtml">testGetAccessTokenUsingCodeInJsSdkCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedRequestWithoutAuthClearsData.xhtml">testSignedRequestWithoutAuthClearsData</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testInvalidCodeInSignedRequestWillClearData.xhtml">testInvalidCodeInSignedRequestWillClearData</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testInvalidCodeWillClearData.xhtml">testInvalidCodeWillClearData</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testValidCodeToToken.xhtml">testValidCodeToToken</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedRequestWithoutAuthClearsDataInAvailData.xhtml">testSignedRequestWithoutAuthClearsDataInAvailData</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testFailedToGetUserFromAccessTokenClearsData.xhtml">testFailedToGetUserFromAccessTokenClearsData</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testUserFromAccessTokenIsStored.xhtml">testUserFromAccessTokenIsStored</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testUserFromAccessTokenPullsID.xhtml">testUserFromAccessTokenPullsID</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testUserFromAccessTokenResetsOnApiException.xhtml">testUserFromAccessTokenResetsOnApiException</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEmptyCodeReturnsFalse.xhtml">testEmptyCodeReturnsFalse</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNullRedirectURIUsesCurrentURL.xhtml">testNullRedirectURIUsesCurrentURL</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNullRedirectURIAllowsEmptyStringForCookie.xhtml">testNullRedirectURIAllowsEmptyStringForCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIExceptionDuringCodeExchangeIsIgnored.xhtml">testAPIExceptionDuringCodeExchangeIsIgnored</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEmptyResponseInCodeExchangeIsIgnored.xhtml">testEmptyResponseInCodeExchangeIsIgnored</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExistingStateRestoredInConstructor.xhtml">testExistingStateRestoredInConstructor</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMissingAccessTokenInCodeExchangeIsIgnored.xhtml">testMissingAccessTokenInCodeExchangeIsIgnored</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionConstructorWithErrorCode.xhtml">testExceptionConstructorWithErrorCode</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeFalse.xhtml">testExceptionTypeFalse</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeMixedDraft00.xhtml">testExceptionTypeMixedDraft00</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeDraft00.xhtml">testExceptionTypeDraft00</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeDraft10.xhtml">testExceptionTypeDraft10</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeDefault.xhtml">testExceptionTypeDefault</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionToString.xhtml">testExceptionToString</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testDestroyClearsCookie.xhtml">testDestroyClearsCookie</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAuthExpireSessionDestroysSession.xhtml">testAuthExpireSessionDestroysSession</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLowercaseAuthRevokeAuthDestroysSession.xhtml">testLowercaseAuthRevokeAuthDestroysSession</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testErrorCodeFromRestAPIThrowsException.xhtml">testErrorCodeFromRestAPIThrowsException</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testJsonEncodeOfNonStringParams.xhtml">testJsonEncodeOfNonStringParams</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSessionBackedFacebook.xhtml">testSessionBackedFacebook</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSessionBackedFacebookIgnoresUnsupportedKey.xhtml">testSessionBackedFacebookIgnoresUnsupportedKey</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testClearSessionBackedFacebook.xhtml">testClearSessionBackedFacebook</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSessionBackedFacebookIgnoresUnsupportedKeyInClear.xhtml">testSessionBackedFacebookIgnoresUnsupportedKeyInClear</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testClearAllSessionBackedFacebook.xhtml">testClearAllSessionBackedFacebook</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebook.xhtml">testSharedSessionBackedFacebook</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIgnoresUnsupportedKey.xhtml">testSharedSessionBackedFacebookIgnoresUnsupportedKey</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedClearSessionBackedFacebook.xhtml">testSharedClearSessionBackedFacebook</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIgnoresUnsupportedKeyInClear.xhtml">testSharedSessionBackedFacebookIgnoresUnsupportedKeyInClear</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedClearAllSessionBackedFacebook.xhtml">testSharedClearAllSessionBackedFacebook</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIsRestored.xhtml">testSharedSessionBackedFacebookIsRestored</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIsNotRestoredWhenCorrupt.xhtml">testSharedSessionBackedFacebookIsNotRestoredWhenCorrupt</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpHost.xhtml">testHttpHost</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpProtocol.xhtml">testHttpProtocol</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpHostForwarded.xhtml">testHttpHostForwarded</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpProtocolForwarded.xhtml">testHttpProtocolForwarded</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpProtocolForwardedSecure.xhtml">testHttpProtocolForwardedSecure</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEndsWith.xhtml">testEndsWith</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/provideEndsWith.xhtml">provideEndsWith</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testIsAllowedDomain.xhtml">testIsAllowedDomain</a>()
+                    </li><li>public void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/provideIsAllowedDomain.xhtml">provideIsAllowedDomain</a>()
+                    </li><li>protected void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/generateMD5HashOfRandomValue.xhtml">generateMD5HashOfRandomValue</a>()
+                    </li><li>protected void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/setUp.xhtml">setUp</a>()
+                    </li><li>protected void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/tearDown.xhtml">tearDown</a>()
+                    </li><li>protected void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/clearSuperGlobals.xhtml">clearSuperGlobals</a>()
+                    </li><li>protected void <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/assertIsSubset.xhtml">assertIsSubset</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/PHPUnit_Framework_TestCase.xhtml">PHPUnit_Framework_TestCase</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="APP_ID">APP_ID</td>
+              <td>'117743971608120'</td>
+            </tr>
+            <tr>
+              <td id="SECRET">SECRET</td>
+              <td>'943716006e74d9b9283d4d5d8ab93204'</td>
+            </tr>
+            <tr>
+              <td id="MIGRATED_APP_ID">MIGRATED_APP_ID</td>
+              <td>'174236045938435'</td>
+            </tr>
+            <tr>
+              <td id="MIGRATED_SECRET">MIGRATED_SECRET</td>
+              <td>'0073dce2d95c4a5c2922d1827ea0cca6'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="kExpiredAccessToken">
+              <strong>$kExpiredAccessToken</strong>
+            </li>
+            <li id="kNonTosedSignedRequest">
+              <strong>$kNonTosedSignedRequest</strong>
+            </li>
+            <li id="kSignedRequestWithBogusSignature">
+              <strong>$kSignedRequestWithBogusSignature</strong>
+            </li>
+            <li id="kSignedRequestWithWrongAlgo">
+              <strong>$kSignedRequestWithWrongAlgo</strong>
+            </li>
+            <li id="kValidSignedRequest">
+              <strong>$kValidSignedRequest</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="assertIsSubset"><a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/assertIsSubset.xhtml">assertIsSubset()</a>
+                — Checks that the correct args are a subset of the returned obj</li>
+            <li id="clearSuperGlobals">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/clearSuperGlobals.xhtml">clearSuperGlobals()</a>
+            </li>
+            <li id="generateMD5HashOfRandomValue">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/generateMD5HashOfRandomValue.xhtml">generateMD5HashOfRandomValue()</a>
+            </li>
+            <li id="setUp">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/setUp.xhtml">setUp()</a>
+            </li>
+            <li id="tearDown">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/tearDown.xhtml">tearDown()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="provideEndsWith">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/provideEndsWith.xhtml">provideEndsWith()</a>
+            </li>
+            <li id="provideIsAllowedDomain">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/provideIsAllowedDomain.xhtml">provideIsAllowedDomain()</a>
+            </li>
+            <li id="testAPIExceptionDuringCodeExchangeIsIgnored">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIExceptionDuringCodeExchangeIsIgnored.xhtml">testAPIExceptionDuringCodeExchangeIsIgnored()</a>
+            </li>
+            <li id="testAPIForLoggedOutUsers">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIForLoggedOutUsers.xhtml">testAPIForLoggedOutUsers()</a>
+            </li>
+            <li id="testAPIGraphPublicData">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIGraphPublicData.xhtml">testAPIGraphPublicData()</a>
+            </li>
+            <li id="testAPIWithBogusAccessToken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAPIWithBogusAccessToken.xhtml">testAPIWithBogusAccessToken()</a>
+            </li>
+            <li id="testAppSecretCall">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAppSecretCall.xhtml">testAppSecretCall()</a>
+            </li>
+            <li id="testAuthExpireSessionDestroysSession">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testAuthExpireSessionDestroysSession.xhtml">testAuthExpireSessionDestroysSession()</a>
+            </li>
+            <li id="testBase64UrlEncode">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testBase64UrlEncode.xhtml">testBase64UrlEncode()</a>
+            </li>
+            <li id="testBundledCACert">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testBundledCACert.xhtml">testBundledCACert()</a>
+            </li>
+            <li id="testClearAllSessionBackedFacebook">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testClearAllSessionBackedFacebook.xhtml">testClearAllSessionBackedFacebook()</a>
+            </li>
+            <li id="testClearSessionBackedFacebook">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testClearSessionBackedFacebook.xhtml">testClearSessionBackedFacebook()</a>
+            </li>
+            <li id="testConstructor">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testConstructor.xhtml">testConstructor()</a>
+            </li>
+            <li id="testConstructorWithFileUpload">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testConstructorWithFileUpload.xhtml">testConstructorWithFileUpload()</a>
+            </li>
+            <li id="testCurlFailure">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testCurlFailure.xhtml">testCurlFailure()</a>
+            </li>
+            <li id="testDestroyClearsCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testDestroyClearsCookie.xhtml">testDestroyClearsCookie()</a>
+            </li>
+            <li id="testEmptyCodeReturnsFalse">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEmptyCodeReturnsFalse.xhtml">testEmptyCodeReturnsFalse()</a>
+            </li>
+            <li id="testEmptyMetadataCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEmptyMetadataCookie.xhtml">testEmptyMetadataCookie()</a>
+            </li>
+            <li id="testEmptyResponseInCodeExchangeIsIgnored">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEmptyResponseInCodeExchangeIsIgnored.xhtml">testEmptyResponseInCodeExchangeIsIgnored()</a>
+            </li>
+            <li id="testEndsWith">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testEndsWith.xhtml">testEndsWith()</a>
+            </li>
+            <li id="testErrorCodeFromRestAPIThrowsException">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testErrorCodeFromRestAPIThrowsException.xhtml">testErrorCodeFromRestAPIThrowsException()</a>
+            </li>
+            <li id="testExceptionConstructorWithErrorCode">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionConstructorWithErrorCode.xhtml">testExceptionConstructorWithErrorCode()</a>
+            </li>
+            <li id="testExceptionToString">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionToString.xhtml">testExceptionToString()</a>
+            </li>
+            <li id="testExceptionTypeDefault">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeDefault.xhtml">testExceptionTypeDefault()</a>
+            </li>
+            <li id="testExceptionTypeDraft00">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeDraft00.xhtml">testExceptionTypeDraft00()</a>
+            </li>
+            <li id="testExceptionTypeDraft10">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeDraft10.xhtml">testExceptionTypeDraft10()</a>
+            </li>
+            <li id="testExceptionTypeFalse">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeFalse.xhtml">testExceptionTypeFalse()</a>
+            </li>
+            <li id="testExceptionTypeMixedDraft00">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExceptionTypeMixedDraft00.xhtml">testExceptionTypeMixedDraft00()</a>
+            </li>
+            <li id="testExistingStateRestoredInConstructor">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testExistingStateRestoredInConstructor.xhtml">testExistingStateRestoredInConstructor()</a>
+            </li>
+            <li id="testFailedToGetUserFromAccessTokenClearsData">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testFailedToGetUserFromAccessTokenClearsData.xhtml">testFailedToGetUserFromAccessTokenClearsData()</a>
+            </li>
+            <li id="testGetAccessTokenUsingCodeInJsSdkCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetAccessTokenUsingCodeInJsSdkCookie.xhtml">testGetAccessTokenUsingCodeInJsSdkCookie()</a>
+            </li>
+            <li id="testGetCodeWithInvalidCSRFState">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCodeWithInvalidCSRFState.xhtml">testGetCodeWithInvalidCSRFState()</a>
+            </li>
+            <li id="testGetCodeWithMissingCSRFState">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCodeWithMissingCSRFState.xhtml">testGetCodeWithMissingCSRFState()</a>
+            </li>
+            <li id="testGetCodeWithValidCSRFState">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCodeWithValidCSRFState.xhtml">testGetCodeWithValidCSRFState()</a>
+            </li>
+            <li id="testGetCurrentURL">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetCurrentURL.xhtml">testGetCurrentURL()</a>
+            </li>
+            <li id="testGetLoginURL">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetLoginURL.xhtml">testGetLoginURL()</a>
+            </li>
+            <li id="testGetLoginURLWithExtraParams">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetLoginURLWithExtraParams.xhtml">testGetLoginURLWithExtraParams()</a>
+            </li>
+            <li id="testGetLoginURLWithScopeParamsAsArray">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetLoginURLWithScopeParamsAsArray.xhtml">testGetLoginURLWithScopeParamsAsArray()</a>
+            </li>
+            <li id="testGetSignedRequestFromCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetSignedRequestFromCookie.xhtml">testGetSignedRequestFromCookie()</a>
+            </li>
+            <li id="testGetSignedRequestWithIncorrectSignature">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetSignedRequestWithIncorrectSignature.xhtml">testGetSignedRequestWithIncorrectSignature()</a>
+            </li>
+            <li id="testGetUserAndAccessTokenFromSession">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserAndAccessTokenFromSession.xhtml">testGetUserAndAccessTokenFromSession()</a>
+            </li>
+            <li id="testGetUserAndAccessTokenFromSignedRequestNotSession">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserAndAccessTokenFromSignedRequestNotSession.xhtml">testGetUserAndAccessTokenFromSignedRequestNotSession()</a>
+            </li>
+            <li id="testGetUserFromSignedRequest">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserFromSignedRequest.xhtml">testGetUserFromSignedRequest()</a>
+            </li>
+            <li id="testGetUserWithoutCodeOrSignedRequestOrSession">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGetUserWithoutCodeOrSignedRequestOrSession.xhtml">testGetUserWithoutCodeOrSignedRequestOrSession()</a>
+            </li>
+            <li id="testGraphAPIMethod">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIMethod.xhtml">testGraphAPIMethod()</a>
+            </li>
+            <li id="testGraphAPIMethodOAuthSpecError">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIMethodOAuthSpecError.xhtml">testGraphAPIMethodOAuthSpecError()</a>
+            </li>
+            <li id="testGraphAPIOAuthSpecError">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIOAuthSpecError.xhtml">testGraphAPIOAuthSpecError()</a>
+            </li>
+            <li id="testGraphAPIWithBogusAccessToken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIWithBogusAccessToken.xhtml">testGraphAPIWithBogusAccessToken()</a>
+            </li>
+            <li id="testGraphAPIWithExpiredAccessToken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIWithExpiredAccessToken.xhtml">testGraphAPIWithExpiredAccessToken()</a>
+            </li>
+            <li id="testGraphAPIWithOnlyParams">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testGraphAPIWithOnlyParams.xhtml">testGraphAPIWithOnlyParams()</a>
+            </li>
+            <li id="testHttpHost">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpHost.xhtml">testHttpHost()</a>
+            </li>
+            <li id="testHttpHostForwarded">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpHostForwarded.xhtml">testHttpHostForwarded()</a>
+            </li>
+            <li id="testHttpProtocol">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpProtocol.xhtml">testHttpProtocol()</a>
+            </li>
+            <li id="testHttpProtocolForwarded">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpProtocolForwarded.xhtml">testHttpProtocolForwarded()</a>
+            </li>
+            <li id="testHttpProtocolForwardedSecure">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testHttpProtocolForwardedSecure.xhtml">testHttpProtocolForwardedSecure()</a>
+            </li>
+            <li id="testInvalidCodeInSignedRequestWillClearData">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testInvalidCodeInSignedRequestWillClearData.xhtml">testInvalidCodeInSignedRequestWillClearData()</a>
+            </li>
+            <li id="testInvalidCodeWillClearData">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testInvalidCodeWillClearData.xhtml">testInvalidCodeWillClearData()</a>
+            </li>
+            <li id="testIsAllowedDomain">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testIsAllowedDomain.xhtml">testIsAllowedDomain()</a>
+            </li>
+            <li id="testJsonEncodeOfNonStringParams">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testJsonEncodeOfNonStringParams.xhtml">testJsonEncodeOfNonStringParams()</a>
+            </li>
+            <li id="testLoginStatusURLCustom">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginStatusURLCustom.xhtml">testLoginStatusURLCustom()</a>
+            </li>
+            <li id="testLoginStatusURLDefaults">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginStatusURLDefaults.xhtml">testLoginStatusURLDefaults()</a>
+            </li>
+            <li id="testLoginURLCustomNext">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLCustomNext.xhtml">testLoginURLCustomNext()</a>
+            </li>
+            <li id="testLoginURLDefaults">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaults.xhtml">testLoginURLDefaults()</a>
+            </li>
+            <li id="testLoginURLDefaultsDropCodeQueryParam">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaultsDropCodeQueryParam.xhtml">testLoginURLDefaultsDropCodeQueryParam()</a>
+            </li>
+            <li id="testLoginURLDefaultsDropSignedRequestParamButNotOthers">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaultsDropSignedRequestParamButNotOthers.xhtml">testLoginURLDefaultsDropSignedRequestParamButNotOthers()</a>
+            </li>
+            <li id="testLoginURLDefaultsDropStateQueryParam">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLoginURLDefaultsDropStateQueryParam.xhtml">testLoginURLDefaultsDropStateQueryParam()</a>
+            </li>
+            <li id="testLogoutURLDefaults">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLogoutURLDefaults.xhtml">testLogoutURLDefaults()</a>
+            </li>
+            <li id="testLowercaseAuthRevokeAuthDestroysSession">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testLowercaseAuthRevokeAuthDestroysSession.xhtml">testLowercaseAuthRevokeAuthDestroysSession()</a>
+            </li>
+            <li id="testMakeAndParse">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMakeAndParse.xhtml">testMakeAndParse()</a>
+            </li>
+            <li id="testMakeSignedRequestExpectsArray">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMakeSignedRequestExpectsArray.xhtml">testMakeSignedRequestExpectsArray()</a>
+            </li>
+            <li id="testMetadataCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMetadataCookie.xhtml">testMetadataCookie()</a>
+            </li>
+            <li id="testMissingAccessTokenInCodeExchangeIsIgnored">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMissingAccessTokenInCodeExchangeIsIgnored.xhtml">testMissingAccessTokenInCodeExchangeIsIgnored()</a>
+            </li>
+            <li id="testMissingMetadataCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testMissingMetadataCookie.xhtml">testMissingMetadataCookie()</a>
+            </li>
+            <li id="testNonDefaultPort">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNonDefaultPort.xhtml">testNonDefaultPort()</a>
+            </li>
+            <li id="testNonTossedSignedtoken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNonTossedSignedtoken.xhtml">testNonTossedSignedtoken()</a>
+            </li>
+            <li id="testNonUserAccessToken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNonUserAccessToken.xhtml">testNonUserAccessToken()</a>
+            </li>
+            <li id="testNullRedirectURIAllowsEmptyStringForCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNullRedirectURIAllowsEmptyStringForCookie.xhtml">testNullRedirectURIAllowsEmptyStringForCookie()</a>
+            </li>
+            <li id="testNullRedirectURIUsesCurrentURL">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testNullRedirectURIUsesCurrentURL.xhtml">testNullRedirectURIUsesCurrentURL()</a>
+            </li>
+            <li id="testQuotedMetadataCookie">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testQuotedMetadataCookie.xhtml">testQuotedMetadataCookie()</a>
+            </li>
+            <li id="testSecureCurrentUrl">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSecureCurrentUrl.xhtml">testSecureCurrentUrl()</a>
+            </li>
+            <li id="testSecureCurrentUrlWithNonDefaultPort">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSecureCurrentUrlWithNonDefaultPort.xhtml">testSecureCurrentUrlWithNonDefaultPort()</a>
+            </li>
+            <li id="testSessionBackedFacebook">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSessionBackedFacebook.xhtml">testSessionBackedFacebook()</a>
+            </li>
+            <li id="testSessionBackedFacebookIgnoresUnsupportedKey">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSessionBackedFacebookIgnoresUnsupportedKey.xhtml">testSessionBackedFacebookIgnoresUnsupportedKey()</a>
+            </li>
+            <li id="testSessionBackedFacebookIgnoresUnsupportedKeyInClear">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSessionBackedFacebookIgnoresUnsupportedKeyInClear.xhtml">testSessionBackedFacebookIgnoresUnsupportedKeyInClear()</a>
+            </li>
+            <li id="testSetAPISecret">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAPISecret.xhtml">testSetAPISecret()</a>
+            </li>
+            <li id="testSetAPPSecret">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAPPSecret.xhtml">testSetAPPSecret()</a>
+            </li>
+            <li id="testSetAccessToken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAccessToken.xhtml">testSetAccessToken()</a>
+            </li>
+            <li id="testSetAppId">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetAppId.xhtml">testSetAppId()</a>
+            </li>
+            <li id="testSetFileUploadSupport">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSetFileUploadSupport.xhtml">testSetFileUploadSupport()</a>
+            </li>
+            <li id="testSharedClearAllSessionBackedFacebook">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedClearAllSessionBackedFacebook.xhtml">testSharedClearAllSessionBackedFacebook()</a>
+            </li>
+            <li id="testSharedClearSessionBackedFacebook">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedClearSessionBackedFacebook.xhtml">testSharedClearSessionBackedFacebook()</a>
+            </li>
+            <li id="testSharedSessionBackedFacebook">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebook.xhtml">testSharedSessionBackedFacebook()</a>
+            </li>
+            <li id="testSharedSessionBackedFacebookIgnoresUnsupportedKey">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIgnoresUnsupportedKey.xhtml">testSharedSessionBackedFacebookIgnoresUnsupportedKey()</a>
+            </li>
+            <li id="testSharedSessionBackedFacebookIgnoresUnsupportedKeyInClear">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIgnoresUnsupportedKeyInClear.xhtml">testSharedSessionBackedFacebookIgnoresUnsupportedKeyInClear()</a>
+            </li>
+            <li id="testSharedSessionBackedFacebookIsNotRestoredWhenCorrupt">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIsNotRestoredWhenCorrupt.xhtml">testSharedSessionBackedFacebookIsNotRestoredWhenCorrupt()</a>
+            </li>
+            <li id="testSharedSessionBackedFacebookIsRestored">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSharedSessionBackedFacebookIsRestored.xhtml">testSharedSessionBackedFacebookIsRestored()</a>
+            </li>
+            <li id="testSignedRequestWithWrongAlgo">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedRequestWithWrongAlgo.xhtml">testSignedRequestWithWrongAlgo()</a>
+            </li>
+            <li id="testSignedRequestWithoutAuthClearsData">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedRequestWithoutAuthClearsData.xhtml">testSignedRequestWithoutAuthClearsData()</a>
+            </li>
+            <li id="testSignedRequestWithoutAuthClearsDataInAvailData">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedRequestWithoutAuthClearsDataInAvailData.xhtml">testSignedRequestWithoutAuthClearsDataInAvailData()</a>
+            </li>
+            <li id="testSignedToken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testSignedToken.xhtml">testSignedToken()</a>
+            </li>
+            <li id="testUserFromAccessTokenIsStored">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testUserFromAccessTokenIsStored.xhtml">testUserFromAccessTokenIsStored()</a>
+            </li>
+            <li id="testUserFromAccessTokenPullsID">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testUserFromAccessTokenPullsID.xhtml">testUserFromAccessTokenPullsID()</a>
+            </li>
+            <li id="testUserFromAccessTokenResetsOnApiException">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testUserFromAccessTokenResetsOnApiException.xhtml">testUserFromAccessTokenResetsOnApiException()</a>
+            </li>
+            <li id="testValidCodeToToken">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testValidCodeToToken.xhtml">testValidCodeToToken()</a>
+            </li>
+            <li id="testVideoUpload">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testVideoUpload.xhtml">testVideoUpload()</a>
+            </li>
+            <li id="testVideoUploadGraph">
+              <a title="PHPSDKTestCase" href="../classes/PHPSDKTestCase/testVideoUploadGraph.xhtml">testVideoUploadGraph()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#TijsVerkoyen_Twitter">TijsVerkoyen\Twitter</a>
+          </li>
+          <li class="separator">
+            <a title="TijsVerkoyen\Twitter\Twitter" href="../../classes/TijsVerkoyen_Twitter_Twitter.xhtml">Twitter</a>
+          </li>
+          <li class="separator">statusesOEmbed</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="../../source/thirdparty/twitter/Twitter.php.xhtml#line1064">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>TijsVerkoyen\Twitter\Twitter::</small>statusesOEmbed</h1>
+        <h4/>
+        <p/>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function statusesOEmbed([<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $id = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $url = null,
+            [<a title="TijsVerkoyen\Twitter\int[optional]" href="../../classes/TijsVerkoyen_Twitter_int[optional].xhtml">int[optional]</a>
+        $maxwidth = null,
+            [<a title="TijsVerkoyen\Twitter\bool[optional]" href="../../classes/TijsVerkoyen_Twitter_bool[optional].xhtml">bool[optional]</a>
+        $hideMedia = null,
+            [<a title="TijsVerkoyen\Twitter\bool[optional]" href="../../classes/TijsVerkoyen_Twitter_bool[optional].xhtml">bool[optional]</a>
+        $hideThread = null,
+            [<a title="TijsVerkoyen\Twitter\bool[optional]" href="../../classes/TijsVerkoyen_Twitter_bool[optional].xhtml">bool[optional]</a>
+        $omitScript = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $align = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $related = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $lang = null]]]]]]]]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$id</code>
+                —
+                object</dt>
+          <dd>The Tweet/status ID to return embed code for.<br/><br/><br/>      </dd>
+          <dt><code>$url</code>
+                —
+                object</dt>
+          <dd>The URL of the Tweet/status to be embedded.<br/><br/><br/>      </dd>
+          <dt><code>$maxwidth</code>
+                —
+                object</dt>
+          <dd>The maximum width in pixels that the embed should be rendered at. This value is constrained to be between 250 and 550 pixels. Note that Twitter does not support the oEmbed maxheight parameter. Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video. Relatedly, the oEmbed response will not provide a value for height. Implementations that need consistent heights for Tweets should refer to the hide_thread and hide_media parameters below.<br/><br/><br/>      </dd>
+          <dt><code>$hideMedia</code>
+                —
+                object</dt>
+          <dd>Specifies whether the embedded Tweet should automatically expand images which were uploaded via POST statuses/update_with_media. When set to true images will not be expanded. Defaults to false.<br/><br/><br/>      </dd>
+          <dt><code>$hideThread</code>
+                —
+                object</dt>
+          <dd>Specifies whether the embedded Tweet should automatically show the original message in the case that the embedded Tweet is a reply. When set to true the original Tweet will not be shown. Defaults to false.<br/><br/><br/>      </dd>
+          <dt><code>$omitScript</code>
+                —
+                object</dt>
+          <dd>Specifies whether the embedded Tweet HTML should include a &lt;script&gt; element pointing to widgets.js. In cases where a page already includes widgets.js, setting this value to true will prevent a redundant script element from being included. When set to true the &lt;script&gt; element will not be included in the embed HTML, meaning that pages must include a reference to widgets.js manually. Defaults to false.<br/><br/><br/>      </dd>
+          <dt><code>$align</code>
+                —
+                object</dt>
+          <dd>Specifies whether the embedded Tweet should be left aligned, right aligned, or centered in the page. Valid values are left, right, center, and none. Defaults to none, meaning no alignment styles are specified for the Tweet.<br/><br/><br/>      </dd>
+          <dt><code>$related</code>
+                —
+                object</dt>
+          <dd>A value for the TWT related parameter, as described in Web Intents. This value will be forwarded to all Web Intents calls.<br/><br/><br/>      </dd>
+          <dt><code>$lang</code>
+                —
+                object</dt>
+          <dd>Language code for the rendered embed. This will affect the text and localization of the rendered HTML.<br/><br/><br/>      </dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>array</dt>
+          <dd/>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

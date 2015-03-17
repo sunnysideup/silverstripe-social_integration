@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SocialIntegrationControllerBaseClass" namespace="" name="SocialIntegrationControllerBaseClass" abstract="true" final="false" start="4" end="368">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../code/control" file="SocialIntegrationControllerBaseClass.php" realpath="/var/www/_modules/social_integration/trunk/code/control/SocialIntegrationControllerBaseClass.php" size="10030" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="16f1b238e3e12b0d380b765cd34d88c1b617acc6" relative="code/control/SocialIntegrationControllerBaseClass.php"/>
+  <extends full="Controller" namespace="" name="Controller"/>
+  <member name="default_avatar" type="string" default="&quot;http://placeholder.it/32x32&quot;" visibility="private" line="10">
+    <docblock>
+      <description compact="default profile pic in case none is available"/>
+      <var type="object">
+        <type full="String" namespace="" name="String"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="get_default_avatar" start="11" end="11" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="set_default_avatar" start="12" end="12" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="s" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="is_social_integration_api_class" start="19" end="27" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="tells us if a class is a Social Integration API class (e.g. Facebook, Twiiter, etc....)"/>
+      <param type="object" variable="$className">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="className" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_login_button" start="40" end="102" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="one stop shop button"/>
+      <return description="(" type="object">IsConnected,
+  IsLoggedIn,
+  Link,
+  ConnectedName,
+  ConnectedImageURL
+)<type full="Object" namespace="" name="Object"/></return>
+    </docblock>
+    <parameter name="backURL" byreference="false" type="string" default="&quot;&quot;"/>
+    <parameter name="member" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="back URL" line="41"/>
+      <comment value="security" line="52"/>
+      <comment value="AJAX FUNCTIONALITY" line="55"/>
+      <comment value="Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');" line="56"/>
+      <comment value="Requirements::javascript(THIRDPARTY_DIR . '/jquery-livequery/jquery.livequery.js');" line="57"/>
+      <comment value="Requirements::javascript('social_integration/javascript/'.strtolower(self::my_service_name()).&quot;.js&quot;);" line="58"/>
+    </inline>
+  </method>
+  <method name="login_url" start="109" end="115" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$returnURL">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="connect_url" start="122" end="130" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Link to login form"/>
+      <param type="object" variable="$returnURL">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+    <parameter name="existingMember" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="redirect_to_login_prompt" start="139" end="142" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="redirects to login prompt, lets the user log in and returns to the returnURL specified."/>
+      <param type="object" variable="$returnURL">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECTS!" namespace="" name="REDIRECTS!"/>
+      </return>
+    </docblock>
+    <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="my_class_name" start="149" end="151" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="The class being called (e.g. FacebookCallback::my_class_name should return FacebookCallback)"/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="my_service_name" start="157" end="159" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="The current ClassName without the &quot;Callback&quot; portion."/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="my_security_form" start="165" end="167" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="The name of the security form."/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="Title" start="175" end="177" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="returns Absolute URL to a link within this controller, by default it is the &quot;Connect&quot; link, because this controller always needs an action."/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="AbsoluteLink" start="185" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="returns Absolute URL to a link within this controller, by default it is the &quot;Connect&quot; link, because this controller always needs an action."/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="action" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="Link" start="198" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="returns relative URL to a link within this controller, by default it is the &quot;Connect&quot; link, because this controller always needs an action."/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="action" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="is_valid_user" start="206" end="208" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="screen_name" byreference="false" type="{unknown}"/>
+  </method>
+  <constructor name="__construct" start="213" end="215" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="index" start="220" end="227" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="you need to add an action"/>
+    </docblock>
+  </method>
+  <method name="returnURL" start="234" end="249" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="works out best Return URL"/>
+      <param description="- should it include the Base URL (e.g. http://www.mysite.com)" type="object" variable="$hasAbsoluteBaseURL">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="hasAbsoluteBaseURL" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="Tests" start="251" end="279" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="menondatabase" start="282" end="284" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="test" start="286" end="366" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <extender full="FacebookCallback" namespace="" name="FacebookCallback"/>
+  <extender full="TwitterCallback" namespace="" name="TwitterCallback"/>
+  <extender full="LinkedinCallback" namespace="" name="LinkedinCallback"/>
+  <extender full="EmailCallback" namespace="" name="EmailCallback"/>
+</class>

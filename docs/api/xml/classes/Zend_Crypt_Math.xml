@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Crypt_Math" namespace="" name="Zend_Crypt_Math" abstract="false" final="false" start="34" end="102">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Crypt" file="Math.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Crypt/Math.php" size="2856" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="0aa70d6c9dd8cf2e86b353f15ea1ff02f1d6a1da" relative="thirdparty/Zend/Crypt/Math.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Crypt"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Crypt_Math_BigInteger" namespace="" name="Zend_Crypt_Math_BigInteger"/>
+  <method name="rand" start="47" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate a pseudorandom number within the given range.">Will attempt to read from a systems RNG if it exists or else utilises
+a simple random character to maximum length process. Simplicity
+is a factor better left for development...</description>
+      <param type="object" variable="$minimum">
+        <type full="string|int" namespace="" name="string|int"/>
+      </param>
+      <param type="object" variable="$maximum">
+        <type full="string|int" namespace="" name="string|int"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="minimum" byreference="false" type="{unknown}"/>
+    <parameter name="maximum" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="btwoc" start="74" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the big endian two's complement of a given big integer in binary notation"/>
+      <param type="string" variable="$long"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="long" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fromBinary" start="87" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Translate a binary form into a big integer string"/>
+      <param type="string" variable="$binary"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="binary" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toBinary" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Translate a big integer string into a binary form"/>
+      <param type="string" variable="$integer"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="integer" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Zend_Crypt_Math_BigInteger" namespace="" name="Zend_Crypt_Math_BigInteger">
+    <member name="_math" type="{unknown}" default="null" visibility="protected" line="52">
+      <docblock>
+        <description compact="Holds an instance of one of the three arbitrary precision wrappers."/>
+        <var type="object">
+          <type full="Zend_Crypt_Math_BigInteger_Interface" namespace="" name="Zend_Crypt_Math_BigInteger_Interface"/>
+        </var>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="62" end="69" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Constructor; a Factory which detects a suitable PHP extension for arbitrary precision math and instantiates the suitable wrapper object."/>
+        <param type="string" variable="$extension"/>
+        <throws type="object">
+          <type full="Zend_Crypt_Math_BigInteger_Exception" namespace="" name="Zend_Crypt_Math_BigInteger_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}" default="null"/>
+    </constructor>
+    <method name="__call" start="78" end="85" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Redirect all public method calls to the wrapped extension object."/>
+        <param type="string" variable="$methodName"/>
+        <param type="array" variable="$args"/>
+        <throws type="object">
+          <type full="Zend_Crypt_Math_BigInteger_Exception" namespace="" name="Zend_Crypt_Math_BigInteger_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="methodName" byreference="false" type="{unknown}"/>
+      <parameter name="args" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_loadAdapter" start="91" end="115" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <param type="string" variable="$extension"/>
+        <throws type="object">
+          <type full="Zend_Crypt_Math_BigInteger_Exception" namespace="" name="Zend_Crypt_Math_BigInteger_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}" default="null"/>
+    </method>
+  </parent>
+</class>

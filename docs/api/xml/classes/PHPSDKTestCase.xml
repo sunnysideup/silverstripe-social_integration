@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPSDKTestCase" namespace="" name="PHPSDKTestCase" abstract="false" final="false" start="18" end="1809">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/facebook/tests" file="tests.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/facebook/tests/tests.php" size="66023" time="2015-03-14T10:24:27+13:00" unixtime="1426281867" sha1="5e230162d9b8fb1ce995b0f36119844bc57eb2eb" relative="thirdparty/facebook/tests/tests.php"/>
+  <docblock>
+    <description compact="Copyright 2011 Facebook, Inc.">Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</description>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <constant name="APP_ID" value="'117743971608120'"/>
+  <constant name="SECRET" value="'943716006e74d9b9283d4d5d8ab93204'"/>
+  <constant name="MIGRATED_APP_ID" value="'174236045938435'"/>
+  <constant name="MIGRATED_SECRET" value="'0073dce2d95c4a5c2922d1827ea0cca6'"/>
+  <member name="kExpiredAccessToken" type="string" default="'206492729383450|2.N4RKywNPuHAey7CK56_wmg__.3600.1304560800.1-214707|6Q14AfpYi_XJB26aRQumouzJiGA'" visibility="private" line="25"/>
+  <member name="kValidSignedRequest" type="string" default="'1sxR88U4SW9m6QnSxwCEw_CObqsllXhnpP5j2pxD97c.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImV4cGlyZXMiOjEyODEwNTI4MDAsIm9hdXRoX3Rva2VuIjoiMTE3NzQzOTcxNjA4MTIwfDIuVlNUUWpub3hYVVNYd1RzcDB1U2g5d19fLjg2NDAwLjEyODEwNTI4MDAtMTY3Nzg0NjM4NXx4NURORHBtcy1nMUM0dUJHQVYzSVdRX2pYV0kuIiwidXNlcl9pZCI6IjE2Nzc4NDYzODUifQ'" visibility="private" line="26"/>
+  <member name="kNonTosedSignedRequest" type="string" default="'c0Ih6vYvauDwncv0n0pndr0hP0mvZaJPQDPt6Z43O0k.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiJ9'" visibility="private" line="27"/>
+  <member name="kSignedRequestWithBogusSignature" type="string" default="'1sxR32U4SW9m6QnSxwCEw_CObqsllXhnpP5j2pxD97c.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImV4cGlyZXMiOjEyODEwNTI4MDAsIm9hdXRoX3Rva2VuIjoiMTE3NzQzOTcxNjA4MTIwfDIuVlNUUWpub3hYVVNYd1RzcDB1U2g5d19fLjg2NDAwLjEyODEwNTI4MDAtMTY3Nzg0NjM4NXx4NURORHBtcy1nMUM0dUJHQVYzSVdRX2pYV0kuIiwidXNlcl9pZCI6IjE2Nzc4NDYzODUifQ'" visibility="private" line="28"/>
+  <member name="kSignedRequestWithWrongAlgo" type="string" default="'2--BA2TJLbWV3uBHiB7ztrA4byNm9g0Sz8cv-x9-zi8.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NmEiLCJpc3N1ZWRfYXQiOjEzNDI0ODc0ODJ9'" visibility="private" line="29"/>
+  <method name="testConstructor" start="31" end="40" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testConstructorWithFileUpload" start="42" end="57" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="alias (depricated) for getFileUploadSupport -- test until removed" line="54"/>
+    </inline>
+  </method>
+  <method name="testSetAppId" start="59" end="67" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetAPISecret" start="69" end="77" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetAPPSecret" start="79" end="87" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetAccessToken" start="89" end="98" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetFileUploadSupport" start="100" end="116" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="alias for getFileUploadSupport (depricated), testing until removed" line="107"/>
+      <comment value="alias for getFileUploadSupport (depricated), testing until removed" line="113"/>
+    </inline>
+  </method>
+  <method name="testGetCurrentURL" start="118" end="152" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="fake the HPHP $_SERVER globals" line="124"/>
+      <comment value="ensure structure of valueless GET params is retained (sometimes" line="133"/>
+      <comment value="an = sign was present, and sometimes it was not)" line="134"/>
+      <comment value="first test when equal signs are present" line="135"/>
+      <comment value="now confirm that" line="144"/>
+    </inline>
+  </method>
+  <method name="testGetLoginURL" start="154" end="177" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="fake the HPHP $_SERVER globals" line="160"/>
+      <comment value="we don't know what the state is, but we know it's an md5 and should" line="174"/>
+      <comment value="be 32 characters long." line="175"/>
+    </inline>
+  </method>
+  <method name="testGetLoginURLWithExtraParams" start="179" end="205" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="fake the HPHP $_SERVER globals" line="185"/>
+      <comment value="we don't know what the state is, but we know it's an md5 and should" line="202"/>
+      <comment value="be 32 characters long." line="203"/>
+    </inline>
+  </method>
+  <method name="testGetLoginURLWithScopeParamsAsArray" start="207" end="238" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="fake the HPHP $_SERVER globals" line="213"/>
+      <comment value="expect api to flatten array params to comma separated list" line="223"/>
+      <comment value="should do the same here before asserting to make sure API is behaving" line="224"/>
+      <comment value="correctly;" line="225"/>
+      <comment value="we don't know what the state is, but we know it's an md5 and should" line="235"/>
+      <comment value="be 32 characters long." line="236"/>
+    </inline>
+  </method>
+  <method name="testGetCodeWithValidCSRFState" start="240" end="252" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetCodeWithInvalidCSRFState" start="254" end="265" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetCodeWithMissingCSRFState" start="267" end="278" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="intentionally don't set CSRF token at all" line="274"/>
+    </inline>
+  </method>
+  <method name="testGetUserFromSignedRequest" start="280" end="289" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetSignedRequestFromCookie" start="291" end="302" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetSignedRequestWithIncorrectSignature" start="304" end="313" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNonUserAccessToken" start="315" end="326" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="no cookies, and no request params, so no user or code," line="321"/>
+      <comment value="so no user access token (even with cookie support)" line="322"/>
+    </inline>
+  </method>
+  <method name="testMissingMetadataCookie" start="328" end="334" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEmptyMetadataCookie" start="336" end="343" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMetadataCookie" start="345" end="354" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testQuotedMetadataCookie" start="356" end="365" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAPIForLoggedOutUsers" start="367" end="380" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAPIWithBogusAccessToken" start="382" end="407" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="if we don't set an access token and there's no way to" line="389"/>
+      <comment value="get one, then the FQL query below works beautifully, handing" line="390"/>
+      <comment value="over Zuck's public data.  But if you specify a bogus access" line="391"/>
+      <comment value="token as I have right here, then the FQL query should fail." line="392"/>
+      <comment value="We could return just Zuck's public data, but that wouldn't" line="393"/>
+      <comment value="advertise the issue that the access token is at worst broken" line="394"/>
+      <comment value="and at best expired." line="395"/>
+    </inline>
+  </method>
+  <method name="testAPIGraphPublicData" start="409" end="418" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGraphAPIWithBogusAccessToken" start="420" end="436" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGraphAPIWithExpiredAccessToken" start="438" end="454" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGraphAPIMethod" start="456" end="474" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="naitik being bold about deleting his entire record...." line="463"/>
+      <comment value="let's hope this never actually passes." line="464"/>
+    </inline>
+  </method>
+  <method name="testGraphAPIOAuthSpecError" start="476" end="494" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGraphAPIMethodOAuthSpecError" start="496" end="509" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCurlFailure" start="511" end="540" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="can't test it if we don't have millisecond timeouts" line="518"/>
+      <comment value="we dont expect facebook will ever return in 1ms" line="524"/>
+    </inline>
+  </method>
+  <method name="testGraphAPIWithOnlyParams" start="542" end="566" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoginURLDefaults" start="568" end="578" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoginURLDefaultsDropStateQueryParam" start="580" end="592" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoginURLDefaultsDropCodeQueryParam" start="594" end="606" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoginURLDefaultsDropSignedRequestParamButNotOthers" start="608" end="621" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoginURLCustomNext" start="623" end="641" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLogoutURLDefaults" start="643" end="654" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoginStatusURLDefaults" start="656" end="666" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoginStatusURLCustom" start="668" end="685" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNonDefaultPort" start="687" end="697" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSecureCurrentUrl" start="699" end="710" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSecureCurrentUrlWithNonDefaultPort" start="712" end="723" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAppSecretCall" start="725" end="743" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testBase64UrlEncode" start="745" end="750" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSignedToken" start="752" end="762" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNonTossedSignedtoken" start="764" end="776" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSignedRequestWithWrongAlgo" start="778" end="786" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMakeAndParse" start="788" end="797" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMakeSignedRequestExpectsArray" start="802" end="808" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testBundledCACert" start="810" end="824" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="use the bundled cert from the start" line="816"/>
+    </inline>
+  </method>
+  <method name="testVideoUpload" start="826" end="835" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testVideoUploadGraph" start="837" end="846" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetUserAndAccessTokenFromSession" start="848" end="863" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetUserAndAccessTokenFromSignedRequestNotSession" start="865" end="886" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetUserWithoutCodeOrSignedRequestOrSession" start="888" end="906" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="deliberately leave $_REQUEST and _$SESSION empty" line="894"/>
+    </inline>
+  </method>
+  <method name="testGetAccessTokenUsingCodeInJsSdkCookie" start="908" end="927" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSignedRequestWithoutAuthClearsData" start="929" end="945" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testInvalidCodeInSignedRequestWillClearData" start="947" end="972" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testInvalidCodeWillClearData" start="974" end="999" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testValidCodeToToken" start="1001" end="1024" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSignedRequestWithoutAuthClearsDataInAvailData" start="1026" end="1042" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testFailedToGetUserFromAccessTokenClearsData" start="1044" end="1067" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testUserFromAccessTokenIsStored" start="1069" end="1094" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testUserFromAccessTokenPullsID" start="1096" end="1117" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testUserFromAccessTokenResetsOnApiException" start="1119" end="1143" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEmptyCodeReturnsFalse" start="1145" end="1153" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNullRedirectURIUsesCurrentURL" start="1155" end="1176" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNullRedirectURIAllowsEmptyStringForCookie" start="1178" end="1199" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAPIExceptionDuringCodeExchangeIsIgnored" start="1201" end="1216" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEmptyResponseInCodeExchangeIsIgnored" start="1218" end="1233" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExistingStateRestoredInConstructor" start="1235" end="1241" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMissingAccessTokenInCodeExchangeIsIgnored" start="1243" end="1258" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionConstructorWithErrorCode" start="1260" end="1264" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionTypeFalse" start="1267" end="1270" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionTypeMixedDraft00" start="1272" end="1275" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionTypeDraft00" start="1277" end="1282" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionTypeDraft10" start="1284" end="1288" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionTypeDefault" start="1290" end="1293" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionToString" start="1295" end="1301" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testDestroyClearsCookie" start="1303" end="1314" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAuthExpireSessionDestroysSession" start="1316" end="1340" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLowercaseAuthRevokeAuthDestroysSession" start="1342" end="1366" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testErrorCodeFromRestAPIThrowsException" start="1371" end="1386" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="FacebookAPIException"/>
+    </docblock>
+  </method>
+  <method name="testJsonEncodeOfNonStringParams" start="1388" end="1401" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSessionBackedFacebook" start="1403" end="1419" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSessionBackedFacebookIgnoresUnsupportedKey" start="1421" end="1436" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testClearSessionBackedFacebook" start="1438" end="1462" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSessionBackedFacebookIgnoresUnsupportedKeyInClear" start="1464" end="1476" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testClearAllSessionBackedFacebook" start="1478" end="1492" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSharedSessionBackedFacebook" start="1494" end="1512" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSharedSessionBackedFacebookIgnoresUnsupportedKey" start="1514" end="1532" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSharedClearSessionBackedFacebook" start="1534" end="1555" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSharedSessionBackedFacebookIgnoresUnsupportedKeyInClear" start="1557" end="1576" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSharedClearAllSessionBackedFacebook" start="1578" end="1599" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSharedSessionBackedFacebookIsRestored" start="1601" end="1632" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="check the new instance has the same data" line="1621"/>
+    </inline>
+  </method>
+  <method name="testSharedSessionBackedFacebookIsNotRestoredWhenCorrupt" start="1634" end="1669" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="break the cookie" line="1654"/>
+      <comment value="check the new instance does not have the data" line="1658"/>
+    </inline>
+  </method>
+  <method name="testHttpHost" start="1671" end="1680" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHttpProtocol" start="1682" end="1690" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHttpHostForwarded" start="1692" end="1702" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHttpProtocolForwarded" start="1704" end="1713" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHttpProtocolForwardedSecure" start="1715" end="1724" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEndsWith" start="1729" end="1734" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="provideEndsWith"/>
+    </docblock>
+    <parameter name="big" byreference="false" type="{unknown}"/>
+    <parameter name="small" byreference="false" type="{unknown}"/>
+    <parameter name="result" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="provideEndsWith" start="1736" end="1747" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testIsAllowedDomain" start="1752" end="1757" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="provideIsAllowedDomain"/>
+    </docblock>
+    <parameter name="big" byreference="false" type="{unknown}"/>
+    <parameter name="small" byreference="false" type="{unknown}"/>
+    <parameter name="result" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="provideIsAllowedDomain" start="1759" end="1767" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="generateMD5HashOfRandomValue" start="1769" end="1771" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="setUp" start="1773" end="1775" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="tearDown" start="1777" end="1780" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="clearSuperGlobals" start="1782" end="1794" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="assertIsSubset" start="1802" end="1808" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Checks that the correct args are a subset of the returned obj"/>
+      <param description="The correct array values" type="array" variable="$correct"/>
+      <param description="The values in practice" type="array" variable="$actual"/>
+      <param description="to be shown on failure" type="string" variable="$message"/>
+    </docblock>
+    <parameter name="correct" byreference="false" type="{unknown}"/>
+    <parameter name="actual" byreference="false" type="{unknown}"/>
+    <parameter name="msg" byreference="false" type="string" default="''"/>
+  </method>
+</class>

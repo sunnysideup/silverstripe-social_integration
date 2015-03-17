@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Crypt" namespace="" name="Zend_Crypt" abstract="false" final="false" start="28" end="168">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend" file="Crypt.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Crypt.php" size="4514" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="849148da64b65d0e90d079ffea714634c0bfbd07" relative="thirdparty/Zend/Crypt.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Crypt"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <constant name="TYPE_OPENSSL" value="'openssl'"/>
+  <constant name="TYPE_HASH" value="'hash'"/>
+  <constant name="TYPE_MHASH" value="'mhash'"/>
+  <member name="_type" type="{unknown}" default="null" visibility="protected" line="35"/>
+  <member name="_supportedAlgosOpenssl" type="array" visibility="protected" line="40">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_supportedAlgosMhash" type="array" visibility="protected" line="56">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="hash" start="81" end="91" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$algorithm"/>
+      <param type="string" variable="$data"/>
+      <param type="object" variable="$binaryOutput">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="unknown" namespace="" name="unknown"/>
+      </return>
+    </docblock>
+    <parameter name="algorithm" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="binaryOutput" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="_detectHashSupport" start="97" end="125" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$algorithm"/>
+      <throws type="object">
+        <type full="Zend_Crypt_Exception" namespace="" name="Zend_Crypt_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="algorithm" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="@see Zend_Crypt_Exception" line="120"/>
+    </inline>
+  </method>
+  <method name="_digestHash" start="133" end="136" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$algorithm"/>
+      <param type="string" variable="$data"/>
+      <param type="object" variable="$binaryOutput">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="algorithm" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="binaryOutput" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_digestMhash" start="144" end="152" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$algorithm"/>
+      <param type="string" variable="$data"/>
+      <param type="object" variable="$binaryOutput">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="algorithm" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="binaryOutput" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_digestOpenssl" start="160" end="166" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$algorithm"/>
+      <param type="string" variable="$data"/>
+      <param type="object" variable="$binaryOutput">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="algorithm" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="binaryOutput" byreference="false" type="{unknown}"/>
+  </method>
+  <extender full="Zend_Crypt_Hmac" namespace="" name="Zend_Crypt_Hmac"/>
+</class>

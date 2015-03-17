@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Zend_Validate_Interface" namespace="" name="Zend_Validate_Interface" abstract="false" final="false" start="28" end="54">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Validate" file="Interface.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Validate/Interface.php" size="1926" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="f11f07356887dc40b10503f83d9de00a980235ab" relative="thirdparty/Zend/Validate/Interface.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Validate"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <method name="isValid" start="41" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if $value meets the validation requirements">If $value fails validation, then this method returns false, and
+getMessages() will return an array of messages that explain why the
+validation failed.</description>
+      <param type="mixed" variable="$value"/>
+      <return type="boolean"/>
+      <throws description="If validation of $value is impossible" type="object">
+        <type full="Zend_Validate_Exception" namespace="" name="Zend_Validate_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMessages" start="53" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an array of messages that explain why the most recent isValid() call returned false. The array keys are validation failure message identifiers, and the array values are the corresponding human-readable message strings.">If isValid() was never called or if the most recent isValid() call
+returned true, then this method returns an empty array.</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <implementor full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract"/>
+  <implementor full="Zend_Validate_Ip" namespace="" name="Zend_Validate_Ip"/>
+  <implementor full="Zend_Validate_Hostname" namespace="" name="Zend_Validate_Hostname"/>
+</interface>

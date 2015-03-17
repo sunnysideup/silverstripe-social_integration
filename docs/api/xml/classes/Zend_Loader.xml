@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Loader" namespace="" name="Zend_Loader" abstract="false" final="false" start="30" end="329">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend" file="Loader.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Loader.php" size="11310" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="b86965e066e67c20baa0560282a29b4f0655efa0" relative="thirdparty/Zend/Loader.php"/>
+  <docblock>
+    <description compact="Static methods for loading classes and files."/>
+    <category value="Zend"/>
+    <package value="Zend_Loader"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <method name="loadClass" start="52" end="101" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Loads a class from a PHP file.  The filename must be formatted as &quot;$class.php&quot;.">If $dirs is a string or an array, it will search the directories
+in the order supplied, and attempt to load the first matching file.
+
+If $dirs is null, it will split the class name at underscores to
+generate a path hierarchy (e.g., "Zend_Example_Class" will map
+to "Zend/Example/Class.php").
+
+If the file was not found in the $dirs, or if no $dirs were specified,
+it will attempt to load it from PHP's include_path.</description>
+      <param description="- The full class name of a Zend component." type="string" variable="$class"/>
+      <param description="- OPTIONAL Either a path or an array of paths" type="object" variable="$dirs">to search.<type full="string|array" namespace="" name="string|array"/></param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Exception" namespace="" name="Zend_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="dirs" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Autodiscover the path from the class name" line="63"/>
+      <comment value="Implementation is PHP namespace-aware, and based on" line="64"/>
+      <comment value="Framework Interop Group reference implementation:" line="65"/>
+      <comment value="http://groups.google.com/group/php-standards/web/psr-0-final-proposal" line="66"/>
+      <comment value="use the autodiscovered path" line="78"/>
+    </inline>
+  </method>
+  <method name="loadFile" start="126" end="159" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Loads a PHP file.  This is a wrapper for PHP's include() function.">$filename must be the complete filename, including any
+extension such as ".php".  Note that a security check is performed that
+does not permit extended characters in the filename.  This method is
+intended for loading Zend Framework files.
+
+If $dirs is a string or an array, it will search the directories
+in the order supplied, and attempt to load the first matching file.
+
+If the file was not found in the $dirs, or if no $dirs were specified,
+it will attempt to load it from PHP's include_path.
+
+If $once is TRUE, it will use include_once() instead of include().</description>
+      <param type="string" variable="$filename"/>
+      <param description="- OPTIONAL either a path or array of paths" type="object" variable="$dirs">to search.<type full="string|array" namespace="" name="string|array"/></param>
+      <param type="boolean" variable="$once"/>
+      <return type="boolean"/>
+      <throws type="object">
+        <type full="Zend_Exception" namespace="" name="Zend_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+    <parameter name="dirs" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="once" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="Search in provided directories, as well as include_path" line="130"/>
+      <comment value="Try finding for the plain filename in the include_path." line="142"/>
+      <comment value="If searching in directories, reset include_path" line="151"/>
+    </inline>
+  </method>
+  <method name="isReadable" start="174" end="203" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns TRUE if the $filename is readable, or FALSE otherwise.">This function uses the PHP include_path, where PHP's is_readable()
+does not.
+
+Note from ZF-2900:
+If you use custom error handler, please check whether return value
+ from error_reporting() is zero or not.
+At mark of fopen() can not suppress warning if the handler is used.</description>
+      <param type="string" variable="$filename"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Return early if the filename is readable without needing the" line="177"/>
+      <comment value="include_path" line="178"/>
+      <comment value="If on windows, and path provided is clearly an absolute path," line="185"/>
+      <comment value="return false immediately" line="186"/>
+    </inline>
+  </method>
+  <method name="explodeIncludePath" start="214" end="229" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Explode an include path into an array">If no path provided, uses current include_path. Works around issues that
+occur when the path includes stream schemas.</description>
+      <param type="object" variable="$path">
+        <type full="string|null" namespace="" name="string|null"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="On *nix systems, include_paths which include paths with a stream" line="221"/>
+      <comment value="schema cannot be safely explode'd, so we have to be a bit more" line="222"/>
+      <comment value="intelligent in the approach." line="223"/>
+    </inline>
+  </method>
+  <method name="autoload" start="243" end="252" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="spl_autoload() suitable implementation for supporting class autoloading.">Attach to spl_autoload() using the following:
+&lt;code&gt;
+spl_autoload_register(array('Zend_Loader', 'autoload'));
+&lt;/code&gt;</description>
+      <deprecated value="Since 1.8.0"/>
+      <param type="string" variable="$class"/>
+      <return description="Class name on success; false on failure" type="object">
+        <type full="string|false" namespace="" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerAutoload" start="264" end="287" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register {@link autoload()} with spl_autoload()"/>
+      <deprecated value="Since 1.8.0"/>
+      <param description="(optional)" type="string" variable="$class"/>
+      <param description="(optional)" type="boolean" variable="$enabled"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <throws description="if spl_autoload() is not found" type="object">or if the specified class does not have an autoload() method.<type full="Zend_Exception" namespace="" name="Zend_Exception"/></throws>
+    </docblock>
+    <parameter name="class" byreference="false" type="string" default="'Zend_Loader'"/>
+    <parameter name="enabled" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="_securityCheck" start="296" end="305" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Ensure that filename does not contain exploits"/>
+      <param type="string" variable="$filename"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Exception" namespace="" name="Zend_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Security check" line="298"/>
+    </inline>
+  </method>
+  <method name="_includeFile" start="321" end="328" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Attempt to include() the file.">include() is not prefixed with the @ operator because if
+the file is loaded and contains a parse error, execution
+will halt silently and this is difficult to debug.
+
+Always set display_errors = Off on production servers!</description>
+      <param type="string" variable="$filespec"/>
+      <param type="boolean" variable="$once"/>
+      <return type="boolean"/>
+      <deprecated value="Since 1.5.0; use loadFile() instead"/>
+    </docblock>
+    <parameter name="filespec" byreference="false" type="{unknown}"/>
+    <parameter name="once" byreference="false" type="{unknown}" default="false"/>
+  </method>
+</class>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Crypt</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Crypt</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/Zend/Crypt.php.xhtml#line28">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Crypt</h1>
+        <h4/>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Crypt
+            {<br/><ul class="none"><li>// constants</li><li>const TYPE_OPENSSL = 'openssl';</li><li>const TYPE_HASH = 'hash';</li><li>const TYPE_MHASH = 'mhash';</li></ul><ul class="none"><li>// members</li><li>protected <a href="#members">$_type</a>;
+                    </li><li>protected array <a href="#members">$_supportedAlgosOpenssl</a>;
+                    </li><li>protected array <a href="#members">$_supportedAlgosMhash</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static unknown <a title="Zend_Crypt" href="../classes/Zend_Crypt/hash.xhtml">hash</a>()
+                    </li><li>protected static void <a title="Zend_Crypt" href="../classes/Zend_Crypt/_detectHashSupport.xhtml">_detectHashSupport</a>()
+                    </li><li>protected static string <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestHash.xhtml">_digestHash</a>()
+                    </li><li>protected static string <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestMhash.xhtml">_digestMhash</a>()
+                    </li><li>protected static string <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestOpenssl.xhtml">_digestOpenssl</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/Zend_Crypt_Hmac.xhtml">Zend_Crypt_Hmac</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="TYPE_OPENSSL">TYPE_OPENSSL</td>
+              <td>'openssl'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_HASH">TYPE_HASH</td>
+              <td>'hash'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_MHASH">TYPE_MHASH</td>
+              <td>'mhash'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_supportedAlgosMhash"><strong>$_supportedAlgosMhash</strong>
+                —
+                array</li>
+            <li id="_supportedAlgosOpenssl"><strong>$_supportedAlgosOpenssl</strong>
+                —
+                array</li>
+            <li id="_type">
+              <strong>$_type</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_detectHashSupport">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_detectHashSupport.xhtml">_detectHashSupport()</a>
+            </li>
+            <li id="_digestHash">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestHash.xhtml">_digestHash()</a>
+            </li>
+            <li id="_digestMhash">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestMhash.xhtml">_digestMhash()</a>
+            </li>
+            <li id="_digestOpenssl">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestOpenssl.xhtml">_digestOpenssl()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="hash">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/hash.xhtml">hash()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Oauth/Token" file="Request.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Oauth/Token/Request.php" size="1623" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="3b0d75a2465126f5ed0c2108ae622146eb49d32b" relative="thirdparty/Zend/Oauth/Token/Request.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * Zend Framework</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * LICENSE</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * This source file is subject to the new BSD license that is bundled</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> * with this package in the file LICENSE.txt.</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * http://framework.zend.com/license/new-bsd</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * If you did not receive a copy of the license and are unable to</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> * obtain it through the world-wide-web, please send an email</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * to license@zend.com so we can send you a copy immediately.</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> * @category   Zend</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT"> * @package    Zend_Oauth</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT"> * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT"> * @license    http://framework.zend.com/license/new-bsd     New BSD License</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT"> * @version    $Id: Request.php 23775 2011-03-01 17:25:24Z ralph $</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="21"/>
+  <line no="22">
+    <token name="T_DOC_COMMENT">/** Zend_Oauth_Token */</token>
+  </line>
+  <line no="23">
+    <token name="T_REQUIRE_ONCE">require_once</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'Zend/Oauth/Token.php'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="24"/>
+  <line no="25">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT"> * @category   Zend</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT"> * @package    Zend_Oauth</token>
+  </line>
+  <line no="28">
+    <token name="T_DOC_COMMENT"> * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</token>
+  </line>
+  <line no="29">
+    <token name="T_DOC_COMMENT"> * @license    http://framework.zend.com/license/new-bsd     New BSD License</token>
+  </line>
+  <line no="30">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="31">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Zend_Oauth_Token_Request</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Zend_Oauth_Token</token>
+  </line>
+  <line no="32">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="33">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="34">
+    <token name="T_DOC_COMMENT">     * Constructor</token>
+  </line>
+  <line no="35">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="36">
+    <token name="T_DOC_COMMENT">     * @param null|Zend_Http_Response $response</token>
+  </line>
+  <line no="37">
+    <token name="T_DOC_COMMENT">     * @param null|Zend_Oauth_Http_Utility $utility</token>
+  </line>
+  <line no="38">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="39">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">__construct</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="40">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_STRING">Zend_Http_Response</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$response</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">null</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="41">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_STRING">Zend_Oauth_Http_Utility</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$utility</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">null</token>
+  </line>
+  <line no="42">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="43">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_STRING">parent</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">__construct</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$response</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$utility</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="44"/>
+  <line no="45">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_COMMENT">// detect if server supports OAuth 1.0a</token>
+  </line>
+  <line no="46">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_ISSET">isset</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">_params</token>
+    <token name="T_PHPDOX_OPEN_SQUARE">[</token>
+    <token name="T_STRING">Zend_Oauth_Token</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">TOKEN_PARAM_CALLBACK_CONFIRMED</token>
+    <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="47">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_STRING">Zend_Oauth_Client</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_VARIABLE">$supportsRevisionA</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="48">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="49">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="50">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="51"/>
+</source>

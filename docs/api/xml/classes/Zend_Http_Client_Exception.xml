@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Http_Client_Exception" namespace="" name="Zend_Http_Client_Exception" abstract="false" final="false" start="35" end="36">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Http/Client" file="Exception.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Http/Client/Exception.php" size="1160" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="6faa1528821648660a33268c3cd9b04655246d1a" relative="thirdparty/Zend/Http/Client/Exception.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Http"/>
+    <subpackage value="Client"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Http_Exception" namespace="" name="Zend_Http_Exception"/>
+  <parent full="Zend_Http_Exception" namespace="" name="Zend_Http_Exception">
+    <extends full="Zend_Exception" namespace="" name="Zend_Exception"/>
+  </parent>
+  <extender full="Zend_Http_Client_Adapter_Exception" namespace="" name="Zend_Http_Client_Adapter_Exception"/>
+</class>

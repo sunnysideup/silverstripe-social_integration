@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="MemberAuthenticatorWithSignup" namespace="" name="MemberAuthenticatorWithSignup" abstract="false" final="false" start="9" end="45">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../code/security" file="MemberAuthenticatorWithSignup.php" realpath="/var/www/_modules/social_integration/trunk/code/security/MemberAuthenticatorWithSignup.php" size="1135" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="f69fdc88f9bd81b9b14d61e96f6ea994596f3c23" relative="code/security/MemberAuthenticatorWithSignup.php"/>
+  <docblock>
+    <description compact="Authenticator for the default &quot;member&quot; method"/>
+    <author value="Markus Lanthaler &lt;markus@silverstripe.com&gt;"/>
+    <package value="sapphire"/>
+    <subpackage value="security"/>
+  </docblock>
+  <extends full="Authenticator" namespace="" name="Authenticator"/>
+  <method name="get_login_form" start="20" end="22" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Method that creates the login form for this authentication method"/>
+      <param description="The parent controller, necessary to create the" type="object">appropriate form action tag<type full="Controller" namespace="" name="Controller"/></param>
+      <return description="Returns the login form to use with this authentication" type="object">method<type full="Form" namespace="" name="Form"/></return>
+    </docblock>
+    <parameter name="controller" byreference="false" type="object">
+      <type full="\\Controller" namespace="\" name="Controller"/>
+    </parameter>
+  </method>
+  <method name="get_name" start="31" end="38" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the name of the authentication method"/>
+      <return description="Returns the name of the authentication method." type="string"/>
+    </docblock>
+  </method>
+  <method name="authenticate" start="41" end="43" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="RAW_data" byreference="false" type="{unknown}"/>
+    <parameter name="form" byreference="false" type="object" default="null">
+      <type full="\\Form" namespace="\" name="Form"/>
+    </parameter>
+  </method>
+</class>

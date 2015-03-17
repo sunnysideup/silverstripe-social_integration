@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/twitter/tests" file="index.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/twitter/tests/index.php" size="6236" time="2015-03-14T10:24:19+13:00" unixtime="1426281859" sha1="c7722449e3a40a83ef8e028ad0c53a0136f27c36" relative="thirdparty/twitter/tests/index.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2"/>
+  <line no="3">
+    <token name="T_COMMENT">//require</token>
+  </line>
+  <line no="4">
+    <token name="T_REQUIRE_ONCE">require_once</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'../../../autoload.php'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="5">
+    <token name="T_REQUIRE_ONCE">require_once</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'config.php'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="6"/>
+  <line no="7">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">TijsVerkoyen</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Twitter</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Twitter</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="8"/>
+  <line no="9">
+    <token name="T_COMMENT">// create instance</token>
+  </line>
+  <line no="10">
+    <token name="T_VARIABLE">$twitter</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NEW">new</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Twitter</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">CONSUMER_KEY</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">CONSUMER_SECRET</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="11"/>
+  <line no="12">
+    <token name="T_COMMENT">// The code below will do the oAuth-dance</token>
+  </line>
+  <line no="13">
+    <token name="T_COMMENT">//$response = $twitter-&gt;oAuthRequestToken('http://classes.dev/TijsVerkoyen/Twitter/tests/');</token>
+  </line>
+  <line no="14">
+    <token name="T_COMMENT">//if(!isset($_GET['oauth_token'])) $response = $twitter-&gt;oAuthAuthorize($response['oauth_token']);</token>
+  </line>
+  <line no="15">
+    <token name="T_COMMENT">//$response = $twitter-&gt;oAuthAccessToken($_GET['oauth_token'], $_GET['oauth_verifier']);</token>
+  </line>
+  <line no="16">
+    <token name="T_COMMENT">//var_dump($response);</token>
+  </line>
+  <line no="17">
+    <token name="T_COMMENT">//exit;</token>
+  </line>
+  <line no="18"/>
+  <line no="19">
+    <token name="T_VARIABLE">$twitter</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">setOAuthToken</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">OAUTH_TOKEN</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="20">
+    <token name="T_VARIABLE">$twitter</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">setOAuthTokenSecret</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">OAUTH_TOKEN_SECRET</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="21"/>
+  <line no="22">
+    <token name="T_TRY">try</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="23">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesMentionsTimeline();</token>
+  </line>
+  <line no="24">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesUserTimeline();</token>
+  </line>
+  <line no="25">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesHomeTimeline();</token>
+  </line>
+  <line no="26">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesRetweetsOfMe();</token>
+  </line>
+  <line no="27"/>
+  <line no="28">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesRetweets('21947795900469248');</token>
+  </line>
+  <line no="29">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesShow('210462857140252672');</token>
+  </line>
+  <line no="30">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesDestroy('264832934299705344');</token>
+  </line>
+  <line no="31">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesUpdate('Running the tests.. &#x79C1;&#x306E;&#x3055;&#x3048;&#x305A;&#x308A;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B; '. time());</token>
+  </line>
+  <line no="32">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesRetweet('241259202004267009');</token>
+  </line>
+  <line no="33">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;statusesUpdateWithMedia();</token>
+  </line>
+  <line no="34">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;statusesOEmbed('240192632003911681');</token>
+  </line>
+  <line no="35"/>
+  <line no="36">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;searchTweets('#freebandnames');</token>
+  </line>
+  <line no="37"/>
+  <line no="38">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;directMessages();</token>
+  </line>
+  <line no="39">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;directMessagesSent();</token>
+  </line>
+  <line no="40">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;directMessagesShow('283891767105953793');</token>
+  </line>
+  <line no="41">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;directMessagesDestroy('264854339762393088');</token>
+  </line>
+  <line no="42">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;directMessagesNew(null, 'tijs_dev', 'Running the tests.. &#x79C1;&#x306E;&#x3055;&#x3048;&#x305A;&#x308A;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B; '. time());</token>
+  </line>
+  <line no="43"/>
+  <line no="44">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendsIds(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="45">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;followersIds(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="46">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendshipsLookup(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="47">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendshipsIncoming();</token>
+  </line>
+  <line no="48">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendshipsOutgoing();</token>
+  </line>
+  <line no="49">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendshipsCreate(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="50">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendshipsDestroy(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="51">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendshipsUpdate(null, 'tijsverkoyen', false, true);</token>
+  </line>
+  <line no="52">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendshipsShow(null, 'bert', null, 'ernie');</token>
+  </line>
+  <line no="53">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;friendsList(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="54">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;followersList(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="55"/>
+  <line no="56">
+    <token name="T_COMMENT">//	$response = $twitter-&gt;accountSettings();</token>
+  </line>
+  <line no="57">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;accountVerifyCredentials();</token>
+  </line>
+  <line no="58">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;accountSettingsUpdate(null, null, null, null, 'Europe/Brussels', 'it');</token>
+  </line>
+  <line no="59">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;accountUpdateDeliveryDevice('none');</token>
+  </line>
+  <line no="60">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;accountUpdateProfile(null, 'http://github.com/tijsverkoyen/TwitterOAuth');</token>
+  </line>
+  <line no="61">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;accountUpdateProfileBackgroundImage();</token>
+  </line>
+  <line no="62">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;accountUpdateProfileColors();</token>
+  </line>
+  <line no="63">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;accountUpdateProfileImage();</token>
+  </line>
+  <line no="64">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;blocksList();</token>
+  </line>
+  <line no="65">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;blocksIds();</token>
+  </line>
+  <line no="66">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;blocksCreate(null, 'netlash');</token>
+  </line>
+  <line no="67">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;blocksDestroy(null, 'netlash');</token>
+  </line>
+  <line no="68">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersLookup(null, array('tijsverkoyen', 'sumocoders'));</token>
+  </line>
+  <line no="69">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersShow(null, 'tijsverkoyen');</token>
+  </line>
+  <line no="70">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersSearch('Twitter API');</token>
+  </line>
+  <line no="71">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersContributees(null, 'themattharris');</token>
+  </line>
+  <line no="72">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersContributors(null, 'twitterapi');</token>
+  </line>
+  <line no="73">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;accountRemoveProfileBanner();</token>
+  </line>
+  <line no="74">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;accountUpdateProfileBanner();</token>
+  </line>
+  <line no="75">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersProfileBanner(null, 'tijs_dev');</token>
+  </line>
+  <line no="76"/>
+  <line no="77">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersSuggestionsSlug('twitter');</token>
+  </line>
+  <line no="78">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersSuggestions();</token>
+  </line>
+  <line no="79">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;usersSuggestionsSlugMembers('music');</token>
+  </line>
+  <line no="80"/>
+  <line no="81">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;favoritesList(null, 'twitter');</token>
+  </line>
+  <line no="82">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;favoritesDestroy('243138128959913986');</token>
+  </line>
+  <line no="83">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;favoritesCreate('243138128959913986');</token>
+  </line>
+  <line no="84"/>
+  <line no="85">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsList();</token>
+  </line>
+  <line no="86">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsStatuses();</token>
+  </line>
+  <line no="87">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsMembersDestroy();</token>
+  </line>
+  <line no="88">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsMemberships();</token>
+  </line>
+  <line no="89">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsSubscribers();</token>
+  </line>
+  <line no="90">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsSubscribersCreate();</token>
+  </line>
+  <line no="91">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsSubscribersShow();</token>
+  </line>
+  <line no="92">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsSubscribersDestroy();</token>
+  </line>
+  <line no="93">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsMembersCreateAll();</token>
+  </line>
+  <line no="94">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsMembersShow();</token>
+  </line>
+  <line no="95">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsMembers():</token>
+  </line>
+  <line no="96">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsMembersCreate();</token>
+  </line>
+  <line no="97">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsDestroy();</token>
+  </line>
+  <line no="98">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsUpdate();</token>
+  </line>
+  <line no="99">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsCreate();</token>
+  </line>
+  <line no="100">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsShow();</token>
+  </line>
+  <line no="101">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsSubscriptions();</token>
+  </line>
+  <line no="102">
+    <token name="T_COMMENT">//  @todo $response = $twitter-&gt;listsMembersDestroyAll();</token>
+  </line>
+  <line no="103"/>
+  <line no="104">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;savedSearchesList();</token>
+  </line>
+  <line no="105">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;savedSearchesShow('3205644');</token>
+  </line>
+  <line no="106">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;savedSearchesCreate(time());</token>
+  </line>
+  <line no="107">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;savedSearchesDestroy('3205644');</token>
+  </line>
+  <line no="108"/>
+  <line no="109">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;geoId('df51dec6f4ee2b2c');</token>
+  </line>
+  <line no="110">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;geoReverseGeoCode(37.7821120598956, -122.400612831116);</token>
+  </line>
+  <line no="111">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;geoSearch(37.7821120598956, -122.400612831116);</token>
+  </line>
+  <line no="112">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;geoSimilarPlaces(37.7821120598956, -122.400612831116, 'Twitter HQ');</token>
+  </line>
+  <line no="113">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;geoPlace('Twitter HQ', '247f43d441defc03', '36179c9bf78835898ebf521c1defd4be', 37.7821120598956, -122.400612831116, array('street_address' =&gt; '795 Folsom St'));</token>
+  </line>
+  <line no="114"/>
+  <line no="115">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;trendsPlace(1);</token>
+  </line>
+  <line no="116">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;trendsAvailable();</token>
+  </line>
+  <line no="117">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;trendsClosest(37.781157, -122.400612831116);</token>
+  </line>
+  <line no="118"/>
+  <line no="119">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;reportSpam('FujitaKatsuhisa');</token>
+  </line>
+  <line no="120"/>
+  <line no="121">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;helpConfiguration();</token>
+  </line>
+  <line no="122">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;helpLanguages();</token>
+  </line>
+  <line no="123">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;helpPrivacy();</token>
+  </line>
+  <line no="124">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;helpTos();</token>
+  </line>
+  <line no="125">
+    <token name="T_COMMENT">//  $response = $twitter-&gt;applicationRateLimitStatus();</token>
+  </line>
+  <line no="126">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CATCH">catch</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">Exception</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$e</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="127">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_STRING">var_dump</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$e</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="128">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="129"/>
+  <line no="130">
+    <token name="T_COMMENT">// output</token>
+  </line>
+  <line no="131">
+    <token name="T_STRING">var_dump</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$response</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="132"/>
+</source>

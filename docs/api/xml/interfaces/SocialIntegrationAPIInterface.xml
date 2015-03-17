@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="SocialIntegrationAPIInterface" namespace="" name="SocialIntegrationAPIInterface" abstract="false" final="false" start="5" end="84">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../code/control" file="SocialIntegrationAPIInterface.php" realpath="/var/www/_modules/social_integration/trunk/code/control/SocialIntegrationAPIInterface.php" size="2084" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1871d461aa53bd73f9b0f6895bea05aa1eb51e31" relative="code/control/SocialIntegrationAPIInterface.php"/>
+  <method name="set_number_of_friends_that_can_be_retrieved" start="14" end="14" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Maximum number of followers/friends that can be retrieved"/>
+      <var type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </var>
+    </docblock>
+    <parameter name="n" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_number_of_friends_that_can_be_retrieved" start="15" end="15" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="login_url" start="22" end="22" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Link to login form"/>
+      <param type="object" variable="$returnURL">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="connect_url" start="30" end="30" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Link to connect"/>
+      <param type="object" variable="$returnURL">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+    <parameter name="existingMember" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="redirect_to_login_prompt" start="38" end="38" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="redirects to login prompt, lets the user log in and returns to the returnURL specified."/>
+      <param type="object" variable="$returnURL">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECTS!" namespace="" name="REDIRECTS!"/>
+      </return>
+    </docblock>
+    <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="get_current_user" start="46" end="46" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="returns all the data of the currently logged in / connected user."/>
+      <return description="| Null" type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="get_list_of_friends" start="54" end="54" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="gets a list of friends"/>
+      <param description="- $Limit, set to -1 to to maximum" type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </param>
+      <param description="- $searchString, filter for search string" type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="limit" byreference="false" type="integer" default="12"/>
+    <parameter name="searchString" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="is_valid_user" start="60" end="60" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks if the id provided is a valid member of the class."/>
+      <return type="object">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_updates" start="66" end="66" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="return last status updates"/>
+      <return type="object">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="lastNumber" byreference="false" type="integer" default="12"/>
+  </method>
+  <method name="send_message" start="77" end="77" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="make sure to return TRUE as response if the message is sent successfully Sends a message from the current user to someone else in the networkd"/>
+      <param description="- Facebook user id." type="object" variable="$userID">
+        <type full="Int" namespace="" name="Int"/>
+      </param>
+      <param description="- Message you are sending" type="object" variable="$message">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="- Link to send with message" type="object" variable="$link">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return description="- return TRUE as success" type="object">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="link" byreference="false" type="string" default="&quot;&quot;"/>
+    <parameter name="otherVariables" byreference="false" type="array"/>
+  </method>
+  <method name="test" start="80" end="80" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="meondatabase" start="82" end="82" abstract="false" final="false" static="false" visibility="public"/>
+  <implementor full="FacebookCallback" namespace="" name="FacebookCallback"/>
+  <implementor full="TwitterCallback" namespace="" name="TwitterCallback"/>
+  <implementor full="LinkedinCallback" namespace="" name="LinkedinCallback"/>
+  <implementor full="EmailCallback" namespace="" name="EmailCallback"/>
+</interface>

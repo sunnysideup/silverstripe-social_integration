@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Zend_Http_UserAgent_Storage" namespace="" name="Zend_Http_UserAgent_Storage" abstract="false" final="false" start="29" end="65">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Http/UserAgent" file="Storage.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Http/UserAgent/Storage.php" size="2020" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="4d008791d65eabcb6d1ac373921c30b673ec2387" relative="thirdparty/Zend/Http/UserAgent/Storage.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Http"/>
+    <subpackage value="UserAgent"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <method name="isEmpty" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if and only if storage is empty"/>
+      <throws description="If it is impossible to determine whether storage is empty" type="object">
+        <type full="Zend_Http_UserAgent_Storage_Exception" namespace="" name="Zend_Http_UserAgent_Storage_Exception"/>
+      </throws>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="read" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the contents of storage associated to the key parameter">Behavior is undefined when storage is empty.</description>
+      <throws description="If reading contents from storage is impossible" type="object">
+        <type full="Zend_Http_UserAgent_Storage_Exception" namespace="" name="Zend_Http_UserAgent_Storage_Exception"/>
+      </throws>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="write" start="56" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes $contents associated to the key parameter to storage"/>
+      <param type="mixed" variable="$contents"/>
+      <throws description="If writing $contents to storage is impossible" type="object">
+        <type full="Zend_Http_UserAgent_Storage_Exception" namespace="" name="Zend_Http_UserAgent_Storage_Exception"/>
+      </throws>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear" start="64" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clears contents from storage"/>
+      <throws description="If clearing contents from storage is impossible" type="object">
+        <type full="Zend_Http_UserAgent_Storage_Exception" namespace="" name="Zend_Http_UserAgent_Storage_Exception"/>
+      </throws>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <implementor full="Zend_Http_UserAgent_Storage_Session" namespace="" name="Zend_Http_UserAgent_Storage_Session"/>
+  <implementor full="Zend_Http_UserAgent_Storage_NonPersistent" namespace="" name="Zend_Http_UserAgent_Storage_NonPersistent"/>
+</interface>

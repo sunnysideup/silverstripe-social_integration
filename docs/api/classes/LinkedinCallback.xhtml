@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - LinkedinCallback</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">LinkedinCallback</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/code/control/LinkedinCallback.php.xhtml#line28">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>LinkedinCallback</h1>
+        <h4/>
+        <p/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class LinkedinCallback
+                extends <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass.xhtml">SocialIntegrationControllerBaseClass</a>
+                implements
+                <a title="SocialIntegrationAPIInterface" href="../interfaces/SocialIntegrationAPIInterface.xhtml">SocialIntegrationAPIInterface</a>
+            {<br/><ul class="none"><li>// members</li><li>private <span title="Int">Int</span> <a href="#members">$number_of_friends_that_can_be_retrieved</a>;
+                    </li><li>public <span title="Array">Array</span> <a href="#members">$allowed_actions</a>;
+                    </li><li>private <span title="String">String</span> <a href="#members">$consumer_key</a>;
+                    </li><li>private <span title="String">String</span> <a href="#members">$consumer_secret</a>;
+                    </li><li>private <span title="Array">Array</span> <a href="#members">$permission_scope</a>;
+                    </li><li>private array <a href="#members">$zend_oauth_consumer_class</a>;
+                    </li><li>private <span title="Array">Array</span> <a href="#members">$zend_oauth_consumer_class_config</a>;
+                    </li><li>private <a href="#members">$options</a>;
+                    </li><li>private <a href="#members">$consumer</a>;
+                    </li><li>private <a href="#members">$client</a>;
+                    </li><li>private <a href="#members">$token</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_number_of_friends_that_can_be_retrieved.xhtml">set_number_of_friends_that_can_be_retrieved</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_number_of_friends_that_can_be_retrieved.xhtml">get_number_of_friends_that_can_be_retrieved</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_consumer_key.xhtml">set_consumer_key</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_consumer_key.xhtml">get_consumer_key</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_consumer_secret.xhtml">set_consumer_secret</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_consumer_secret.xhtml">get_consumer_secret</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_permission_scope.xhtml">set_permission_scope</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_permission_scope.xhtml">get_permission_scope</a>()
+                    </li><li>protected Zend_Oauth_Consumer <a title="LinkedinCallback" href="../classes/LinkedinCallback/getConsumer.xhtml">getConsumer</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/getResponse.xhtml">getResponse</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_current_user.xhtml">get_current_user</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_updates.xhtml">get_updates</a>()
+                    </li><li>public static boolean <a title="LinkedinCallback" href="../classes/LinkedinCallback/send_message.xhtml">send_message</a>()
+                    </li><li>public static Array <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_list_of_friends.xhtml">get_list_of_friends</a>()
+                    </li><li>public static void <a title="LinkedinCallback" href="../classes/LinkedinCallback/is_valid_user.xhtml">is_valid_user</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/LinkedinConnect.xhtml">LinkedinConnect</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/connectUser.xhtml">connectUser</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/Connect.xhtml">Connect</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/FinishLinkedin.xhtml">FinishLinkedin</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/Login.xhtml">Login</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/remove.xhtml">remove</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/RemoveLinkedin.xhtml">RemoveLinkedin</a>()
+                    </li><li>protected Member <a title="LinkedinCallback" href="../classes/LinkedinCallback/updateUserFromLinkedinData.xhtml">updateUserFromLinkedinData</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/meondatabase.xhtml">meondatabase</a>()
+                    </li><li>public void <a title="LinkedinCallback" href="../classes/LinkedinCallback/basicconcept.xhtml">basicconcept</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="SocialIntegrationControllerBaseClass">SocialIntegrationControllerBaseClass</span></li><li>public static void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/get_default_avatar.xhtml">get_default_avatar</a>()
+                        </li><li>public static void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/set_default_avatar.xhtml">set_default_avatar</a>()
+                        </li><li>public static Boolean <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/is_social_integration_api_class.xhtml">is_social_integration_api_class</a>()
+                        </li><li>public static Object <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/get_login_button.xhtml">get_login_button</a>()
+                        </li><li>public static String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/login_url.xhtml">login_url</a>()
+                        </li><li>public static String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/connect_url.xhtml">connect_url</a>()
+                        </li><li>public static REDIRECTS! <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/redirect_to_login_prompt.xhtml">redirect_to_login_prompt</a>()
+                        </li><li>protected static String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/my_class_name.xhtml">my_class_name</a>()
+                        </li><li>protected static String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/my_service_name.xhtml">my_service_name</a>()
+                        </li><li>protected String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/my_security_form.xhtml">my_security_form</a>()
+                        </li><li>public String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/Title.xhtml">Title</a>()
+                        </li><li>public String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/AbsoluteLink.xhtml">AbsoluteLink</a>()
+                        </li><li>public String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/Link.xhtml">Link</a>()
+                        </li><li>public static void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/is_valid_user.xhtml">is_valid_user</a>()
+                        </li><li>public void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/index.xhtml">index</a>()
+                        </li><li>protected String <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/returnURL.xhtml">returnURL</a>()
+                        </li><li>public void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/Tests.xhtml">Tests</a>()
+                        </li><li>public void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/menondatabase.xhtml">menondatabase</a>()
+                        </li><li>public void <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/test.xhtml">test</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/SocialIntegrationControllerBaseClass.xhtml">SocialIntegrationControllerBaseClass</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/SocialIntegrationAPIInterface.xhtml">SocialIntegrationAPIInterface</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="client">
+              <strong>$client</strong>
+            </li>
+            <li id="consumer">
+              <strong>$consumer</strong>
+            </li>
+            <li id="consumer_key"><strong>$consumer_key</strong>
+                —
+                <a href="#">String</a><br/><span class="indent">Get from Linkedin</span></li>
+            <li id="consumer_secret"><strong>$consumer_secret</strong>
+                —
+                <a href="#">String</a><br/><span class="indent">Get from Linkedin</span></li>
+            <li id="number_of_friends_that_can_be_retrieved"><strong>$number_of_friends_that_can_be_retrieved</strong>
+                —
+                <a href="#">Int</a><br/><span class="indent">Maximum number of followers that can be retrieved</span></li>
+            <li id="options">
+              <strong>$options</strong>
+            </li>
+            <li id="permission_scope"><strong>$permission_scope</strong>
+                —
+                <a href="#">Array</a><br/><span class="indent">Get from Linkedin</span></li>
+            <li id="token">
+              <strong>$token</strong>
+            </li>
+            <li id="zend_oauth_consumer_class"><strong>$zend_oauth_consumer_class</strong>
+                —
+                array<br/><span class="indent">used to hold the Zend_Oauth_Consumer we keep one for each callback the default callback is nocallback</span></li>
+            <li id="zend_oauth_consumer_class_config"><strong>$zend_oauth_consumer_class_config</strong>
+                —
+                <a href="#">Array</a><br/><span class="indent">when creating a new Zend_Oauth_Consumer we also return the configs To access the standard config use: self::$zend_oauth_consumer_class_config["nocallback"];</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="allowed_actions"><strong>$allowed_actions</strong>
+                —
+                <a href="#">Array</a><br/><span class="indent">Standard SS variable determining what this controller can do</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="getConsumer"><a title="LinkedinCallback" href="../classes/LinkedinCallback/getConsumer.xhtml">getConsumer()</a>
+                — holds an instance of the Zend_Oauth_Consumer class</li>
+            <li id="updateUserFromLinkedinData"><a title="LinkedinCallback" href="../classes/LinkedinCallback/updateUserFromLinkedinData.xhtml">updateUserFromLinkedinData()</a>
+                — Saves the Linkedin data to the member and logs in the member if that has not been done yet.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="Connect"><a title="LinkedinCallback" href="../classes/LinkedinCallback/Connect.xhtml">Connect()</a>
+                — Connects the current user.</li>
+            <li id="FinishLinkedin">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/FinishLinkedin.xhtml">FinishLinkedin()</a>
+            </li>
+            <li id="LinkedinConnect"><a title="LinkedinCallback" href="../classes/LinkedinCallback/LinkedinConnect.xhtml">LinkedinConnect()</a>
+                — easy access to the connection</li>
+            <li id="Login"><a title="LinkedinCallback" href="../classes/LinkedinCallback/Login.xhtml">Login()</a>
+                — Works with the login form</li>
+            <li id="RemoveLinkedin">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/RemoveLinkedin.xhtml">RemoveLinkedin()</a>
+            </li>
+            <li id="basicconcept">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/basicconcept.xhtml">basicconcept()</a>
+            </li>
+            <li id="connectUser"><a title="LinkedinCallback" href="../classes/LinkedinCallback/connectUser.xhtml">connectUser()</a>
+                — STEP 1 of the connecting process</li>
+            <li id="getResponse">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/getResponse.xhtml">getResponse()</a>
+            </li>
+            <li id="get_consumer_key">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_consumer_key.xhtml">get_consumer_key()</a>
+            </li>
+            <li id="get_consumer_secret">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_consumer_secret.xhtml">get_consumer_secret()</a>
+            </li>
+            <li id="get_current_user"><a title="LinkedinCallback" href="../classes/LinkedinCallback/get_current_user.xhtml">get_current_user()</a>
+                — returns an array of data if there is anything and NULL if there is no information.</li>
+            <li id="get_list_of_friends"><a title="LinkedinCallback" href="../classes/LinkedinCallback/get_list_of_friends.xhtml">get_list_of_friends()</a>
+                — If we can not find enough followers, we add any user.</li>
+            <li id="get_number_of_friends_that_can_be_retrieved">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_number_of_friends_that_can_be_retrieved.xhtml">get_number_of_friends_that_can_be_retrieved()</a>
+            </li>
+            <li id="get_permission_scope">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_permission_scope.xhtml">get_permission_scope()</a>
+            </li>
+            <li id="get_updates">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/get_updates.xhtml">get_updates()</a>
+            </li>
+            <li id="is_valid_user"><a title="LinkedinCallback" href="../classes/LinkedinCallback/is_valid_user.xhtml">is_valid_user()</a>
+                — checks if a user exists</li>
+            <li id="meondatabase">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/meondatabase.xhtml">meondatabase()</a>
+            </li>
+            <li id="remove">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/remove.xhtml">remove()</a>
+            </li>
+            <li id="send_message"><a title="LinkedinCallback" href="../classes/LinkedinCallback/send_message.xhtml">send_message()</a>
+                — returns true on success</li>
+            <li id="set_consumer_key">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_consumer_key.xhtml">set_consumer_key()</a>
+            </li>
+            <li id="set_consumer_secret">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_consumer_secret.xhtml">set_consumer_secret()</a>
+            </li>
+            <li id="set_number_of_friends_that_can_be_retrieved">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_number_of_friends_that_can_be_retrieved.xhtml">set_number_of_friends_that_can_be_retrieved()</a>
+            </li>
+            <li id="set_permission_scope">
+              <a title="LinkedinCallback" href="../classes/LinkedinCallback/set_permission_scope.xhtml">set_permission_scope()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass.xhtml">SocialIntegrationControllerBaseClass</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="my_class_name"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/my_class_name.xhtml">my_class_name()</a>
+                — The class being called (e.g. FacebookCallback::my_class_name should return FacebookCallback)</li>
+            <li id="my_security_form"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/my_security_form.xhtml">my_security_form()</a>
+                — The name of the security form.</li>
+            <li id="my_service_name"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/my_service_name.xhtml">my_service_name()</a>
+                — The current ClassName without the "Callback" portion.</li>
+            <li id="returnURL"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/returnURL.xhtml">returnURL()</a>
+                — works out best Return URL</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="AbsoluteLink"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/AbsoluteLink.xhtml">AbsoluteLink()</a>
+                — returns Absolute URL to a link within this controller, by default it is the "Connect" link, because this controller always needs an action.</li>
+            <li id="Link"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/Link.xhtml">Link()</a>
+                — returns relative URL to a link within this controller, by default it is the "Connect" link, because this controller always needs an action.</li>
+            <li id="Tests">
+              <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/Tests.xhtml">Tests()</a>
+            </li>
+            <li id="Title"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/Title.xhtml">Title()</a>
+                — returns Absolute URL to a link within this controller, by default it is the "Connect" link, because this controller always needs an action.</li>
+            <li id="connect_url"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/connect_url.xhtml">connect_url()</a>
+                — Link to login form</li>
+            <li id="get_default_avatar">
+              <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/get_default_avatar.xhtml">get_default_avatar()</a>
+            </li>
+            <li id="get_login_button"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/get_login_button.xhtml">get_login_button()</a>
+                — one stop shop button</li>
+            <li id="index"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/index.xhtml">index()</a>
+                — you need to add an action</li>
+            <li id="is_social_integration_api_class"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/is_social_integration_api_class.xhtml">is_social_integration_api_class()</a>
+                — tells us if a class is a Social Integration API class (e.g. Facebook, Twiiter, etc....)</li>
+            <li id="is_valid_user">
+              <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/is_valid_user.xhtml">is_valid_user()</a>
+            </li>
+            <li id="login_url">
+              <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/login_url.xhtml">login_url()</a>
+            </li>
+            <li id="menondatabase">
+              <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/menondatabase.xhtml">menondatabase()</a>
+            </li>
+            <li id="redirect_to_login_prompt"><a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/redirect_to_login_prompt.xhtml">redirect_to_login_prompt()</a>
+                — redirects to login prompt, lets the user log in and returns to the returnURL specified.</li>
+            <li id="set_default_avatar">
+              <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/set_default_avatar.xhtml">set_default_avatar()</a>
+            </li>
+            <li id="test">
+              <a title="SocialIntegrationControllerBaseClass" href="../classes/SocialIntegrationControllerBaseClass/test.xhtml">test()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

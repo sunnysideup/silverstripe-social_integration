@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#TijsVerkoyen_Twitter">TijsVerkoyen\Twitter</a>
+          </li>
+          <li class="separator">
+            <a title="TijsVerkoyen\Twitter\Twitter" href="../../classes/TijsVerkoyen_Twitter_Twitter.xhtml">Twitter</a>
+          </li>
+          <li class="separator">statusesUserTimeline</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="../../source/thirdparty/twitter/Twitter.php.xhtml#line757">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>TijsVerkoyen\Twitter\Twitter::</small>statusesUserTimeline</h1>
+        <h4>Returns a collection of the most recent Tweets posted by the user indicated by the screen_name or user_id parameters.</h4>
+        <p>User timelines belonging to protected users may only be requested when the authenticated user either "owns" the timeline or is an approved follower of the owner.
+The timeline returned is the equivalent of the one seen when you view a user's profile on twitter.com.
+This method can only return up to 3,200 of a user's most recent Tweets. Native retweets of other statuses by the user is included in this total, regardless of whether include_rts is set to false when requesting this resource.</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function statusesUserTimeline([<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $userId = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $screenName = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $sinceId = null,
+            [<a title="TijsVerkoyen\Twitter\int[optional]" href="../../classes/TijsVerkoyen_Twitter_int[optional].xhtml">int[optional]</a>
+        $count = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $maxId = null,
+            [<a title="TijsVerkoyen\Twitter\bool[optional]" href="../../classes/TijsVerkoyen_Twitter_bool[optional].xhtml">bool[optional]</a>
+        $trimUser = null,
+            [<a title="TijsVerkoyen\Twitter\bool[optional]" href="../../classes/TijsVerkoyen_Twitter_bool[optional].xhtml">bool[optional]</a>
+        $excludeReplies = null,
+            [<a title="TijsVerkoyen\Twitter\bool[optional]" href="../../classes/TijsVerkoyen_Twitter_bool[optional].xhtml">bool[optional]</a>
+        $contributorDetails = null,
+            [<a title="TijsVerkoyen\Twitter\bool[optional]" href="../../classes/TijsVerkoyen_Twitter_bool[optional].xhtml">bool[optional]</a>
+        $includeRts = null]]]]]]]]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$userId</code>
+                —
+                object</dt>
+          <dd>The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.<br/><br/><br/>      </dd>
+          <dt><code>$screenName</code>
+                —
+                object</dt>
+          <dd>The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.<br/><br/><br/>      </dd>
+          <dt><code>$sinceId</code>
+                —
+                object</dt>
+          <dd>Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.<br/><br/><br/>      </dd>
+          <dt><code>$count</code>
+                —
+                object</dt>
+          <dd>Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied.<br/><br/><br/>      </dd>
+          <dt><code>$maxId</code>
+                —
+                object</dt>
+          <dd>Returns results with an ID less than (that is, older than) or equal to the specified ID.<br/><br/><br/>      </dd>
+          <dt><code>$trimUser</code>
+                —
+                object</dt>
+          <dd>When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.<br/><br/><br/>      </dd>
+          <dt><code>$excludeReplies</code>
+                —
+                object</dt>
+          <dd>This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies.<br/><br/><br/>      </dd>
+          <dt><code>$contributorDetails</code>
+                —
+                object</dt>
+          <dd>This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.<br/><br/><br/>      </dd>
+          <dt><code>$includeRts</code>
+                —
+                object</dt>
+          <dd>When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object.<br/><br/><br/>      </dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>array</dt>
+          <dd/>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

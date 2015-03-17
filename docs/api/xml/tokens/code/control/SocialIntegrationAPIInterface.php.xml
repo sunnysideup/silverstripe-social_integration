@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../code/control" file="SocialIntegrationAPIInterface.php" realpath="/var/www/_modules/social_integration/trunk/code/control/SocialIntegrationAPIInterface.php" size="2084" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1871d461aa53bd73f9b0f6895bea05aa1eb51e31" relative="code/control/SocialIntegrationAPIInterface.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2"/>
+  <line no="3"/>
+  <line no="4"/>
+  <line no="5">
+    <token name="T_INTERFACE">interface</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">SocialIntegrationAPIInterface</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="6"/>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_COMMENT">//======================================= STATIC METHODS ===============================================</token>
+  </line>
+  <line no="9"/>
+  <line no="10">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT">	 * Maximum number of followers/friends that can be retrieved</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT">	 * @var Int</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="14">
+    <token name="T_WHITESPACE">		</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">set_number_of_friends_that_can_be_retrieved</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$n</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="15">
+    <token name="T_WHITESPACE">		</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">get_number_of_friends_that_can_be_retrieved</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="16"/>
+  <line no="17">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT">	 * Link to login form</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT">	 * @param String $returnURL</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT">	 * @return String</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="22">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">login_url</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$returnURL</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="23"/>
+  <line no="24"/>
+  <line no="25">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT">	 * Link to connect</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT">	 * @param String $returnURL</token>
+  </line>
+  <line no="28">
+    <token name="T_DOC_COMMENT">	 * @return String</token>
+  </line>
+  <line no="29">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="30">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">connect_url</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$returnURL</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$existingMember</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">false</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="31"/>
+  <line no="32">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="33">
+    <token name="T_DOC_COMMENT">	 * redirects to login prompt, lets the user log in and returns to</token>
+  </line>
+  <line no="34">
+    <token name="T_DOC_COMMENT">	 * the returnURL specified.</token>
+  </line>
+  <line no="35">
+    <token name="T_DOC_COMMENT">	 * @param String $returnURL</token>
+  </line>
+  <line no="36">
+    <token name="T_DOC_COMMENT">	 * @return REDIRECTS!</token>
+  </line>
+  <line no="37">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="38">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">redirect_to_login_prompt</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$returnURL</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="39"/>
+  <line no="40"/>
+  <line no="41">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="42">
+    <token name="T_DOC_COMMENT">	 * returns all the data of the currently logged in / connected user.</token>
+  </line>
+  <line no="43">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="44">
+    <token name="T_DOC_COMMENT">	 * @return Array | Null</token>
+  </line>
+  <line no="45">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="46">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">get_current_user</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="47"/>
+  <line no="48">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="49">
+    <token name="T_DOC_COMMENT">	 * gets a list of friends</token>
+  </line>
+  <line no="50">
+    <token name="T_DOC_COMMENT">	 * @param Int - $Limit, set to -1 to to maximum</token>
+  </line>
+  <line no="51">
+    <token name="T_DOC_COMMENT">	 * @param String - $searchString, filter for search string</token>
+  </line>
+  <line no="52">
+    <token name="T_DOC_COMMENT">	 * @return Array</token>
+  </line>
+  <line no="53">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="54">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">get_list_of_friends</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$limit</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">12</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$searchString</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="55"/>
+  <line no="56">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="57">
+    <token name="T_DOC_COMMENT">	 * Checks if the id provided is a valid member of the class.</token>
+  </line>
+  <line no="58">
+    <token name="T_DOC_COMMENT">	 * @return Boolean</token>
+  </line>
+  <line no="59">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="60">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">is_valid_user</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$id</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="61"/>
+  <line no="62">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="63">
+    <token name="T_DOC_COMMENT">	 * return last status updates</token>
+  </line>
+  <line no="64">
+    <token name="T_DOC_COMMENT">	 * @return Boolean</token>
+  </line>
+  <line no="65">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="66">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">get_updates</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$lastNumber</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">12</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="67"/>
+  <line no="68">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="69">
+    <token name="T_DOC_COMMENT">	 * make sure to return TRUE as response if the message is sent</token>
+  </line>
+  <line no="70">
+    <token name="T_DOC_COMMENT">	 * successfully</token>
+  </line>
+  <line no="71">
+    <token name="T_DOC_COMMENT">	 * Sends a message from the current user to someone else in the networkd</token>
+  </line>
+  <line no="72">
+    <token name="T_DOC_COMMENT">	 * @param Int $userID - Facebook user id.</token>
+  </line>
+  <line no="73">
+    <token name="T_DOC_COMMENT">	 * @param String $message - Message you are sending</token>
+  </line>
+  <line no="74">
+    <token name="T_DOC_COMMENT">	 * @param String $link - Link to send with message</token>
+  </line>
+  <line no="75">
+    <token name="T_DOC_COMMENT">	 * @return Boolean - return TRUE as success</token>
+  </line>
+  <line no="76">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="77">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">send_message</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$to</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$message</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$link</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$otherVariables</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_ARRAY">array</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="78"/>
+  <line no="79"/>
+  <line no="80">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">test</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$request</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="81"/>
+  <line no="82">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">meondatabase</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="83"/>
+  <line no="84">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="85"/>
+</source>

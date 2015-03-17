@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - TwitterTest</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">TwitterTest</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/twitter/tests/TwitterTest.php.xhtml#line12">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>TwitterTest</h1>
+        <h4>test case.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class TwitterTest
+                extends <a title="PHPUnit_Framework_TestCase" href="../classes/PHPUnit_Framework_TestCase.xhtml">PHPUnit_Framework_TestCase</a>
+            {<br/><ul class="none"><li>// members</li><li>private <span title="TijsVerkoyen\Twitter\Twitter">Twitter</span> <a href="#members">$twitter</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>protected void <a title="TwitterTest" href="../classes/TwitterTest/setUp.xhtml">setUp</a>()
+                    </li><li>protected void <a title="TwitterTest" href="../classes/TwitterTest/tearDown.xhtml">tearDown</a>()
+                    </li><li>private void <a title="TwitterTest" href="../classes/TwitterTest/isDirectMessage.xhtml">isDirectMessage</a>()
+                    </li><li>private void <a title="TwitterTest" href="../classes/TwitterTest/isTweet.xhtml">isTweet</a>()
+                    </li><li>private void <a title="TwitterTest" href="../classes/TwitterTest/isUser.xhtml">isUser</a>()
+                    </li><li>private void <a title="TwitterTest" href="../classes/TwitterTest/isTrend.xhtml">isTrend</a>()
+                    </li><li>private void <a title="TwitterTest" href="../classes/TwitterTest/isPlace.xhtml">isPlace</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testGetTimeOut.xhtml">testGetTimeOut</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testGetUserAgent.xhtml">testGetUserAgent</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesMentionsTimeline.xhtml">testStatusesMentionsTimeline</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesUserTimeline.xhtml">testStatusesUserTimeline</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesHomeTimeline.xhtml">testStatusesHomeTimeline</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesRetweetsOfMe.xhtml">testStatusesRetweetsOfMe</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesRetweets.xhtml">testStatusesRetweets</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesShow.xhtml">testStatusesShow</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesDestroy.xhtml">testStatusesDestroy</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesUpdate.xhtml">testStatusesUpdate</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesRetweet.xhtml">testStatusesRetweet</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testStatusesOEmbed.xhtml">testStatusesOEmbed</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testSearchTweets.xhtml">testSearchTweets</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testDirectMessages.xhtml">testDirectMessages</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesSent.xhtml">testDirectMessagesSent</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesShow.xhtml">testDirectMessagesShow</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesDestroy.xhtml">testDirectMessagesDestroy</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesNew.xhtml">testDirectMessagesNew</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendsIds.xhtml">testFriendsIds</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFollowersIds.xhtml">testFollowersIds</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsLookup.xhtml">testFriendshipsLookup</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsIncoming.xhtml">testFriendshipsIncoming</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsOutgoing.xhtml">testFriendshipsOutgoing</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsCreate.xhtml">testFriendshipsCreate</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsDestroy.xhtml">testFriendshipsDestroy</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsUpdate.xhtml">testFriendshipsUpdate</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsShow.xhtml">testFriendshipsShow</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFriendsList.xhtml">testFriendsList</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFollowersList.xhtml">testFollowersList</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testAccountSettings.xhtml">testAccountSettings</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testAccountVerifyCredentials.xhtml">testAccountVerifyCredentials</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testAccountSettingsUpdate.xhtml">testAccountSettingsUpdate</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testAccountUpdateDeliveryDevice.xhtml">testAccountUpdateDeliveryDevice</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testAccountUpdateProfile.xhtml">testAccountUpdateProfile</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testBlocksList.xhtml">testBlocksList</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testBlocksIds.xhtml">testBlocksIds</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testBlocksCreate.xhtml">testBlocksCreate</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testBlocksDestroy.xhtml">testBlocksDestroy</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersLookup.xhtml">testUsersLookup</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersShow.xhtml">testUsersShow</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersSearch.xhtml">testUsersSearch</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersContributees.xhtml">testUsersContributees</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersContributors.xhtml">testUsersContributors</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testAccountRemoveProfileBanner.xhtml">testAccountRemoveProfileBanner</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersProfileBanner.xhtml">testUsersProfileBanner</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersSuggestionsSlug.xhtml">testUsersSuggestionsSlug</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersSuggestions.xhtml">testUsersSuggestions</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testUsersSuggestionsSlugMembers.xhtml">testUsersSuggestionsSlugMembers</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFavoritesList.xhtml">testFavoritesList</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFavoritesDestroy.xhtml">testFavoritesDestroy</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testFavoritesCreate.xhtml">testFavoritesCreate</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesList.xhtml">testSavedSearchesList</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesShow.xhtml">testSavedSearchesShow</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesCreate.xhtml">testSavedSearchesCreate</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesDestroy.xhtml">testSavedSearchesDestroy</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testGeoId.xhtml">testGeoId</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testGeoReverseGeoCode.xhtml">testGeoReverseGeoCode</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testGeoSearch.xhtml">testGeoSearch</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testGeoSimilarPlaces.xhtml">testGeoSimilarPlaces</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testTrendsPlace.xhtml">testTrendsPlace</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testTrendsAvailable.xhtml">testTrendsAvailable</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testTrendsClosest.xhtml">testTrendsClosest</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testReportSpam.xhtml">testReportSpam</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testHelpConfiguration.xhtml">testHelpConfiguration</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testHelpLanguages.xhtml">testHelpLanguages</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testHelpPrivacy.xhtml">testHelpPrivacy</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testHelpTos.xhtml">testHelpTos</a>()
+                    </li><li>public void <a title="TwitterTest" href="../classes/TwitterTest/testApplicationRateLimitStatus.xhtml">testApplicationRateLimitStatus</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/PHPUnit_Framework_TestCase.xhtml">PHPUnit_Framework_TestCase</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">641</td>
+            <td>upload</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="twitter"><strong>$twitter</strong>
+                —
+                <a href="#">TijsVerkoyen\Twitter\Twitter</a><br/><span class="indent">Twitter instance</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="isDirectMessage"><a title="TwitterTest" href="../classes/TwitterTest/isDirectMessage.xhtml">isDirectMessage()</a>
+                — Test if an array is a direct message</li>
+            <li id="isPlace"><a title="TwitterTest" href="../classes/TwitterTest/isPlace.xhtml">isPlace()</a>
+                — Test if an arrat is a place</li>
+            <li id="isTrend"><a title="TwitterTest" href="../classes/TwitterTest/isTrend.xhtml">isTrend()</a>
+                — Test if an array is a trend</li>
+            <li id="isTweet"><a title="TwitterTest" href="../classes/TwitterTest/isTweet.xhtml">isTweet()</a>
+                — Test if an array is a tweet</li>
+            <li id="isUser"><a title="TwitterTest" href="../classes/TwitterTest/isUser.xhtml">isUser()</a>
+                — Test if an array is a user</li>
+          </ul>
+          <h4>protected</h4>
+          <ul>
+            <li id="setUp"><a title="TwitterTest" href="../classes/TwitterTest/setUp.xhtml">setUp()</a>
+                — Prepares the environment before running a test.</li>
+            <li id="tearDown"><a title="TwitterTest" href="../classes/TwitterTest/tearDown.xhtml">tearDown()</a>
+                — Cleans up the environment after running a test.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="testAccountRemoveProfileBanner"><a title="TwitterTest" href="../classes/TwitterTest/testAccountRemoveProfileBanner.xhtml">testAccountRemoveProfileBanner()</a>
+                — Tests Twitter-&gt;accountRemoveProfileBanner</li>
+            <li id="testAccountSettings"><a title="TwitterTest" href="../classes/TwitterTest/testAccountSettings.xhtml">testAccountSettings()</a>
+                — Tests Twitter-&gt;accountSettings</li>
+            <li id="testAccountSettingsUpdate"><a title="TwitterTest" href="../classes/TwitterTest/testAccountSettingsUpdate.xhtml">testAccountSettingsUpdate()</a>
+                — Tests Twitter-&gt;accountSettingsUpdate</li>
+            <li id="testAccountUpdateDeliveryDevice"><a title="TwitterTest" href="../classes/TwitterTest/testAccountUpdateDeliveryDevice.xhtml">testAccountUpdateDeliveryDevice()</a>
+                — Tests Twitter-&gt;accountUpdateDeliveryDevice</li>
+            <li id="testAccountUpdateProfile"><a title="TwitterTest" href="../classes/TwitterTest/testAccountUpdateProfile.xhtml">testAccountUpdateProfile()</a>
+                — Tests Twitter-&gt;accountUpdateProfile</li>
+            <li id="testAccountVerifyCredentials"><a title="TwitterTest" href="../classes/TwitterTest/testAccountVerifyCredentials.xhtml">testAccountVerifyCredentials()</a>
+                — Tests Twitter-&gt;accountVerifyCredentials</li>
+            <li id="testApplicationRateLimitStatus"><a title="TwitterTest" href="../classes/TwitterTest/testApplicationRateLimitStatus.xhtml">testApplicationRateLimitStatus()</a>
+                — Tests Twitter-&gt;applicationRateLimitStatus()</li>
+            <li id="testBlocksCreate"><a title="TwitterTest" href="../classes/TwitterTest/testBlocksCreate.xhtml">testBlocksCreate()</a>
+                — Tests Twitter-&gt;blocksCreate</li>
+            <li id="testBlocksDestroy"><a title="TwitterTest" href="../classes/TwitterTest/testBlocksDestroy.xhtml">testBlocksDestroy()</a>
+                — Tests Twitter-&gt;blocksCreate</li>
+            <li id="testBlocksIds"><a title="TwitterTest" href="../classes/TwitterTest/testBlocksIds.xhtml">testBlocksIds()</a>
+                — Tests Twitter-&gt;blocksIds</li>
+            <li id="testBlocksList"><a title="TwitterTest" href="../classes/TwitterTest/testBlocksList.xhtml">testBlocksList()</a>
+                — Tests Twitter-&gt;blocksList</li>
+            <li id="testDirectMessages"><a title="TwitterTest" href="../classes/TwitterTest/testDirectMessages.xhtml">testDirectMessages()</a>
+                — Tests Twitter-&gt;directMessages()</li>
+            <li id="testDirectMessagesDestroy"><a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesDestroy.xhtml">testDirectMessagesDestroy()</a>
+                — Tests Twitter-&gt;directMessagesDestroy</li>
+            <li id="testDirectMessagesNew"><a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesNew.xhtml">testDirectMessagesNew()</a>
+                — Tests Twitter-&gt;directMessagesNew</li>
+            <li id="testDirectMessagesSent"><a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesSent.xhtml">testDirectMessagesSent()</a>
+                — Tests Twitter-&gt;directMessagesSent()</li>
+            <li id="testDirectMessagesShow"><a title="TwitterTest" href="../classes/TwitterTest/testDirectMessagesShow.xhtml">testDirectMessagesShow()</a>
+                — Tests Twitter-&gt;directMessagesShow()</li>
+            <li id="testFavoritesCreate"><a title="TwitterTest" href="../classes/TwitterTest/testFavoritesCreate.xhtml">testFavoritesCreate()</a>
+                — Tests Twitter-&gt;favoritesCreate</li>
+            <li id="testFavoritesDestroy"><a title="TwitterTest" href="../classes/TwitterTest/testFavoritesDestroy.xhtml">testFavoritesDestroy()</a>
+                — Tests Twitter-&gt;favoritesDestroy</li>
+            <li id="testFavoritesList"><a title="TwitterTest" href="../classes/TwitterTest/testFavoritesList.xhtml">testFavoritesList()</a>
+                — Tests Twitter-&gt;favoritesList</li>
+            <li id="testFollowersIds"><a title="TwitterTest" href="../classes/TwitterTest/testFollowersIds.xhtml">testFollowersIds()</a>
+                — Tests Twitter-&gt;followersIds</li>
+            <li id="testFollowersList"><a title="TwitterTest" href="../classes/TwitterTest/testFollowersList.xhtml">testFollowersList()</a>
+                — Tests Twitter-&gt;followersList</li>
+            <li id="testFriendsIds"><a title="TwitterTest" href="../classes/TwitterTest/testFriendsIds.xhtml">testFriendsIds()</a>
+                — Tests Twitter-&gt;friendsIds</li>
+            <li id="testFriendsList"><a title="TwitterTest" href="../classes/TwitterTest/testFriendsList.xhtml">testFriendsList()</a>
+                — Tests Twitter-&gt;friendsList</li>
+            <li id="testFriendshipsCreate"><a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsCreate.xhtml">testFriendshipsCreate()</a>
+                — Tests Twitter-&gt;friendshipsCreate</li>
+            <li id="testFriendshipsDestroy"><a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsDestroy.xhtml">testFriendshipsDestroy()</a>
+                — Tests Twitter-&gt;friendshipsDestroy</li>
+            <li id="testFriendshipsIncoming"><a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsIncoming.xhtml">testFriendshipsIncoming()</a>
+                — Tests Twitter-&gt;friendshipsIncoming</li>
+            <li id="testFriendshipsLookup"><a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsLookup.xhtml">testFriendshipsLookup()</a>
+                — Tests Twitter-&gt;friendshipsLookup</li>
+            <li id="testFriendshipsOutgoing"><a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsOutgoing.xhtml">testFriendshipsOutgoing()</a>
+                — Tests Twitter-&gt;friendshipsOutgoing</li>
+            <li id="testFriendshipsShow"><a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsShow.xhtml">testFriendshipsShow()</a>
+                — Tests Twitter-&gt;friendshipsShow</li>
+            <li id="testFriendshipsUpdate"><a title="TwitterTest" href="../classes/TwitterTest/testFriendshipsUpdate.xhtml">testFriendshipsUpdate()</a>
+                — Tests Twitter-&gt;friendshipsUpdate</li>
+            <li id="testGeoId"><a title="TwitterTest" href="../classes/TwitterTest/testGeoId.xhtml">testGeoId()</a>
+                — Tests Twitter-&gt;geoId()</li>
+            <li id="testGeoReverseGeoCode"><a title="TwitterTest" href="../classes/TwitterTest/testGeoReverseGeoCode.xhtml">testGeoReverseGeoCode()</a>
+                — Tests Twitter-&gt;geoReverseGeoCode()</li>
+            <li id="testGeoSearch"><a title="TwitterTest" href="../classes/TwitterTest/testGeoSearch.xhtml">testGeoSearch()</a>
+                — Tests Twitter-&gt;geoSearch()</li>
+            <li id="testGeoSimilarPlaces"><a title="TwitterTest" href="../classes/TwitterTest/testGeoSimilarPlaces.xhtml">testGeoSimilarPlaces()</a>
+                — Tests Twitter-&gt;geoSimilarPlaces()</li>
+            <li id="testGetTimeOut"><a title="TwitterTest" href="../classes/TwitterTest/testGetTimeOut.xhtml">testGetTimeOut()</a>
+                — Tests Twitter-&gt;getTimeOut()</li>
+            <li id="testGetUserAgent"><a title="TwitterTest" href="../classes/TwitterTest/testGetUserAgent.xhtml">testGetUserAgent()</a>
+                — Tests Twitter-&gt;getUserAgent()</li>
+            <li id="testHelpConfiguration"><a title="TwitterTest" href="../classes/TwitterTest/testHelpConfiguration.xhtml">testHelpConfiguration()</a>
+                — Tests Twitter-&gt;helpConfiguration()</li>
+            <li id="testHelpLanguages"><a title="TwitterTest" href="../classes/TwitterTest/testHelpLanguages.xhtml">testHelpLanguages()</a>
+                — Tests Twitter-&gt;helpLanguages()</li>
+            <li id="testHelpPrivacy"><a title="TwitterTest" href="../classes/TwitterTest/testHelpPrivacy.xhtml">testHelpPrivacy()</a>
+                — Tests Twitter-&gt;helpPrivacy()</li>
+            <li id="testHelpTos"><a title="TwitterTest" href="../classes/TwitterTest/testHelpTos.xhtml">testHelpTos()</a>
+                — Tests Twitter-&gt;helpTos()</li>
+            <li id="testReportSpam"><a title="TwitterTest" href="../classes/TwitterTest/testReportSpam.xhtml">testReportSpam()</a>
+                — Tests Twitter-&gt;reportSpam()</li>
+            <li id="testSavedSearchesCreate"><a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesCreate.xhtml">testSavedSearchesCreate()</a>
+                — Tests Twitter-&gt;savedSearchesCreate()</li>
+            <li id="testSavedSearchesDestroy"><a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesDestroy.xhtml">testSavedSearchesDestroy()</a>
+                — Tests Twitter-&gt;savedSearchesDestroy()</li>
+            <li id="testSavedSearchesList"><a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesList.xhtml">testSavedSearchesList()</a>
+                — Tests Twitter-&gt;savedSearchesList()</li>
+            <li id="testSavedSearchesShow"><a title="TwitterTest" href="../classes/TwitterTest/testSavedSearchesShow.xhtml">testSavedSearchesShow()</a>
+                — Tests Twitter-&gt;savedSearchesShow()</li>
+            <li id="testSearchTweets"><a title="TwitterTest" href="../classes/TwitterTest/testSearchTweets.xhtml">testSearchTweets()</a>
+                — Tests Twitter-&gt;searchTweets()</li>
+            <li id="testStatusesDestroy"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesDestroy.xhtml">testStatusesDestroy()</a>
+                — Tests Twitter-&gt;statusesDestroy()</li>
+            <li id="testStatusesHomeTimeline"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesHomeTimeline.xhtml">testStatusesHomeTimeline()</a>
+                — Tests Twitter-&gt;statusesHomeTimeline()</li>
+            <li id="testStatusesMentionsTimeline"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesMentionsTimeline.xhtml">testStatusesMentionsTimeline()</a>
+                — Tests Twitter-&gt;statusesMentionsTimeline()</li>
+            <li id="testStatusesOEmbed"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesOEmbed.xhtml">testStatusesOEmbed()</a>
+                — Tests Twitter-&gt;statusesOEmbed()</li>
+            <li id="testStatusesRetweet"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesRetweet.xhtml">testStatusesRetweet()</a>
+                — Tests Twitter-&gt;statusesRetweet()</li>
+            <li id="testStatusesRetweets"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesRetweets.xhtml">testStatusesRetweets()</a>
+                — Tests Twitter-&gt;statusesRetweets()</li>
+            <li id="testStatusesRetweetsOfMe"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesRetweetsOfMe.xhtml">testStatusesRetweetsOfMe()</a>
+                — Tests Twitter-&gt;statusesRetweetsOfMe()</li>
+            <li id="testStatusesShow"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesShow.xhtml">testStatusesShow()</a>
+                — Tests Twitter-&gt;statusesShow()</li>
+            <li id="testStatusesUpdate"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesUpdate.xhtml">testStatusesUpdate()</a>
+                — Tests Twitter-&gt;statusesUpdate()</li>
+            <li id="testStatusesUserTimeline"><a title="TwitterTest" href="../classes/TwitterTest/testStatusesUserTimeline.xhtml">testStatusesUserTimeline()</a>
+                — Tests Twitter-&gt;statusesUserTimeline()</li>
+            <li id="testTrendsAvailable"><a title="TwitterTest" href="../classes/TwitterTest/testTrendsAvailable.xhtml">testTrendsAvailable()</a>
+                — Tests Twitter-&gt;trendsAvailable()</li>
+            <li id="testTrendsClosest"><a title="TwitterTest" href="../classes/TwitterTest/testTrendsClosest.xhtml">testTrendsClosest()</a>
+                — Tests Twitter-&gt;trendsClosest()</li>
+            <li id="testTrendsPlace"><a title="TwitterTest" href="../classes/TwitterTest/testTrendsPlace.xhtml">testTrendsPlace()</a>
+                — Tests Twitter-&gt;trendsPlace()</li>
+            <li id="testUsersContributees"><a title="TwitterTest" href="../classes/TwitterTest/testUsersContributees.xhtml">testUsersContributees()</a>
+                — Tests Twitter-&gt;usersContributees</li>
+            <li id="testUsersContributors"><a title="TwitterTest" href="../classes/TwitterTest/testUsersContributors.xhtml">testUsersContributors()</a>
+                — Tests Twitter-&gt;usersContributors</li>
+            <li id="testUsersLookup"><a title="TwitterTest" href="../classes/TwitterTest/testUsersLookup.xhtml">testUsersLookup()</a>
+                — Tests Twitter-&gt;usersLookup</li>
+            <li id="testUsersProfileBanner"><a title="TwitterTest" href="../classes/TwitterTest/testUsersProfileBanner.xhtml">testUsersProfileBanner()</a>
+                — Tests Twitter-&gt;usersProfileBanner</li>
+            <li id="testUsersSearch"><a title="TwitterTest" href="../classes/TwitterTest/testUsersSearch.xhtml">testUsersSearch()</a>
+                — Tests Twitter-&gt;usersSearch</li>
+            <li id="testUsersShow"><a title="TwitterTest" href="../classes/TwitterTest/testUsersShow.xhtml">testUsersShow()</a>
+                — Tests Twitter-&gt;usersShow</li>
+            <li id="testUsersSuggestions"><a title="TwitterTest" href="../classes/TwitterTest/testUsersSuggestions.xhtml">testUsersSuggestions()</a>
+                — Tests Twitter-&gt;usersSuggestions</li>
+            <li id="testUsersSuggestionsSlug"><a title="TwitterTest" href="../classes/TwitterTest/testUsersSuggestionsSlug.xhtml">testUsersSuggestionsSlug()</a>
+                — Tests Twitter-&gt;usersSuggestionsSlug</li>
+            <li id="testUsersSuggestionsSlugMembers"><a title="TwitterTest" href="../classes/TwitterTest/testUsersSuggestionsSlugMembers.xhtml">testUsersSuggestionsSlugMembers()</a>
+                — Tests Twitter-&gt;usersSuggestionsSlugMembers</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

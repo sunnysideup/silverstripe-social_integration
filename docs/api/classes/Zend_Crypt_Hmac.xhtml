@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Crypt_Hmac</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Crypt_Hmac</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/Zend/Crypt/Hmac.php.xhtml#line39">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Crypt_Hmac</h1>
+        <h4>PHP implementation of the RFC 2104 Hash based Message Authentication Code algorithm.</h4>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Crypt_Hmac
+                extends <a title="Zend_Crypt" href="../classes/Zend_Crypt.xhtml">Zend_Crypt</a>
+            {<br/><ul class="none"><li>// constants</li><li>const STRING = 'string';</li><li>const BINARY = 'binary';</li></ul><ul class="none"><li>// Inherited constants from <a title="Zend_Crypt" href="../classes/Zend_Crypt.xhtml">Zend_Crypt</a></li><li>const <a href="#TYPE_OPENSSL">TYPE_OPENSSL</a> = 'openssl';</li><li>const <a href="#TYPE_HASH">TYPE_HASH</a> = 'hash';</li><li>const <a href="#TYPE_MHASH">TYPE_MHASH</a> = 'mhash';</li></ul><ul class="none"><li>// members</li><li>protected string <a href="#members">$_key</a>;
+                    </li><li>protected string <a href="#members">$_packFormat</a>;
+                    </li><li>protected string <a href="#members">$_hashAlgorithm</a>;
+                    </li><li>protected array <a href="#members">$_supportedMhashAlgorithms</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="Zend_Crypt">Zend_Crypt</span></li><li>protected <a href="#members">$_type</a>;
+                        </li><li>protected array <a href="#members">$_supportedAlgosOpenssl</a>;
+                        </li><li>protected array <a href="#members">$_supportedAlgosMhash</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public static string <a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/compute.xhtml">compute</a>()
+                    </li><li>protected static Zend_Crypt_Hmac <a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/_setHashAlgorithm.xhtml">_setHashAlgorithm</a>()
+                    </li><li>protected static string <a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/_hash.xhtml">_hash</a>()
+                    </li><li>protected static integer <a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/_getMhashDefinition.xhtml">_getMhashDefinition</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Zend_Crypt">Zend_Crypt</span></li><li>public static unknown <a title="Zend_Crypt" href="../classes/Zend_Crypt/hash.xhtml">hash</a>()
+                        </li><li>protected static void <a title="Zend_Crypt" href="../classes/Zend_Crypt/_detectHashSupport.xhtml">_detectHashSupport</a>()
+                        </li><li>protected static string <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestHash.xhtml">_digestHash</a>()
+                        </li><li>protected static string <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestMhash.xhtml">_digestMhash</a>()
+                        </li><li>protected static string <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestOpenssl.xhtml">_digestOpenssl</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Zend_Crypt.xhtml">Zend_Crypt</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">39+</td>
+            <td>Patch for refactoring failed tests (key block sizes &gt;80 using internal algo)</td>
+          </tr>
+          <tr>
+            <td class="nummeric">39+</td>
+            <td>Check if mhash() is a required alternative (will be PECL-only soon)</td>
+          </tr>
+        </table>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="STRING">STRING</td>
+              <td>'string'</td>
+            </tr>
+            <tr>
+              <td id="BINARY">BINARY</td>
+              <td>'binary'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_OPENSSL">TYPE_OPENSSL</td>
+              <td>'openssl'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_HASH">TYPE_HASH</td>
+              <td>'hash'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_MHASH">TYPE_MHASH</td>
+              <td>'mhash'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_hashAlgorithm"><strong>$_hashAlgorithm</strong>
+                —
+                string<br/><span class="indent">Hashing algorithm; can be the md5/sha1 functions or any algorithm name listed in the output of PHP 5.1.2+ hash_algos().</span></li>
+            <li id="_key"><strong>$_key</strong>
+                —
+                string<br/><span class="indent">The key to use for the hash</span></li>
+            <li id="_packFormat"><strong>$_packFormat</strong>
+                —
+                string<br/><span class="indent">pack() format to be used for current hashing method</span></li>
+            <li id="_supportedAlgosMhash"><strong>$_supportedAlgosMhash</strong>
+                —
+                array</li>
+            <li id="_supportedAlgosOpenssl"><strong>$_supportedAlgosOpenssl</strong>
+                —
+                array</li>
+            <li id="_supportedMhashAlgorithms"><strong>$_supportedMhashAlgorithms</strong>
+                —
+                array<br/><span class="indent">List of algorithms supported my mhash()</span></li>
+            <li id="_type">
+              <strong>$_type</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_getMhashDefinition"><a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/_getMhashDefinition.xhtml">_getMhashDefinition()</a>
+                — Since MHASH accepts an integer constant representing the hash algorithm we need to make a small detour to get the correct integer matching our algorithm's name.</li>
+            <li id="_hash"><a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/_hash.xhtml">_hash()</a>
+                — Perform HMAC and return the keyed data</li>
+            <li id="_setHashAlgorithm"><a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/_setHashAlgorithm.xhtml">_setHashAlgorithm()</a>
+                — Setter for the hash method.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="compute"><a title="Zend_Crypt_Hmac" href="../classes/Zend_Crypt_Hmac/compute.xhtml">compute()</a>
+                — Performs a HMAC computation given relevant details such as Key, Hashing algorithm, the data to compute MAC of, and an output format of String, Binary notation or BTWOC.</li>
+          </ul>
+          <h3>Inherited from <a title="Zend_Crypt" href="../classes/Zend_Crypt.xhtml">Zend_Crypt</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="_detectHashSupport">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_detectHashSupport.xhtml">_detectHashSupport()</a>
+            </li>
+            <li id="_digestHash">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestHash.xhtml">_digestHash()</a>
+            </li>
+            <li id="_digestMhash">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestMhash.xhtml">_digestMhash()</a>
+            </li>
+            <li id="_digestOpenssl">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/_digestOpenssl.xhtml">_digestOpenssl()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="hash">
+              <a title="Zend_Crypt" href="../classes/Zend_Crypt/hash.xhtml">hash()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

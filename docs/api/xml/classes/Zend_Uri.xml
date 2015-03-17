@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Uri" namespace="" name="Zend_Uri" abstract="true" final="false" start="30" end="207">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend" file="Uri.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Uri.php" size="6484" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="11b446485fcd6681518e8eff5f51473b2420c7cc" relative="thirdparty/Zend/Uri.php"/>
+  <docblock>
+    <description compact="Abstract class for all Zend_Uri handlers"/>
+    <category value="Zend"/>
+    <package value="Zend_Uri"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <member name="_scheme" type="string" default="''" visibility="protected" line="37">
+    <docblock>
+      <description compact="Scheme of this URI (http, ftp, etc.)"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_config" type="array" visibility="protected" line="44">
+    <docblock>
+      <description compact="Global configuration array"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="__toString" start="54" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a string representation of this URI."/>
+      <see value="getUri()"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="check" start="72" end="81" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convenience function, checks that a $uri string is well-formed by validating it but not returning an object.  Returns TRUE if $uri is a well-formed URI, or FALSE otherwise."/>
+      <param description="The URI to check" type="string" variable="$uri"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="factory" start="96" end="151" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new Zend_Uri object for a URI.  If building a new URI, then $uri should contain only the scheme (http, ftp, etc).  Otherwise, supply $uri with the complete URI."/>
+      <param description="The URI form which a Zend_Uri instance is created" type="string" variable="$uri"/>
+      <param description="The name of the class to use in order to manipulate URI" type="string" variable="$className"/>
+      <throws description="When an empty string was supplied for the scheme" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <throws description="When an illegal scheme is supplied" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <throws description="When the scheme is not supported" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <throws description="When $className doesn't exist or doesn't implements Zend_Uri" type="object">
+        <type full="Zend_Uri_Exception" namespace="" name="Zend_Uri_Exception"/>
+      </throws>
+      <return type="object">
+        <type full="Zend_Uri" namespace="" name="Zend_Uri"/>
+      </return>
+      <link value="http://www.faqs.org/rfcs/rfc2396.html"/>
+    </docblock>
+    <parameter name="uri" byreference="false" type="string" default="'http'"/>
+    <parameter name="className" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Separate the scheme from the scheme-specific parts" line="98"/>
+      <comment value="Security check: $scheme is used to load a class file, so only alphanumerics are allowed." line="108"/>
+      <comment value="Create a new Zend_Uri object for the $uri. If a subclass of Zend_Uri exists for the" line="115"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="scheme, return an instance of that class. Otherwise, a Zend_Uri_Exception is thrown." line="116"/>
+    </inline>
+  </method>
+  <method name="getScheme" start="158" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the URI's scheme"/>
+      <return description="Scheme or false if no scheme is set." type="object">
+        <type full="string|false" namespace="" name="string|false"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setConfig" start="172" end="183" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set global configuration options"/>
+      <param type="object" variable="$config">
+        <type full="Zend_Config|array" namespace="" name="Zend_Config|array"/>
+      </param>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+  </method>
+  <constructor name="__construct" start="192" end="192" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Zend_Uri and its subclasses cannot be instantiated directly.">Use Zend_Uri::factory() to return a new Zend_Uri object.</description>
+      <param description="The scheme of the URI" type="string" variable="$scheme"/>
+      <param description="The scheme-specific part of the URI" type="string" variable="$schemeSpecific"/>
+    </docblock>
+    <parameter name="scheme" byreference="false" type="{unknown}"/>
+    <parameter name="schemeSpecific" byreference="false" type="string" default="''"/>
+  </constructor>
+  <method name="getUri" start="199" end="199" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a string representation of this URI."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="valid" start="206" end="206" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns TRUE if this URI is valid, or FALSE otherwise."/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <extender full="Zend_Uri_Http" namespace="" name="Zend_Uri_Http"/>
+</class>

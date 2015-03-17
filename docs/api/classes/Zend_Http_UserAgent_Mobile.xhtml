@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Http_UserAgent_Mobile</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Http_UserAgent_Mobile</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/Zend/Http/UserAgent/Mobile.php.xhtml#line33">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Http_UserAgent_Mobile</h1>
+        <h4>Mobile browser type matcher</h4>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Http_UserAgent_Mobile
+                extends <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice.xhtml">Zend_Http_UserAgent_AbstractDevice</a>
+            {<br/><ul class="none"><li>// constants</li><li>const DEFAULT_FEATURES_ADAPTER_CLASSNAME = 'Zend_Http_UserAgent_Features_Adapter_WurflApi';</li><li>const DEFAULT_FEATURES_ADAPTER_PATH = 'Zend/Http/UserAgent/Features/Adapter/WurflApi.php';</li></ul><ul class="none"><li>// members</li><li>protected array <a href="#members">$_uaSignatures</a>;
+                    </li><li>protected array <a href="#members">$_haTerms</a>;
+                    </li><li>protected array <a href="#members">$_uaBegin</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="Zend_Http_UserAgent_AbstractDevice">Zend_Http_UserAgent_AbstractDevice</span></li><li>protected string <a href="#members">$_browser</a>;
+                        </li><li>protected string <a href="#members">$_browserVersion</a>;
+                        </li><li>protected array <a href="#members">$_config</a>;
+                        </li><li>protected string <a href="#members">$_userAgent</a>;
+                        </li><li>protected array <a href="#members">$_server</a>;
+                        </li><li>protected array <a href="#members">$_images</a>;
+                        </li><li>protected array <a href="#members">$_aFeatures</a>;
+                        </li><li>protected array <a href="#members">$_aGroup</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public static bool <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/match.xhtml">match</a>()
+                    </li><li>public static string <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/userAgentStart.xhtml">userAgentStart</a>()
+                    </li><li>public void <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getType.xhtml">getType</a>()
+                    </li><li>protected string <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/_defineFeatures.xhtml">_defineFeatures</a>()
+                    </li><li>public __TYPE__ <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getMarkupLanguage.xhtml">getMarkupLanguage</a>()
+                    </li><li>public array <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getImageFormatSupport.xhtml">getImageFormatSupport</a>()
+                    </li><li>public int <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getMaxImageHeight.xhtml">getMaxImageHeight</a>()
+                    </li><li>public int <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getMaxImageWidth.xhtml">getMaxImageWidth</a>()
+                    </li><li>public int <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getPhysicalScreenHeight.xhtml">getPhysicalScreenHeight</a>()
+                    </li><li>public int <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getPhysicalScreenWidth.xhtml">getPhysicalScreenWidth</a>()
+                    </li><li>public string <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getPreferredMarkup.xhtml">getPreferredMarkup</a>()
+                    </li><li>public int <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getXhtmlSupportLevel.xhtml">getXhtmlSupportLevel</a>()
+                    </li><li>public bool <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/hasFlashSupport.xhtml">hasFlashSupport</a>()
+                    </li><li>public bool <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/hasPdfSupport.xhtml">hasPdfSupport</a>()
+                    </li><li>public bool <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/hasPhoneNumber.xhtml">hasPhoneNumber</a>()
+                    </li><li>public bool <a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/httpsSupport.xhtml">httpsSupport</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Zend_Http_UserAgent_AbstractDevice">Zend_Http_UserAgent_AbstractDevice</span></li><li>public void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/__construct.xhtml">__construct</a>()
+                        </li><li>public string <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/serialize.xhtml">serialize</a>()
+                        </li><li>public void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/unserialize.xhtml">unserialize</a>()
+                        </li><li>protected void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_restoreFromArray.xhtml">_restoreFromArray</a>()
+                        </li><li>protected array|null <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_defineFeatures.xhtml">_defineFeatures</a>()
+                        </li><li>public abstract string <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getType.xhtml">getType</a>()
+                        </li><li>public bool <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasFeature.xhtml">hasFeature</a>()
+                        </li><li>public string|null <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getFeature.xhtml">getFeature</a>()
+                        </li><li>public Zend_Http_UserAgent_AbstractDevice <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setFeature.xhtml">setFeature</a>()
+                        </li><li>public Zend_Http_UserAgent_AbstractDevice <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setGroup.xhtml">setGroup</a>()
+                        </li><li>public array <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getGroup.xhtml">getGroup</a>()
+                        </li><li>public array <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getAllFeatures.xhtml">getAllFeatures</a>()
+                        </li><li>public array <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getAllGroups.xhtml">getAllGroups</a>()
+                        </li><li>protected void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_getDefaultFeatures.xhtml">_getDefaultFeatures</a>()
+                        </li><li>public static array <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/extractFromUserAgent.xhtml">extractFromUserAgent</a>()
+                        </li><li>protected array <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_loadFeaturesAdapter.xhtml">_loadFeaturesAdapter</a>()
+                        </li><li>public array <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getImageFormatSupport.xhtml">getImageFormatSupport</a>()
+                        </li><li>public int <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getMaxImageHeight.xhtml">getMaxImageHeight</a>()
+                        </li><li>public int <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getMaxImageWidth.xhtml">getMaxImageWidth</a>()
+                        </li><li>public int <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getPhysicalScreenHeight.xhtml">getPhysicalScreenHeight</a>()
+                        </li><li>public int <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getPhysicalScreenWidth.xhtml">getPhysicalScreenWidth</a>()
+                        </li><li>public string <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getPreferredMarkup.xhtml">getPreferredMarkup</a>()
+                        </li><li>public int <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getXhtmlSupportLevel.xhtml">getXhtmlSupportLevel</a>()
+                        </li><li>public bool <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasFlashSupport.xhtml">hasFlashSupport</a>()
+                        </li><li>public bool <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasPdfSupport.xhtml">hasPdfSupport</a>()
+                        </li><li>public bool <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasPhoneNumber.xhtml">hasPhoneNumber</a>()
+                        </li><li>public bool <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/httpsSupport.xhtml">httpsSupport</a>()
+                        </li><li>public string <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getBrowser.xhtml">getBrowser</a>()
+                        </li><li>public string <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getBrowserVersion.xhtml">getBrowserVersion</a>()
+                        </li><li>public string <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getUserAgent.xhtml">getUserAgent</a>()
+                        </li><li>public the <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getImages.xhtml">getImages</a>()
+                        </li><li>public void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setBrowser.xhtml">setBrowser</a>()
+                        </li><li>public void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setBrowserVersion.xhtml">setBrowserVersion</a>()
+                        </li><li>public void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setUserAgent.xhtml">setUserAgent</a>()
+                        </li><li>public void <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setImages.xhtml">setImages</a>()
+                        </li><li>protected static bool <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_matchAgentAgainstSignatures.xhtml">_matchAgentAgainstSignatures</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Zend_Http_UserAgent_AbstractDevice.xhtml">Zend_Http_UserAgent_AbstractDevice</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="DEFAULT_FEATURES_ADAPTER_CLASSNAME">DEFAULT_FEATURES_ADAPTER_CLASSNAME</td>
+              <td>'Zend_Http_UserAgent_Features_Adapter_WurflApi'</td>
+            </tr>
+            <tr>
+              <td id="DEFAULT_FEATURES_ADAPTER_PATH">DEFAULT_FEATURES_ADAPTER_PATH</td>
+              <td>'Zend/Http/UserAgent/Features/Adapter/WurflApi.php'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_aFeatures"><strong>$_aFeatures</strong>
+                —
+                array<br/><span class="indent">Browser/Device features</span></li>
+            <li id="_aGroup"><strong>$_aGroup</strong>
+                —
+                array<br/><span class="indent">Browser/Device features groups</span></li>
+            <li id="_browser"><strong>$_browser</strong>
+                —
+                string<br/><span class="indent">Browser signature</span></li>
+            <li id="_browserVersion"><strong>$_browserVersion</strong>
+                —
+                string<br/><span class="indent">Browser version</span></li>
+            <li id="_config"><strong>$_config</strong>
+                —
+                array<br/><span class="indent">Configuration</span></li>
+            <li id="_haTerms"><strong>$_haTerms</strong>
+                —
+                array</li>
+            <li id="_images"><strong>$_images</strong>
+                —
+                array<br/><span class="indent">Image types</span></li>
+            <li id="_server"><strong>$_server</strong>
+                —
+                array<br/><span class="indent">Server variable</span></li>
+            <li id="_uaBegin"><strong>$_uaBegin</strong>
+                —
+                array<br/><span class="indent">first 4 letters of mobile User Agent chains</span></li>
+            <li id="_uaSignatures"><strong>$_uaSignatures</strong>
+                —
+                array<br/><span class="indent">User Agent Signatures</span></li>
+            <li id="_userAgent"><strong>$_userAgent</strong>
+                —
+                string<br/><span class="indent">User Agent chain</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_defineFeatures"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/_defineFeatures.xhtml">_defineFeatures()</a>
+                — Look for features</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/__construct.xhtml">__construct()</a>
+                — Constructor</li>
+            <li id="getImageFormatSupport"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getImageFormatSupport.xhtml">getImageFormatSupport()</a>
+                — Determine image format support</li>
+            <li id="getMarkupLanguage"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getMarkupLanguage.xhtml">getMarkupLanguage()</a>
+                — Determine markup language expected</li>
+            <li id="getMaxImageHeight"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getMaxImageHeight.xhtml">getMaxImageHeight()</a>
+                — Determine maximum image height supported</li>
+            <li id="getMaxImageWidth"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getMaxImageWidth.xhtml">getMaxImageWidth()</a>
+                — Determine maximum image width supported</li>
+            <li id="getPhysicalScreenHeight"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getPhysicalScreenHeight.xhtml">getPhysicalScreenHeight()</a>
+                — Determine physical screen height</li>
+            <li id="getPhysicalScreenWidth"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getPhysicalScreenWidth.xhtml">getPhysicalScreenWidth()</a>
+                — Determine physical screen width</li>
+            <li id="getPreferredMarkup"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getPreferredMarkup.xhtml">getPreferredMarkup()</a>
+                — Determine preferred markup</li>
+            <li id="getType"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getType.xhtml">getType()</a>
+                — Gives the current browser type</li>
+            <li id="getXhtmlSupportLevel"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/getXhtmlSupportLevel.xhtml">getXhtmlSupportLevel()</a>
+                — Determine X/HTML support level</li>
+            <li id="hasFlashSupport"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/hasFlashSupport.xhtml">hasFlashSupport()</a>
+                — Does the device support Flash?</li>
+            <li id="hasPdfSupport"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/hasPdfSupport.xhtml">hasPdfSupport()</a>
+                — Does the device support PDF?</li>
+            <li id="hasPhoneNumber"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/hasPhoneNumber.xhtml">hasPhoneNumber()</a>
+                — Does the device have an associated phone number?</li>
+            <li id="httpsSupport"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/httpsSupport.xhtml">httpsSupport()</a>
+                — Does the device support HTTPS?</li>
+            <li id="match"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/match.xhtml">match()</a>
+                — Comparison of the UserAgent chain and User Agent signatures</li>
+            <li id="userAgentStart"><a title="Zend_Http_UserAgent_Mobile" href="../classes/Zend_Http_UserAgent_Mobile/userAgentStart.xhtml">userAgentStart()</a>
+                — Retrieve beginning clause of user agent</li>
+          </ul>
+          <h3>Inherited from <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice.xhtml">Zend_Http_UserAgent_AbstractDevice</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="_defineFeatures"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_defineFeatures.xhtml">_defineFeatures()</a>
+                — Look for features</li>
+            <li id="_getDefaultFeatures"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_getDefaultFeatures.xhtml">_getDefaultFeatures()</a>
+                — Sets all the standard features extracted from the User Agent chain and $this-&gt;_server vars</li>
+            <li id="_loadFeaturesAdapter"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_loadFeaturesAdapter.xhtml">_loadFeaturesAdapter()</a>
+                — Loads the Features Adapter if it's defined in the $config array Otherwise, nothing is done</li>
+            <li id="_matchAgentAgainstSignatures"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_matchAgentAgainstSignatures.xhtml">_matchAgentAgainstSignatures()</a>
+                — Match a user agent string against a list of signatures</li>
+            <li id="_restoreFromArray"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/_restoreFromArray.xhtml">_restoreFromArray()</a>
+                — Restore object state from array</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="extractFromUserAgent"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/extractFromUserAgent.xhtml">extractFromUserAgent()</a>
+                — Extract and sets informations from the User Agent chain</li>
+            <li id="getAllFeatures"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getAllFeatures.xhtml">getAllFeatures()</a>
+                — Gets all the browser/device features</li>
+            <li id="getAllGroups"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getAllGroups.xhtml">getAllGroups()</a>
+                — Gets all the browser/device features' groups</li>
+            <li id="getBrowser"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getBrowser.xhtml">getBrowser()</a>
+                — Get the browser type</li>
+            <li id="getBrowserVersion"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getBrowserVersion.xhtml">getBrowserVersion()</a>
+                — Get the browser version</li>
+            <li id="getFeature"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getFeature.xhtml">getFeature()</a>
+                — Gets the value of the current browser/device feature</li>
+            <li id="getGroup"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getGroup.xhtml">getGroup()</a>
+                — Gets an array of features associated to a group</li>
+            <li id="getImageFormatSupport"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getImageFormatSupport.xhtml">getImageFormatSupport()</a>
+                — Retrieve image format support</li>
+            <li id="getImages">
+              <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getImages.xhtml">getImages()</a>
+            </li>
+            <li id="getMaxImageHeight"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getMaxImageHeight.xhtml">getMaxImageHeight()</a>
+                — Get maximum image height supported by this device</li>
+            <li id="getMaxImageWidth"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getMaxImageWidth.xhtml">getMaxImageWidth()</a>
+                — Get maximum image width supported by this device</li>
+            <li id="getPhysicalScreenHeight"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getPhysicalScreenHeight.xhtml">getPhysicalScreenHeight()</a>
+                — Get physical screen height of this device</li>
+            <li id="getPhysicalScreenWidth"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getPhysicalScreenWidth.xhtml">getPhysicalScreenWidth()</a>
+                — Get physical screen width of this device</li>
+            <li id="getPreferredMarkup"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getPreferredMarkup.xhtml">getPreferredMarkup()</a>
+                — Get preferred markup type</li>
+            <li id="getType"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getType.xhtml">getType()</a>
+                — Gets the browser type identifier</li>
+            <li id="getUserAgent"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getUserAgent.xhtml">getUserAgent()</a>
+                — Get the user agent string</li>
+            <li id="getXhtmlSupportLevel"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/getXhtmlSupportLevel.xhtml">getXhtmlSupportLevel()</a>
+                — Get supported X/HTML version</li>
+            <li id="hasFeature"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasFeature.xhtml">hasFeature()</a>
+                — Check a feature for the current browser/device.</li>
+            <li id="hasFlashSupport"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasFlashSupport.xhtml">hasFlashSupport()</a>
+                — Does the device support Flash?</li>
+            <li id="hasPdfSupport"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasPdfSupport.xhtml">hasPdfSupport()</a>
+                — Does the device support PDF?</li>
+            <li id="hasPhoneNumber"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/hasPhoneNumber.xhtml">hasPhoneNumber()</a>
+                — Does the device have a phone number associated with it?</li>
+            <li id="httpsSupport"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/httpsSupport.xhtml">httpsSupport()</a>
+                — Does the device support HTTPS?</li>
+            <li id="serialize"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/serialize.xhtml">serialize()</a>
+                — Serialize object</li>
+            <li id="setBrowser">
+              <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setBrowser.xhtml">setBrowser()</a>
+            </li>
+            <li id="setBrowserVersion">
+              <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setBrowserVersion.xhtml">setBrowserVersion()</a>
+            </li>
+            <li id="setFeature"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setFeature.xhtml">setFeature()</a>
+                — Set a feature for the current browser/device.</li>
+            <li id="setGroup"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setGroup.xhtml">setGroup()</a>
+                — Affects a feature to a group</li>
+            <li id="setImages">
+              <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setImages.xhtml">setImages()</a>
+            </li>
+            <li id="setUserAgent">
+              <a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/setUserAgent.xhtml">setUserAgent()</a>
+            </li>
+            <li id="unserialize"><a title="Zend_Http_UserAgent_AbstractDevice" href="../classes/Zend_Http_UserAgent_AbstractDevice/unserialize.xhtml">unserialize()</a>
+                — Unserialize</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

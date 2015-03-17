@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Oauth" namespace="" name="Zend_Oauth" abstract="false" final="false" start="31" end="89">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend" file="Oauth.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Oauth.php" size="2725" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="c5181995070282441fa6fc8af99552df3415e94a" relative="thirdparty/Zend/Oauth.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Oauth"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <constant name="REQUEST_SCHEME_HEADER" value="'header'"/>
+  <constant name="REQUEST_SCHEME_POSTBODY" value="'postbody'"/>
+  <constant name="REQUEST_SCHEME_QUERYSTRING" value="'querystring'"/>
+  <constant name="GET" value="'GET'"/>
+  <constant name="POST" value="'POST'"/>
+  <constant name="PUT" value="'PUT'"/>
+  <constant name="DELETE" value="'DELETE'"/>
+  <constant name="HEAD" value="'HEAD'"/>
+  <member name="httpClient" type="{unknown}" default="null" visibility="protected" line="47">
+    <docblock>
+      <description compact="Singleton instance if required of the HTTP client"/>
+      <var type="object">
+        <type full="Zend_Http_Client" namespace="" name="Zend_Http_Client"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setHttpClient" start="56" end="59" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Allows the external environment to make Zend_Oauth use a specific Client instance."/>
+      <param type="object" variable="$httpClient">
+        <type full="Zend_Http_Client" namespace="" name="Zend_Http_Client"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="httpClient" byreference="false" type="object">
+      <type full="\\Zend_Http_Client" namespace="\" name="Zend_Http_Client"/>
+    </parameter>
+  </method>
+  <method name="getHttpClient" start="68" end="77" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the singleton instance of the HTTP Client. Note that the instance is reset and cleared of previous parameters and Authorization header values."/>
+      <return type="object">
+        <type full="Zend_Http_Client" namespace="" name="Zend_Http_Client"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="clearHttpClient" start="85" end="88" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Simple mechanism to delete the entire singleton HTTP Client instance which forces an new instantiation for subsequent requests."/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <extender full="Zend_Oauth_Consumer" namespace="" name="Zend_Oauth_Consumer"/>
+</class>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Http_UserAgent</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Http_UserAgent</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/Zend/Http/UserAgent.php.xhtml#line37">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Http_UserAgent</h1>
+        <h4>Lists of User Agent chains for testing :</h4>
+        <p>- http://www.useragentstring.com/layout/useragentstring.php<br/>- http://user-agent-string.info/list-of-ua<br/>- http://www.user-agents.org/allagents.xml<br/>- http://en.wikipedia.org/wiki/List_of_user_agents_for_mobile_phones<br/>- http://www.mobilemultimedia.be/fr/</p>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Http_UserAgent
+                implements
+                <a title="Serializable" href="../interfaces/Serializable.xhtml">Serializable</a>
+            {<br/><ul class="none"><li>// constants</li><li>const DEFAULT_IDENTIFICATION_SEQUENCE = 'mobile,desktop';</li><li>const DEFAULT_PERSISTENT_STORAGE_ADAPTER = 'Session';</li><li>const DEFAULT_BROWSER_TYPE = 'desktop';</li><li>const DEFAULT_HTTP_USER_AGENT = 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)';</li><li>const DEFAULT_HTTP_ACCEPT = "application/xhtml+xml";</li><li>const DEFAULT_MARKUP_LANGUAGE = "xhtml";</li></ul><ul class="none"><li>// members</li><li>protected string <a href="#members">$_browserType</a>;
+                    </li><li>protected array <a href="#members">$_browserTypeClass</a>;
+                    </li><li>protected array <a href="#members">$_config</a>;
+                    </li><li>protected <span title="Zend_Http_UserAgent_Device">Zend_Http_UserAgent_Device</span> <a href="#members">$_device</a>;
+                    </li><li>protected <span title="bool">bool</span> <a href="#members">$_immutable</a>;
+                    </li><li>protected array <a href="#members">$_loaders</a>;
+                    </li><li>protected array <a href="#members">$_loaderTypes</a>;
+                    </li><li>protected array <a href="#members">$_matchLog</a>;
+                    </li><li>protected array <a href="#members">$_server</a>;
+                    </li><li>protected <span title="Zend_Http_UserAgent_Storage">Zend_Http_UserAgent_Storage</span> <a href="#members">$_storage</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/serialize.xhtml">serialize</a>()
+                    </li><li>public void <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/unserialize.xhtml">unserialize</a>()
+                    </li><li>public Zend_Http_UserAgent <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setOptions.xhtml">setOptions</a>()
+                    </li><li>protected bool <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_match.xhtml">_match</a>()
+                    </li><li>protected string <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_getUserAgentDevice.xhtml">_getUserAgentDevice</a>()
+                    </li><li>public string <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getUserAgent.xhtml">getUserAgent</a>()
+                    </li><li>public Zend_Http_UserAgent <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setUserAgent.xhtml">setUserAgent</a>()
+                    </li><li>public string <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getHttpAccept.xhtml">getHttpAccept</a>()
+                    </li><li>public Zend_Http_UserAgent <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setHttpAccept.xhtml">setHttpAccept</a>()
+                    </li><li>public Zend_Http_UserAgent_Storage <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getStorage.xhtml">getStorage</a>()
+                    </li><li>public Zend_Http_UserAgent <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setStorage.xhtml">setStorage</a>()
+                    </li><li>public void <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/clearStorage.xhtml">clearStorage</a>()
+                    </li><li>public array <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getConfig.xhtml">getConfig</a>()
+                    </li><li>public Zend_Http_UserAgent <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setConfig.xhtml">setConfig</a>()
+                    </li><li>public Zend_Http_UserAgent_Device <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getDevice.xhtml">getDevice</a>()
+                    </li><li>public string <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getBrowserType.xhtml">getBrowserType</a>()
+                    </li><li>public Zend_Http_UserAgent <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setBrowserType.xhtml">setBrowserType</a>()
+                    </li><li>public array <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getServer.xhtml">getServer</a>()
+                    </li><li>public void <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setServer.xhtml">setServer</a>()
+                    </li><li>public mixed <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getServerValue.xhtml">getServerValue</a>()
+                    </li><li>public void <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setServerValue.xhtml">setServerValue</a>()
+                    </li><li>public Zend_Http_UserAgent <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setPluginLoader.xhtml">setPluginLoader</a>()
+                    </li><li>public Zend_Loader_PluginLoader <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getPluginLoader.xhtml">getPluginLoader</a>()
+                    </li><li>protected string <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_validateLoaderType.xhtml">_validateLoaderType</a>()
+                    </li><li>protected Zend_Http_UserAgent_Result <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_matchUserAgent.xhtml">_matchUserAgent</a>()
+                    </li><li>protected void <a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_createDevice.xhtml">_createDevice</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/Serializable.xhtml">Serializable</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="DEFAULT_IDENTIFICATION_SEQUENCE">DEFAULT_IDENTIFICATION_SEQUENCE</td>
+              <td>'mobile,desktop'</td>
+            </tr>
+            <tr>
+              <td id="DEFAULT_PERSISTENT_STORAGE_ADAPTER">DEFAULT_PERSISTENT_STORAGE_ADAPTER</td>
+              <td>'Session'</td>
+            </tr>
+            <tr>
+              <td id="DEFAULT_BROWSER_TYPE">DEFAULT_BROWSER_TYPE</td>
+              <td>'desktop'</td>
+            </tr>
+            <tr>
+              <td id="DEFAULT_HTTP_USER_AGENT">DEFAULT_HTTP_USER_AGENT</td>
+              <td>'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'</td>
+            </tr>
+            <tr>
+              <td id="DEFAULT_HTTP_ACCEPT">DEFAULT_HTTP_ACCEPT</td>
+              <td>"application/xhtml+xml"</td>
+            </tr>
+            <tr>
+              <td id="DEFAULT_MARKUP_LANGUAGE">DEFAULT_MARKUP_LANGUAGE</td>
+              <td>"xhtml"</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_browserType"><strong>$_browserType</strong>
+                —
+                string<br/><span class="indent">Browser type</span></li>
+            <li id="_browserTypeClass"><strong>$_browserTypeClass</strong>
+                —
+                array<br/><span class="indent">Browser type class</span></li>
+            <li id="_config"><strong>$_config</strong>
+                —
+                array<br/><span class="indent">Array to store config</span></li>
+            <li id="_device"><strong>$_device</strong>
+                —
+                <a href="#">Zend_Http_UserAgent_Device</a><br/><span class="indent">Identified device</span></li>
+            <li id="_immutable"><strong>$_immutable</strong>
+                —
+                <a href="#">bool</a><br/><span class="indent">Whether or not this instance is immutable.</span></li>
+            <li id="_loaderTypes"><strong>$_loaderTypes</strong>
+                —
+                array<br/><span class="indent">Valid plugin loader types</span></li>
+            <li id="_loaders"><strong>$_loaders</strong>
+                —
+                array<br/><span class="indent">Plugin loaders</span></li>
+            <li id="_matchLog"><strong>$_matchLog</strong>
+                —
+                array<br/><span class="indent">Trace of items matched to identify the browser type</span></li>
+            <li id="_server"><strong>$_server</strong>
+                —
+                array<br/><span class="indent">Server variable</span></li>
+            <li id="_storage"><strong>$_storage</strong>
+                —
+                <a href="#">Zend_Http_UserAgent_Storage</a><br/><span class="indent">Persistent storage handler</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_createDevice"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_createDevice.xhtml">_createDevice()</a>
+                — Creates device object instance</li>
+            <li id="_getUserAgentDevice"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_getUserAgentDevice.xhtml">_getUserAgentDevice()</a>
+                — Loads class for a user agent device</li>
+            <li id="_match"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_match.xhtml">_match()</a>
+                — Comparison of the UserAgent chain and browser signatures.</li>
+            <li id="_matchUserAgent"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_matchUserAgent.xhtml">_matchUserAgent()</a>
+                — Run the identification sequence to match the right browser type according to the user agent</li>
+            <li id="_validateLoaderType"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/_validateLoaderType.xhtml">_validateLoaderType()</a>
+                — Validate a plugin loader type</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/__construct.xhtml">__construct()</a>
+                — Constructor</li>
+            <li id="clearStorage"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/clearStorage.xhtml">clearStorage()</a>
+                — Clean the persistent storage</li>
+            <li id="getBrowserType"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getBrowserType.xhtml">getBrowserType()</a>
+                — Retrieve the browser type</li>
+            <li id="getConfig"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getConfig.xhtml">getConfig()</a>
+                — Get user configuration</li>
+            <li id="getDevice"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getDevice.xhtml">getDevice()</a>
+                — Returns the device object</li>
+            <li id="getHttpAccept"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getHttpAccept.xhtml">getHttpAccept()</a>
+                — Returns the HTTP Accept server param</li>
+            <li id="getPluginLoader"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getPluginLoader.xhtml">getPluginLoader()</a>
+                — Get a plugin loader</li>
+            <li id="getServer"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getServer.xhtml">getServer()</a>
+                — Retrieve the "$_SERVER" array</li>
+            <li id="getServerValue"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getServerValue.xhtml">getServerValue()</a>
+                — Retrieve a server value</li>
+            <li id="getStorage"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getStorage.xhtml">getStorage()</a>
+                — Returns the persistent storage handler</li>
+            <li id="getUserAgent"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/getUserAgent.xhtml">getUserAgent()</a>
+                — Returns the User Agent value</li>
+            <li id="serialize"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/serialize.xhtml">serialize()</a>
+                — Serialized representation of the object</li>
+            <li id="setBrowserType"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setBrowserType.xhtml">setBrowserType()</a>
+                — Set the browser "type"</li>
+            <li id="setConfig"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setConfig.xhtml">setConfig()</a>
+                — Config parameters is an Array or a Zend_Config object</li>
+            <li id="setHttpAccept"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setHttpAccept.xhtml">setHttpAccept()</a>
+                — Force or replace the HTTP_ACCEPT chain in self::$_server variable</li>
+            <li id="setOptions"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setOptions.xhtml">setOptions()</a>
+                — Configure instance</li>
+            <li id="setPluginLoader"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setPluginLoader.xhtml">setPluginLoader()</a>
+                — Set plugin loader</li>
+            <li id="setServer"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setServer.xhtml">setServer()</a>
+                — Set the "$_SERVER" array</li>
+            <li id="setServerValue"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setServerValue.xhtml">setServerValue()</a>
+                — Set a server value</li>
+            <li id="setStorage"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setStorage.xhtml">setStorage()</a>
+                — Sets the persistent storage handler</li>
+            <li id="setUserAgent"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/setUserAgent.xhtml">setUserAgent()</a>
+                — Force or replace the UA chain in $_server variable</li>
+            <li id="unserialize"><a title="Zend_Http_UserAgent" href="../classes/Zend_Http_UserAgent/unserialize.xhtml">unserialize()</a>
+                — Unserialize a previous representation of the object</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

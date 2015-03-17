@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Http_UserAgent_Features_Adapter_TeraWurfl" namespace="" name="Zend_Http_UserAgent_Features_Adapter_TeraWurfl" abstract="false" final="false" start="37" end="102">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Http/UserAgent/Features/Adapter" file="TeraWurfl.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Http/UserAgent/Features/Adapter/TeraWurfl.php" size="3487" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="f198a8a2d50b7ca68ea8fd19a0f040c7c4753179" relative="thirdparty/Zend/Http/UserAgent/Features/Adapter/TeraWurfl.php"/>
+  <docblock>
+    <description compact="Features adapter build with the Tera Wurfl Api See installation instruction here : http://www.tera-wurfl.com/wiki/index.php/Installation Download : http://www.tera-wurfl.com/wiki/index.php/Downloads"/>
+    <package value="Zend_Http"/>
+    <subpackage value="UserAgent"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <implements full="Zend_Http_UserAgent_Features_Adapter" namespace="" name="Zend_Http_UserAgent_Features_Adapter"/>
+  <method name="getFromRequest" start="45" end="77" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get features from request"/>
+      <param description="$_SERVER variable" type="array" variable="$request"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array"/>
+    <inline>
+      <comment value="If TeraWurfl class not found, see if we can load it from" line="48"/>
+      <comment value="configuration" line="49"/>
+      <comment value="No configuration" line="52"/>
+      <comment value="No lib_dir given" line="60"/>
+      <comment value="Include the Tera-WURFL file" line="65"/>
+      <comment value="instantiate the Tera-WURFL object" line="70"/>
+      <comment value="Get the capabilities of the current client." line="73"/>
+    </inline>
+  </method>
+  <method name="getAllCapabilities" start="84" end="101" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="wurflObj" byreference="false" type="object">
+      <type full="\\TeraWurfl" namespace="\" name="TeraWurfl"/>
+    </parameter>
+    <inline>
+      <comment value="to have the same type than the official WURFL API" line="93"/>
+    </inline>
+  </method>
+  <interface full="Zend_Http_UserAgent_Features_Adapter" namespace="" name="Zend_Http_UserAgent_Features_Adapter">
+    <method name="getFromRequest" start="38" end="38" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Retrieve the browser's features from a given request object ($_SERVER)"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="request" byreference="false" type="{unknown}"/>
+      <parameter name="config" byreference="false" type="array"/>
+    </method>
+  </interface>
+</class>

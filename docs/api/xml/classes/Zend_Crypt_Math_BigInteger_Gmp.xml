@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Crypt_Math_BigInteger_Gmp" namespace="" name="Zend_Crypt_Math_BigInteger_Gmp" abstract="false" final="false" start="39" end="196">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Crypt/Math/BigInteger" file="Gmp.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Crypt/Math/BigInteger/Gmp.php" size="5269" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="af9050ff9e76750fccefb9a0de0374a26df4344d" relative="thirdparty/Zend/Crypt/Math/BigInteger/Gmp.php"/>
+  <docblock>
+    <description compact="Support for arbitrary precision mathematics in PHP.">Zend_Crypt_Math_BigInteger_Gmp is a wrapper across the PHP BCMath
+extension.</description>
+    <category value="Zend"/>
+    <package value="Zend_Crypt"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <implements full="Zend_Crypt_Math_BigInteger_Interface" namespace="" name="Zend_Crypt_Math_BigInteger_Interface"/>
+  <method name="init" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initialise a big integer into an extension specific type."/>
+      <param type="string" variable="$operand"/>
+      <param type="int" variable="$base"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="operand" byreference="false" type="{unknown}"/>
+    <parameter name="base" byreference="false" type="integer" default="10"/>
+  </method>
+  <method name="add" start="60" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds two arbitrary precision numbers"/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="right_operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="subtract" start="71" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="right_operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compare" start="85" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compare two big integers and returns result as an integer where 0 means both are identical, 1 that left_operand is larger, or -1 that right_operand is larger."/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="right_operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="divide" start="98" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Divide two big integers and return result or NULL if the denominator is zero."/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="object">
+        <type full="string|null" namespace="" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="right_operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="modulus" start="109" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="modulus" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="multiply" start="120" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="right_operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="pow" start="131" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="right_operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="powmod" start="142" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="left_operand" byreference="false" type="{unknown}"/>
+    <parameter name="right_operand" byreference="false" type="{unknown}"/>
+    <parameter name="modulus" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sqrt" start="153" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$left_operand"/>
+      <param type="string" variable="$right_operand"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="binaryToInteger" start="160" end="169" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="integerToBinary" start="172" end="182" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="operand" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hexToDecimal" start="185" end="194" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="operand" byreference="false" type="{unknown}"/>
+  </method>
+  <interface full="Zend_Crypt_Math_BigInteger_Interface" namespace="" name="Zend_Crypt_Math_BigInteger_Interface">
+    <method name="init" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="operand" byreference="false" type="{unknown}"/>
+      <parameter name="base" byreference="false" type="integer" default="10"/>
+    </method>
+    <method name="add" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="right_operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="subtract" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="right_operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="compare" start="40" end="40" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="right_operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="divide" start="41" end="41" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="right_operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="modulus" start="42" end="42" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="modulus" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="multiply" start="43" end="43" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="right_operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="pow" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="right_operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="powmod" start="45" end="45" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="left_operand" byreference="false" type="{unknown}"/>
+      <parameter name="right_operand" byreference="false" type="{unknown}"/>
+      <parameter name="modulus" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="sqrt" start="46" end="46" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="binaryToInteger" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="integerToBinary" start="48" end="48" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="operand" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hexToDecimal" start="49" end="49" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="operand" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

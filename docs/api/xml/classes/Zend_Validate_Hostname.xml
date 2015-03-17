@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Validate_Hostname" namespace="" name="Zend_Validate_Hostname" abstract="false" final="false" start="47" end="773">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Validate" file="Hostname.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Validate/Hostname.php" size="35245" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="03ef341f0cf293d7e8c0a185219aa475d04e9fb0" relative="thirdparty/Zend/Validate/Hostname.php"/>
+  <docblock>
+    <description compact="Please note there are two standalone test scripts for testing IDN characters due to problems with file encoding.">The first is tests/Zend/Validate/HostnameTestStandalone.php which is designed to be run on
+the command line.
+
+The second is tests/Zend/Validate/HostnameTestForm.php which is designed to be run via HTML
+to allow users to test entering UTF-8 characters in a form.</description>
+    <category value="Zend"/>
+    <package value="Zend_Validate"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract"/>
+  <constant name="CANNOT_DECODE_PUNYCODE" value="'hostnameCannotDecodePunycode'"/>
+  <constant name="INVALID" value="'hostnameInvalid'"/>
+  <constant name="INVALID_DASH" value="'hostnameDashCharacter'"/>
+  <constant name="INVALID_HOSTNAME" value="'hostnameInvalidHostname'"/>
+  <constant name="INVALID_HOSTNAME_SCHEMA" value="'hostnameInvalidHostnameSchema'"/>
+  <constant name="INVALID_LOCAL_NAME" value="'hostnameInvalidLocalName'"/>
+  <constant name="INVALID_URI" value="'hostnameInvalidUri'"/>
+  <constant name="IP_ADDRESS_NOT_ALLOWED" value="'hostnameIpAddressNotAllowed'"/>
+  <constant name="LOCAL_NAME_NOT_ALLOWED" value="'hostnameLocalNameNotAllowed'"/>
+  <constant name="UNDECIPHERABLE_TLD" value="'hostnameUndecipherableTld'"/>
+  <constant name="UNKNOWN_TLD" value="'hostnameUnknownTld'"/>
+  <member name="_messageTemplates" type="array" visibility="protected" line="64">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_messageVariables" type="array" visibility="protected" line="81">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constant name="ALLOW_DNS" value="1">
+    <docblock>
+      <description compact="Allows Internet domain names (e.g., example.com)"/>
+    </docblock>
+  </constant>
+  <constant name="ALLOW_IP" value="2">
+    <docblock>
+      <description compact="Allows IP addresses"/>
+    </docblock>
+  </constant>
+  <constant name="ALLOW_LOCAL" value="4">
+    <docblock>
+      <description compact="Allows local network names (e.g., localhost, www.localdomain)"/>
+    </docblock>
+  </constant>
+  <constant name="ALLOW_ALL" value="7">
+    <docblock>
+      <description compact="Allows all types of hostnames"/>
+    </docblock>
+  </constant>
+  <constant name="ALLOW_URI" value="8">
+    <docblock>
+      <description compact="Allows all types of hostnames"/>
+    </docblock>
+  </constant>
+  <member name="_validTlds" type="array" visibility="protected" line="117">
+    <docblock>
+      <description compact="Array of valid top-level-domains"/>
+      <see value="ftp://data.iana.org/TLD/tlds-alpha-by-domain.txt  List of all TLDs by domain"/>
+      <see value="http://www.iana.org/domains/root/db/ Official list of supported TLDs"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_tld" type="{unknown}" visibility="protected" line="142">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_validIdns" type="array" visibility="protected" line="194">
+    <docblock>
+      <description compact="Array for valid Idns"/>
+      <see value="http://www.iana.org/domains/idn-tables/ Official list of supported IDN Chars">(.AC) Ascension Island http://www.nic.ac/pdf/AC-IDN-Policy.pdf
+(.AR) Argentinia http://www.nic.ar/faqidn.html
+(.AS) American Samoa http://www.nic.as/idn/chars.cfm
+(.AT) Austria http://www.nic.at/en/service/technical_information/idn/charset_converter/
+(.BIZ) International http://www.iana.org/domains/idn-tables/
+(.BR) Brazil http://registro.br/faq/faq6.html
+(.BV) Bouvett Island http://www.norid.no/domeneregistrering/idn/idn_nyetegn.en.html
+(.CAT) Catalan http://www.iana.org/domains/idn-tables/tables/cat_ca_1.0.html
+(.CH) Switzerland https://nic.switch.ch/reg/ocView.action?res=EF6GW2JBPVTG67DLNIQXU234MN6SC33JNQQGI7L6#anhang1
+(.CL) Chile http://www.iana.org/domains/idn-tables/tables/cl_latn_1.0.html
+(.COM) International http://www.verisign.com/information-services/naming-services/internationalized-domain-names/index.html
+(.DE) Germany http://www.denic.de/en/domains/idns/liste.html
+(.DK) Danmark http://www.dk-hostmaster.dk/index.php?id=151
+(.ES) Spain https://www.nic.es/media/2008-05/1210147705287.pdf
+(.FI) Finland http://www.ficora.fi/en/index/palvelut/fiverkkotunnukset/aakkostenkaytto.html
+(.GR) Greece https://grweb.ics.forth.gr/CharacterTable1_en.jsp
+(.HU) Hungary http://www.domain.hu/domain/English/szabalyzat/szabalyzat.html
+(.INFO) International http://www.nic.info/info/idn
+(.IO) British Indian Ocean Territory http://www.nic.io/IO-IDN-Policy.pdf
+(.IR) Iran http://www.nic.ir/Allowable_Characters_dot-iran
+(.IS) Iceland http://www.isnic.is/domain/rules.php
+(.KR) Korea http://www.iana.org/domains/idn-tables/tables/kr_ko-kr_1.0.html
+(.LI) Liechtenstein https://nic.switch.ch/reg/ocView.action?res=EF6GW2JBPVTG67DLNIQXU234MN6SC33JNQQGI7L6#anhang1
+(.LT) Lithuania http://www.domreg.lt/static/doc/public/idn_symbols-en.pdf
+(.MD) Moldova http://www.register.md/
+(.MUSEUM) International http://www.iana.org/domains/idn-tables/tables/museum_latn_1.0.html
+(.NET) International http://www.verisign.com/information-services/naming-services/internationalized-domain-names/index.html
+(.NO) Norway http://www.norid.no/domeneregistrering/idn/idn_nyetegn.en.html
+(.NU) Niue http://www.worldnames.net/
+(.ORG) International http://www.pir.org/index.php?db=content/FAQs&amp;tbl=FAQs_Registrant&amp;id=2
+(.PE) Peru https://www.nic.pe/nuevas_politicas_faq_2.php
+(.PL) Poland http://www.dns.pl/IDN/allowed_character_sets.pdf
+(.PR) Puerto Rico http://www.nic.pr/idn_rules.asp
+(.PT) Portugal https://online.dns.pt/dns_2008/do?com=DS;8216320233;111;+PAGE(4000058)+K-CAT-CODIGO(C.125)+RCNT(100);
+(.RU) Russia http://www.iana.org/domains/idn-tables/tables/ru_ru-ru_1.0.html
+(.SA) Saudi Arabia http://www.iana.org/domains/idn-tables/tables/sa_ar_1.0.html
+(.SE) Sweden http://www.iis.se/english/IDN_campaignsite.shtml?lang=en
+(.SH) Saint Helena http://www.nic.sh/SH-IDN-Policy.pdf
+(.SJ) Svalbard and Jan Mayen http://www.norid.no/domeneregistrering/idn/idn_nyetegn.en.html
+(.TH) Thailand http://www.iana.org/domains/idn-tables/tables/th_th-th_1.0.html
+(.TM) Turkmenistan http://www.nic.tm/TM-IDN-Policy.pdf
+(.TR) Turkey https://www.nic.tr/index.php
+(.VE) Venice http://www.iana.org/domains/idn-tables/tables/ve_es_1.0.html
+(.VN) Vietnam http://www.vnnic.vn/english/5-6-300-2-2-04-20071115.htm#1.%20Introduction</see>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_idnLength" type="array" visibility="protected" line="299"/>
+  <member name="_options" type="array" visibility="protected" line="315"/>
+  <constructor name="__construct" start="332" end="356" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets validator options"/>
+      <param description="OPTIONAL Set what types of hostname to allow (default ALLOW_DNS)" type="integer" variable="$allow"/>
+      <param description="OPTIONAL Set whether IDN domains are validated (default true)" type="boolean" variable="$validateIdn"/>
+      <param description="OPTIONAL Set whether the TLD element of a hostname is validated (default true)" type="boolean" variable="$validateTld"/>
+      <param description="OPTIONAL" type="object" variable="$ipValidator">
+        <type full="Zend_Validate_Ip" namespace="" name="Zend_Validate_Ip"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <see value="http://www.iana.org/cctld/specifications-policies-cctlds-01apr02.htm  Technical Specifications for ccTLDs"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </constructor>
+  <method name="getOptions" start="363" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns all set options"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setOptions" start="374" end="393" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the options for this validator"/>
+      <param type="array" variable="$options"/>
+      <return type="object">
+        <type full="Zend_Validate_Hostname" namespace="" name="Zend_Validate_Hostname"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIpValidator" start="400" end="403" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the set ip validator"/>
+      <return type="object">
+        <type full="Zend_Validate_Ip" namespace="" name="Zend_Validate_Ip"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setIpValidator" start="409" end="417" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="OPTIONAL" type="object" variable="$ipValidator">
+        <type full="Zend_Validate_Ip" namespace="" name="Zend_Validate_Ip"/>
+      </param>
+      <return type="object">
+        <type full="void;" namespace="" name="void;"/>
+      </return>
+    </docblock>
+    <parameter name="ipValidator" byreference="false" type="object" default="null">
+      <type full="\\Zend_Validate_Ip" namespace="\" name="Zend_Validate_Ip"/>
+    </parameter>
+  </method>
+  <method name="getAllow" start="424" end="427" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the allow option"/>
+      <return type="integer"/>
+    </docblock>
+  </method>
+  <method name="setAllow" start="435" end="439" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the allow option"/>
+      <param type="integer" variable="$allow"/>
+      <return description="Provides a fluent interface" type="object">
+        <type full="Zend_Validate_Hostname" namespace="" name="Zend_Validate_Hostname"/>
+      </return>
+    </docblock>
+    <parameter name="allow" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getValidateIdn" start="446" end="449" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the set idn option"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="setValidateIdn" start="458" end="462" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set whether IDN domains are validated">This only applies when DNS hostnames are validated</description>
+      <param description="Set allowed to true to validate IDNs, and false to not validate them" type="boolean" variable="$allowed"/>
+    </docblock>
+    <parameter name="allowed" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getValidateTld" start="469" end="472" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the set tld option"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="setValidateTld" start="481" end="485" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set whether the TLD element of a hostname is validated">This only applies when DNS hostnames are validated</description>
+      <param description="Set allowed to true to validate TLDs, and false to not validate them" type="boolean" variable="$allowed"/>
+    </docblock>
+    <parameter name="allowed" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isValid" start="496" end="675" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Defined by Zend_Validate_Interface">Returns true if and only if the $value is a valid hostname with respect to the current allow option</description>
+      <param type="string" variable="$value"/>
+      <throws description="if a fatal error occurs for validation process" type="object">
+        <type full="Zend_Validate_Exception" namespace="" name="Zend_Validate_Exception"/>
+      </throws>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Check input against IP address schema" line="505"/>
+      <comment value="RFC3986 3.2.2 states:" line="517"/>
+      <comment value="The rightmost domain label of a fully qualified domain name" line="519"/>
+      <comment value="in DNS may be followed by a single &quot;.&quot; and should be if it is" line="520"/>
+      <comment value="necessary to distinguish between the complete domain name and" line="521"/>
+      <comment value="some local domain." line="522"/>
+      <comment value="Strip trailing '.' since it is not necessary to validate a non-IP" line="524"/>
+      <comment value="hostname." line="525"/>
+      <comment value="(see ZF-6363)" line="527"/>
+      <comment value="Check input against DNS hostname schema" line="532"/>
+      <comment value="First check TLD" line="540"/>
+      <comment value="Hostname characters are: *(label dot)(label dot label); max 254 chars" line="548"/>
+      <comment value="label: id-prefix [*ldh{61} id-prefix]; max 63 chars" line="549"/>
+      <comment value="id-prefix: alpha / digit" line="550"/>
+      <comment value="ldh: alpha / digit / dash" line="551"/>
+      <comment value="Match TLD against known list" line="553"/>
+      <comment value="Match against IDN hostnames" line="563"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Note: Keep label regex short to avoid issues with long patterns when matching IDN hostnames" line="564"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="@see Zend_Validate_Hostname_Interface" line="565"/>
+      <comment value="Check each hostname part" line="577"/>
+      <comment value="Decode Punycode domainnames to IDN" line="580"/>
+      <comment value="Check dash (-) does not start, end or appear in 3rd and 4th positions" line="588"/>
+      <comment value="Check each domain part" line="597"/>
+      <comment value="If one of the labels doesn't match, the hostname is invalid" line="622"/>
+      <comment value="If the input passes as an Internet domain name, and domain names are allowed, then the hostname" line="635"/>
+      <comment value="passes validation" line="636"/>
+      <comment value="Check for URI Syntax (RFC3986)" line="644"/>
+      <comment value="Check input against local network name schema; last chance to pass validation" line="653"/>
+      <comment value="If the input passes as a local network name, and local network names are allowed, then the" line="657"/>
+      <comment value="hostname passes validation" line="658"/>
+      <comment value="If the input does not pass as a local network name, add a message" line="664"/>
+      <comment value="If local network names are not allowed, add a message" line="669"/>
+    </inline>
+  </method>
+  <method name="decodePunycode" start="684" end="772" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Decodes a punycode encoded string to it's original utf8 string In case of a decoding failure the original string is returned"/>
+      <param description="Punycode encoded string to decode" type="string" variable="$encoded"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="encoded" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="no punycode encoded string, return as is" line="688"/>
+      <comment value="prepare decoding matrix" line="696"/>
+      <comment value="decoding" line="707"/>
+      <comment value="convert decoded ucs4 to utf8 string" line="749"/>
+    </inline>
+  </method>
+  <parent full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract">
+    <member name="_value" type="{unknown}" visibility="protected" line="40">
+      <docblock>
+        <description compact="The value to be validated"/>
+        <var type="mixed"/>
+      </docblock>
+    </member>
+    <member name="_messageVariables" type="array" visibility="protected" line="47">
+      <docblock>
+        <description compact="Additional variables available for validation failure messages"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="_messageTemplates" type="array" visibility="protected" line="54">
+      <docblock>
+        <description compact="Validation failure message template definitions"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="_messages" type="array" visibility="protected" line="61">
+      <docblock>
+        <description compact="Array of validation failure messages"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="_obscureValue" type="{unknown}" default="false" visibility="protected" line="68">
+      <docblock>
+        <description compact="Flag indidcating whether or not value should be obfuscated in error messages"/>
+        <var type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="_errors" type="array" visibility="protected" line="76">
+      <docblock>
+        <description compact="Array of validation failure message codes"/>
+        <var type="array"/>
+        <deprecated value="Since 1.5.0"/>
+      </docblock>
+    </member>
+    <member name="_translator" type="{unknown}" visibility="protected" line="82">
+      <docblock>
+        <description compact="Translation object"/>
+        <var type="object">
+          <type full="Zend_Translate" namespace="" name="Zend_Translate"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="_defaultTranslator" type="{unknown}" visibility="protected" line="88">
+      <docblock>
+        <description compact="Default translation object for all validate objects"/>
+        <var type="object">
+          <type full="Zend_Translate" namespace="" name="Zend_Translate"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="_translatorDisabled" type="{unknown}" default="false" visibility="protected" line="94">
+      <docblock>
+        <description compact="Is translation disabled?"/>
+        <var type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="_messageLength" type="integer" default="1" visibility="protected" line="101">
+      <docblock>
+        <description compact="Limits the maximum returned length of a error message"/>
+        <var type="object">
+          <type full="Integer" namespace="" name="Integer"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="getMessages" start="108" end="111" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns array of validation failure messages"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="getMessageVariables" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns an array of the names of variables that are used in constructing validation failure messages"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="getMessageTemplates" start="128" end="131" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the message templates from the validator"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="setMessage" start="141" end="158" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the validation failure message template for a particular key"/>
+        <param type="string" variable="$messageString"/>
+        <param description="OPTIONAL" type="string" variable="$messageKey"/>
+        <return description="Provides a fluent interface" type="object">
+          <type full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract"/>
+        </return>
+        <throws type="object">
+          <type full="Zend_Validate_Exception" namespace="" name="Zend_Validate_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="messageString" byreference="false" type="{unknown}"/>
+      <parameter name="messageKey" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="setMessages" start="167" end="173" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets validation failure message templates given as an array, where the array keys are the message keys, and the array values are the message template strings."/>
+        <param type="array" variable="$messages"/>
+        <return type="object">
+          <type full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="messages" byreference="false" type="array"/>
+    </method>
+    <method name="__get" start="183" end="196" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Magic function returns the value of the requested property, if and only if it is the value or a message variable."/>
+        <param type="string" variable="$property"/>
+        <return type="mixed"/>
+        <throws type="object">
+          <type full="Zend_Validate_Exception" namespace="" name="Zend_Validate_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="@see Zend_Validate_Exception" line="191"/>
+      </inline>
+    </method>
+    <method name="_createMessage" start="210" end="251" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Constructs and returns a validation failure message with the given message key and value.">Returns null if and only if $messageKey does not correspond to an existing template.
+
+If a translator is available and a translation exists for $messageKey,
+the translation will be used.</description>
+        <param type="string" variable="$messageKey"/>
+        <param type="string" variable="$value"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="messageKey" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_error" start="258" end="269" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <param type="string" variable="$messageKey"/>
+        <param description="OPTIONAL" type="string" variable="$value"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="messageKey" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="_setValue" start="277" end="282" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Sets the value to be validated and clears the messages and errors arrays"/>
+        <param type="mixed" variable="$value"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getErrors" start="290" end="293" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns array of validation failure message codes"/>
+        <return type="array"/>
+        <deprecated value="Since 1.5.0"/>
+      </docblock>
+    </method>
+    <method name="setObscureValue" start="301" end="305" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set flag indicating whether or not value should be obfuscated in messages"/>
+        <param type="object" variable="$flag">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="flag" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getObscureValue" start="313" end="316" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Retrieve flag indicating whether or not value should be obfuscated in messages"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setTranslator" start="324" end="335" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set translation object"/>
+        <param type="object" variable="$translator">
+          <type full="Zend_Translate|Zend_Translate_Adapter|null" namespace="" name="Zend_Translate|Zend_Translate_Adapter|null"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="translator" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="getTranslator" start="342" end="353" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return translation object"/>
+        <return type="object">
+          <type full="Zend_Translate_Adapter|null" namespace="" name="Zend_Translate_Adapter|null"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="hasTranslator" start="360" end="363" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Does this validator have its own specific translator?"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setDefaultTranslator" start="371" end="381" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set default translation object for all validate objects"/>
+        <param type="object" variable="$translator">
+          <type full="Zend_Translate|Zend_Translate_Adapter|null" namespace="" name="Zend_Translate|Zend_Translate_Adapter|null"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="translator" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="getDefaultTranslator" start="388" end="403" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get default translation object for all validate objects"/>
+        <return type="object">
+          <type full="Zend_Translate_Adapter|null" namespace="" name="Zend_Translate_Adapter|null"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="hasDefaultTranslator" start="410" end="413" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Is there a default translation object set?"/>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+    <method name="setDisableTranslator" start="421" end="425" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Indicate whether or not translation should be disabled"/>
+        <param type="object" variable="$flag">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Validate_Abstract" namespace="" name="Zend_Validate_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="flag" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="translatorIsDisabled" start="432" end="435" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Is translation disabled?"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getMessageLength" start="442" end="445" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Returns the maximum allowed message length"/>
+        <return type="integer"/>
+      </docblock>
+    </method>
+    <method name="setMessageLength" start="452" end="455" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Sets the maximum allowed message length"/>
+        <param type="integer" variable="$length"/>
+      </docblock>
+      <parameter name="length" byreference="false" type="integer" default="1"/>
+    </method>
+  </parent>
+  <interface full="Zend_Validate_Interface" namespace="" name="Zend_Validate_Interface">
+    <method name="isValid" start="41" end="41" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if and only if $value meets the validation requirements">If $value fails validation, then this method returns false, and
+getMessages() will return an array of messages that explain why the
+validation failed.</description>
+        <param type="mixed" variable="$value"/>
+        <return type="boolean"/>
+        <throws description="If validation of $value is impossible" type="object">
+          <type full="Zend_Validate_Exception" namespace="" name="Zend_Validate_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getMessages" start="53" end="53" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns an array of messages that explain why the most recent isValid() call returned false. The array keys are validation failure message identifiers, and the array values are the corresponding human-readable message strings.">If isValid() was never called or if the most recent isValid() call
+returned true, then this method returns an empty array.</description>
+        <return type="array"/>
+      </docblock>
+    </method>
+  </interface>
+</class>

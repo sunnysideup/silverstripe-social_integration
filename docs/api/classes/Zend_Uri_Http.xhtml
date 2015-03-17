@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Uri_Http</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Uri_Http</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/Zend/Uri/Http.php.xhtml#line41">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Uri_Http</h1>
+        <h4>HTTP(S) URI handler</h4>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Uri_Http
+                extends <a title="Zend_Uri" href="../classes/Zend_Uri.xhtml">Zend_Uri</a>
+            {<br/><ul class="none"><li>// constants</li><li>const CHAR_ALNUM = 'A-Za-z0-9';</li><li>const CHAR_MARK = '-_.!~*\'()\[\]';</li><li>const CHAR_RESERVED = ';\/?:@&amp;=+$,';</li><li>const CHAR_SEGMENT = ':@&amp;=+$,;';</li><li>const CHAR_UNWISE = '{}|\\\\^`';</li></ul><ul class="none"><li>// members</li><li>protected string <a href="#members">$_username</a>;
+                    </li><li>protected string <a href="#members">$_password</a>;
+                    </li><li>protected string <a href="#members">$_host</a>;
+                    </li><li>protected string <a href="#members">$_port</a>;
+                    </li><li>protected string <a href="#members">$_path</a>;
+                    </li><li>protected string <a href="#members">$_query</a>;
+                    </li><li>protected string <a href="#members">$_fragment</a>;
+                    </li><li>protected array <a href="#members">$_regex</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="Zend_Uri">Zend_Uri</span></li><li>protected string <a href="#members">$_scheme</a>;
+                        </li><li>protected array <a href="#members">$_config</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>protected void <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/__construct.xhtml">__construct</a>()
+                    </li><li>public static Zend_Uri_Http <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/fromString.xhtml">fromString</a>()
+                    </li><li>protected void <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/_parseUri.xhtml">_parseUri</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getUri.xhtml">getUri</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/valid.xhtml">valid</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getUsername.xhtml">getUsername</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateUsername.xhtml">validateUsername</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setUsername.xhtml">setUsername</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getPassword.xhtml">getPassword</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validatePassword.xhtml">validatePassword</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setPassword.xhtml">setPassword</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getHost.xhtml">getHost</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateHost.xhtml">validateHost</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setHost.xhtml">setHost</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getPort.xhtml">getPort</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validatePort.xhtml">validatePort</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setPort.xhtml">setPort</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getPath.xhtml">getPath</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validatePath.xhtml">validatePath</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setPath.xhtml">setPath</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getQuery.xhtml">getQuery</a>()
+                    </li><li>public array <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getQueryAsArray.xhtml">getQueryAsArray</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateQuery.xhtml">validateQuery</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/addReplaceQueryParameters.xhtml">addReplaceQueryParameters</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/removeQueryParameters.xhtml">removeQueryParameters</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setQuery.xhtml">setQuery</a>()
+                    </li><li>public string|false <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getFragment.xhtml">getFragment</a>()
+                    </li><li>public boolean <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateFragment.xhtml">validateFragment</a>()
+                    </li><li>public string <a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setFragment.xhtml">setFragment</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Zend_Uri">Zend_Uri</span></li><li>public string <a title="Zend_Uri" href="../classes/Zend_Uri/__toString.xhtml">__toString</a>()
+                        </li><li>public static boolean <a title="Zend_Uri" href="../classes/Zend_Uri/check.xhtml">check</a>()
+                        </li><li>public static Zend_Uri <a title="Zend_Uri" href="../classes/Zend_Uri/factory.xhtml">factory</a>()
+                        </li><li>public string|false <a title="Zend_Uri" href="../classes/Zend_Uri/getScheme.xhtml">getScheme</a>()
+                        </li><li>public static void <a title="Zend_Uri" href="../classes/Zend_Uri/setConfig.xhtml">setConfig</a>()
+                        </li><li>protected abstract void <a title="Zend_Uri" href="../classes/Zend_Uri/__construct.xhtml">__construct</a>()
+                        </li><li>public abstract string <a title="Zend_Uri" href="../classes/Zend_Uri/getUri.xhtml">getUri</a>()
+                        </li><li>public abstract boolean <a title="Zend_Uri" href="../classes/Zend_Uri/valid.xhtml">valid</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Zend_Uri.xhtml">Zend_Uri</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="CHAR_ALNUM">CHAR_ALNUM</td>
+              <td>'A-Za-z0-9'</td>
+            </tr>
+            <tr>
+              <td id="CHAR_MARK">CHAR_MARK</td>
+              <td>'-_.!~*\'()\[\]'</td>
+            </tr>
+            <tr>
+              <td id="CHAR_RESERVED">CHAR_RESERVED</td>
+              <td>';\/?:@&amp;=+$,'</td>
+            </tr>
+            <tr>
+              <td id="CHAR_SEGMENT">CHAR_SEGMENT</td>
+              <td>':@&amp;=+$,;'</td>
+            </tr>
+            <tr>
+              <td id="CHAR_UNWISE">CHAR_UNWISE</td>
+              <td>'{}|\\\\^`'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_config"><strong>$_config</strong>
+                —
+                array<br/><span class="indent">Global configuration array</span></li>
+            <li id="_fragment"><strong>$_fragment</strong>
+                —
+                string<br/><span class="indent">HTTP fragment</span></li>
+            <li id="_host"><strong>$_host</strong>
+                —
+                string<br/><span class="indent">HTTP host</span></li>
+            <li id="_password"><strong>$_password</strong>
+                —
+                string<br/><span class="indent">HTTP password</span></li>
+            <li id="_path"><strong>$_path</strong>
+                —
+                string<br/><span class="indent">HTTP part</span></li>
+            <li id="_port"><strong>$_port</strong>
+                —
+                string<br/><span class="indent">HTTP post</span></li>
+            <li id="_query"><strong>$_query</strong>
+                —
+                string<br/><span class="indent">HTTP query</span></li>
+            <li id="_regex"><strong>$_regex</strong>
+                —
+                array<br/><span class="indent">Regular expression grammar rules for validation; values added by constructor</span></li>
+            <li id="_scheme"><strong>$_scheme</strong>
+                —
+                string<br/><span class="indent">Scheme of this URI (http, ftp, etc.)</span></li>
+            <li id="_username"><strong>$_username</strong>
+                —
+                string<br/><span class="indent">HTTP username</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/__construct.xhtml">__construct()</a>
+                — Constructor accepts a string $scheme (e.g., http, https) and a scheme-specific part of the URI (e.g., example.com/path/to/resource?query=param#fragment)</li>
+            <li id="_parseUri"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/_parseUri.xhtml">_parseUri()</a>
+                — Parse the scheme-specific portion of the URI and place its parts into instance variables.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="addReplaceQueryParameters"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/addReplaceQueryParameters.xhtml">addReplaceQueryParameters()</a>
+                — Add or replace params in the query string for the current URI, and return the old query.</li>
+            <li id="fromString"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/fromString.xhtml">fromString()</a>
+                — Creates a Zend_Uri_Http from the given string</li>
+            <li id="getFragment"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getFragment.xhtml">getFragment()</a>
+                — Returns the fragment portion of the URL (after #), or FALSE if none.</li>
+            <li id="getHost"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getHost.xhtml">getHost()</a>
+                — Returns the domain or host IP portion of the URL, or FALSE if none.</li>
+            <li id="getPassword"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getPassword.xhtml">getPassword()</a>
+                — Returns the password portion of the URL, or FALSE if none.</li>
+            <li id="getPath"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getPath.xhtml">getPath()</a>
+                — Returns the path and filename portion of the URL.</li>
+            <li id="getPort"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getPort.xhtml">getPort()</a>
+                — Returns the TCP port, or FALSE if none.</li>
+            <li id="getQuery"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getQuery.xhtml">getQuery()</a>
+                — Returns the query portion of the URL (after ?), or FALSE if none.</li>
+            <li id="getQueryAsArray"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getQueryAsArray.xhtml">getQueryAsArray()</a>
+                — Returns the query portion of the URL (after ?) as a key-value-array. If the query is empty an empty array is returned</li>
+            <li id="getUri"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getUri.xhtml">getUri()</a>
+                — Returns a URI based on current values of the instance variables. If any part of the URI does not pass validation, then an exception is thrown.</li>
+            <li id="getUsername"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/getUsername.xhtml">getUsername()</a>
+                — Returns the username portion of the URL, or FALSE if none.</li>
+            <li id="removeQueryParameters"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/removeQueryParameters.xhtml">removeQueryParameters()</a>
+                — Remove params in the query string for the current URI, and return the old query.</li>
+            <li id="setFragment"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setFragment.xhtml">setFragment()</a>
+                — Sets the fragment for the current URI, and returns the old fragment</li>
+            <li id="setHost"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setHost.xhtml">setHost()</a>
+                — Sets the host for the current URI, and returns the old host</li>
+            <li id="setPassword"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setPassword.xhtml">setPassword()</a>
+                — Sets the password for the current URI, and returns the old password</li>
+            <li id="setPath"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setPath.xhtml">setPath()</a>
+                — Sets the path for the current URI, and returns the old path</li>
+            <li id="setPort"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setPort.xhtml">setPort()</a>
+                — Sets the port for the current URI, and returns the old port</li>
+            <li id="setQuery"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setQuery.xhtml">setQuery()</a>
+                — Set the query string for the current URI, and return the old query string This method accepts both strings and arrays.</li>
+            <li id="setUsername"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/setUsername.xhtml">setUsername()</a>
+                — Sets the username for the current URI, and returns the old username</li>
+            <li id="valid"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/valid.xhtml">valid()</a>
+                — Validate the current URI from the instance variables. Returns true if and only if all parts pass validation.</li>
+            <li id="validateFragment"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateFragment.xhtml">validateFragment()</a>
+                — Returns true if and only if the fragment passes validation. If no fragment is passed, then the fragment contained in the instance variable is used.</li>
+            <li id="validateHost"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateHost.xhtml">validateHost()</a>
+                — Returns true if and only if the host string passes validation. If no host is passed, then the host contained in the instance variable is used.</li>
+            <li id="validatePassword"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validatePassword.xhtml">validatePassword()</a>
+                — Returns true if and only if the password passes validation. If no password is passed, then the password contained in the instance variable is used.</li>
+            <li id="validatePath"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validatePath.xhtml">validatePath()</a>
+                — Returns true if and only if the path string passes validation. If no path is passed, then the path contained in the instance variable is used.</li>
+            <li id="validatePort"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validatePort.xhtml">validatePort()</a>
+                — Returns true if and only if the TCP port string passes validation. If no port is passed, then the port contained in the instance variable is used.</li>
+            <li id="validateQuery"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateQuery.xhtml">validateQuery()</a>
+                — Returns true if and only if the query string passes validation. If no query is passed, then the query string contained in the instance variable is used.</li>
+            <li id="validateUsername"><a title="Zend_Uri_Http" href="../classes/Zend_Uri_Http/validateUsername.xhtml">validateUsername()</a>
+                — Returns true if and only if the username passes validation. If no username is passed, then the username contained in the instance variable is used.</li>
+          </ul>
+          <h3>Inherited from <a title="Zend_Uri" href="../classes/Zend_Uri.xhtml">Zend_Uri</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="__toString"><a title="Zend_Uri" href="../classes/Zend_Uri/__toString.xhtml">__toString()</a>
+                — Return a string representation of this URI.</li>
+            <li id="check"><a title="Zend_Uri" href="../classes/Zend_Uri/check.xhtml">check()</a>
+                — Convenience function, checks that a $uri string is well-formed by validating it but not returning an object.  Returns TRUE if $uri is a well-formed URI, or FALSE otherwise.</li>
+            <li id="factory"><a title="Zend_Uri" href="../classes/Zend_Uri/factory.xhtml">factory()</a>
+                — Create a new Zend_Uri object for a URI.  If building a new URI, then $uri should contain only the scheme (http, ftp, etc).  Otherwise, supply $uri with the complete URI.</li>
+            <li id="getScheme"><a title="Zend_Uri" href="../classes/Zend_Uri/getScheme.xhtml">getScheme()</a>
+                — Get the URI's scheme</li>
+            <li id="getUri"><a title="Zend_Uri" href="../classes/Zend_Uri/getUri.xhtml">getUri()</a>
+                — Return a string representation of this URI.</li>
+            <li id="setConfig"><a title="Zend_Uri" href="../classes/Zend_Uri/setConfig.xhtml">setConfig()</a>
+                — Set global configuration options</li>
+            <li id="valid"><a title="Zend_Uri" href="../classes/Zend_Uri/valid.xhtml">valid()</a>
+                — Returns TRUE if this URI is valid, or FALSE otherwise.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

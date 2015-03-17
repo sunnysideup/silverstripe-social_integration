@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FacebookLoginForm" namespace="" name="FacebookLoginForm" abstract="false" final="false" start="3" end="98">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../code/security" file="FacebookLoginForm.php" realpath="/var/www/_modules/social_integration/trunk/code/security/FacebookLoginForm.php" size="2757" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="b95c14da6c259b64ae33bba7b40cdc1b01cdeed2" relative="code/security/FacebookLoginForm.php"/>
+  <extends full="LoginForm" namespace="" name="LoginForm"/>
+  <member name="authenticator_class" type="string" default="'FacebookAuthenticator'" visibility="protected" line="5"/>
+  <constructor name="__construct" start="7" end="63" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="fields" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="actions" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="checkCurrentUser" byreference="false" type="{unknown}" default="true"/>
+  </constructor>
+  <method name="getMessageFromSession" start="65" end="70" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="dologin" start="72" end="78" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="logout" start="88" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log out form handler method">This method is called when the user clicks on "logout" on the form
+created when the parameter &lt;i&gt;$checkCurrentUser&lt;/i&gt; of the
+{@link __construct constructor} was set to TRUE and the user was
+currently logged in.</description>
+    </docblock>
+  </method>
+  <method name="test" start="94" end="96" abstract="false" final="false" static="false" visibility="public"/>
+</class>

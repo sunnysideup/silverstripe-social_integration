@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Crypt_Rsa_Key_Public" namespace="" name="Zend_Crypt_Rsa_Key_Public" abstract="false" final="false" start="34" end="74">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Crypt/Rsa/Key" file="Public.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Crypt/Rsa/Key/Public.php" size="2158" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="a33b450b853bc8d067612202300ba90a205c720c" relative="thirdparty/Zend/Crypt/Rsa/Key/Public.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Crypt"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Crypt_Rsa_Key" namespace="" name="Zend_Crypt_Rsa_Key"/>
+  <member name="_certificateString" type="{unknown}" default="null" visibility="protected" line="37"/>
+  <constructor name="__construct" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="_parse" start="48" end="67" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$string"/>
+      <throws type="object">
+        <type full="Zend_Crypt_Exception" namespace="" name="Zend_Crypt_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="@see Zend_Crypt_Exception" line="57"/>
+      <comment value="openssl_pkey_export($result, $public);" line="63"/>
+      <comment value="$this-&gt;_pemString = $public;" line="64"/>
+    </inline>
+  </method>
+  <method name="getCertificate" start="69" end="72" abstract="false" final="false" static="false" visibility="public"/>
+  <parent full="Zend_Crypt_Rsa_Key" namespace="" name="Zend_Crypt_Rsa_Key">
+    <member name="_pemString" type="{unknown}" default="null" visibility="protected" line="34">
+      <docblock>
+        <description/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <member name="_details" type="array" visibility="protected" line="41">
+      <docblock>
+        <description compact="Bits, key string and type of key"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="_opensslKeyResource" type="{unknown}" default="null" visibility="protected" line="48">
+      <docblock>
+        <description compact="Key Resource"/>
+        <var type="resource"/>
+      </docblock>
+    </member>
+    <method name="getOpensslKeyResource" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Retrieves key resource"/>
+        <return type="resource"/>
+      </docblock>
+    </method>
+    <method name="toString" start="64" end="76" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+        <throws type="object">
+          <type full="Zend_Crypt_Exception" namespace="" name="Zend_Crypt_Exception"/>
+        </throws>
+      </docblock>
+      <inline>
+        <comment value="@see Zend_Crypt_Exception" line="71"/>
+      </inline>
+    </method>
+    <method name="__toString" start="81" end="84" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="count" start="86" end="89" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="getType" start="91" end="94" abstract="false" final="false" static="false" visibility="public"/>
+  </parent>
+  <interface full="Countable" namespace="" name="Countable">
+    <method name="count" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Count elements of an object"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  </interface>
+</class>

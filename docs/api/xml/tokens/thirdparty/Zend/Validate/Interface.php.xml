@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Validate" file="Interface.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Validate/Interface.php" size="1926" time="2015-03-14T10:24:00+13:00" unixtime="1426281840" sha1="f11f07356887dc40b10503f83d9de00a980235ab" relative="thirdparty/Zend/Validate/Interface.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * Zend Framework</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * LICENSE</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * This source file is subject to the new BSD license that is bundled</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> * with this package in the file LICENSE.txt.</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * It is also available through the world-wide-web at this URL:</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * http://framework.zend.com/license/new-bsd</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * If you did not receive a copy of the license and are unable to</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> * obtain it through the world-wide-web, please send an email</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * to license@zend.com so we can send you a copy immediately.</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> * @category   Zend</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT"> * @package    Zend_Validate</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT"> * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT"> * @license    http://framework.zend.com/license/new-bsd     New BSD License</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT"> * @version    $Id: Interface.php 23775 2011-03-01 17:25:24Z ralph $</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="21"/>
+  <line no="22">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="23">
+    <token name="T_DOC_COMMENT"> * @category   Zend</token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT"> * @package    Zend_Validate</token>
+  </line>
+  <line no="25">
+    <token name="T_DOC_COMMENT"> * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT"> * @license    http://framework.zend.com/license/new-bsd     New BSD License</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="28">
+    <token name="T_INTERFACE">interface</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Zend_Validate_Interface</token>
+  </line>
+  <line no="29">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="30">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="31">
+    <token name="T_DOC_COMMENT">     * Returns true if and only if $value meets the validation requirements</token>
+  </line>
+  <line no="32">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="33">
+    <token name="T_DOC_COMMENT">     * If $value fails validation, then this method returns false, and</token>
+  </line>
+  <line no="34">
+    <token name="T_DOC_COMMENT">     * getMessages() will return an array of messages that explain why the</token>
+  </line>
+  <line no="35">
+    <token name="T_DOC_COMMENT">     * validation failed.</token>
+  </line>
+  <line no="36">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="37">
+    <token name="T_DOC_COMMENT">     * @param  mixed $value</token>
+  </line>
+  <line no="38">
+    <token name="T_DOC_COMMENT">     * @return boolean</token>
+  </line>
+  <line no="39">
+    <token name="T_DOC_COMMENT">     * @throws Zend_Validate_Exception If validation of $value is impossible</token>
+  </line>
+  <line no="40">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="41">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">isValid</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$value</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="42"/>
+  <line no="43">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="44">
+    <token name="T_DOC_COMMENT">     * Returns an array of messages that explain why the most recent isValid()</token>
+  </line>
+  <line no="45">
+    <token name="T_DOC_COMMENT">     * call returned false. The array keys are validation failure message identifiers,</token>
+  </line>
+  <line no="46">
+    <token name="T_DOC_COMMENT">     * and the array values are the corresponding human-readable message strings.</token>
+  </line>
+  <line no="47">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="48">
+    <token name="T_DOC_COMMENT">     * If isValid() was never called or if the most recent isValid() call</token>
+  </line>
+  <line no="49">
+    <token name="T_DOC_COMMENT">     * returned true, then this method returns an empty array.</token>
+  </line>
+  <line no="50">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="51">
+    <token name="T_DOC_COMMENT">     * @return array</token>
+  </line>
+  <line no="52">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="53">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getMessages</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="54">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="55"/>
+</source>

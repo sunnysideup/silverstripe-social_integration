@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Oauth_Signature_SignatureAbstract" namespace="" name="Zend_Oauth_Signature_SignatureAbstract" abstract="true" final="false" start="34" end="183">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Oauth/Signature" file="SignatureAbstract.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Oauth/Signature/SignatureAbstract.php" size="5217" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="2642d2370bef79faa1aabb078ab5cf70dc37d916" relative="thirdparty/Zend/Oauth/Signature/SignatureAbstract.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Oauth"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <member name="_hashAlgorithm" type="{unknown}" default="null" visibility="protected" line="40">
+    <docblock>
+      <description compact="Hash algorithm to use when generating signature"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_key" type="{unknown}" default="null" visibility="protected" line="46">
+    <docblock>
+      <description compact="Key to use when signing"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_consumerSecret" type="{unknown}" default="null" visibility="protected" line="52">
+    <docblock>
+      <description compact="Consumer secret"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_tokenSecret" type="string" default="''" visibility="protected" line="58">
+    <docblock>
+      <description compact="Token secret"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="68" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor"/>
+      <param type="string" variable="$consumerSecret"/>
+      <param type="object" variable="$tokenSecret">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <param type="object" variable="$hashAlgo">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="consumerSecret" byreference="false" type="{unknown}"/>
+    <parameter name="tokenSecret" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="hashAlgo" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="sign" start="88" end="88" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sign a request"/>
+      <param type="array" variable="$params"/>
+      <param type="object" variable="$method">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <param type="object" variable="$url">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+    <parameter name="method" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="url" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="normaliseBaseSignatureUrl" start="96" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Normalize the base signature URL"/>
+      <param type="string" variable="$url"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_assembleKey" start="115" end="125" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Assemble key from consumer and token secrets"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="_getBaseSignatureString" start="135" end="159" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get base signature string"/>
+      <param type="array" variable="$params"/>
+      <param type="object" variable="$method">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <param type="object" variable="$url">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+    <parameter name="method" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="url" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="should normalise later" line="147"/>
+    </inline>
+  </method>
+  <method name="_toByteValueOrderedQueryString" start="167" end="182" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Transform an array to a byte value ordered query string"/>
+      <param type="array" variable="$params"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+  </method>
+  <extender full="Zend_Oauth_Signature_Hmac" namespace="" name="Zend_Oauth_Signature_Hmac"/>
+  <extender full="Zend_Oauth_Signature_Rsa" namespace="" name="Zend_Oauth_Signature_Rsa"/>
+  <extender full="Zend_Oauth_Signature_Plaintext" namespace="" name="Zend_Oauth_Signature_Plaintext"/>
+</class>

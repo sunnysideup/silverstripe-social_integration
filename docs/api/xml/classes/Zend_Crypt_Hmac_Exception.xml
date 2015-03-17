@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Crypt_Hmac_Exception" namespace="" name="Zend_Crypt_Hmac_Exception" abstract="false" final="false" start="34" end="36">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Crypt/Hmac" file="Exception.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Crypt/Hmac/Exception.php" size="1130" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="81b9d013dc61aca8054a472c1ae1dc9d48d1e805" relative="thirdparty/Zend/Crypt/Hmac/Exception.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Crypt"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Crypt_Exception" namespace="" name="Zend_Crypt_Exception"/>
+  <parent full="Zend_Crypt_Exception" namespace="" name="Zend_Crypt_Exception">
+    <extends full="Zend_Exception" namespace="" name="Zend_Exception"/>
+  </parent>
+</class>

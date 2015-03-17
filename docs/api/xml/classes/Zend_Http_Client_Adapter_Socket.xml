@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Http_Client_Adapter_Socket" namespace="" name="Zend_Http_Client_Adapter_Socket" abstract="false" final="false" start="47" end="544">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Http/Client/Adapter" file="Socket.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Http/Client/Adapter/Socket.php" size="18508" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="18340b0ced92490f6b1b7e3012d8f313aa7a8557" relative="thirdparty/Zend/Http/Client/Adapter/Socket.php"/>
+  <docblock>
+    <description compact="A sockets based (stream_socket_client) adapter class for Zend_Http_Client. Can be used on almost every PHP environment, and does not require any special extensions."/>
+    <category value="Zend"/>
+    <package value="Zend_Http"/>
+    <subpackage value="Client_Adapter"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <implements full="Zend_Http_Client_Adapter_Interface" namespace="" name="Zend_Http_Client_Adapter_Interface"/>
+  <implements full="Zend_Http_Client_Adapter_Stream" namespace="" name="Zend_Http_Client_Adapter_Stream"/>
+  <member name="socket" type="{unknown}" default="null" visibility="protected" line="54">
+    <docblock>
+      <description compact="The socket for server connection"/>
+      <var type="object">
+        <type full="resource|null" namespace="" name="resource|null"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="connected_to" type="array" visibility="protected" line="61">
+    <docblock>
+      <description compact="What host/port are we connected to?"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="out_stream" type="{unknown}" default="null" visibility="protected" line="68">
+    <docblock>
+      <description compact="Stream for storing output"/>
+      <var type="resource"/>
+    </docblock>
+  </member>
+  <member name="config" type="array" visibility="protected" line="75">
+    <docblock>
+      <description compact="Parameters array"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="method" type="{unknown}" default="null" visibility="protected" line="88">
+    <docblock>
+      <description compact="Request method - will be set by write() and might be used by read()"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_context" type="{unknown}" default="null" visibility="protected" line="95">
+    <docblock>
+      <description compact="Stream context"/>
+      <var type="resource"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="101" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adapter constructor, currently empty. Config is set using setConfig()"/>
+    </docblock>
+  </constructor>
+  <method name="setConfig" start="110" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the configuration array for the adapter"/>
+      <param description="| array $config" type="object">
+        <type full="Zend_Config" namespace="" name="Zend_Config"/>
+      </param>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="getConfig" start="132" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve the array of all configuration options"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setStreamContext" start="150" end="167" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the stream context for the TCP connection to the server">Can accept either a pre-existing stream context resource, or an array
+of stream options, similar to the options array passed to the
+stream_context_create() PHP function. In such case a new stream context
+will be created using the passed options.</description>
+      <since value="Zend Framework 1.9"/>
+      <param description="Stream context or array of context options" type="mixed" variable="$context"/>
+      <return type="object">
+        <type full="Zend_Http_Client_Adapter_Socket" namespace="" name="Zend_Http_Client_Adapter_Socket"/>
+      </return>
+    </docblock>
+    <parameter name="context" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getStreamContext" start="176" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the stream context for the TCP connection to the server.">If no stream context is set, will create a default one.</description>
+      <return type="resource"/>
+    </docblock>
+  </method>
+  <method name="connect" start="192" end="248" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Connect to the remote server"/>
+      <param type="string" variable="$host"/>
+      <param type="int" variable="$port"/>
+      <param type="boolean" variable="$secure"/>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="integer" default="80"/>
+    <parameter name="secure" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="If the URI should be accessed via SSL, prepend the Hostname with ssl://" line="194"/>
+      <comment value="If we are connected to the wrong host, disconnect first" line="197"/>
+      <comment value="Now, if we are not connected, connect" line="202"/>
+      <comment value="Set the stream timeout" line="239"/>
+      <comment value="Update connected_to" line="245"/>
+    </inline>
+  </method>
+  <method name="write" start="260" end="308" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send request to the remote server"/>
+      <param type="string" variable="$method"/>
+      <param type="object" variable="$uri">
+        <type full="Zend_Uri_Http" namespace="" name="Zend_Uri_Http"/>
+      </param>
+      <param type="string" variable="$http_ver"/>
+      <param type="array" variable="$headers"/>
+      <param type="string" variable="$body"/>
+      <return description="Request as string" type="string"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="http_ver" byreference="false" type="string" default="'1.1'"/>
+    <parameter name="headers" byreference="false" type="array"/>
+    <parameter name="body" byreference="false" type="string" default="''"/>
+    <inline>
+      <comment value="Make sure we're properly connected" line="262"/>
+      <comment value="Save request method for later" line="275"/>
+      <comment value="Build request headers" line="278"/>
+      <comment value="Send the request" line="294"/>
+    </inline>
+  </method>
+  <method name="read" start="315" end="485" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read response from server"/>
+      <return type="string"/>
+    </docblock>
+    <inline>
+      <comment value="First, read headers only" line="317"/>
+      <comment value="Handle 100 and 101 responses internally by restarting the read again" line="334"/>
+      <comment value="Check headers to see what kind of connection / transfer encoding we have" line="337"/>
+      <comment value="Responses to HEAD requests and 204 or 304 responses are not expected" line="340"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="to have a body - stop reading here" line="341"/>
+      <comment value="Close the connection if requested to do so by the server" line="347"/>
+      <comment value="If we got a 'transfer-encoding: chunked' header" line="354"/>
+      <comment value="Figure out the next chunk size" line="365"/>
+      <comment value="Convert the hexadecimal value to plain integer" line="374"/>
+      <comment value="Read next chunk" line="377"/>
+      <comment value="We automatically decode chunked-messages when writing to a stream" line="413"/>
+      <comment value="this means we have to disallow the Zend_Http_Response to do it again" line="414"/>
+      <comment value="Close the connection if requested to do so by the server" line="479"/>
+    </inline>
+  </method>
+  <method name="close" start="491" end="496" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Close the connection to the server"/>
+    </docblock>
+  </method>
+  <method name="_checkSocketReadTimeout" start="504" end="518" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check if the socket has timed out - if so close connection and throw an exception"/>
+      <throws description="with READ_TIMEOUT code" type="object">
+        <type full="Zend_Http_Client_Adapter_Exception" namespace="" name="Zend_Http_Client_Adapter_Exception"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="setOutputStream" start="526" end="530" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set output stream for the response"/>
+      <param type="resource" variable="$stream"/>
+      <return type="object">
+        <type full="Zend_Http_Client_Adapter_Socket" namespace="" name="Zend_Http_Client_Adapter_Socket"/>
+      </return>
+    </docblock>
+    <parameter name="stream" byreference="false" type="{unknown}"/>
+  </method>
+  <destructor name="__destruct" start="538" end="543" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Destructor: make sure the socket is disconnected">If we are in persistent TCP mode, will not close the connection</description>
+    </docblock>
+  </destructor>
+  <extender full="Zend_Http_Client_Adapter_Proxy" namespace="" name="Zend_Http_Client_Adapter_Proxy"/>
+  <interface full="Zend_Http_Client_Adapter_Interface" namespace="" name="Zend_Http_Client_Adapter_Interface">
+    <method name="setConfig" start="43" end="43" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the configuration array for the adapter"/>
+        <param type="array" variable="$config"/>
+      </docblock>
+      <parameter name="config" byreference="false" type="array"/>
+    </method>
+    <method name="connect" start="52" end="52" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Connect to the remote server"/>
+        <param type="string" variable="$host"/>
+        <param type="int" variable="$port"/>
+        <param type="boolean" variable="$secure"/>
+      </docblock>
+      <parameter name="host" byreference="false" type="{unknown}"/>
+      <parameter name="port" byreference="false" type="integer" default="80"/>
+      <parameter name="secure" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="write" start="64" end="64" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Send request to the remote server"/>
+        <param type="string" variable="$method"/>
+        <param type="object" variable="$url">
+          <type full="Zend_Uri_Http" namespace="" name="Zend_Uri_Http"/>
+        </param>
+        <param type="string" variable="$http_ver"/>
+        <param type="array" variable="$headers"/>
+        <param type="string" variable="$body"/>
+        <return description="Request as text" type="string"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="url" byreference="false" type="{unknown}"/>
+      <parameter name="http_ver" byreference="false" type="string" default="'1.1'"/>
+      <parameter name="headers" byreference="false" type="array"/>
+      <parameter name="body" byreference="false" type="string" default="''"/>
+    </method>
+    <method name="read" start="71" end="71" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Read response from server"/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="close" start="77" end="77" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Close the connection to the server"/>
+      </docblock>
+    </method>
+  </interface>
+  <interface full="Zend_Http_Client_Adapter_Stream" namespace="" name="Zend_Http_Client_Adapter_Stream">
+    <method name="setOutputStream" start="45" end="45" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set output stream">This function sets output stream where the result will be stored.</description>
+        <param description="Stream to write the output to" type="resource" variable="$stream"/>
+      </docblock>
+      <parameter name="stream" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LinkedinCallback" namespace="" name="LinkedinCallback" abstract="false" final="false" start="28" end="643">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../code/control" file="LinkedinCallback.php" realpath="/var/www/_modules/social_integration/trunk/code/control/LinkedinCallback.php" size="20376" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="336ab6d417ba96a139d5f09d07e1e04df8270813" relative="code/control/LinkedinCallback.php"/>
+  <extends full="SocialIntegrationControllerBaseClass" namespace="" name="SocialIntegrationControllerBaseClass"/>
+  <implements full="SocialIntegrationAPIInterface" namespace="" name="SocialIntegrationAPIInterface"/>
+  <member name="number_of_friends_that_can_be_retrieved" type="integer" default="1200" visibility="private" line="34">
+    <docblock>
+      <description compact="Maximum number of followers that can be retrieved"/>
+      <var type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="set_number_of_friends_that_can_be_retrieved" start="35" end="35" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="n" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_number_of_friends_that_can_be_retrieved" start="36" end="36" abstract="false" final="false" static="true" visibility="public"/>
+  <member name="allowed_actions" type="array" visibility="public" line="44">
+    <docblock>
+      <description compact="Standard SS variable determining what this controller can do"/>
+      <var type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="consumer_key" type="{unknown}" default="null" visibility="private" line="61">
+    <docblock>
+      <description compact="Get from Linkedin"/>
+      <var type="object">
+        <type full="String" namespace="" name="String"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="set_consumer_key" start="62" end="62" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="s" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_consumer_key" start="63" end="63" abstract="false" final="false" static="true" visibility="public"/>
+  <member name="consumer_secret" type="{unknown}" default="null" visibility="private" line="69">
+    <docblock>
+      <description compact="Get from Linkedin"/>
+      <var type="object">
+        <type full="String" namespace="" name="String"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="set_consumer_secret" start="70" end="70" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="s" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_consumer_secret" start="71" end="71" abstract="false" final="false" static="true" visibility="public"/>
+  <member name="permission_scope" type="string" default="'r_emailaddress,r_network,w_messages'" visibility="private" line="78">
+    <docblock>
+      <description compact="Get from Linkedin"/>
+      <see value=": https://developer.linkedin.com/documents/authentication#granting"/>
+      <var type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="set_permission_scope" start="79" end="79" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="s" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_permission_scope" start="80" end="80" abstract="false" final="false" static="true" visibility="public"/>
+  <member name="zend_oauth_consumer_class" type="{unknown}" default="null" visibility="private" line="91">
+    <docblock>
+      <description compact="used to hold the Zend_Oauth_Consumer we keep one for each callback the default callback is nocallback"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="zend_oauth_consumer_class_config" type="{unknown}" default="null" visibility="private" line="101">
+    <docblock>
+      <description compact="when creating a new Zend_Oauth_Consumer we also return the configs To access the standard config use: self::$zend_oauth_consumer_class_config[&quot;nocallback&quot;];"/>
+      <var type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="options" type="{unknown}" visibility="private" line="104"/>
+  <member name="consumer" type="{unknown}" visibility="private" line="105"/>
+  <member name="client" type="{unknown}" visibility="private" line="106"/>
+  <member name="token" type="{unknown}" visibility="private" line="107"/>
+  <method name="getConsumer" start="113" end="178" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="holds an instance of the Zend_Oauth_Consumer class"/>
+      <return type="object">
+        <type full="Zend_Oauth_Consumer" namespace="" name="Zend_Oauth_Consumer"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="string" default="&quot;nocallback&quot;"/>
+    <inline>
+      <comment value="Session::set('LinkedinRequestToken', serialize($token));" line="134"/>
+      <comment value="We do not have any Access token Yet" line="137"/>
+      <comment value="But We have some parameters passed throw the URL" line="139"/>
+      <comment value="Get the LinkedIn Access Token" line="143"/>
+      <comment value="Store the LinkedIn Access Token" line="146"/>
+      <comment value="Use HTTP Client with built-in OAuth request handling" line="174"/>
+    </inline>
+  </method>
+  <method name="getResponse" start="180" end="187" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="format" byreference="false" type="string" default="&quot;json&quot;"/>
+    <inline>
+      <comment value="Set LinkedIn URI" line="181"/>
+      <comment value="Set Method (GET, POST or PUT)" line="183"/>
+      <comment value="Get Request Response" line="185"/>
+    </inline>
+  </method>
+  <method name="get_current_user" start="196" end="218" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="returns an array of data if there is anything and NULL if there is no information."/>
+      <invalid annotation="(undefined)" value=""/>
+    </docblock>
+    <inline>
+      <comment value="Set LinkedIn URI" line="201"/>
+      <comment value="$this-&gt;client-&gt;setUri('http://api.linkedin.com/v1/people/~:(id,first-name,last-name)');" line="202"/>
+      <comment value="Set Method (GET, POST or PUT)" line="203"/>
+      <comment value="Get Request Response" line="205"/>
+    </inline>
+  </method>
+  <method name="get_updates" start="220" end="222" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="lastNumber" byreference="false" type="integer" default="12"/>
+  </method>
+  <method name="send_message" start="231" end="285" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="returns true on success"/>
+      <param description="| Member | String $to" type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </param>
+      <param type="object" variable="$message">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="- link to send with message" type="object" variable="$link">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="- other variables used in message." type="object" variable="$otherVariables">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="to" byreference="false" type="integer" default="0"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="link" byreference="false" type="string" default="&quot;&quot;"/>
+    <parameter name="otherVariables" byreference="false" type="array"/>
+    <inline>
+      <comment value="TO" line="241"/>
+      <comment value="MESSAGE" line="245"/>
+      <comment value="SUBJECT" line="247"/>
+      <comment value="XML POST" line="254"/>
+      <comment value="Set LinkedIn URI" line="268"/>
+      <comment value="//" line="269"/>
+      <comment value="Set Method (GET, POST or PUT)" line="270"/>
+      <comment value="SET BODY" line="272"/>
+      <comment value="SET XML" line="274"/>
+      <comment value="send it!" line="276"/>
+      <comment value="did it go ok?" line="278"/>
+    </inline>
+  </method>
+  <method name="get_list_of_friends" start="296" end="345" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="If we can not find enough followers, we add any user."/>
+      <param description="- the number of users returned, set to -1 to return maximum" type="object" variable="$limit">
+        <type full="Int" namespace="" name="Int"/>
+      </param>
+      <param description="- the users searched for" type="object" variable="$search">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return description="(array(&quot;id&quot; =&gt; ..., &quot;name&quot; =&gt; ...., &quot;picture&quot; =&gt; ...))" type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="limit" byreference="false" type="integer" default="12"/>
+    <parameter name="searchString" byreference="false" type="string" default="&quot;&quot;"/>
+    <inline>
+      <comment value="Set LinkedIn URI" line="309"/>
+      <comment value="//" line="310"/>
+      <comment value="Set Method (GET, POST or PUT)" line="311"/>
+      <comment value="Get Request Response" line="313"/>
+      <comment value="adding yourself to the top of the list" line="321"/>
+    </inline>
+  </method>
+  <method name="is_valid_user" start="351" end="353" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="checks if a user exists"/>
+      <param description="- linkedin ID" type="object" variable="$id">
+        <type full="String" namespace="" name="String"/>
+      </param>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <constructor name="__construct" start="359" end="364" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="LinkedinConnect" start="373" end="381" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="easy access to the connection"/>
+    </docblock>
+  </method>
+  <method name="connectUser" start="388" end="396" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="STEP 1 of the connecting process"/>
+      <param description="- the URL to return to" type="object" variable="$returnTo">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="- additional paramaters" type="object" variable="$extra">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+    </docblock>
+    <parameter name="returnTo" byreference="false" type="string" default="''"/>
+    <parameter name="extra" byreference="false" type="array"/>
+  </method>
+  <method name="Connect" start="403" end="427" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Connects the current user.">completes connecting process</description>
+      <param type="object" variable="$reg">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+    </docblock>
+    <parameter name="req" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <inline>
+      <comment value="$securityToken = SecurityToken::inst();" line="404"/>
+      <comment value="if(!$securityToken-&gt;checkRequest($req)) return $this-&gt;httpError(400);" line="405"/>
+      <comment value="&amp;&amp; /**/" line="407"/>
+      <comment value="Set LinkedIn URI" line="408"/>
+      <comment value="$this-&gt;client-&gt;setUri('http://api.linkedin.com/v1/people/~:(id,first-name,last-name)');" line="409"/>
+      <comment value="Get Request Response" line="410"/>
+      <comment value="Set Method (GET, POST or PUT)" line="411"/>
+    </inline>
+  </method>
+  <method name="FinishLinkedin" start="430" end="444" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="Login" start="455" end="496" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Works with the login form"/>
+    </docblock>
+    <parameter name="req" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <inline>
+      <comment value="$token = Session::get('Linkedin.Request.Token');" line="464"/>
+    </inline>
+  </method>
+  <method name="remove" start="499" end="503" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="RemoveLinkedin" start="508" end="521" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="security" line="509"/>
+      <comment value="remove Linkedin identification" line="510"/>
+      <comment value="Session::clear('Linkedin.Request.Token');" line="511"/>
+    </inline>
+  </method>
+  <method name="updateUserFromLinkedinData" start="538" end="586" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Saves the Linkedin data to the member and logs in the member if that has not been done yet."/>
+      <param description="- the ID of the current twitter user" type="object" variable="$user">
+        <type full="Int" namespace="" name="Int"/>
+      </param>
+      <param description="- the data returned from twitter" type="object" variable="$twitterData">
+        <type full="Object" namespace="" name="Object"/>
+      </param>
+      <param description="- access token" type="object" variable="$access">
+        <type full="Object" namespace="" name="Object"/>
+      </param>
+      <param description="- does the user stay logged in" type="object" variable="$keepLoggedIn">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </param>
+      <return type="object">
+        <type full="Member" namespace="" name="Member"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="find member" line="539"/>
+    </inline>
+  </method>
+  <method name="meondatabase" start="591" end="605" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="basicconcept" start="610" end="640" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Set LinkedIn URI" line="613"/>
+      <comment value="Set Method (GET, POST or PUT)" line="615"/>
+      <comment value="Get Request Response" line="617"/>
+      <comment value="Get the XML containing User's Profile" line="620"/>
+      <comment value="Uncomment Following Line To display XML result" line="623"/>
+      <comment value="header('Content-Type: ' . $response-&gt;getHeader('Content-Type'));" line="624"/>
+      <comment value="echo $content;" line="625"/>
+      <comment value="exit;" line="626"/>
+      <comment value="Use simplexml to transform XML to a PHP Object" line="628"/>
+      <comment value="Uncomment Following Line To display Simple XML Object Structure" line="631"/>
+      <comment value="Display Profile Information as you wish" line="636"/>
+    </inline>
+  </method>
+  <parent full="SocialIntegrationControllerBaseClass" namespace="" name="SocialIntegrationControllerBaseClass">
+    <extends full="Controller" namespace="" name="Controller"/>
+    <method name="get_default_avatar" start="11" end="11" abstract="false" final="false" static="true" visibility="public"/>
+    <method name="set_default_avatar" start="12" end="12" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="s" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="is_social_integration_api_class" start="19" end="27" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="tells us if a class is a Social Integration API class (e.g. Facebook, Twiiter, etc....)"/>
+        <param type="object" variable="$className">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </return>
+      </docblock>
+      <parameter name="className" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="get_login_button" start="40" end="102" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="one stop shop button"/>
+        <return description="(" type="object">IsConnected,
+  IsLoggedIn,
+  Link,
+  ConnectedName,
+  ConnectedImageURL
+)<type full="Object" namespace="" name="Object"/></return>
+      </docblock>
+      <parameter name="backURL" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="member" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="back URL" line="41"/>
+        <comment value="security" line="52"/>
+        <comment value="AJAX FUNCTIONALITY" line="55"/>
+        <comment value="Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');" line="56"/>
+        <comment value="Requirements::javascript(THIRDPARTY_DIR . '/jquery-livequery/jquery.livequery.js');" line="57"/>
+        <comment value="Requirements::javascript('social_integration/javascript/'.strtolower(self::my_service_name()).&quot;.js&quot;);" line="58"/>
+      </inline>
+    </method>
+    <method name="login_url" start="109" end="115" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$returnURL">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="connect_url" start="122" end="130" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Link to login form"/>
+        <param type="object" variable="$returnURL">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="existingMember" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="redirect_to_login_prompt" start="139" end="142" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="redirects to login prompt, lets the user log in and returns to the returnURL specified."/>
+        <param type="object" variable="$returnURL">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="REDIRECTS!" namespace="" name="REDIRECTS!"/>
+        </return>
+      </docblock>
+      <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="my_class_name" start="149" end="151" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="The class being called (e.g. FacebookCallback::my_class_name should return FacebookCallback)"/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="my_service_name" start="157" end="159" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="The current ClassName without the &quot;Callback&quot; portion."/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="my_security_form" start="165" end="167" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="The name of the security form."/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="Title" start="175" end="177" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="returns Absolute URL to a link within this controller, by default it is the &quot;Connect&quot; link, because this controller always needs an action."/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="AbsoluteLink" start="185" end="190" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="returns Absolute URL to a link within this controller, by default it is the &quot;Connect&quot; link, because this controller always needs an action."/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="action" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="Link" start="198" end="204" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="returns relative URL to a link within this controller, by default it is the &quot;Connect&quot; link, because this controller always needs an action."/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="action" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="is_valid_user" start="206" end="208" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="screen_name" byreference="false" type="{unknown}"/>
+    </method>
+    <constructor name="__construct" start="213" end="215" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="index" start="220" end="227" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="you need to add an action"/>
+      </docblock>
+    </method>
+    <method name="returnURL" start="234" end="249" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="works out best Return URL"/>
+        <param description="- should it include the Base URL (e.g. http://www.mysite.com)" type="object" variable="$hasAbsoluteBaseURL">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </param>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="hasAbsoluteBaseURL" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="Tests" start="251" end="279" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="menondatabase" start="282" end="284" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="test" start="286" end="366" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="request" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="SocialIntegrationAPIInterface" namespace="" name="SocialIntegrationAPIInterface">
+    <method name="set_number_of_friends_that_can_be_retrieved" start="14" end="14" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Maximum number of followers/friends that can be retrieved"/>
+        <var type="object">
+          <type full="Int" namespace="" name="Int"/>
+        </var>
+      </docblock>
+      <parameter name="n" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="get_number_of_friends_that_can_be_retrieved" start="15" end="15" abstract="false" final="false" static="true" visibility="public"/>
+    <method name="login_url" start="22" end="22" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Link to login form"/>
+        <param type="object" variable="$returnURL">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="connect_url" start="30" end="30" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Link to connect"/>
+        <param type="object" variable="$returnURL">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="existingMember" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="redirect_to_login_prompt" start="38" end="38" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="redirects to login prompt, lets the user log in and returns to the returnURL specified."/>
+        <param type="object" variable="$returnURL">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="REDIRECTS!" namespace="" name="REDIRECTS!"/>
+        </return>
+      </docblock>
+      <parameter name="returnURL" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="get_current_user" start="46" end="46" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="returns all the data of the currently logged in / connected user."/>
+        <return description="| Null" type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="get_list_of_friends" start="54" end="54" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="gets a list of friends"/>
+        <param description="- $Limit, set to -1 to to maximum" type="object">
+          <type full="Int" namespace="" name="Int"/>
+        </param>
+        <param description="- $searchString, filter for search string" type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </return>
+      </docblock>
+      <parameter name="limit" byreference="false" type="integer" default="12"/>
+      <parameter name="searchString" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="is_valid_user" start="60" end="60" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Checks if the id provided is a valid member of the class."/>
+        <return type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </return>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="get_updates" start="66" end="66" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="return last status updates"/>
+        <return type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </return>
+      </docblock>
+      <parameter name="lastNumber" byreference="false" type="integer" default="12"/>
+    </method>
+    <method name="send_message" start="77" end="77" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="make sure to return TRUE as response if the message is sent successfully Sends a message from the current user to someone else in the networkd"/>
+        <param description="- Facebook user id." type="object" variable="$userID">
+          <type full="Int" namespace="" name="Int"/>
+        </param>
+        <param description="- Message you are sending" type="object" variable="$message">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <param description="- Link to send with message" type="object" variable="$link">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return description="- return TRUE as success" type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </return>
+      </docblock>
+      <parameter name="to" byreference="false" type="{unknown}"/>
+      <parameter name="message" byreference="false" type="{unknown}"/>
+      <parameter name="link" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="otherVariables" byreference="false" type="array"/>
+    </method>
+    <method name="test" start="80" end="80" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="request" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="meondatabase" start="82" end="82" abstract="false" final="false" static="false" visibility="public"/>
+  </interface>
+</class>

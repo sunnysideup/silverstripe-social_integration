@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Zend_Loader" href="../../classes/Zend_Loader.xhtml">Zend_Loader</a>
+          </li>
+          <li class="separator">loadClass</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="#throws">Throws</a>
+          </li>
+          <li>
+            <a href="../../source/thirdparty/Zend/Loader.php.xhtml#line52">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Zend_Loader::</small>loadClass</h1>
+        <h4>Loads a class from a PHP file.  The filename must be formatted as "$class.php".</h4>
+        <p>If $dirs is a string or an array, it will search the directories
+in the order supplied, and attempt to load the first matching file.
+
+If $dirs is null, it will split the class name at underscores to
+generate a path hierarchy (e.g., "Zend_Example_Class" will map
+to "Zend/Example/Class.php").
+
+If the file was not found in the $dirs, or if no $dirs were specified,
+it will attempt to load it from PHP's include_path.</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function loadClass(string
+        $class,
+            [<a title="string|array" href="../../classes/string|array.xhtml">string|array</a>
+        $dirs = null] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$class</code>
+                —
+                string</dt>
+          <dd>- The full class name of a Zend component.</dd>
+          <dt><code>$dirs</code>
+                —
+                object</dt>
+          <dd>- OPTIONAL Either a path or an array of paths<br/>to search.</dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>void</dt>
+          <dd><br/>
+        </dd>
+        </dl>
+        <h2 id="throws">Errors/Exceptions</h2>
+        <dl class="styled">
+          <dt>
+            <code>
+              <a title="Zend_Exception" href="../../classes/Zend_Exception.xhtml">Zend_Exception</a>
+            </code>
+          </dt>
+          <dd/>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

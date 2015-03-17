@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Http_CookieJar</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Http_CookieJar</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/Zend/Http/CookieJar.php.xhtml#line60">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Http_CookieJar</h1>
+        <h4>A Zend_Http_CookieJar object is designed to contain and maintain HTTP cookies, and should be used along with Zend_Http_Client in order to manage cookies across HTTP requests and responses.</h4>
+        <p>The class contains an array of Zend_Http_Cookie objects. Cookies can be added to the jar<br/>automatically from a request or manually. Then, the jar can find and return the cookies<br/>needed for a specific HTTP request.<br/><br/>A special parameter can be passed to all methods of this class that return cookies: Cookies<br/>can be returned either in their native form (as Zend_Http_Cookie objects) or as strings -<br/>the later is suitable for sending as the value of the "Cookie" header in an HTTP request.<br/>You can also choose, when returning more than one cookie, whether to get an array of strings<br/>(by passing Zend_Http_CookieJar::COOKIE_STRING_ARRAY) or one unified string for all cookies<br/>(by passing Zend_Http_CookieJar::COOKIE_STRING_CONCAT).</p>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Http_CookieJar
+                implements
+                <a title="Countable" href="../interfaces/Countable.xhtml">Countable</a>,<a title="IteratorAggregate" href="../interfaces/IteratorAggregate.xhtml">IteratorAggregate</a>
+            {<br/><ul class="none"><li>// constants</li><li>const COOKIE_OBJECT = 0;</li><li>const COOKIE_STRING_ARRAY = 1;</li><li>const COOKIE_STRING_CONCAT = 2;</li></ul><ul class="none"><li>// members</li><li>protected array <a href="#members">$cookies</a>;
+                    </li><li>protected array <a href="#members">$_rawCookies</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/addCookie.xhtml">addCookie</a>()
+                    </li><li>public void <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/addCookiesFromResponse.xhtml">addCookiesFromResponse</a>()
+                    </li><li>public array|string <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getAllCookies.xhtml">getAllCookies</a>()
+                    </li><li>public array|string <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getMatchingCookies.xhtml">getMatchingCookies</a>()
+                    </li><li>public Zend_Http_Cookie|string <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getCookie.xhtml">getCookie</a>()
+                    </li><li>protected array|string <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/_flattenCookiesArray.xhtml">_flattenCookiesArray</a>()
+                    </li><li>protected array <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/_matchDomain.xhtml">_matchDomain</a>()
+                    </li><li>protected array <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/_matchPath.xhtml">_matchPath</a>()
+                    </li><li>public static Zend_Http_CookieJar <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/fromResponse.xhtml">fromResponse</a>()
+                    </li><li>public int <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/count.xhtml">count</a>()
+                    </li><li>public ArrayIterator <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getIterator.xhtml">getIterator</a>()
+                    </li><li>public bool <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/isEmpty.xhtml">isEmpty</a>()
+                    </li><li>public Zend_Http_CookieJar <a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/reset.xhtml">reset</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/Countable.xhtml">Countable</a>
+            </li>
+            <li>
+              <a href="../interfaces/IteratorAggregate.xhtml">IteratorAggregate</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">358+</td>
+            <td>Add the $uri functionality.</td>
+          </tr>
+        </table>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="COOKIE_OBJECT">COOKIE_OBJECT</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td id="COOKIE_STRING_ARRAY">COOKIE_STRING_ARRAY</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td id="COOKIE_STRING_CONCAT">COOKIE_STRING_CONCAT</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_rawCookies"><strong>$_rawCookies</strong>
+                —
+                array<br/><span class="indent">The Zend_Http_Cookie array</span></li>
+            <li id="cookies"><strong>$cookies</strong>
+                —
+                array<br/><span class="indent">Array storing cookies</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_flattenCookiesArray"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/_flattenCookiesArray.xhtml">_flattenCookiesArray()</a>
+                — Helper function to recursivly flatten an array. Shoud be used when exporting the cookies array (or parts of it)</li>
+            <li id="_matchDomain"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/_matchDomain.xhtml">_matchDomain()</a>
+                — Return a subset of the cookies array matching a specific domain</li>
+            <li id="_matchPath"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/_matchPath.xhtml">_matchPath()</a>
+                — Return a subset of a domain-matching cookies that also match a specified path</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/__construct.xhtml">__construct()</a>
+                — Construct a new CookieJar object</li>
+            <li id="addCookie"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/addCookie.xhtml">addCookie()</a>
+                — Add a cookie to the jar. Cookie should be passed either as a Zend_Http_Cookie object or as a string - in which case an object is created from the string.</li>
+            <li id="addCookiesFromResponse"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/addCookiesFromResponse.xhtml">addCookiesFromResponse()</a>
+                — Parse an HTTP response, adding all the cookies set in that response to the cookie jar.</li>
+            <li id="count"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/count.xhtml">count()</a>
+                — Required by Countable interface</li>
+            <li id="fromResponse"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/fromResponse.xhtml">fromResponse()</a>
+                — Create a new CookieJar object and automatically load into it all the cookies set in an Http_Response object. If $uri is set, it will be considered as the requested URI for setting default domain and path of the cookie.</li>
+            <li id="getAllCookies"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getAllCookies.xhtml">getAllCookies()</a>
+                — Get all cookies in the cookie jar as an array</li>
+            <li id="getCookie"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getCookie.xhtml">getCookie()</a>
+                — Get a specific cookie according to a URI and name</li>
+            <li id="getIterator"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getIterator.xhtml">getIterator()</a>
+                — Required by IteratorAggregate interface</li>
+            <li id="getMatchingCookies"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/getMatchingCookies.xhtml">getMatchingCookies()</a>
+                — Return an array of all cookies matching a specific request according to the request URI, whether session cookies should be sent or not, and the time to consider as "now" when checking cookie expiry time.</li>
+            <li id="isEmpty"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/isEmpty.xhtml">isEmpty()</a>
+                — Tells if the jar is empty of any cookie</li>
+            <li id="reset"><a title="Zend_Http_CookieJar" href="../classes/Zend_Http_CookieJar/reset.xhtml">reset()</a>
+                — Empties the cookieJar of any cookie</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

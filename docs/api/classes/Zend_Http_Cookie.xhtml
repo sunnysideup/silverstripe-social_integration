@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Http_Cookie</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Http_Cookie</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/Zend/Http/Cookie.php.xhtml#line47">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Http_Cookie</h1>
+        <h4>Zend_Http_Cookie is a class describing an HTTP cookie and all it's parameters.</h4>
+        <p>Zend_Http_Cookie is a class describing an HTTP cookie and all it's parameters. The<br/>class also enables validating whether the cookie should be sent to the server in<br/>a specified scenario according to the request URI, the expiry time and whether<br/>session cookies should be used or not. Generally speaking cookies should be<br/>contained in a Cookiejar object, or instantiated manually and added to an HTTP<br/>request.<br/><br/>See http://wp.netscape.com/newsref/std/cookie_spec.html for some specs.</p>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Http_Cookie
+            {<br/><ul class="none"><li>// members</li><li>protected string <a href="#members">$name</a>;
+                    </li><li>protected string <a href="#members">$value</a>;
+                    </li><li>protected int <a href="#members">$expires</a>;
+                    </li><li>protected string <a href="#members">$domain</a>;
+                    </li><li>protected string <a href="#members">$path</a>;
+                    </li><li>protected boolean <a href="#members">$secure</a>;
+                    </li><li>protected boolean <a href="#members">$encodeValue</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getName.xhtml">getName</a>()
+                    </li><li>public string <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getValue.xhtml">getValue</a>()
+                    </li><li>public string <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getDomain.xhtml">getDomain</a>()
+                    </li><li>public string <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getPath.xhtml">getPath</a>()
+                    </li><li>public int|null <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getExpiryTime.xhtml">getExpiryTime</a>()
+                    </li><li>public boolean <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/isSecure.xhtml">isSecure</a>()
+                    </li><li>public boolean <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/isExpired.xhtml">isExpired</a>()
+                    </li><li>public boolean <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/isSessionCookie.xhtml">isSessionCookie</a>()
+                    </li><li>public boolean <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/match.xhtml">match</a>()
+                    </li><li>public string <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/__toString.xhtml">__toString</a>()
+                    </li><li>public static Zend_Http_Cookie <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/fromString.xhtml">fromString</a>()
+                    </li><li>public static boolean <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/matchCookieDomain.xhtml">matchCookieDomain</a>()
+                    </li><li>public static boolean <a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/matchCookiePath.xhtml">matchCookiePath</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">110+</td>
+            <td>Add validation of each one of the parameters (legal domain, etc.)</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="domain"><strong>$domain</strong>
+                —
+                string<br/><span class="indent">Cookie domain</span></li>
+            <li id="encodeValue"><strong>$encodeValue</strong>
+                —
+                boolean<br/><span class="indent">Whether the cookie value has been encoded/decoded</span></li>
+            <li id="expires"><strong>$expires</strong>
+                —
+                int<br/><span class="indent">Cookie expiry date</span></li>
+            <li id="name"><strong>$name</strong>
+                —
+                string<br/><span class="indent">Cookie name</span></li>
+            <li id="path"><strong>$path</strong>
+                —
+                string<br/><span class="indent">Cookie path</span></li>
+            <li id="secure"><strong>$secure</strong>
+                —
+                boolean<br/><span class="indent">Whether the cookie is secure or not</span></li>
+            <li id="value"><strong>$value</strong>
+                —
+                string<br/><span class="indent">Cookie value</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/__construct.xhtml">__construct()</a>
+                — Cookie object constructor</li>
+            <li id="__toString"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/__toString.xhtml">__toString()</a>
+                — Get the cookie as a string, suitable for sending as a "Cookie" header in an HTTP request</li>
+            <li id="fromString"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/fromString.xhtml">fromString()</a>
+                — Generate a new Cookie object from a cookie string (for example the value of the Set-Cookie HTTP header)</li>
+            <li id="getDomain"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getDomain.xhtml">getDomain()</a>
+                — Get cookie domain</li>
+            <li id="getExpiryTime"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getExpiryTime.xhtml">getExpiryTime()</a>
+                — Get the expiry time of the cookie, or null if no expiry time is set</li>
+            <li id="getName"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getName.xhtml">getName()</a>
+                — Get Cookie name</li>
+            <li id="getPath"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getPath.xhtml">getPath()</a>
+                — Get the cookie path</li>
+            <li id="getValue"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/getValue.xhtml">getValue()</a>
+                — Get cookie value</li>
+            <li id="isExpired"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/isExpired.xhtml">isExpired()</a>
+                — Check whether the cookie has expired</li>
+            <li id="isSecure"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/isSecure.xhtml">isSecure()</a>
+                — Check whether the cookie should only be sent over secure connections</li>
+            <li id="isSessionCookie"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/isSessionCookie.xhtml">isSessionCookie()</a>
+                — Check whether the cookie is a session cookie (has no expiry time set)</li>
+            <li id="match"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/match.xhtml">match()</a>
+                — Checks whether the cookie should be sent or not in a specific scenario</li>
+            <li id="matchCookieDomain"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/matchCookieDomain.xhtml">matchCookieDomain()</a>
+                — Check if a cookie's domain matches a host name.</li>
+            <li id="matchCookiePath"><a title="Zend_Http_Cookie" href="../classes/Zend_Http_Cookie/matchCookiePath.xhtml">matchCookiePath()</a>
+                — Check if a cookie's path matches a URL path</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - TransientFacebook</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">TransientFacebook</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/thirdparty/facebook/tests/tests.php.xhtml#line1811">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>TransientFacebook</h1>
+        <h4/>
+        <p/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class TransientFacebook
+                extends <a title="BaseFacebook" href="../classes/BaseFacebook.xhtml">BaseFacebook</a>
+            {<br/><ul class="none"><li>// Inherited constants from <a title="BaseFacebook" href="../classes/BaseFacebook.xhtml">BaseFacebook</a></li><li>const <a href="#VERSION">VERSION</a> = '3.2.0';</li><li>const <a href="#SIGNED_REQUEST_ALGORITHM">SIGNED_REQUEST_ALGORITHM</a> = 'HMAC-SHA256';</li></ul><ul class="none"><li>// Inherited members from <span title="BaseFacebook">BaseFacebook</span></li><li>public array <a href="#members">$CURL_OPTS</a>;
+                        </li><li>protected array <a href="#members">$DROP_QUERY_PARAMS</a>;
+                        </li><li>public array <a href="#members">$DOMAIN_MAP</a>;
+                        </li><li>protected string <a href="#members">$appId</a>;
+                        </li><li>protected string <a href="#members">$appSecret</a>;
+                        </li><li>protected integer <a href="#members">$user</a>;
+                        </li><li>protected <a href="#members">$signedRequest</a>;
+                        </li><li>protected <a href="#members">$state</a>;
+                        </li><li>protected string <a href="#members">$accessToken</a>;
+                        </li><li>protected boolean <a href="#members">$fileUploadSupport</a>;
+                        </li><li>protected boolean <a href="#members">$trustForwarded</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>protected void <a title="TransientFacebook" href="../classes/TransientFacebook/setPersistentData.xhtml">setPersistentData</a>()
+                    </li><li>protected void <a title="TransientFacebook" href="../classes/TransientFacebook/getPersistentData.xhtml">getPersistentData</a>()
+                    </li><li>protected void <a title="TransientFacebook" href="../classes/TransientFacebook/clearPersistentData.xhtml">clearPersistentData</a>()
+                    </li><li>protected void <a title="TransientFacebook" href="../classes/TransientFacebook/clearAllPersistentData.xhtml">clearAllPersistentData</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="BaseFacebook">BaseFacebook</span></li><li>public void <a title="BaseFacebook" href="../classes/BaseFacebook/__construct.xhtml">__construct</a>()
+                        </li><li>public BaseFacebook <a title="BaseFacebook" href="../classes/BaseFacebook/setAppId.xhtml">setAppId</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getAppId.xhtml">getAppId</a>()
+                        </li><li>public BaseFacebook <a title="BaseFacebook" href="../classes/BaseFacebook/setApiSecret.xhtml">setApiSecret</a>()
+                        </li><li>public BaseFacebook <a title="BaseFacebook" href="../classes/BaseFacebook/setAppSecret.xhtml">setAppSecret</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getApiSecret.xhtml">getApiSecret</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getAppSecret.xhtml">getAppSecret</a>()
+                        </li><li>public BaseFacebook <a title="BaseFacebook" href="../classes/BaseFacebook/setFileUploadSupport.xhtml">setFileUploadSupport</a>()
+                        </li><li>public boolean <a title="BaseFacebook" href="../classes/BaseFacebook/getFileUploadSupport.xhtml">getFileUploadSupport</a>()
+                        </li><li>public boolean <a title="BaseFacebook" href="../classes/BaseFacebook/useFileUploadSupport.xhtml">useFileUploadSupport</a>()
+                        </li><li>public BaseFacebook <a title="BaseFacebook" href="../classes/BaseFacebook/setAccessToken.xhtml">setAccessToken</a>()
+                        </li><li>public void <a title="BaseFacebook" href="../classes/BaseFacebook/setExtendedAccessToken.xhtml">setExtendedAccessToken</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getAccessToken.xhtml">getAccessToken</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/getUserAccessToken.xhtml">getUserAccessToken</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getSignedRequest.xhtml">getSignedRequest</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getUser.xhtml">getUser</a>()
+                        </li><li>protected integer <a title="BaseFacebook" href="../classes/BaseFacebook/getUserFromAvailableData.xhtml">getUserFromAvailableData</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getLoginUrl.xhtml">getLoginUrl</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getLogoutUrl.xhtml">getLogoutUrl</a>()
+                        </li><li>public string <a title="BaseFacebook" href="../classes/BaseFacebook/getLoginStatusUrl.xhtml">getLoginStatusUrl</a>()
+                        </li><li>public mixed <a title="BaseFacebook" href="../classes/BaseFacebook/api.xhtml">api</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/getSignedRequestCookieName.xhtml">getSignedRequestCookieName</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/getMetadataCookieName.xhtml">getMetadataCookieName</a>()
+                        </li><li>protected mixed <a title="BaseFacebook" href="../classes/BaseFacebook/getCode.xhtml">getCode</a>()
+                        </li><li>protected integer <a title="BaseFacebook" href="../classes/BaseFacebook/getUserFromAccessToken.xhtml">getUserFromAccessToken</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/getApplicationAccessToken.xhtml">getApplicationAccessToken</a>()
+                        </li><li>protected void <a title="BaseFacebook" href="../classes/BaseFacebook/establishCSRFTokenState.xhtml">establishCSRFTokenState</a>()
+                        </li><li>protected mixed <a title="BaseFacebook" href="../classes/BaseFacebook/getAccessTokenFromCode.xhtml">getAccessTokenFromCode</a>()
+                        </li><li>protected mixed <a title="BaseFacebook" href="../classes/BaseFacebook/_restserver.xhtml">_restserver</a>()
+                        </li><li>protected boolean <a title="BaseFacebook" href="../classes/BaseFacebook/isVideoPost.xhtml">isVideoPost</a>()
+                        </li><li>protected mixed <a title="BaseFacebook" href="../classes/BaseFacebook/_graph.xhtml">_graph</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/_oauthRequest.xhtml">_oauthRequest</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/makeRequest.xhtml">makeRequest</a>()
+                        </li><li>protected array <a title="BaseFacebook" href="../classes/BaseFacebook/parseSignedRequest.xhtml">parseSignedRequest</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/makeSignedRequest.xhtml">makeSignedRequest</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/getApiUrl.xhtml">getApiUrl</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/getUrl.xhtml">getUrl</a>()
+                        </li><li>protected void <a title="BaseFacebook" href="../classes/BaseFacebook/getHttpHost.xhtml">getHttpHost</a>()
+                        </li><li>protected void <a title="BaseFacebook" href="../classes/BaseFacebook/getHttpProtocol.xhtml">getHttpProtocol</a>()
+                        </li><li>protected void <a title="BaseFacebook" href="../classes/BaseFacebook/getBaseDomain.xhtml">getBaseDomain</a>()
+                        </li><li>protected string <a title="BaseFacebook" href="../classes/BaseFacebook/getCurrentUrl.xhtml">getCurrentUrl</a>()
+                        </li><li>protected boolean <a title="BaseFacebook" href="../classes/BaseFacebook/shouldRetainParam.xhtml">shouldRetainParam</a>()
+                        </li><li>protected void <a title="BaseFacebook" href="../classes/BaseFacebook/throwAPIException.xhtml">throwAPIException</a>()
+                        </li><li>protected static void <a title="BaseFacebook" href="../classes/BaseFacebook/errorLog.xhtml">errorLog</a>()
+                        </li><li>protected static string <a title="BaseFacebook" href="../classes/BaseFacebook/base64UrlDecode.xhtml">base64UrlDecode</a>()
+                        </li><li>protected static string <a title="BaseFacebook" href="../classes/BaseFacebook/base64UrlEncode.xhtml">base64UrlEncode</a>()
+                        </li><li>public void <a title="BaseFacebook" href="../classes/BaseFacebook/destroySession.xhtml">destroySession</a>()
+                        </li><li>protected an <a title="BaseFacebook" href="../classes/BaseFacebook/getMetadataCookie.xhtml">getMetadataCookie</a>()
+                        </li><li>protected static void <a title="BaseFacebook" href="../classes/BaseFacebook/isAllowedDomain.xhtml">isAllowedDomain</a>()
+                        </li><li>protected static void <a title="BaseFacebook" href="../classes/BaseFacebook/endsWith.xhtml">endsWith</a>()
+                        </li><li>protected abstract void <a title="BaseFacebook" href="../classes/BaseFacebook/setPersistentData.xhtml">setPersistentData</a>()
+                        </li><li>protected abstract mixed <a title="BaseFacebook" href="../classes/BaseFacebook/getPersistentData.xhtml">getPersistentData</a>()
+                        </li><li>protected abstract void <a title="BaseFacebook" href="../classes/BaseFacebook/clearPersistentData.xhtml">clearPersistentData</a>()
+                        </li><li>protected abstract void <a title="BaseFacebook" href="../classes/BaseFacebook/clearAllPersistentData.xhtml">clearAllPersistentData</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/BaseFacebook.xhtml">BaseFacebook</a>
+            </li>
+          </ul>
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/FBRecordURL.xhtml">FBRecordURL</a>
+            </li>
+            <li>
+              <a href="../classes/FBRecordMakeRequest.xhtml">FBRecordMakeRequest</a>
+            </li>
+            <li>
+              <a href="../classes/FBPublic.xhtml">FBPublic</a>
+            </li>
+            <li>
+              <a href="../classes/FBAccessToken.xhtml">FBAccessToken</a>
+            </li>
+            <li>
+              <a href="../classes/FBGetCurrentURLFacebook.xhtml">FBGetCurrentURLFacebook</a>
+            </li>
+            <li>
+              <a href="../classes/FBPublicCookie.xhtml">FBPublicCookie</a>
+            </li>
+            <li>
+              <a href="../classes/FBPublicGetAccessTokenFromCode.xhtml">FBPublicGetAccessTokenFromCode</a>
+            </li>
+            <li>
+              <a href="../classes/FBPublicState.xhtml">FBPublicState</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="VERSION">VERSION</td>
+              <td>'3.2.0'</td>
+            </tr>
+            <tr>
+              <td id="SIGNED_REQUEST_ALGORITHM">SIGNED_REQUEST_ALGORITHM</td>
+              <td>'HMAC-SHA256'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="DROP_QUERY_PARAMS">
+              <strong>$DROP_QUERY_PARAMS</strong>
+              <br/>
+              <span class="indent">List of query parameters that get automatically dropped when rebuilding the current URL.</span>
+            </li>
+            <li id="accessToken"><strong>$accessToken</strong>
+                —
+                string<br/><span class="indent">The OAuth access token received in exchange for a valid authorization code.  null means the access token has yet to be determined.</span></li>
+            <li id="appId"><strong>$appId</strong>
+                —
+                string<br/><span class="indent">The Application ID.</span></li>
+            <li id="appSecret"><strong>$appSecret</strong>
+                —
+                string<br/><span class="indent">The Application App Secret.</span></li>
+            <li id="fileUploadSupport"><strong>$fileUploadSupport</strong>
+                —
+                boolean<br/><span class="indent">Indicates if the CURL based @ syntax for file uploads is enabled.</span></li>
+            <li id="signedRequest">
+              <strong>$signedRequest</strong>
+              <br/>
+              <span class="indent">The data from the signed_request token.</span>
+            </li>
+            <li id="state">
+              <strong>$state</strong>
+              <br/>
+              <span class="indent">A CSRF state variable to assist in the defense against CSRF attacks.</span>
+            </li>
+            <li id="trustForwarded"><strong>$trustForwarded</strong>
+                —
+                boolean<br/><span class="indent">Indicates if we trust HTTP_X_FORWARDED_* headers.</span></li>
+            <li id="user"><strong>$user</strong>
+                —
+                integer<br/><span class="indent">The ID of the Facebook user, or 0 if the user is logged out.</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="CURL_OPTS">
+              <strong>$CURL_OPTS</strong>
+              <br/>
+              <span class="indent">Default options for curl.</span>
+            </li>
+            <li id="DOMAIN_MAP">
+              <strong>$DOMAIN_MAP</strong>
+              <br/>
+              <span class="indent">Maps aliases to Facebook domains.</span>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="clearAllPersistentData">
+              <a title="TransientFacebook" href="../classes/TransientFacebook/clearAllPersistentData.xhtml">clearAllPersistentData()</a>
+            </li>
+            <li id="clearPersistentData">
+              <a title="TransientFacebook" href="../classes/TransientFacebook/clearPersistentData.xhtml">clearPersistentData()</a>
+            </li>
+            <li id="getPersistentData">
+              <a title="TransientFacebook" href="../classes/TransientFacebook/getPersistentData.xhtml">getPersistentData()</a>
+            </li>
+            <li id="setPersistentData">
+              <a title="TransientFacebook" href="../classes/TransientFacebook/setPersistentData.xhtml">setPersistentData()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="BaseFacebook" href="../classes/BaseFacebook.xhtml">BaseFacebook</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="_graph"><a title="BaseFacebook" href="../classes/BaseFacebook/_graph.xhtml">_graph()</a>
+                — Invoke the Graph API.</li>
+            <li id="_oauthRequest"><a title="BaseFacebook" href="../classes/BaseFacebook/_oauthRequest.xhtml">_oauthRequest()</a>
+                — Make a OAuth Request.</li>
+            <li id="_restserver"><a title="BaseFacebook" href="../classes/BaseFacebook/_restserver.xhtml">_restserver()</a>
+                — Invoke the old restserver.php endpoint.</li>
+            <li id="base64UrlDecode"><a title="BaseFacebook" href="../classes/BaseFacebook/base64UrlDecode.xhtml">base64UrlDecode()</a>
+                — Base64 encoding that doesn't need to be urlencode()ed.</li>
+            <li id="base64UrlEncode"><a title="BaseFacebook" href="../classes/BaseFacebook/base64UrlEncode.xhtml">base64UrlEncode()</a>
+                — Base64 encoding that doesn't need to be urlencode()ed.</li>
+            <li id="clearAllPersistentData"><a title="BaseFacebook" href="../classes/BaseFacebook/clearAllPersistentData.xhtml">clearAllPersistentData()</a>
+                — Clear all data from the persistent storage</li>
+            <li id="clearPersistentData"><a title="BaseFacebook" href="../classes/BaseFacebook/clearPersistentData.xhtml">clearPersistentData()</a>
+                — Clear the data with $key from the persistent storage</li>
+            <li id="endsWith">
+              <a title="BaseFacebook" href="../classes/BaseFacebook/endsWith.xhtml">endsWith()</a>
+            </li>
+            <li id="errorLog"><a title="BaseFacebook" href="../classes/BaseFacebook/errorLog.xhtml">errorLog()</a>
+                — Prints to the error log if you aren't in command line mode.</li>
+            <li id="establishCSRFTokenState"><a title="BaseFacebook" href="../classes/BaseFacebook/establishCSRFTokenState.xhtml">establishCSRFTokenState()</a>
+                — Lays down a CSRF state token for this process.</li>
+            <li id="getAccessTokenFromCode"><a title="BaseFacebook" href="../classes/BaseFacebook/getAccessTokenFromCode.xhtml">getAccessTokenFromCode()</a>
+                — Retrieves an access token for the given authorization code (previously generated from www.facebook.com on behalf of a specific user).  The authorization code is sent to graph.facebook.com and a legitimate access token is generated provided the access token and the user for which it was generated all match, and the user is either logged in to Facebook or has granted an offline access permission.</li>
+            <li id="getApiUrl"><a title="BaseFacebook" href="../classes/BaseFacebook/getApiUrl.xhtml">getApiUrl()</a>
+                — Build the URL for api given parameters.</li>
+            <li id="getApplicationAccessToken"><a title="BaseFacebook" href="../classes/BaseFacebook/getApplicationAccessToken.xhtml">getApplicationAccessToken()</a>
+                — Returns the access token that should be used for logged out users when no authorization code is available.</li>
+            <li id="getBaseDomain"><a title="BaseFacebook" href="../classes/BaseFacebook/getBaseDomain.xhtml">getBaseDomain()</a>
+                — Get the base domain used for the cookie.</li>
+            <li id="getCode"><a title="BaseFacebook" href="../classes/BaseFacebook/getCode.xhtml">getCode()</a>
+                — Get the authorization code from the query parameters, if it exists, and otherwise return false to signal no authorization code was discoverable.</li>
+            <li id="getCurrentUrl"><a title="BaseFacebook" href="../classes/BaseFacebook/getCurrentUrl.xhtml">getCurrentUrl()</a>
+                — Returns the Current URL, stripping it of known FB parameters that should not persist.</li>
+            <li id="getHttpHost">
+              <a title="BaseFacebook" href="../classes/BaseFacebook/getHttpHost.xhtml">getHttpHost()</a>
+            </li>
+            <li id="getHttpProtocol">
+              <a title="BaseFacebook" href="../classes/BaseFacebook/getHttpProtocol.xhtml">getHttpProtocol()</a>
+            </li>
+            <li id="getMetadataCookie"><a title="BaseFacebook" href="../classes/BaseFacebook/getMetadataCookie.xhtml">getMetadataCookie()</a>
+                — Parses the metadata cookie that our Javascript API set</li>
+            <li id="getMetadataCookieName"><a title="BaseFacebook" href="../classes/BaseFacebook/getMetadataCookieName.xhtml">getMetadataCookieName()</a>
+                — Constructs and returns the name of the coookie that potentially contain metadata. The cookie is not set by the BaseFacebook class, but it may be set by the JavaScript SDK.</li>
+            <li id="getPersistentData"><a title="BaseFacebook" href="../classes/BaseFacebook/getPersistentData.xhtml">getPersistentData()</a>
+                — Get the data for $key, persisted by BaseFacebook::setPersistentData()</li>
+            <li id="getSignedRequestCookieName"><a title="BaseFacebook" href="../classes/BaseFacebook/getSignedRequestCookieName.xhtml">getSignedRequestCookieName()</a>
+                — Constructs and returns the name of the cookie that potentially houses the signed request for the app user.</li>
+            <li id="getUrl"><a title="BaseFacebook" href="../classes/BaseFacebook/getUrl.xhtml">getUrl()</a>
+                — Build the URL for given domain alias, path and parameters.</li>
+            <li id="getUserAccessToken"><a title="BaseFacebook" href="../classes/BaseFacebook/getUserAccessToken.xhtml">getUserAccessToken()</a>
+                — Determines and returns the user access token, first using the signed request if present, and then falling back on the authorization code if present.  The intent is to return a valid user access token, or false if one is determined to not be available.</li>
+            <li id="getUserFromAccessToken"><a title="BaseFacebook" href="../classes/BaseFacebook/getUserFromAccessToken.xhtml">getUserFromAccessToken()</a>
+                — Retrieves the UID with the understanding that $this-&gt;accessToken has already been set and is seemingly legitimate.  It relies on Facebook's Graph API to retrieve user information and then extract the user ID.</li>
+            <li id="getUserFromAvailableData"><a title="BaseFacebook" href="../classes/BaseFacebook/getUserFromAvailableData.xhtml">getUserFromAvailableData()</a>
+                — Determines the connected user by first examining any signed requests, then considering an authorization code, and then falling back to any persistent store storing the user.</li>
+            <li id="isAllowedDomain">
+              <a title="BaseFacebook" href="../classes/BaseFacebook/isAllowedDomain.xhtml">isAllowedDomain()</a>
+            </li>
+            <li id="isVideoPost"><a title="BaseFacebook" href="../classes/BaseFacebook/isVideoPost.xhtml">isVideoPost()</a>
+                — Return true if this is video post.</li>
+            <li id="makeRequest"><a title="BaseFacebook" href="../classes/BaseFacebook/makeRequest.xhtml">makeRequest()</a>
+                — Makes an HTTP request. This method can be overridden by subclasses if developers want to do fancier things or use something other than curl to make the request.</li>
+            <li id="makeSignedRequest"><a title="BaseFacebook" href="../classes/BaseFacebook/makeSignedRequest.xhtml">makeSignedRequest()</a>
+                — Makes a signed_request blob using the given data.</li>
+            <li id="parseSignedRequest"><a title="BaseFacebook" href="../classes/BaseFacebook/parseSignedRequest.xhtml">parseSignedRequest()</a>
+                — Parses a signed_request and validates the signature.</li>
+            <li id="setPersistentData"><a title="BaseFacebook" href="../classes/BaseFacebook/setPersistentData.xhtml">setPersistentData()</a>
+                — Stores the given ($key, $value) pair, so that future calls to getPersistentData($key) return $value. This call may be in another request.</li>
+            <li id="shouldRetainParam"><a title="BaseFacebook" href="../classes/BaseFacebook/shouldRetainParam.xhtml">shouldRetainParam()</a>
+                — Returns true if and only if the key or key/value pair should be retained as part of the query string.  This amounts to a brute-force search of the very small list of Facebook-specific params that should be stripped out.</li>
+            <li id="throwAPIException"><a title="BaseFacebook" href="../classes/BaseFacebook/throwAPIException.xhtml">throwAPIException()</a>
+                — Analyzes the supplied result to see if it was thrown because the access token is no longer valid.  If that is the case, then we destroy the session.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="api"><a title="BaseFacebook" href="../classes/BaseFacebook/api.xhtml">api()</a>
+                — Make an API call.</li>
+            <li id="destroySession"><a title="BaseFacebook" href="../classes/BaseFacebook/destroySession.xhtml">destroySession()</a>
+                — Destroy the current session</li>
+            <li id="getAccessToken"><a title="BaseFacebook" href="../classes/BaseFacebook/getAccessToken.xhtml">getAccessToken()</a>
+                — Determines the access token that should be used for API calls.</li>
+            <li id="getApiSecret"><a title="BaseFacebook" href="../classes/BaseFacebook/getApiSecret.xhtml">getApiSecret()</a>
+                — Get the App Secret.</li>
+            <li id="getAppId"><a title="BaseFacebook" href="../classes/BaseFacebook/getAppId.xhtml">getAppId()</a>
+                — Get the Application ID.</li>
+            <li id="getAppSecret"><a title="BaseFacebook" href="../classes/BaseFacebook/getAppSecret.xhtml">getAppSecret()</a>
+                — Get the App Secret.</li>
+            <li id="getFileUploadSupport"><a title="BaseFacebook" href="../classes/BaseFacebook/getFileUploadSupport.xhtml">getFileUploadSupport()</a>
+                — Get the file upload support status.</li>
+            <li id="getLoginStatusUrl"><a title="BaseFacebook" href="../classes/BaseFacebook/getLoginStatusUrl.xhtml">getLoginStatusUrl()</a>
+                — Get a login status URL to fetch the status from Facebook.</li>
+            <li id="getLoginUrl"><a title="BaseFacebook" href="../classes/BaseFacebook/getLoginUrl.xhtml">getLoginUrl()</a>
+                — Get a Login URL for use with redirects. By default, full page redirect is assumed. If you are using the generated URL with a window.open() call in JavaScript, you can pass in display=popup as part of the $params.</li>
+            <li id="getLogoutUrl"><a title="BaseFacebook" href="../classes/BaseFacebook/getLogoutUrl.xhtml">getLogoutUrl()</a>
+                — Get a Logout URL suitable for use with redirects.</li>
+            <li id="getSignedRequest"><a title="BaseFacebook" href="../classes/BaseFacebook/getSignedRequest.xhtml">getSignedRequest()</a>
+                — Retrieve the signed request, either from a request parameter or, if not present, from a cookie.</li>
+            <li id="getUser"><a title="BaseFacebook" href="../classes/BaseFacebook/getUser.xhtml">getUser()</a>
+                — Get the UID of the connected user, or 0 if the Facebook user is not connected.</li>
+            <li id="setAccessToken"><a title="BaseFacebook" href="../classes/BaseFacebook/setAccessToken.xhtml">setAccessToken()</a>
+                — Sets the access token for api calls.  Use this if you get your access token by other means and just want the SDK to use it.</li>
+            <li id="setApiSecret"><a title="BaseFacebook" href="../classes/BaseFacebook/setApiSecret.xhtml">setApiSecret()</a>
+                — Set the App Secret.</li>
+            <li id="setAppId"><a title="BaseFacebook" href="../classes/BaseFacebook/setAppId.xhtml">setAppId()</a>
+                — Set the Application ID.</li>
+            <li id="setAppSecret"><a title="BaseFacebook" href="../classes/BaseFacebook/setAppSecret.xhtml">setAppSecret()</a>
+                — Set the App Secret.</li>
+            <li id="setExtendedAccessToken"><a title="BaseFacebook" href="../classes/BaseFacebook/setExtendedAccessToken.xhtml">setExtendedAccessToken()</a>
+                — Extend an access token, while removing the short-lived token that might have been generated via client-side flow. Thanks to http://bit.ly/b0Pt0H for the workaround.</li>
+            <li id="setFileUploadSupport"><a title="BaseFacebook" href="../classes/BaseFacebook/setFileUploadSupport.xhtml">setFileUploadSupport()</a>
+                — Set the file upload support status.</li>
+            <li id="useFileUploadSupport"><a title="BaseFacebook" href="../classes/BaseFacebook/useFileUploadSupport.xhtml">useFileUploadSupport()</a>
+                — DEPRECATED! Please use getFileUploadSupport instead.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

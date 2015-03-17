@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent" abstract="false" final="false" start="37" end="853">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Http" file="UserAgent.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Http/UserAgent.php" size="25863" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="1435786d5839e39208dc4a8fe29d3f3c470fa8c3" relative="thirdparty/Zend/Http/UserAgent.php"/>
+  <docblock>
+    <description compact="Lists of User Agent chains for testing :">- http://www.useragentstring.com/layout/useragentstring.php
+- http://user-agent-string.info/list-of-ua
+- http://www.user-agents.org/allagents.xml
+- http://en.wikipedia.org/wiki/List_of_user_agents_for_mobile_phones
+- http://www.mobilemultimedia.be/fr/</description>
+    <category value="Zend"/>
+    <package value="Zend_Http_UserAgent"/>
+    <subpackage value="UserAgent"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <implements full="Serializable" namespace="" name="Serializable"/>
+  <constant name="DEFAULT_IDENTIFICATION_SEQUENCE" value="'mobile,desktop'">
+    <docblock>
+      <description compact="'desktop' by default if the sequence return false for each item or is empty"/>
+    </docblock>
+  </constant>
+  <constant name="DEFAULT_PERSISTENT_STORAGE_ADAPTER" value="'Session'">
+    <docblock>
+      <description compact="Default persitent storage adapter : Session or NonPersitent"/>
+    </docblock>
+  </constant>
+  <constant name="DEFAULT_BROWSER_TYPE" value="'desktop'">
+    <docblock>
+      <description compact="'desktop' by default if the sequence return false for each item"/>
+    </docblock>
+  </constant>
+  <constant name="DEFAULT_HTTP_USER_AGENT" value="'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'">
+    <docblock>
+      <description compact="Default User Agent chain to prevent empty value"/>
+    </docblock>
+  </constant>
+  <constant name="DEFAULT_HTTP_ACCEPT" value="&quot;application/xhtml+xml&quot;">
+    <docblock>
+      <description compact="Default Http Accept param to prevent empty value"/>
+    </docblock>
+  </constant>
+  <constant name="DEFAULT_MARKUP_LANGUAGE" value="&quot;xhtml&quot;">
+    <docblock>
+      <description compact="Default markup language"/>
+    </docblock>
+  </constant>
+  <member name="_browserType" type="{unknown}" visibility="protected" line="74">
+    <docblock>
+      <description compact="Browser type"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_browserTypeClass" type="array" visibility="protected" line="83">
+    <docblock>
+      <description compact="Browser type class">Map of browser types to classes.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_config" type="array" visibility="protected" line="93">
+    <docblock>
+      <description compact="Array to store config">Default values are provided to ensure specific keys are present at
+instantiation.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_device" type="{unknown}" visibility="protected" line="105">
+    <docblock>
+      <description compact="Identified device"/>
+      <var type="object">
+        <type full="Zend_Http_UserAgent_Device" namespace="" name="Zend_Http_UserAgent_Device"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_immutable" type="{unknown}" default="false" visibility="protected" line="119">
+    <docblock>
+      <description compact="Whether or not this instance is immutable.">If true, none of the following may be modified:
+- $_server
+- $_browserType
+- User-Agent (defined in $_server)
+- HTTP Accept value (defined in $_server)
+- $_storage</description>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_loaders" type="array" visibility="protected" line="125">
+    <docblock>
+      <description compact="Plugin loaders"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_loaderTypes" type="array" visibility="protected" line="131">
+    <docblock>
+      <description compact="Valid plugin loader types"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_matchLog" type="array" visibility="protected" line="138">
+    <docblock>
+      <description compact="Trace of items matched to identify the browser type"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_server" type="{unknown}" visibility="protected" line="145">
+    <docblock>
+      <description compact="Server variable"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_storage" type="{unknown}" visibility="protected" line="152">
+    <docblock>
+      <description compact="Persistent storage handler"/>
+      <var type="object">
+        <type full="Zend_Http_UserAgent_Storage" namespace="" name="Zend_Http_UserAgent_Storage"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="160" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor"/>
+      <param type="object" variable="$options">
+        <type full="null|array|Zend_Config|ArrayAccess" namespace="" name="null|array|Zend_Config|ArrayAccess"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="serialize" start="172" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Serialized representation of the object"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="unserialize" start="192" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unserialize a previous representation of the object"/>
+      <param type="string" variable="$serialized"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="serialized" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Determine device class and ensure the class is loaded" line="198"/>
+      <comment value="Get device specification and instantiate" line="204"/>
+    </inline>
+  </method>
+  <method name="setOptions" start="217" end="273" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Configure instance"/>
+      <param type="object" variable="$options">
+        <type full="array|Zend_Config|ArrayAccess" namespace="" name="array|Zend_Config|ArrayAccess"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Set $_SERVER first" line="234"/>
+      <comment value="Get plugin loaders sorted" line="240"/>
+      <comment value="And then loop through the remaining options" line="251"/>
+    </inline>
+  </method>
+  <method name="_match" start="284" end="303" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Comparison of the UserAgent chain and browser signatures.">The comparison is case-insensitive : the browser signatures must be in lower
+case</description>
+      <param description="Name of class against which a match will be attempted" type="string" variable="$deviceClass"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="deviceClass" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Validate device class" line="286"/>
+      <comment value="Call match method on device class" line="297"/>
+    </inline>
+  </method>
+  <method name="_getUserAgentDevice" start="312" end="352" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Loads class for a user agent device"/>
+      <param description="Browser type" type="string" variable="$browserType"/>
+      <return type="string"/>
+      <throws description="if unable to load UA device" type="object">
+        <type full="Zend_Loader_PluginLoader_Exception" namespace="" name="Zend_Loader_PluginLoader_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="browserType" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getUserAgent" start="362" end="370" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the User Agent value">If $userAgent param is null, the value of $_server['HTTP_USER_AGENT'] is
+returned.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setUserAgent" start="378" end="382" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Force or replace the UA chain in $_server variable"/>
+      <param description="Forced UserAgent chain" type="string" variable="$userAgent"/>
+      <return type="object">
+        <type full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent"/>
+      </return>
+    </docblock>
+    <parameter name="userAgent" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getHttpAccept" start="390" end="397" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the HTTP Accept server param"/>
+      <param description="(option) forced HTTP Accept chain" type="string" variable="$httpAccept"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="httpAccept" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="setHttpAccept" start="405" end="409" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Force or replace the HTTP_ACCEPT chain in self::$_server variable"/>
+      <param description="Forced HTTP Accept chain" type="string" variable="$httpAccept"/>
+      <return type="object">
+        <type full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent"/>
+      </return>
+    </docblock>
+    <parameter name="httpAccept" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getStorage" start="422" end="442" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the persistent storage handler">Session storage is used by default unless a different storage adapter
+has been set via the "persistent_storage_adapter" key. That key should
+contain either a fully qualified class name, or a short name that
+resolves via the plugin loader.</description>
+      <param description="Browser identifier (User Agent chain)" type="string" variable="$browser"/>
+      <return type="object">
+        <type full="Zend_Http_UserAgent_Storage" namespace="" name="Zend_Http_UserAgent_Storage"/>
+      </return>
+    </docblock>
+    <parameter name="browser" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="setStorage" start="450" end="461" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the persistent storage handler"/>
+      <param type="object" variable="$storage">
+        <type full="Zend_Http_UserAgent_Storage" namespace="" name="Zend_Http_UserAgent_Storage"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent"/>
+      </return>
+    </docblock>
+    <parameter name="storage" byreference="false" type="object">
+      <type full="\\Zend_Http_UserAgent_Storage" namespace="\" name="Zend_Http_UserAgent_Storage"/>
+    </parameter>
+  </method>
+  <method name="clearStorage" start="469" end="472" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clean the persistent storage"/>
+      <param description="Browser identifier (User Agent chain)" type="string" variable="$browser"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="browser" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getConfig" start="479" end="482" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get user configuration"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setConfig" start="503" end="529" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Config parameters is an Array or a Zend_Config object">The allowed parameters are :
+- the identification sequence (can be empty) =&gt; desktop browser type is the
+default browser type returned
+$config['identification_sequence'] : ',' separated browser types
+- the persistent storage adapter
+$config['persistent_storage_adapter'] = "Session" or "NonPersistent"
+- to add or replace a browser type device
+$config[(type)]['device']['path']
+$config[(type)]['device']['classname']
+- to add or replace a browser type features adapter
+$config[(type)]['features']['path']
+$config[(type)]['features']['classname']</description>
+      <param description="(option) Config array" type="mixed" variable="$config"/>
+      <return type="object">
+        <type full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+    <inline>
+      <comment value="Verify that Config parameters are in an array." line="509"/>
+    </inline>
+  </method>
+  <method name="getDevice" start="539" end="571" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the device object">This is the object that will contain the various discovered device
+capabilities.</description>
+      <return description="$device" type="object">
+        <type full="Zend_Http_UserAgent_Device" namespace="" name="Zend_Http_UserAgent_Device"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="search an existing identification in the session" line="547"/>
+      <comment value="If the user agent and features are already existing, the" line="551"/>
+      <comment value="Zend_Http_UserAgent object is serialized in the session" line="552"/>
+      <comment value="Mark the object as immutable" line="566"/>
+      <comment value="Return the device instance" line="569"/>
+    </inline>
+  </method>
+  <method name="getBrowserType" start="578" end="581" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve the browser type"/>
+      <return description="$browserType" type="string"/>
+    </docblock>
+  </method>
+  <method name="setBrowserType" start="589" end="600" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the browser &quot;type&quot;"/>
+      <param type="string" variable="$browserType"/>
+      <return type="object">
+        <type full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent"/>
+      </return>
+    </docblock>
+    <parameter name="browserType" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getServer" start="613" end="619" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve the &quot;$_SERVER&quot; array">Basically, the $_SERVER array or an equivalent container storing the
+data that will be introspected.
+
+If the value has not been previously set, it sets itself from the
+$_SERVER superglobal.</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setServer" start="631" end="665" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the &quot;$_SERVER&quot; array">Basically, the $_SERVER array or an equivalent container storing the
+data that will be introspected.</description>
+      <param type="object" variable="$server">
+        <type full="array|ArrayAccess" namespace="" name="array|ArrayAccess"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <throws description="on invalid parameter" type="object">
+        <type full="Zend_Http_UserAgent_Exception" namespace="" name="Zend_Http_UserAgent_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="server" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Get an array if we don't have one" line="648"/>
+      <comment value="Normalize key case" line="660"/>
+    </inline>
+  </method>
+  <method name="getServerValue" start="673" end="683" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve a server value"/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setServerValue" start="692" end="705" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a server value"/>
+      <param type="object" variable="$key">
+        <type full="string|int|float" namespace="" name="string|int|float"/>
+      </param>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="ensure it's been initialized" line="701"/>
+    </inline>
+  </method>
+  <method name="setPluginLoader" start="714" end="754" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set plugin loader"/>
+      <param description="Type of plugin loader; one of 'storage', (?)" type="string" variable="$type"/>
+      <param type="object" variable="$loader">
+        <type full="string|Zend_Loader_PluginLoader" namespace="" name="string|Zend_Loader_PluginLoader"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Http_UserAgent" namespace="" name="Zend_Http_UserAgent"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="loader" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPluginLoader" start="762" end="770" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a plugin loader"/>
+      <param description="A valid plugin loader type; see {@link $_loaderTypes}" type="string" variable="$type"/>
+      <return type="object">
+        <type full="Zend_Loader_PluginLoader" namespace="" name="Zend_Loader_PluginLoader"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_validateLoaderType" start="782" end="796" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Validate a plugin loader type">Verifies that it is in <link xmlns="http://xml.phpdox.net/src" value="$_loaderTypes"/>, and returns a normalized
+version of the type.
+</description>
+      <param type="string" variable="$type"/>
+      <return type="string"/>
+      <throws description="on invalid type" type="object">
+        <type full="Zend_Http_UserAgent_Exception" namespace="" name="Zend_Http_UserAgent_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_matchUserAgent" start="804" end="840" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run the identification sequence to match the right browser type according to the user agent"/>
+      <return type="object">
+        <type full="Zend_Http_UserAgent_Result" namespace="" name="Zend_Http_UserAgent_Result"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="If we have no identification sequence, just return the default type" line="808"/>
+      <comment value="Get sequence against which to match" line="813"/>
+      <comment value="If a browser type is already configured, push that to the front of the list" line="816"/>
+      <comment value="Append the default browser type to the list if not alread in the list" line="821"/>
+      <comment value="Test each type until we find a match" line="826"/>
+      <comment value="Attempt to match this device class" line="831"/>
+    </inline>
+  </method>
+  <method name="_createDevice" start="847" end="852" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates device object instance"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <interface full="Serializable" namespace="" name="Serializable">
+    <method name="serialize" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="String representation of object">Should return the string representation of the object.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+    <method name="unserialize" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Constructs the object">Called during unserialization of the object.</description>
+      <return type="void"/>
+    </docblock>
+    <parameter name="serialized" optional="false" byreference="false" type="string"/>
+  </method>
+  </interface>
+</class>

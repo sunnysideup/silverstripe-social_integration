@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource" abstract="false" final="false" start="35" end="472">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Loader/Autoloader" file="Resource.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Loader/Autoloader/Resource.php" size="14620" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="fe46ac6c8d6b9e0ce2fa9ec2d1affb803fca0fc1" relative="thirdparty/Zend/Loader/Autoloader/Resource.php"/>
+  <docblock>
+    <description compact="Resource loader"/>
+    <uses value="Zend_Loader_Autoloader_Interface"/>
+    <package value="Zend_Loader"/>
+    <subpackage value="Autoloader"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <implements full="Zend_Loader_Autoloader_Interface" namespace="" name="Zend_Loader_Autoloader_Interface"/>
+  <member name="_basePath" type="{unknown}" visibility="protected" line="40">
+    <docblock>
+      <description/>
+      <var description="Base path to resource classes" type="string"/>
+    </docblock>
+  </member>
+  <member name="_components" type="array" visibility="protected" line="45">
+    <docblock>
+      <description/>
+      <var description="Components handled within this resource" type="array"/>
+    </docblock>
+  </member>
+  <member name="_defaultResourceType" type="{unknown}" visibility="protected" line="50">
+    <docblock>
+      <description/>
+      <var description="Default resource/component to use when using object registry" type="string"/>
+    </docblock>
+  </member>
+  <member name="_namespace" type="{unknown}" visibility="protected" line="55">
+    <docblock>
+      <description/>
+      <var description="Namespace of classes within this resource" type="string"/>
+    </docblock>
+  </member>
+  <member name="_resourceTypes" type="array" visibility="protected" line="60">
+    <docblock>
+      <description/>
+      <var description="Available resource types handled by this resource autoloader" type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="68" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor"/>
+      <param description="Configuration options for resource autoloader" type="object" variable="$options">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="__call" start="115" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Overloading: methods">Allow retrieving concrete resource object instances using 'get&lt;Resourcename&gt;()'
+syntax. Example:
+&lt;code&gt;
+$loader = new Zend_Loader_Autoloader_Resource(array(
+    'namespace' =&gt; 'Stuff_',
+    'basePath'  =&gt; '/path/to/some/stuff',
+))
+$loader-&gt;addResourceType('Model', 'models', 'Model');
+
+$foo = $loader-&gt;getModel('Foo'); // get instance of Stuff_Model_Foo class
+&lt;/code&gt;</description>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$args"/>
+      <return type="mixed"/>
+      <throws description="if method not beginning with 'get' or not matching a valid resource type is called" type="object">
+        <type full="Zend_Loader_Exception" namespace="" name="Zend_Loader_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getClassPath" start="141" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Helper method to calculate the correct class path"/>
+      <param type="string" variable="$class"/>
+      <return description="if not matched other wise the correct path" type="object">
+        <type full="False" namespace="" name="False"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="wrong prefix? we're done" line="155"/>
+      <comment value="assumes all resources have a component and class name, minimum" line="161"/>
+    </inline>
+  </method>
+  <method name="autoload" start="197" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Attempt to autoload a class"/>
+      <param type="string" variable="$class"/>
+      <return description="False if not matched, otherwise result if include operation" type="mixed"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setOptions" start="212" end="228" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set class state from options"/>
+      <param type="array" variable="$options"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+    <inline>
+      <comment value="Set namespace first, see ZF-10836" line="214"/>
+    </inline>
+  </method>
+  <method name="setNamespace" start="236" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set namespace that this autoloader handles"/>
+      <param type="string" variable="$namespace"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getNamespace" start="247" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get namespace this autoloader handles"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setBasePath" start="258" end="262" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set base path for this set of resources"/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getBasePath" start="269" end="272" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get base path to this set of resources"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="addResourceType" start="282" end="305" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add resource type"/>
+      <param description="identifier for the resource type being loaded" type="string" variable="$type"/>
+      <param description="path relative to resource base path containing the resource types" type="string" variable="$path"/>
+      <param description="sub-component namespace to append to base namespace that qualifies this resource type" type="object" variable="$namespace">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="namespace" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="addResourceTypes" start="333" end="352" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add multiple resources at once">$types should be an associative array of resource type =&gt; specification
+pairs. Each specification should be an associative array containing
+minimally the 'path' key (specifying the path relative to the resource
+base path) and optionally the 'namespace' key (indicating the subcomponent
+namespace to append to the resource namespace).
+
+As an example:
+&lt;code&gt;
+$loader-&gt;addResourceTypes(array(
+    'model' =&gt; array(
+        'path'      =&gt; 'models',
+        'namespace' =&gt; 'Model',
+    ),
+    'form' =&gt; array(
+        'path'      =&gt; 'forms',
+        'namespace' =&gt; 'Form',
+    ),
+));
+&lt;/code&gt;</description>
+      <param type="array" variable="$types"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="types" byreference="false" type="array"/>
+  </method>
+  <method name="setResourceTypes" start="361" end="365" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Overwrite existing and set multiple resource types at once"/>
+      <see value="Zend_Loader_Autoloader_Resource::addResourceTypes()"/>
+      <param type="array" variable="$types"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="types" byreference="false" type="array"/>
+  </method>
+  <method name="getResourceTypes" start="372" end="375" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve resource type mappings"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="hasResourceType" start="383" end="386" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is the requested resource type defined?"/>
+      <param type="string" variable="$type"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeResourceType" start="394" end="402" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove the requested resource type"/>
+      <param type="string" variable="$type"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clearResourceTypes" start="409" end="414" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clear all resource types"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setDefaultResourceType" start="422" end="428" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set default resource type to use when calling load()"/>
+      <param type="string" variable="$type"/>
+      <return type="object">
+        <type full="Zend_Loader_Autoloader_Resource" namespace="" name="Zend_Loader_Autoloader_Resource"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDefaultResourceType" start="435" end="438" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get default resource type to use when calling load()"/>
+      <return type="object">
+        <type full="string|null" namespace="" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="load" start="452" end="471" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Object registry and factory">Loads the requested resource of type $type (or uses the default resource
+type if none provided). If the resource has been loaded previously,
+returns the previous instance; otherwise, instantiates it.</description>
+      <param type="string" variable="$resource"/>
+      <param type="string" variable="$type"/>
+      <return type="object"/>
+      <throws description="if resource type not specified or invalid" type="object">
+        <type full="Zend_Loader_Exception" namespace="" name="Zend_Loader_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <interface full="Zend_Loader_Autoloader_Interface" namespace="" name="Zend_Loader_Autoloader_Interface">
+    <method name="autoload" start="42" end="42" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Autoload a class"/>
+        <abstract/>
+        <param type="string" variable="$class"/>
+        <return type="mixed">False [if unable to load $class]
+         get_class($class) [if $class is successfully loaded]</return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

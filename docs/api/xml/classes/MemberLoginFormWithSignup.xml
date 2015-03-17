@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="MemberLoginFormWithSignup" namespace="" name="MemberLoginFormWithSignup" abstract="false" final="false" start="7" end="256">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../code/security" file="MemberLoginFormWithSignup.php" realpath="/var/www/_modules/social_integration/trunk/code/security/MemberLoginFormWithSignup.php" size="11140" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="12dea07c61526d985014ab2b36862f479402064b" relative="code/security/MemberLoginFormWithSignup.php"/>
+  <docblock>
+    <description compact="Log-in form for the &quot;member&quot; authentication method"/>
+    <package value="sapphire"/>
+    <subpackage value="security"/>
+  </docblock>
+  <extends full="LoginForm" namespace="" name="LoginForm"/>
+  <member name="loggedInAsField" type="string" default="'FirstName'" visibility="public" line="13">
+    <docblock>
+      <description compact="This field is used in the &quot;You are logged in as %s&quot; message"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="authenticator_class" type="string" default="'MemberAuthenticatorWithSignup'" visibility="protected" line="15"/>
+  <constructor name="__construct" start="35" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor"/>
+      <param description="The parent controller, necessary to" type="object" variable="$controller">create the appropriate form action tag.<type full="Controller" namespace="" name="Controller"/></param>
+      <param description="The method on the controller that will return this" type="string" variable="$name">form object.</param>
+      <param description="All of the fields in the form - a" type="object" variable="$fields"><link value="FieldSet"/> of <link xmlns="http://xml.phpdox.net/src" value="FormField"/>                                  objects.
+<type full="FieldSet|FormField" namespace="" name="FieldSet|FormField"/></param>
+      <param description="All of the action buttons in the" type="object" variable="$actions">form - a <link xmlns="http://xml.phpdox.net/src" value="FieldSet"/> of
+                                    <link xmlns="http://xml.phpdox.net/src" value="FormAction"/> objects
+<type full="FieldSet|FormAction" namespace="" name="FieldSet|FormAction"/></param>
+      <param description="If set to TRUE, it will be checked if a" type="object" variable="$checkCurrentUser">the user is currently logged in, and if
+                              so, only a logout button will be rendered<type full="bool" namespace="" name="bool"/></param>
+      <param description="Name of the authenticator class that this form uses." type="string" variable="$authenticatorClassName"/>
+    </docblock>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="fields" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="actions" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="checkCurrentUser" byreference="false" type="{unknown}" default="true"/>
+    <inline>
+      <comment value="This is now set on the class directly to make it easier to create subclasses" line="37"/>
+      <comment value="$this-&gt;authenticator_class = $authenticatorClassName;" line="38"/>
+      <comment value="Focus on the email input when the page is loaded" line="96"/>
+      <comment value="Only include this if other form JS validation is enabled" line="97"/>
+    </inline>
+  </constructor>
+  <method name="getMessageFromSession" start="112" end="115" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get message from session"/>
+    </docblock>
+  </method>
+  <method name="createorupdateaccount" start="125" end="203" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Login form handler method">This method is called when the user clicks on "Log in"</description>
+      <param description="Submitted data" type="array" variable="$data"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="form" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="logout" start="214" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log out form handler method">This method is called when the user clicks on "logout" on the form
+created when the parameter &lt;i&gt;$checkCurrentUser&lt;/i&gt; of the
+{@link __construct constructor} was set to TRUE and the user was
+currently logged in.</description>
+    </docblock>
+  </method>
+  <method name="createOrUpdateUser" start="227" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Try to authenticate the user"/>
+      <param description="Submitted data" type="array"/>
+      <return description="Returns the member object on successful authentication" type="object">or NULL on failure.<type full="Member" namespace="" name="Member"/></return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="form" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Oauth_Http_Utility" namespace="" name="Zend_Oauth_Http_Utility" abstract="false" final="false" start="34" end="221">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Oauth/Http" file="Utility.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Oauth/Http/Utility.php" size="6601" time="2015-03-14T10:23:59+13:00" unixtime="1426281839" sha1="6ba2eccd715bdad0a941307c86c35e4c3f6862bc" relative="thirdparty/Zend/Oauth/Http/Utility.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Oauth"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <method name="assembleParams" start="45" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assemble all parameters for a generic OAuth request - i.e. no special params other than the defaults expected for any OAuth query."/>
+      <param type="string" variable="$url"/>
+      <param type="object" variable="$config">
+        <type full="Zend_Oauth_Config_ConfigInterface" namespace="" name="Zend_Oauth_Config_ConfigInterface"/>
+      </param>
+      <param type="object" variable="$serviceProviderParams">
+        <type full="null|array" namespace="" name="null|array"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="object">
+      <type full="\\Zend_Oauth_Config_ConfigInterface" namespace="\" name="Zend_Oauth_Config_ConfigInterface"/>
+    </parameter>
+    <parameter name="serviceProviderParams" byreference="false" type="array" default="null"/>
+  </method>
+  <method name="toEncodedQueryString" start="92" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Given both OAuth parameters and any custom parametere, generate an encoded query string. This method expects parameters to have been assembled and signed beforehand."/>
+      <param type="array" variable="$params"/>
+      <param description="Ignores OAuth params e.g. for requests using OAuth Header" type="object" variable="$customParamsOnly">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+    <parameter name="customParamsOnly" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="toAuthorizationHeader" start="118" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Cast to authorization header"/>
+      <param type="array" variable="$params"/>
+      <param type="object" variable="$realm">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <param type="object" variable="$excludeCustomParams">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+    <parameter name="realm" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="excludeCustomParams" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="sign" start="148" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sign request"/>
+      <param type="array" variable="$params"/>
+      <param type="string" variable="$signatureMethod"/>
+      <param type="string" variable="$consumerSecret"/>
+      <param type="object" variable="$tokenSecret">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <param type="object" variable="$method">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <param type="object" variable="$url">
+        <type full="null|string" namespace="" name="null|string"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+    <parameter name="signatureMethod" byreference="false" type="{unknown}"/>
+    <parameter name="consumerSecret" byreference="false" type="{unknown}"/>
+    <parameter name="tokenSecret" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="method" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="url" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="parseQueryString" start="172" end="187" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Parse query string"/>
+      <param type="mixed" variable="$query"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Not remotely perfect but beats parse_str() which converts" line="179"/>
+      <comment value="periods and uses urldecode, not rawurldecode." line="180"/>
+    </inline>
+  </method>
+  <method name="generateNonce" start="194" end="197" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate nonce"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="generateTimestamp" start="204" end="207" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate timestamp"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="urlEncode" start="215" end="220" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="urlencode a value"/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

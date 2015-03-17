@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#TijsVerkoyen_Twitter">TijsVerkoyen\Twitter</a>
+          </li>
+          <li class="separator">
+            <a title="TijsVerkoyen\Twitter\Twitter" href="../../classes/TijsVerkoyen_Twitter_Twitter.xhtml">Twitter</a>
+          </li>
+          <li class="separator">geoSearch</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="../../source/thirdparty/twitter/Twitter.php.xhtml#line2760">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>TijsVerkoyen\Twitter\Twitter::</small>geoSearch</h1>
+        <h4>Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.</h4>
+        <p>Conceptually, a query can be made from the user's location, retrieve a list of places, have the user validate the location he or she is at, and then send the ID of this location with a call to POST statuses/update.
+This is the recommended method to use find places that can be attached to statuses/update. Unlike GET geo/reverse_geocode which provides raw data access, this endpoint can potentially re-order places with regards to the user who is authenticated. This approach is also preferred for interactive place matching with the user.</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function geoSearch([<a title="TijsVerkoyen\Twitter\float[optional]" href="../../classes/TijsVerkoyen_Twitter_float[optional].xhtml">float[optional]</a>
+        $lat = null,
+            [<a title="TijsVerkoyen\Twitter\float[optional]" href="../../classes/TijsVerkoyen_Twitter_float[optional].xhtml">float[optional]</a>
+        $long = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $query = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $ip = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $granularity = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $accuracy = null,
+            [<a title="TijsVerkoyen\Twitter\int[optional]" href="../../classes/TijsVerkoyen_Twitter_int[optional].xhtml">int[optional]</a>
+        $maxResults = null,
+            [<a title="TijsVerkoyen\Twitter\string[optional]" href="../../classes/TijsVerkoyen_Twitter_string[optional].xhtml">string[optional]</a>
+        $containedWithin = null,
+            [array
+        $attributes = null]]]]]]]]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$lat</code>
+                —
+                object</dt>
+          <dd>The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.<br/><br/><br/>      </dd>
+          <dt><code>$long</code>
+                —
+                object</dt>
+          <dd>The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.<br/><br/><br/>      </dd>
+          <dt><code>$query</code>
+                —
+                object</dt>
+          <dd>Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name. Remember to URL encode the query.<br/><br/><br/>      </dd>
+          <dt><code>$ip</code>
+                —
+                object</dt>
+          <dd>An IP address. Used when attempting to fix geolocation based off of the user's IP address.<br/><br/><br/>      </dd>
+          <dt><code>$granularity</code>
+                —
+                object</dt>
+          <dd>This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country.<br/><br/><br/>      </dd>
+          <dt><code>$accuracy</code>
+                —
+                object</dt>
+          <dd>A hint on the "region" in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).<br/><br/><br/>      </dd>
+          <dt><code>$maxResults</code>
+                —
+                object</dt>
+          <dd>A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many "nearby" results to return. Ideally, only pass in the number of places you intend to display to the user here.<br/><br/><br/>      </dd>
+          <dt><code>$containedWithin</code>
+                —
+                object</dt>
+          <dd>This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found. Specify a place_id. For example, to scope all results to places within "San Francisco, CA USA", you would specify a place_id of "5a110d312052166f"<br/><br/><br/>      </dd>
+          <dt><code>$attributes</code>
+                —
+                array</dt>
+          <dd>This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. This should be an key-value-pair-array.<br/><br/><br/>      </dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>array</dt>
+          <dd/>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

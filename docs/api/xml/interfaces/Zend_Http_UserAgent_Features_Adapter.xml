@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Zend_Http_UserAgent_Features_Adapter" namespace="" name="Zend_Http_UserAgent_Features_Adapter" abstract="false" final="false" start="31" end="39">
+  <file path="/var/www/_modules/social_integration/trunk/docs/en/phpdox/../../../thirdparty/Zend/Http/UserAgent/Features" file="Adapter.php" realpath="/var/www/_modules/social_integration/trunk/thirdparty/Zend/Http/UserAgent/Features/Adapter.php" size="1275" time="2015-03-14T10:23:58+13:00" unixtime="1426281838" sha1="5ce978c3ebbf621392e9a278ab3b9cebb5bc2164" relative="thirdparty/Zend/Http/UserAgent/Features/Adapter.php"/>
+  <docblock>
+    <description compact="The interface required by all Zend_Browser_Features Adapter classes to implement."/>
+    <category value="Zend"/>
+    <package value="Zend_Http"/>
+    <subpackage value="UserAgent"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <method name="getFromRequest" start="38" end="38" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Retrieve the browser's features from a given request object ($_SERVER)"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <implementor full="Zend_Http_UserAgent_Features_Adapter_DeviceAtlas" namespace="" name="Zend_Http_UserAgent_Features_Adapter_DeviceAtlas"/>
+  <implementor full="Zend_Http_UserAgent_Features_Adapter_TeraWurfl" namespace="" name="Zend_Http_UserAgent_Features_Adapter_TeraWurfl"/>
+  <implementor full="Zend_Http_UserAgent_Features_Adapter_WurflApi" namespace="" name="Zend_Http_UserAgent_Features_Adapter_WurflApi"/>
+</interface>
