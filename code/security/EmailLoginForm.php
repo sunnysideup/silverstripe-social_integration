@@ -4,8 +4,8 @@
  * @package sapphire
  * @subpackage security
  */
-class EmailLoginForm extends MemberLoginForm {
+class EmailLoginForm extends MemberLoginForm
+{
 
-	protected $authenticator_class = 'EmailAuthenticator';
-
+    protected $authenticator_class = 'EmailAuthenticator';
 }
