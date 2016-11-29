@@ -30,8 +30,7 @@ require_once 'Zend/Http/UserAgent/Device.php';
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Http_UserAgent_AbstractDevice
-    implements Zend_Http_UserAgent_Device
+abstract class Zend_Http_UserAgent_AbstractDevice implements Zend_Http_UserAgent_Device
 {
     /**
      * Browser signature
@@ -492,7 +491,6 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                         $real[1][0]               = "Internet Explorer";
                         $temp                     = explode(' ', trim($v));
                         $real[3][0]               = $temp[1];
-
                     }
                     if (strpos($v, 'Win') !== false) {
                         $result['device_os_token'] = trim($v);
@@ -519,7 +517,6 @@ abstract class Zend_Http_UserAgent_AbstractDevice
         }
         if (isset($result['device_os_token'])) {
             if (strpos($result['device_os_token'], 'Win') !== false) {
-
                 $windows = array(
                     'Windows NT 6.1'          => 'Windows 7',
                     'Windows NT 6.0'          => 'Windows Vista',
@@ -576,7 +573,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                     $result['browser_version'] = $result['others']['detail'][count($result['others']['detail']) - 1][2];
                 }
                 if (isset($comment[3])) {
-                     $result['browser_language'] = trim($comment[3]);
+                    $result['browser_language'] = trim($comment[3]);
                 }
 
                 $last = $result['others']['detail'][count($result['others']['detail']) - 1][1];
@@ -763,7 +760,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                 throw new Zend_Http_UserAgent_Exception('The ' . $this->getType() . ' features adapter must have a "path" config parameter defined');
             }
 
-            if (false === include_once ($path)) {
+            if (false === include_once($path)) {
                 require_once 'Zend/Http/UserAgent/Exception.php';
                 throw new Zend_Http_UserAgent_Exception('The ' . $this->getType() . ' features adapter path that does not exist');
             }

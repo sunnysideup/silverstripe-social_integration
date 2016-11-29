@@ -2,8 +2,8 @@
 
 // https://developers.facebook.com/docs/reference/api/page/
 
-if(!file_exists('Zend/Oauth.php')) {
-	set_include_path(get_include_path() . PATH_SEPARATOR . (dirname(__FILE__)) . '/thirdparty/');
+if (!file_exists('Zend/Oauth.php')) {
+    set_include_path(get_include_path() . PATH_SEPARATOR . (dirname(__FILE__)) . '/thirdparty/');
 }
 
 

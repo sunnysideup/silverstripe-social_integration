@@ -171,11 +171,9 @@ class Zend_Crypt_Hmac extends Zend_Crypt
      */
     protected static function _getMhashDefinition($hashAlgorithm)
     {
-        for ($i = 0; $i <= mhash_count(); $i++)
-        {
+        for ($i = 0; $i <= mhash_count(); $i++) {
             $types[mhash_get_hash_name($i)] = $i;
         }
         return $types[strtoupper($hashAlgorithm)];
     }
-
 }

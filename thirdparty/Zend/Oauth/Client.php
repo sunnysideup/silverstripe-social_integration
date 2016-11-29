@@ -110,7 +110,7 @@ class Zend_Oauth_Client extends Zend_Http_Client
         if ($adapter == null) {
             $this->adapter = $adapter;
         } else {
-              parent::setAdapter($adapter);
+            parent::setAdapter($adapter);
         }
     }
 
@@ -148,12 +148,11 @@ class Zend_Oauth_Client extends Zend_Http_Client
      */
     protected function _prepareBody()
     {
-        if($this->_streamingRequest) {
+        if ($this->_streamingRequest) {
             $this->setHeaders(self::CONTENT_LENGTH,
                 $this->raw_post_data->getTotalSize());
             return $this->raw_post_data;
-        }
-        else {
+        } else {
             return parent::_prepareBody();
         }
     }
@@ -198,13 +197,13 @@ class Zend_Oauth_Client extends Zend_Http_Client
     {
         if ($method == self::GET) {
             $this->setRequestMethod(self::GET);
-        } elseif($method == self::POST) {
+        } elseif ($method == self::POST) {
             $this->setRequestMethod(self::POST);
-        } elseif($method == self::PUT) {
+        } elseif ($method == self::PUT) {
             $this->setRequestMethod(self::PUT);
-        }  elseif($method == self::DELETE) {
+        } elseif ($method == self::DELETE) {
             $this->setRequestMethod(self::DELETE);
-        }   elseif($method == self::HEAD) {
+        } elseif ($method == self::HEAD) {
             $this->setRequestMethod(self::HEAD);
         }
         return parent::setMethod($method);
@@ -274,7 +273,7 @@ class Zend_Oauth_Client extends Zend_Http_Client
                 foreach ($queryParts as $queryPart) {
                     $kvTuple = explode('=', $queryPart);
                     $params[urldecode($kvTuple[0])] =
-                        (array_key_exists(1, $kvTuple) ? urldecode($kvTuple[1]) : NULL);
+                        (array_key_exists(1, $kvTuple) ? urldecode($kvTuple[1]) : null);
                 }
             }
             if (!empty($this->paramsPost)) {
@@ -304,19 +303,19 @@ class Zend_Oauth_Client extends Zend_Http_Client
     protected function _getSignableParametersAsQueryString()
     {
         $params = array();
-            if (!empty($this->paramsGet)) {
-                $params = array_merge($params, $this->paramsGet);
-                $query  = $this->getToken()->toQueryString(
+        if (!empty($this->paramsGet)) {
+            $params = array_merge($params, $this->paramsGet);
+            $query  = $this->getToken()->toQueryString(
                     $this->getUri(true), $this->_config, $params
                 );
-            }
-            if (!empty($this->paramsPost)) {
-                $params = array_merge($params, $this->paramsPost);
-                $query  = $this->getToken()->toQueryString(
+        }
+        if (!empty($this->paramsPost)) {
+            $params = array_merge($params, $this->paramsPost);
+            $query  = $this->getToken()->toQueryString(
                     $this->getUri(true), $this->_config, $params
                 );
-            }
-            return $params;
+        }
+        return $params;
     }
 
     /**
@@ -335,6 +334,6 @@ class Zend_Oauth_Client extends Zend_Http_Client
             require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception('Method does not exist: ' . $method);
         }
-        return call_user_func_array(array($this->_config,$method), $args);
+        return call_user_func_array(array($this->_config, $method), $args);
     }
 }

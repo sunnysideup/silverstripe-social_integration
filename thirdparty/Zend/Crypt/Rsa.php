@@ -38,7 +38,6 @@ require_once 'Zend/Crypt/Rsa/Key/Public.php';
  */
 class Zend_Crypt_Rsa
 {
-
     const BINARY = 'binary';
     const BASE64 = 'base64';
 
@@ -320,5 +319,4 @@ class Zend_Crypt_Rsa
         }
         return null;
     }
-
 }

@@ -60,7 +60,7 @@ class Zend_Oauth_Http_Utility
         }
         
         if ($config->getToken()->oauth_session_handle) {
-        	$params['oauth_session_handle'] = $config->getToken()->oauth_session_handle;
+            $params['oauth_session_handle'] = $config->getToken()->oauth_session_handle;
         }
 
 

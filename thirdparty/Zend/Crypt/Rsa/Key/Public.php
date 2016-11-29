@@ -33,7 +33,6 @@ require_once 'Zend/Crypt/Rsa/Key.php';
  */
 class Zend_Crypt_Rsa_Key_Public extends Zend_Crypt_Rsa_Key
 {
-
     protected $_certificateString = null;
 
     public function __construct($string)
@@ -70,5 +69,4 @@ class Zend_Crypt_Rsa_Key_Public extends Zend_Crypt_Rsa_Key
     {
         return $this->_certificateString;
     }
-
 }

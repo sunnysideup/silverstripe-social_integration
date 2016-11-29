@@ -32,7 +32,6 @@ require_once 'Zend/Http/UserAgent/AbstractDevice.php';
  */
 class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
 {
-
     const DEFAULT_FEATURES_ADAPTER_CLASSNAME = 'Zend_Http_UserAgent_Features_Adapter_WurflApi';
 
     const DEFAULT_FEATURES_ADAPTER_PATH = 'Zend/Http/UserAgent/Features/Adapter/WurflApi.php';
@@ -314,7 +313,6 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
      */
     public static function userAgentStart($userAgent)
     {
-
         $mobile_ua = strtolower(substr($userAgent, 0, 4));
 
         return (in_array($mobile_ua, self::$_uaBegin));

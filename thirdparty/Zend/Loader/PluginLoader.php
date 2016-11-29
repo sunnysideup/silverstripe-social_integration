@@ -98,14 +98,14 @@ class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
      * @param array $prefixToPaths
      * @param string $staticRegistryName OPTIONAL
      */
-    public function __construct(Array $prefixToPaths = array(), $staticRegistryName = null)
+    public function __construct(array $prefixToPaths = array(), $staticRegistryName = null)
     {
         if (is_string($staticRegistryName) && !empty($staticRegistryName)) {
             $this->_useStaticRegistry = $staticRegistryName;
-            if(!isset(self::$_staticPrefixToPaths[$staticRegistryName])) {
+            if (!isset(self::$_staticPrefixToPaths[$staticRegistryName])) {
                 self::$_staticPrefixToPaths[$staticRegistryName] = array();
             }
-            if(!isset(self::$_staticLoadedPlugins[$staticRegistryName])) {
+            if (!isset(self::$_staticLoadedPlugins[$staticRegistryName])) {
                 self::$_staticLoadedPlugins[$staticRegistryName] = array();
             }
         }
@@ -123,7 +123,7 @@ class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
      */
     protected function _formatPrefix($prefix)
     {
-        if($prefix == "") {
+        if ($prefix == "") {
             return $prefix;
         }
 
@@ -410,7 +410,7 @@ class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
             }
             require_once 'Zend/Loader/PluginLoader/Exception.php';
             throw new Zend_Loader_PluginLoader_Exception($message);
-       }
+        }
 
         if ($this->_useStaticRegistry) {
             self::$_staticLoadedPlugins[$this->_useStaticRegistry][$name]     = $className;

@@ -33,7 +33,6 @@
  */
 interface Zend_Crypt_Math_BigInteger_Interface
 {
-
     public function init($operand, $base = 10);
     public function add($left_operand, $right_operand);
     public function subtract($left_operand, $right_operand);
@@ -47,5 +46,4 @@ interface Zend_Crypt_Math_BigInteger_Interface
     public function binaryToInteger($operand);
     public function integerToBinary($operand);
     public function hexToDecimal($operand);
-
 }

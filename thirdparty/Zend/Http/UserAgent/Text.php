@@ -116,7 +116,6 @@ class Zend_Http_UserAgent_Text extends Zend_Http_UserAgent_AbstractDevice
      */
     public function hasFlashSupport()
     {
-
         return false;
     }
 

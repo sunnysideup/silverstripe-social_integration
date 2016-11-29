@@ -34,8 +34,7 @@ require_once 'Zend/Http/UserAgent/Features/Adapter.php';
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Http_UserAgent_Features_Adapter_WurflApi
-    implements Zend_Http_UserAgent_Features_Adapter
+class Zend_Http_UserAgent_Features_Adapter_WurflApi implements Zend_Http_UserAgent_Features_Adapter
 {
     const DEFAULT_API_VERSION = '1.1';
 
@@ -70,11 +69,11 @@ class Zend_Http_UserAgent_Features_Adapter_WurflApi
         switch ($config['wurfl_api_version']) {
             case '1.0':
                 // Zend_Http_UserAgent::$config['wurfl_config_file'] must be an XML file
-                require_once ($config['wurfl_lib_dir'] . 'WURFLManagerProvider.php');
+                require_once($config['wurfl_lib_dir'] . 'WURFLManagerProvider.php');
                 $wurflManager = WURFL_WURFLManagerProvider::getWURFLManager(Zend_Http_UserAgent::$config['wurfl_config_file']);
                 break;
             case '1.1':
-                require_once ($config['wurfl_lib_dir'] . 'Application.php');
+                require_once($config['wurfl_lib_dir'] . 'Application.php');
                 if (!empty($config['wurfl_config_file'])) {
                     $wurflConfig = WURFL_Configuration_ConfigFactory::create($config['wurfl_config_file']);
                 } elseif (!empty($config['wurfl_config_array'])) {

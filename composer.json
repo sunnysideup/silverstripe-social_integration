@@ -3,8 +3,10 @@
     "type": "silverstripe-module",
     "description": "This module allows users to easily let users sign up and login using facebook and twitter. After a user has signed up using this module, a OAuth token for that social service will be stored against the users account. This allows your application to call the facebook and twitter apis on behalf of the user and implement whatever interesting social integration features you want. The SelectFriendPage is an example of the type of functionality that can be easily implemented once you have access to the users OAuth tokens.",
     "keywords": [
-        "social_integration",
-        "silverstripe"
+        "Silverstripe-CMS",
+        "CMS",
+        "Silverstripe",
+        "social_integration"
     ],
     "license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
     "authors": [
@@ -15,7 +17,8 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~2.4"
+        "silverstripe/framework": "~2.4",
+        "silverstripe/cms": "~2.4"
     },
     "extra": {
         "installer-name": "social_integrations"
