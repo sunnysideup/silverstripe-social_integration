@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<interface xmlns="http://xml.phpdox.net/src" full="Countable" namespace="" name="Countable">
-  <method name="count" abstract="false" static="false" visibility="public" final="false">
-    <docblock>
-      <description compact="Count elements of an object"/>
-      <return type="int"/>
-    </docblock>
-  </method>
-<implementor full="Zend_Http_CookieJar" namespace="" name="Zend_Http_CookieJar"/><implementor full="Zend_Crypt_Rsa_Key" namespace="" name="Zend_Crypt_Rsa_Key"/><implementor full="Zend_Crypt_Rsa_Key_Public" namespace="" name="Zend_Crypt_Rsa_Key_Public"/><implementor full="Zend_Crypt_Rsa_Key_Private" namespace="" name="Zend_Crypt_Rsa_Key_Private"/></interface>
